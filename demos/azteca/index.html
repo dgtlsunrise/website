@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Azteca Southwest Grill | Coeur d'Alene, Idaho</title>
+  <meta name="description" content="Authentic Southwest Mexican cuisine, over 100 tequilas, and famous margaritas in the heart of Coeur d'Alene. Open daily from 11am. Dine in, lunch, dinner, full cantina bar, and catering.">
+  <meta name="keywords" content="Azteca Southwest Grill, Mexican restaurant, Coeur d'Alene, CDA, tequila, margaritas, Southwest cuisine, cantina, catering, Idaho restaurant">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.aztecasouthwestgrill.com/">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' style='background:%231a0a00'><text y='.9em' font-size='80' x='8'>🌵</text></svg>">
+  <link rel="apple-touch-icon" href="https://www.aztecasouthwestgrill.com/images/page1_icon2.png">
+
+  <!-- Open Graph / iMessage -->
+  <meta property="og:type" content="restaurant">
+  <meta property="og:url" content="https://www.aztecasouthwestgrill.com/">
+  <meta property="og:title" content="Azteca Southwest Grill — Coeur d'Alene">
+  <meta property="og:description" content="Authentic Southwest cuisine, over 100 tequilas, and famous margaritas. Hottest spot in CDA.">
+  <meta property="og:image" content="https://www.aztecasouthwestgrill.com/images/page1_pic1.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Azteca Southwest Grill">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Azteca Southwest Grill — Coeur d'Alene">
+  <meta name="twitter:description" content="Authentic Southwest cuisine, over 100 tequilas, and famous margaritas. Hottest spot in CDA.">
+  <meta name="twitter:image" content="https://www.aztecasouthwestgrill.com/images/page1_pic1.jpg">
+
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "Azteca Southwest Grill",
+    "description": "Authentic Southwest Mexican cuisine with over 100 tequilas and famous margaritas in Coeur d'Alene, Idaho.",
+    "url": "https://www.aztecasouthwestgrill.com",
+    "telephone": "+12086760200",
+    "email": "barajasazteca@yahoo.com",
+    "image": "https://www.aztecasouthwestgrill.com/images/page1_pic1.jpg",
+    "priceRange": "$$",
+    "servesCuisine": ["Mexican", "Southwest", "American"],
+    "hasMenu": "https://www.aztecasouthwestgrill.com/menu.html",
+    "acceptsReservations": false,
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2462 N Old Mill Loop",
+      "addressLocality": "Coeur d'Alene",
+      "addressRegion": "ID",
+      "postalCode": "83814",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.7134,
+      "longitude": -116.7829
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Sunday","Monday","Tuesday","Wednesday","Thursday"],
+        "opens": "11:00",
+        "closes": "21:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Friday","Saturday"],
+        "opens": "11:00",
+        "closes": "22:00"
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --clay:      #8B2500;
+      --clay-dark: #5c1800;
+      --sand:      #c9a96e;
+      --sand-light:#e8d5b0;
+      --adobe:     #1a0a00;
+      --adobe-mid: #2a1200;
+      --adobe-light:#3d1f05;
+      --cream:     #faf5ec;
+      --cream-70:  rgba(250,245,236,0.7);
+      --cream-60:  rgba(250,245,236,0.6);
+      --cream-40:  rgba(250,245,236,0.4);
+      --cream-20:  rgba(250,245,236,0.2);
+      --cream-10:  rgba(250,245,236,0.08);
+      --border:    rgba(201,169,110,0.18);
+      --border-mid:rgba(201,169,110,0.3);
+      --green:     #2d5a27;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--adobe);
+      color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 16px 20px;
+      background: linear-gradient(to bottom, rgba(26,10,0,0.8) 0%, rgba(26,10,0,0) 100%);
+      border-bottom: 1px solid transparent;
+      transition: background 0.35s, border-color 0.35s;
+    }
+    .nav.scrolled {
+      background: rgba(26,10,0,0.97);
+      border-bottom-color: var(--border);
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      letter-spacing: 0.04em;
+      color: var(--cream);
+      text-decoration: none;
+      line-height: 1.2;
+    }
+    .nav-logo span {
+      display: block;
+      font-size: 9px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sand);
+      margin-top: 1px;
+    }
+    .nav-center { display: none; }
+    .nav-right  { display: none; }
+
+    .hamburger {
+      background: rgba(26,10,0,0.6);
+      border: 1px solid rgba(201,169,110,0.6);
+      padding: 9px 11px; cursor: pointer;
+      display: flex; flex-direction: column; gap: 4px;
+      align-items: center; justify-content: center;
+      border-radius: 3px;
+    }
+    .hamburger span { display: block; width: 18px; height: 1.5px; background: var(--sand); transition: all 0.25s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
+
+    /* ── DRAWER ── */
+    .drawer {
+      position: fixed; inset: 0; z-index: 99;
+      background: rgba(26,10,0,0.98);
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 40px 28px;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+    .drawer.open { transform: translateX(0); }
+    .drawer-status { display: flex; align-items: center; gap: 8px; margin-bottom: 36px; }
+    .dot { width: 7px; height: 7px; border-radius: 50%; background: #6fcf97; flex-shrink: 0; }
+    .dot-text { font-size: 12px; letter-spacing: 0.08em; color: var(--cream-60); }
+    .drawer-links { list-style: none; display: flex; flex-direction: column; gap: 0; margin-bottom: 32px; }
+    .drawer-links li a {
+      font-family: 'Playfair Display', serif;
+      font-size: 34px; font-weight: 400;
+      color: var(--cream); text-decoration: none;
+      letter-spacing: 0.02em; display: block;
+      padding: 7px 0; border-bottom: 1px solid rgba(250,245,236,0.07);
+      transition: color 0.2s;
+    }
+    .drawer-links li a:hover { color: var(--sand); }
+    .drawer-actions { display: flex; flex-direction: column; gap: 10px; }
+    .btn-primary-block {
+      background: var(--clay); color: var(--cream); border: none;
+      padding: 15px 28px; font-family: 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; cursor: pointer; text-align: center;
+      width: 100%; text-decoration: none; display: block;
+      transition: background 0.2s;
+    }
+    .btn-primary-block:hover { background: var(--clay-dark); }
+    .btn-outline-block {
+      background: transparent; color: var(--cream);
+      border: 1px solid rgba(250,245,236,0.25);
+      padding: 14px 28px; font-family: 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
+      text-transform: uppercase; cursor: pointer; text-align: center;
+      width: 100%; text-decoration: none; display: block;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 100svh;
+      display: flex; align-items: flex-end; padding-bottom: 56px; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(26,10,0,0.2) 0%, rgba(26,10,0,0.05) 30%, rgba(26,10,0,0.6) 68%, rgba(26,10,0,0.97) 100%),
+        url('azteca-hero.jpg') center/cover no-repeat;
+    }
+    .hero-content { position: relative; z-index: 2; padding: 0 20px; width: 100%; }
+    .eyebrow {
+      font-size: 10px; font-weight: 400; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--sand); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--sand); }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(38px, 10vw, 76px);
+      font-weight: 400; line-height: 1.05; color: var(--cream); margin-bottom: 16px;
+    }
+    .hero-title em { font-style: italic; color: var(--sand); }
+    .hero-sub {
+      font-size: 15px; font-weight: 300; line-height: 1.65;
+      color: rgba(250,245,236,0.78); margin-bottom: 28px; max-width: 500px;
+    }
+    .hero-actions { display: flex; flex-direction: column; gap: 10px; }
+    .hero-btn-primary {
+      background: var(--clay); color: var(--cream); border: none;
+      padding: 16px 28px; font-family: 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; cursor: pointer; text-align: center;
+      text-decoration: none; display: inline-block; transition: background 0.2s;
+    }
+    .hero-btn-primary:hover { background: var(--clay-dark); }
+    .hero-btn-ghost {
+      background: transparent; color: rgba(250,245,236,0.85);
+      border: 1px solid rgba(250,245,236,0.25);
+      padding: 14px 28px; font-family: 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
+      text-transform: uppercase; cursor: pointer; text-align: center;
+      text-decoration: none; display: inline-block; transition: border-color 0.2s, color 0.2s;
+    }
+    .hero-btn-ghost:hover { border-color: var(--sand); color: var(--sand); }
+
+    /* ── MENU HIGHLIGHTS ── */
+    .section { background: var(--adobe); padding: 64px 20px; }
+    .section-alt { background: var(--adobe-mid); }
+    .section-label {
+      font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--sand); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 5vw, 38px); font-weight: 400;
+      color: var(--cream); margin-bottom: 8px; line-height: 1.2;
+    }
+    .section-sub {
+      font-size: 14px; font-weight: 300; color: var(--cream-60);
+      margin-bottom: 32px; line-height: 1.65;
+    }
+
+    /* menu type pills */
+    .menu-pills { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+    .menu-pill {
+      display: flex; align-items: center; gap: 10px;
+      background: var(--adobe-light); border: 1px solid var(--border);
+      padding: 14px 20px; text-decoration: none; transition: border-color 0.2s, background 0.2s;
+      flex: 1; min-width: 140px;
+    }
+    .menu-pill:hover { border-color: var(--sand); background: rgba(201,169,110,0.08); }
+    .menu-pill-icon { font-size: 22px; flex-shrink: 0; }
+    .menu-pill-title {
+      font-size: 13px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--cream); display: block; margin-bottom: 2px;
+    }
+    .menu-pill-sub { font-size: 11px; font-weight: 300; color: var(--cream-60); display: block; }
+
+    /* dish grid */
+    .dishes { display: grid; grid-template-columns: 1fr; gap: 2px; }
+    .dish {
+      position: relative; overflow: hidden; aspect-ratio: 4/3;
+      cursor: pointer; text-decoration: none; display: block;
+    }
+    .dish img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .dish:hover img { transform: scale(1.04); }
+    .dish-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(26,10,0,0.92) 0%, transparent 55%);
+      display: flex; flex-direction: column; justify-content: flex-end; padding: 20px 18px;
+    }
+    .dish-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; color: var(--cream); margin-bottom: 4px; }
+    .dish-desc { font-size: 12px; font-weight: 300; color: var(--cream-60); letter-spacing: 0.04em; }
+
+    /* ── CANTINA ── */
+    .cantina { background: var(--adobe-mid); }
+    .cantina-inner {
+      display: grid; grid-template-columns: 1fr; gap: 0;
+    }
+    .cantina-image { overflow: hidden; aspect-ratio: 4/3; }
+    .cantina-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cantina-content { padding: 48px 20px; }
+    .cantina-stat {
+      display: inline-block;
+      font-family: 'Playfair Display', serif;
+      font-size: 64px; font-weight: 700; color: var(--clay);
+      line-height: 1; margin-bottom: 0;
+    }
+    .cantina-stat-label {
+      font-size: 13px; font-weight: 300; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--sand); margin-bottom: 24px;
+    }
+    .cantina-text {
+      font-size: 15px; font-weight: 300; line-height: 1.8;
+      color: var(--cream-70); margin-bottom: 24px;
+    }
+    .specials-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 8px; }
+    .special-card {
+      background: rgba(201,169,110,0.07); border: 1px solid var(--border);
+      padding: 16px 14px;
+    }
+    .special-day { font-size: 11px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sand); margin-bottom: 4px; }
+    .special-desc { font-size: 12px; font-weight: 300; color: var(--cream-60); line-height: 1.5; }
+
+    /* ── CATERING ── */
+    .catering-strip {
+      background: var(--clay);
+      padding: 32px 20px;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .catering-strip-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px; font-style: italic; color: var(--cream);
+    }
+    .catering-strip-btn {
+      background: var(--cream); color: var(--clay); border: none;
+      padding: 14px 28px; font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; cursor: pointer; align-self: flex-start;
+      text-decoration: none; display: inline-block; transition: opacity 0.2s;
+    }
+    .catering-strip-btn:hover { opacity: 0.88; }
+
+    /* ── FOOTER ── */
+    .footer { background: var(--adobe-mid); padding: 56px 20px 32px; border-top: 1px solid var(--border); }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--cream); margin-bottom: 6px; }
+    .footer-brand-sub { font-size: 10px; font-weight: 300; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sand); margin-bottom: 16px; display: block; }
+    .footer-tagline { font-size: 13px; font-weight: 300; line-height: 1.7; color: var(--cream-60); max-width: 280px; }
+    .footer-col-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--sand); margin-bottom: 16px; display: block; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 13px; font-weight: 300; color: var(--cream-60); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--sand); }
+    .footer-info { font-size: 13px; font-weight: 300; color: var(--cream-60); line-height: 1.9; }
+    .footer-info a { color: var(--cream-60); text-decoration: none; transition: color 0.2s; }
+    .footer-info a:hover { color: var(--sand); }
+    .footer-bottom {
+      border-top: 1px solid rgba(250,245,236,0.08); padding-top: 24px;
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .footer-copy { font-size: 11px; color: rgba(250,245,236,0.25); letter-spacing: 0.06em; }
+    .footer-credit { font-size: 11px; color: rgba(250,245,236,0.25); letter-spacing: 0.06em; }
+    .footer-credit a { color: rgba(250,245,236,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-credit a:hover { color: var(--sand); }
+
+    /* ── ANIMATIONS ── */
+    .enter   { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) both; }
+    .enter-2 { animation: fadeUp 1s 0.13s cubic-bezier(0.16,1,0.3,1) both; }
+    .enter-3 { animation: fadeUp 1s 0.24s cubic-bezier(0.16,1,0.3,1) both; }
+    .enter-4 { animation: fadeUp 1s 0.34s cubic-bezier(0.16,1,0.3,1) both; }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px);} to{opacity:1;transform:translateY(0);} }
+
+    /* ── TABLET 600px+ ── */
+    @media(min-width:600px){
+      .nav { padding: 20px 40px; }
+      .hero-content { padding: 0 40px; }
+      .hero-actions { flex-direction: row; }
+      .hero-btn-ghost { border: none; padding: 14px 0; }
+      .section { padding: 80px 40px; }
+      .dishes { grid-template-columns: repeat(3,1fr); }
+      .dish { aspect-ratio: 3/4; }
+      .cantina-content { padding: 56px 40px; }
+      .catering-strip { padding: 28px 40px; flex-direction: row; align-items: center; justify-content: space-between; }
+      .footer { padding: 56px 40px 32px; }
+      .footer-grid { grid-template-columns: repeat(2,1fr); }
+      .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+    }
+
+    /* ── DESKTOP 960px+ ── */
+    @media(min-width:960px){
+      .nav { padding: 24px 56px; }
+      .hamburger { display: none; }
+      .nav-center {
+        display: flex; gap: 28px; list-style: none; align-items: center;
+      }
+      .nav-center a {
+        color: rgba(250,245,236,0.88); text-decoration: none;
+        font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
+        text-transform: uppercase; transition: color 0.2s;
+        text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+      }
+      .nav-center a:hover { color: var(--sand); }
+      .nav-right { display: flex; align-items: center; gap: 16px; }
+      .nav-status { display: flex; align-items: center; gap: 6px; }
+      .nav-dot { width: 6px; height: 6px; border-radius: 50%; background: #6fcf97; }
+      .nav-dot-text { font-size: 11px; letter-spacing: 0.06em; color: rgba(250,245,236,0.7); text-shadow: 0 1px 4px rgba(0,0,0,0.6); }
+      .nav-reserve {
+        background: var(--clay); color: var(--cream); border: none;
+        padding: 10px 22px; font-family: 'DM Sans', sans-serif;
+        font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+        text-transform: uppercase; cursor: pointer; text-decoration: none;
+        display: inline-block; transition: background 0.2s;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      }
+      .nav-reserve:hover { background: var(--clay-dark); }
+      .hero-content { padding: 0 56px; max-width: 700px; }
+      .section { padding: 96px 56px; }
+      .cantina-inner { display: grid; grid-template-columns: 1fr 1fr; }
+      .cantina-image { aspect-ratio: auto; }
+      .cantina-content { padding: 72px 64px; display: flex; flex-direction: column; justify-content: center; }
+      .catering-strip { padding: 24px 56px; }
+      .footer { padding: 64px 56px 36px; }
+      .footer-grid { grid-template-columns: 1.8fr 1fr 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- DRAWER -->
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="drawer-status">
+      <div class="dot"></div>
+      <div class="dot-text">Open today · 11am – 9pm</div>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="https://www.aztecasouthwestgrill.com/menu.html" target="_blank" rel="noopener" onclick="closeDrawer()">Menu</a></li>
+      <li><a href="https://www.aztecasouthwestgrill.com/about.html" target="_blank" rel="noopener" onclick="closeDrawer()">About</a></li>
+      <li><a href="https://www.aztecasouthwestgrill.com/platters.html" target="_blank" rel="noopener" onclick="closeDrawer()">Platters</a></li>
+      <li><a href="https://www.aztecasouthwestgrill.com/catering.html" target="_blank" rel="noopener" onclick="closeDrawer()">Catering</a></li>
+      <li><a href="https://www.aztecasouthwestgrill.com/contact.html" target="_blank" rel="noopener" onclick="closeDrawer()">Contact</a></li>
+    </ul>
+    <div class="drawer-actions">
+      <a href="https://www.aztecasouthwestgrill.com/dinnermenu.pdf" target="_blank" rel="noopener" class="btn-primary-block" onclick="closeDrawer()">View Dinner Menu</a>
+      <a href="https://www.aztecasouthwestgrill.com/barmenu.pdf" target="_blank" rel="noopener" class="btn-outline-block" onclick="closeDrawer()">View Bar Menu</a>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+    <a href="https://www.aztecasouthwestgrill.com/" class="nav-logo" aria-label="Azteca Southwest Grill home">
+      Azteca
+      <span>Southwest Grill · CDA</span>
+    </a>
+    <ul class="nav-center">
+      <li><a href="https://www.aztecasouthwestgrill.com/menu.html" target="_blank" rel="noopener">Menu</a></li>
+      <li><a href="https://www.aztecasouthwestgrill.com/about.html" target="_blank" rel="noopener">About</a></li>
+      <li><a href="https://www.aztecasouthwestgrill.com/platters.html" target="_blank" rel="noopener">Platters</a></li>
+      <li><a href="https://www.aztecasouthwestgrill.com/catering.html" target="_blank" rel="noopener">Catering</a></li>
+      <li><a href="https://www.aztecasouthwestgrill.com/contact.html" target="_blank" rel="noopener">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <div class="nav-status" aria-label="Open today">
+        <div class="nav-dot"></div>
+        <div class="nav-dot-text">Open · 11am–9pm</div>
+      </div>
+      <a href="https://www.aztecasouthwestgrill.com/dinnermenu.pdf" target="_blank" rel="noopener" class="nav-reserve">View Menu</a>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleDrawer()" aria-label="Open navigation menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-bg" role="img" aria-label="Azteca Southwest Grill exterior"></div>
+    <div class="hero-content">
+      <div class="eyebrow enter">Coeur d'Alene, Idaho</div>
+      <h1 class="hero-title enter-2">The hottest<br>spot in <em>CDA.</em></h1>
+      <p class="hero-sub enter-3">Authentic Southwest cuisine, a full-service cantina, and over 100 tequilas. Famous margaritas served daily — come in and taste what everyone's talking about.</p>
+      <div class="hero-actions enter-4">
+        <a href="https://www.aztecasouthwestgrill.com/dinnermenu.pdf" target="_blank" rel="noopener" class="hero-btn-primary">View the Menu</a>
+        <a href="https://www.aztecasouthwestgrill.com/catering.html" target="_blank" rel="noopener" class="hero-btn-ghost">Catering & Platters →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section class="section" aria-label="Menu">
+    <div class="section-label">The Menu</div>
+    <h2 class="section-title">Something for every hour</h2>
+    <p class="section-sub">Lunch, dinner, and bar — specials served daily and happy hour every Monday all day long.</p>
+    <div class="menu-pills">
+      <a href="https://www.aztecasouthwestgrill.com/lunchmenu.pdf" target="_blank" rel="noopener" class="menu-pill">
+        <div class="menu-pill-icon">🌮</div>
+        <div>
+          <span class="menu-pill-title">Lunch</span>
+          <span class="menu-pill-sub">Mon – Fri · 11am – 3pm</span>
+        </div>
+      </a>
+      <a href="https://www.aztecasouthwestgrill.com/dinnermenu.pdf" target="_blank" rel="noopener" class="menu-pill">
+        <div class="menu-pill-icon">🍽️</div>
+        <div>
+          <span class="menu-pill-title">Dinner</span>
+          <span class="menu-pill-sub">Specials served daily</span>
+        </div>
+      </a>
+      <a href="https://www.aztecasouthwestgrill.com/barmenu.pdf" target="_blank" rel="noopener" class="menu-pill">
+        <div class="menu-pill-icon">🍹</div>
+        <div>
+          <span class="menu-pill-title">Bar</span>
+          <span class="menu-pill-sub">Mon all-day happy hour</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Dish grid using their existing images -->
+    <div class="dishes">
+      <a href="https://www.aztecasouthwestgrill.com/dinnermenu.pdf" target="_blank" rel="noopener" class="dish" aria-label="Dos Enchiladas Crema">
+        <img src="https://www.aztecasouthwestgrill.com/images/page1_pic1.jpg" alt="Dos Enchiladas Crema" loading="lazy">
+        <div class="dish-overlay">
+          <div class="dish-name">Dos Enchiladas Crema</div>
+          <div class="dish-desc">A house favorite</div>
+        </div>
+      </a>
+      <a href="https://www.aztecasouthwestgrill.com/dinnermenu.pdf" target="_blank" rel="noopener" class="dish" aria-label="Tour de Mexico">
+        <img src="https://www.aztecasouthwestgrill.com/images/page1_pic2.jpg" alt="Tour de Mexico" loading="lazy">
+        <div class="dish-overlay">
+          <div class="dish-name">Tour de Mexico</div>
+          <div class="dish-desc">A taste of everything</div>
+        </div>
+      </a>
+      <a href="https://www.aztecasouthwestgrill.com/dinnermenu.pdf" target="_blank" rel="noopener" class="dish" aria-label="Red Rock Meatloaf">
+        <img src="https://www.aztecasouthwestgrill.com/images/page1_pic3.jpg" alt="Red Rock Meatloaf" loading="lazy">
+        <div class="dish-overlay">
+          <div class="dish-name">Red Rock Meatloaf</div>
+          <div class="dish-desc">Southwest comfort at its best</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- CANTINA SECTION -->
+  <section class="cantina section-alt" aria-label="Cantina">
+    <div class="cantina-inner">
+      <div class="cantina-image">
+        <img src="https://www.aztecasouthwestgrill.com/images/page1_icon4.png" alt="Full service cantina at Azteca" loading="lazy" style="background:#2a1200;">
+      </div>
+      <div class="cantina-content">
+        <div class="section-label" style="margin-bottom:12px">Full Service Cantina</div>
+        <div class="cantina-stat">100+</div>
+        <div class="cantina-stat-label">Tequilas to choose from</div>
+        <p class="cantina-text">Coeur d'Alene's best tequila selection under one roof. From smooth sippers to bold shots, our cantina is stocked with the finest bottles in the Northwest — and our bartenders know exactly what to do with them.</p>
+        <p class="cantina-text">Come in for one of our famous Margarita Specials and find out why locals keep coming back.</p>
+        <div class="specials-grid">
+          <div class="special-card">
+            <div class="special-day">Monday</div>
+            <div class="special-desc">All-day happy hour at the bar</div>
+          </div>
+          <div class="special-card">
+            <div class="special-day">Daily</div>
+            <div class="special-desc">Dinner specials served every night</div>
+          </div>
+          <div class="special-card">
+            <div class="special-day">Lunch</div>
+            <div class="special-desc">Mon – Fri, 11am to 3pm</div>
+          </div>
+          <div class="special-card">
+            <div class="special-day">Bar Menu</div>
+            <div class="special-desc">100+ tequilas, craft cocktails</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATERING STRIP -->
+  <div class="catering-strip" aria-label="Catering">
+    <div class="catering-strip-text">Feeding a crowd? We've got you covered.</div>
+    <a href="https://www.aztecasouthwestgrill.com/catering.html" target="_blank" rel="noopener" class="catering-strip-btn">Explore Catering & Platters</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" aria-label="Footer">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">Azteca</div>
+        <span class="footer-brand-sub">Southwest Grill · Coeur d'Alene</span>
+        <p class="footer-tagline">Authentic Southwest cuisine, over 100 tequilas, and famous margaritas. The hottest spot in CDA.</p>
+      </div>
+      <div>
+        <span class="footer-col-label">Navigate</span>
+        <ul class="footer-links">
+          <li><a href="https://www.aztecasouthwestgrill.com/index.html" target="_blank" rel="noopener">Home</a></li>
+          <li><a href="https://www.aztecasouthwestgrill.com/menu.html" target="_blank" rel="noopener">Menu</a></li>
+          <li><a href="https://www.aztecasouthwestgrill.com/about.html" target="_blank" rel="noopener">About</a></li>
+          <li><a href="https://www.aztecasouthwestgrill.com/platters.html" target="_blank" rel="noopener">Platters</a></li>
+          <li><a href="https://www.aztecasouthwestgrill.com/catering.html" target="_blank" rel="noopener">Catering</a></li>
+          <li><a href="https://www.aztecasouthwestgrill.com/contact.html" target="_blank" rel="noopener">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-label">Hours</span>
+        <div class="footer-info">
+          <time>Sun – Thu</time><br>11am – 9pm<br><br>
+          <time>Fri – Sat</time><br>11am – 10pm
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-label">Contact</span>
+        <address class="footer-info" style="font-style:normal;">
+          2462 N Old Mill Loop<br>
+          Coeur d'Alene, ID 83814<br><br>
+          <a href="tel:+12086760200">208.676.0200</a><br>
+          <a href="mailto:barajasazteca@yahoo.com">barajasazteca@yahoo.com</a><br><br>
+          <a href="https://maps.google.com/?q=2462+N+Old+Mill+Loop+Coeur+d+Alene+ID+83814" target="_blank" rel="noopener" style="color:var(--sand);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;">Get Directions →</a>
+        </address>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Azteca Southwest Grill. All rights reserved.</p>
+      <p class="footer-credit">Website concept by <a href="https://dgtlsunrise.com" target="_blank" rel="noopener">DGTL Sunrise</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDrawer() {
+      const d = document.getElementById('drawer');
+      const h = document.getElementById('hamburger');
+      const isOpen = d.classList.toggle('open');
+      h.classList.toggle('open');
+      h.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+    function closeDrawer() {
+      document.getElementById('drawer').classList.remove('open');
+      const h = document.getElementById('hamburger');
+      h.classList.remove('open');
+      h.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+  </script>
+
+</body>
+</html>
