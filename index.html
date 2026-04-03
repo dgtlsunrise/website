@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DGTL Sunrise | Data-Driven Marketing Solutions</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #fff;
+        }
+
+        /* Navigation & Header */
+        header {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-container img {
+            height: 50px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: #000;
+        }
+
+        nav a {
+            color: #1a1a1a;
+            text-decoration: none;
+            margin-left: 2.5rem;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #0066cc;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #fff;
+            color: #1a1a1a;
+            padding: 6rem 3rem;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 750px;
+            margin: 0 auto 2.5rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #333;
+            transform: translateY(-2px);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 6rem 3rem;
+            background: #f8f8f8;
+        }
+
+        .services-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: #000;
+            margin-bottom: 3.5rem;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            transform: translateY(-3px);
+        }
+
+        .service-card h3 {
+            color: #000;
+            margin-bottom: 1rem;
+            font-size: 1.35rem;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #555;
+            line-height: 1.85;
+            font-size: 0.95rem;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            background: #fff;
+            color: #1a1a1a;
+            padding: 5rem 3rem;
+            text-align: center;
+            border-top: 1px solid #e5e5e5;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .philosophy-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .philosophy h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #000;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .philosophy p {
+            font-size: 1.1rem;
+            line-height: 1.85;
+            color: #555;
+        }
+
+        /* Story Section */
+        .story {
+            padding: 6rem 3rem;
+            background: #fff;
+        }
+
+        .story-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .story h2 {
+            font-size: 2.8rem;
+            color: #000;
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .story-text p {
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: #555;
+        }
+
+        .story-highlight {
+            background: #f0f0f0;
+            color: #1a1a1a;
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: left;
+            border: 1px solid #e5e5e5;
+        }
+
+        .story-highlight h3 {
+            font-size: 1.35rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .story-highlight p {
+            margin: 0;
+            font-size: 0.95rem;
+            line-height: 1.85;
+            color: #555;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #f8f8f8;
+            padding: 5rem 3rem;
+            text-align: center;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .contact-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            color: #000;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-email {
+            display: inline-block;
+            color: #000;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.3s;
+        }
+
+        .contact-email:hover {
+            color: #0066cc;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1.5rem;
+            }
+
+            nav a {
+                margin-left: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .services, .story {
+                padding: 4rem 1.5rem;
+            }
+
+            .section-title, .story h2 {
+                font-size: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .story-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo-container">
+                <img src="logo.png" alt="DGTL Sunrise Logo">
+                <span class="logo-text">DGTL SUNRISE</span>
+            </div>
+            <div>
+                <a href="#services">Services</a>
+                <a href="#philosophy">Philosophy</a>
+                <a href="#story">Story</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Data-Driven Marketing Solutions</h1>
+        <p>We deliver data-driven marketing solutions that empower large-scale businesses to connect with their audiences, optimize performance, and achieve unmatched results. Our holistic approach ensures every strategy aligns with your goals, driving measurable success.</p>
+        <a href="mailto:noel@dgtlsunrise.com" class="cta-button">Email Us</a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="services-container">
+            <h2 class="section-title">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Audience Segmentation & Personalization</h3>
+                    <p>Unlock the power of your customer data with advanced cross-channel tracking and funnel optimization. We leverage cutting-edge customer data platforms to unify touchpoints—website visits, paid search, social media, and broader internet interactions—into a single, actionable profile. By mapping each customer's journey, we deliver personalized ad experiences and targeted email flows that maximize conversion rates, boost return on ad spend (ROAS), and enhance customer lifetime value.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Paid Search & Social Media Management</h3>
+                    <p>Drive efficiency and impact with expertly managed paid search and social media campaigns. We optimize ad spend by pinpointing high-performing channels and cutting those that underdeliver. Using precise audience segmentation and real-time analytics, we craft ads that resonate, ensuring cost-effective acquisitions and measurable results. Whether it's search engine marketing or social platforms, we align every campaign with your business objectives to achieve maximum ROI.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Performance-Based Content Creator Marketing</h3>
+                    <p>Our content creator partnerships are built on authentic relationships, not automation. We negotiate performance-driven deals, often on a cost-per-thousand (CPM) basis, aligning incentives to ensure creators deliver measurable value. By personally engaging with creators through face-to-face video calls and building genuine rapport, we secure high-impact collaborations that stand out in oversaturated inboxes. This hands-on approach drives positive ROI and fosters long-term partnerships.</p>
+                </div>
+
+                <div class="service-card">
+                    <h3>Organic Social Media Consulting</h3>
+                    <p>Build a vibrant, authentic social media presence with our strategic consulting. We guide you in crafting organic content that resonates with your audience, strengthens brand loyalty, and complements your paid efforts. From content ideation to platform-specific strategies, we ensure your social channels engage customers at every stage of their journey, amplifying your reach without relying solely on ad spend.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section -->
+    <section class="philosophy" id="philosophy">
+        <div class="philosophy-content">
+            <h2>Our Philosophy: Do Whatever It Takes to Win</h2>
+            <p>At DGTL Sunrise, we're relentless in our pursuit of your success. We combine data-driven precision with creative ingenuity to overcome challenges and deliver results that matter. Whether it's optimizing a campaign, forging creator partnerships, or mapping complex customer journeys, we go the extra mile to ensure your brand rises above the competition. Your victories are our victories, and we're committed to making them happen.</p>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story" id="story">
+        <div class="story-container">
+            <h2>Our Story</h2>
+            <div class="story-content">
+                <div class="story-text">
+                    <p><strong>DGTL Sunrise</strong> was founded by Noel Churchill, a proven entrepreneur who built RainbowOPTX, a sunglasses brand, from the ground up with zero external funding. Under his leadership, RainbowOPTX grew into a multi-million-dollar business before a successful exit, showcasing his ability to navigate every aspect of a business, from product innovation to sophisticated marketing strategies.</p>
+                    <p>Our team brings a 360-degree perspective to digital marketing, understanding how each strategy impacts the bigger picture. Whether serving financial institutions, e-commerce giants, or fintech innovators, we deliver data-driven solutions that align with your goals, powered by cutting-edge tools and a commitment to excellence.</p>
+                    <p><strong>At DGTL Sunrise, we're dedicated to helping your brand rise with impactful, measurable results.</strong></p>
+                </div>
+                <div class="story-highlight">
+                    <h3>Built on Proven Success</h3>
+                    <p>From zero to multi-million dollar exit with RainbowOPTX. Now applying that expertise to accelerate your brand's growth through data-driven, creative marketing solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <h2>Ready to Rise?</h2>
+            <p>Let's discuss how DGTL Sunrise can transform your marketing strategy and deliver measurable results for your brand.</p>
+            <a href="mailto:noel@dgtlsunrise.com" class="contact-email">noel@dgtlsunrise.com</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 DGTL Sunrise. All rights reserved.</p>
+        <p>Data-Driven Marketing Solutions for Ambitious Brands</p>
+    </footer>
+</body>
+</html>
