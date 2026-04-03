@@ -81,7 +81,6 @@
   }
   </script>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -116,7 +115,7 @@
       overflow-x: hidden;
     }
 
-    /* ===================== NAV ===================== */
+    /* NAV */
     .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -124,7 +123,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 16px 20px;
+      padding: 12px 20px;
       background: linear-gradient(to bottom, rgba(13,26,20,0.75) 0%, rgba(13,26,20,0) 100%);
       border-bottom: 1px solid transparent;
       transition: background 0.35s, border-color 0.35s;
@@ -134,25 +133,17 @@
       border-bottom-color: rgba(201,185,138,0.15);
     }
     .nav-logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 17px;
-      letter-spacing: 0.04em;
-      color: var(--cream);
-      text-decoration: none;
-      line-height: 1.2;
-    }
-    .nav-logo span {
       display: block;
-      font-size: 9px;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-top: 1px;
+      text-decoration: none;
+      line-height: 0;
+    }
+    .nav-logo img {
+      height: 44px;
+      width: auto;
+      display: block;
     }
     .nav-center { display: none; }
-    .nav-right { display: none; }
+    .nav-right  { display: none; }
     .hamburger {
       background: rgba(13,26,20,0.65);
       border: 1px solid rgba(201,185,138,0.7);
@@ -175,7 +166,7 @@
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 
-    /* ===================== DRAWER ===================== */
+    /* DRAWER */
     .drawer {
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
@@ -189,6 +180,13 @@
       transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
     }
     .drawer.open { transform: translateX(0); }
+    .drawer-logo {
+      margin-bottom: 32px;
+    }
+    .drawer-logo img {
+      height: 56px;
+      width: auto;
+    }
     .drawer-status {
       display: flex;
       align-items: center;
@@ -264,7 +262,7 @@
       display: block;
     }
 
-    /* ===================== HERO ===================== */
+    /* HERO */
     .hero {
       position: relative;
       min-height: 100svh;
@@ -312,10 +310,7 @@
       color: var(--cream);
       margin-bottom: 16px;
     }
-    .hero-title em {
-      font-style: italic;
-      color: var(--gold);
-    }
+    .hero-title em { font-style: italic; color: var(--gold); }
     .hero-sub {
       font-size: 15px;
       font-weight: 300;
@@ -324,11 +319,7 @@
       margin-bottom: 28px;
       max-width: 480px;
     }
-    .hero-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .hero-actions { display: flex; flex-direction: column; gap: 10px; }
     .hero-btn-primary {
       background: var(--gold);
       color: var(--bg-dark);
@@ -364,11 +355,8 @@
     }
     .hero-btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
 
-    /* ===================== ORDER TO GO ===================== */
-    .section {
-      background: var(--bg-dark);
-      padding: 64px 20px;
-    }
+    /* SECTIONS */
+    .section { background: var(--bg-dark); padding: 64px 20px; }
     .section-label {
       font-size: 10px;
       letter-spacing: 0.22em;
@@ -408,11 +396,7 @@
       transition: background 0.2s;
     }
     .order-btn:hover { background: var(--gold-light); }
-    .dishes {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2px;
-    }
+    .dishes { display: grid; grid-template-columns: 1fr; gap: 2px; }
     .dish {
       position: relative;
       overflow: hidden;
@@ -421,245 +405,99 @@
       text-decoration: none;
       display: block;
     }
-    .dish img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.5s ease;
-    }
+    .dish img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
     .dish:hover img { transform: scale(1.04); }
     .dish-overlay {
-      position: absolute;
-      inset: 0;
+      position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(13,26,20,0.9) 0%, transparent 55%);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
+      display: flex; flex-direction: column; justify-content: flex-end;
       padding: 20px 18px;
     }
-    .dish-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--cream);
-      margin-bottom: 4px;
-    }
-    .dish-desc {
-      font-size: 12px;
-      font-weight: 300;
-      color: var(--cream-60);
-      letter-spacing: 0.05em;
-    }
+    .dish-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 400; color: var(--cream); margin-bottom: 4px; }
+    .dish-desc { font-size: 12px; font-weight: 300; color: var(--cream-60); letter-spacing: 0.05em; }
     .dish-price {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      font-size: 12px;
-      color: var(--gold);
-      font-weight: 500;
-      letter-spacing: 0.06em;
-      background: rgba(13,26,20,0.65);
-      padding: 4px 10px;
+      position: absolute; top: 14px; right: 14px;
+      font-size: 12px; color: var(--gold); font-weight: 500;
+      letter-spacing: 0.06em; background: rgba(13,26,20,0.65); padding: 4px 10px;
     }
 
-    /* ===================== ABOUT ===================== */
+    /* ABOUT */
     .about { background: var(--bg-mid); }
-    .about-image {
-      overflow: hidden;
-      aspect-ratio: 4/3;
-    }
-    .about-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .about-image { overflow: hidden; aspect-ratio: 4/3; }
+    .about-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .about-content { padding: 48px 20px; }
-    .about-text {
-      font-size: 15px;
-      font-weight: 300;
-      line-height: 1.8;
-      color: rgba(245,240,232,0.72);
-      margin-bottom: 24px;
-    }
+    .about-text { font-size: 15px; font-weight: 300; line-height: 1.8; color: rgba(245,240,232,0.72); margin-bottom: 24px; }
     .link-gold {
-      background: transparent;
-      color: var(--gold);
-      border: none;
-      padding: 0;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      text-decoration: none;
-      transition: gap 0.2s;
+      background: transparent; color: var(--gold); border: none; padding: 0;
+      font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 400;
+      letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px;
+      text-decoration: none; transition: gap 0.2s;
     }
     .link-gold:hover { gap: 10px; }
 
-    /* ===================== GIFT STRIP ===================== */
+    /* GIFT STRIP */
     .gift-strip {
-      background: var(--gold);
-      padding: 32px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
+      background: var(--gold); padding: 32px 20px;
+      display: flex; flex-direction: column; gap: 14px;
     }
-    .gift-strip-text {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      font-style: italic;
-      color: var(--bg-dark);
-    }
+    .gift-strip-text { font-family: 'Playfair Display', serif; font-size: 22px; font-style: italic; color: var(--bg-dark); }
     .gift-strip-btn {
-      background: var(--bg-dark);
-      color: var(--gold);
-      border: none;
-      padding: 14px 28px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      cursor: pointer;
-      align-self: flex-start;
-      text-decoration: none;
-      display: inline-block;
-      transition: background 0.2s;
+      background: var(--bg-dark); color: var(--gold); border: none;
+      padding: 14px 28px; font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; cursor: pointer; align-self: flex-start;
+      text-decoration: none; display: inline-block; transition: background 0.2s;
     }
     .gift-strip-btn:hover { background: #1a2e22; }
 
-    /* ===================== FOOTER ===================== */
-    .footer {
-      background: var(--bg-deep);
-      padding: 56px 20px 32px;
-    }
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 40px;
-      margin-bottom: 48px;
-    }
-    .footer-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 22px;
-      color: var(--cream);
-      margin-bottom: 12px;
-    }
-    .footer-brand-sub {
-      font-size: 12px;
-      font-weight: 300;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--cream-45);
-      margin-bottom: 20px;
-    }
-    .footer-tagline {
-      font-size: 13px;
-      font-weight: 300;
-      line-height: 1.7;
-      color: rgba(245,240,232,0.5);
-      max-width: 280px;
-    }
-    .footer-col-label {
-      font-size: 10px;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-    .footer-links {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .footer-links a {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--cream-60);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
+    /* FOOTER */
+    .footer { background: var(--bg-deep); padding: 56px 20px 32px; }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--cream); margin-bottom: 12px; }
+    .footer-brand-sub { font-size: 12px; font-weight: 300; letter-spacing: 0.1em; text-transform: uppercase; color: var(--cream-45); margin-bottom: 20px; }
+    .footer-tagline { font-size: 13px; font-weight: 300; line-height: 1.7; color: rgba(245,240,232,0.5); max-width: 280px; }
+    .footer-col-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 13px; font-weight: 300; color: var(--cream-60); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
     .footer-links a:hover { color: var(--gold); }
-    .footer-info {
-      font-size: 13px;
-      font-weight: 300;
-      color: var(--cream-60);
-      line-height: 1.9;
-    }
-    .footer-info a {
-      color: var(--cream-60);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .footer-info { font-size: 13px; font-weight: 300; color: var(--cream-60); line-height: 1.9; }
+    .footer-info a { color: var(--cream-60); text-decoration: none; transition: color 0.2s; }
     .footer-info a:hover { color: var(--gold); }
-    .social-row {
-      display: flex;
-      gap: 12px;
-      margin-top: 20px;
-    }
+    .social-row { display: flex; gap: 12px; margin-top: 20px; }
     .social-btn {
-      background: var(--cream-07);
-      border: 1px solid rgba(245,240,232,0.12);
-      color: var(--cream-60);
-      padding: 8px 14px;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      transition: all 0.2s;
-      font-family: 'DM Sans', sans-serif;
-      display: inline-block;
+      background: var(--cream-07); border: 1px solid rgba(245,240,232,0.12);
+      color: var(--cream-60); padding: 8px 14px; font-size: 11px;
+      letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+      transition: all 0.2s; font-family: 'DM Sans', sans-serif; display: inline-block;
     }
-    .social-btn:hover {
-      background: rgba(201,185,138,0.1);
-      border-color: var(--gold);
-      color: var(--gold);
-    }
+    .social-btn:hover { background: rgba(201,185,138,0.1); border-color: var(--gold); color: var(--gold); }
     .footer-bottom {
-      border-top: 1px solid rgba(245,240,232,0.08);
-      padding-top: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      border-top: 1px solid rgba(245,240,232,0.08); padding-top: 24px;
+      display: flex; flex-direction: column; gap: 8px;
     }
-    .footer-copy {
-      font-size: 11px;
-      color: var(--cream-25);
-      letter-spacing: 0.06em;
-    }
+    .footer-copy { font-size: 11px; color: var(--cream-25); letter-spacing: 0.06em; }
+    .footer-credit { font-size: 11px; color: var(--cream-25); letter-spacing: 0.06em; }
+    .footer-credit a { color: rgba(245,240,232,0.35); text-decoration: none; transition: color 0.2s; }
+    .footer-credit a:hover { color: var(--gold); }
     .review-row { display: flex; gap: 12px; flex-wrap: wrap; }
     .review-link {
-      font-size: 11px;
-      color: rgba(245,240,232,0.35);
-      text-decoration: none;
-      letter-spacing: 0.06em;
-      border: 1px solid rgba(245,240,232,0.12);
-      padding: 5px 12px;
-      transition: all 0.2s;
+      font-size: 11px; color: rgba(245,240,232,0.35); text-decoration: none;
+      letter-spacing: 0.06em; border: 1px solid rgba(245,240,232,0.12);
+      padding: 5px 12px; transition: all 0.2s;
     }
     .review-link:hover { color: var(--gold); border-color: var(--gold); }
 
-    /* ===================== ANIMATIONS ===================== */
-    .enter { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) both; }
+    /* ANIMATIONS */
+    .enter   { animation: fadeUp 1s cubic-bezier(0.16,1,0.3,1) both; }
     .enter-2 { animation: fadeUp 1s 0.15s cubic-bezier(0.16,1,0.3,1) both; }
     .enter-3 { animation: fadeUp 1s 0.28s cubic-bezier(0.16,1,0.3,1) both; }
     .enter-4 { animation: fadeUp 1s 0.4s cubic-bezier(0.16,1,0.3,1) both; }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(22px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px);} to{opacity:1;transform:translateY(0);} }
 
-    /* ===================== TABLET 600px+ ===================== */
+    /* TABLET 600px+ */
     @media (min-width: 600px) {
-      .nav { padding: 20px 40px; }
+      .nav { padding: 12px 40px; }
       .hero-content { padding: 0 40px; }
       .hero-actions { flex-direction: row; }
       .hero-btn-ghost { border: none; padding: 14px 0; }
@@ -673,73 +511,42 @@
       .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
     }
 
-    /* ===================== DESKTOP 960px+ ===================== */
+    /* DESKTOP 960px+ */
     @media (min-width: 960px) {
-      .nav { padding: 24px 56px; }
+      .nav { padding: 12px 56px; }
       .hamburger { display: none; }
+      .nav-logo img { height: 52px; }
       .nav-center {
-        display: flex;
-        gap: 24px;
-        list-style: none;
-        align-items: center;
+        display: flex; gap: 24px; list-style: none; align-items: center;
       }
       .nav-center a {
-        color: rgba(245,240,232,0.9);
-        text-decoration: none;
-        font-size: 12px;
-        font-weight: 400;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        transition: color 0.2s;
+        color: rgba(245,240,232,0.9); text-decoration: none;
+        font-size: 12px; font-weight: 400; letter-spacing: 0.1em;
+        text-transform: uppercase; transition: color 0.2s;
         text-shadow: 0 1px 6px rgba(0,0,0,0.5);
       }
       .nav-center a:hover { color: var(--gold); }
-      .nav-right {
-        display: flex;
-        align-items: center;
-        gap: 16px;
-      }
+      .nav-right { display: flex; align-items: center; gap: 16px; }
       .nav-status { display: flex; align-items: center; gap: 6px; }
-      .nav-dot {
-        width: 6px; height: 6px;
-        border-radius: 50%;
-        background: #6fcf97;
-      }
+      .nav-dot { width: 6px; height: 6px; border-radius: 50%; background: #6fcf97; }
       .nav-dot-text {
-        font-size: 11px;
-        letter-spacing: 0.06em;
-        color: rgba(245,240,232,0.75);
-        text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+        font-size: 11px; letter-spacing: 0.06em;
+        color: rgba(245,240,232,0.75); text-shadow: 0 1px 4px rgba(0,0,0,0.6);
       }
       .nav-gift {
-        font-size: 11px;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        color: var(--gold);
-        background: none;
-        border: none;
-        cursor: pointer;
-        font-family: 'DM Sans', sans-serif;
-        text-decoration: none;
-        text-shadow: 0 1px 4px rgba(0,0,0,0.5);
-        transition: color 0.2s;
+        font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+        color: var(--gold); background: none; border: none; cursor: pointer;
+        font-family: 'DM Sans', sans-serif; text-decoration: none;
+        text-shadow: 0 1px 4px rgba(0,0,0,0.5); transition: color 0.2s;
       }
       .nav-gift:hover { color: var(--gold-light); }
       .nav-reserve {
-        background: var(--gold);
-        color: var(--bg-dark);
-        border: none;
-        padding: 10px 22px;
-        font-family: 'DM Sans', sans-serif;
-        font-size: 11px;
-        font-weight: 500;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        cursor: pointer;
+        background: var(--gold); color: var(--bg-dark); border: none;
+        padding: 10px 22px; font-family: 'DM Sans', sans-serif;
+        font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+        text-transform: uppercase; cursor: pointer;
         box-shadow: 0 2px 12px rgba(0,0,0,0.4);
-        text-decoration: none;
-        display: inline-block;
-        transition: background 0.2s;
+        text-decoration: none; display: inline-block; transition: background 0.2s;
       }
       .nav-reserve:hover { background: var(--gold-light); }
       .hero-content { padding: 0 56px; max-width: 700px; }
@@ -755,8 +562,11 @@
 </head>
 <body>
 
-  <!-- ===================== DRAWER ===================== -->
+  <!-- DRAWER -->
   <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <div class="drawer-logo">
+      <img src="https://images.squarespace-cdn.com/content/v1/6612317a12990709e0d8d0f5/4ff7e40a-b0e0-4561-9d47-88f204705b7a/Terraza_White.png?format=300w" alt="Terraza Waterfront by De Leon's">
+    </div>
     <div class="drawer-status">
       <div class="dot"></div>
       <div class="dot-text">Open today · 11am – 9pm</div>
@@ -774,11 +584,10 @@
     </div>
   </div>
 
-  <!-- ===================== NAV ===================== -->
+  <!-- NAV -->
   <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
     <a href="https://terrazacda.com" target="_blank" rel="noopener" class="nav-logo" aria-label="Terraza Waterfront home">
-      Terraza
-      <span>Waterfront by De Leon's</span>
+      <img src="https://images.squarespace-cdn.com/content/v1/6612317a12990709e0d8d0f5/4ff7e40a-b0e0-4561-9d47-88f204705b7a/Terraza_White.png?format=300w" alt="Terraza Waterfront by De Leon's">
     </a>
     <ul class="nav-center">
       <li><a href="https://terrazacda.com/menu" target="_blank" rel="noopener">Menu</a></li>
@@ -799,7 +608,7 @@
     </button>
   </nav>
 
-  <!-- ===================== HERO ===================== -->
+  <!-- HERO -->
   <section class="hero" aria-label="Hero">
     <div class="hero-bg" role="img" aria-label="Terraza waterfront patio with lake views"></div>
     <div class="hero-content">
@@ -813,7 +622,7 @@
     </div>
   </section>
 
-  <!-- ===================== ORDER TO GO ===================== -->
+  <!-- ORDER TO GO -->
   <section class="section" aria-label="Order To Go">
     <div class="section-label">Order To Go</div>
     <h2 class="section-title">Take Terraza home with you</h2>
@@ -847,7 +656,7 @@
     </div>
   </section>
 
-  <!-- ===================== ABOUT ===================== -->
+  <!-- ABOUT -->
   <section class="about" aria-label="About Terraza">
     <div class="about-image">
       <img src="https://images.squarespace-cdn.com/content/v1/6612317a12990709e0d8d0f5/9948c874-acd0-48a9-8f8a-d6163d061c6f/MargFlight.jpg" alt="Craft cocktails at Terraza Waterfront" loading="lazy" width="800" height="600">
@@ -860,18 +669,17 @@
     </div>
   </section>
 
-  <!-- ===================== GIFT STRIP ===================== -->
+  <!-- GIFT STRIP -->
   <div class="gift-strip" aria-label="Gift cards">
     <div class="gift-strip-text">Give the gift of Terraza</div>
     <a href="https://terrazacda.hrpos.heartland.us/menu" target="_blank" rel="noopener" class="gift-strip-btn">Purchase a Gift Card</a>
   </div>
 
-  <!-- ===================== FOOTER ===================== -->
+  <!-- FOOTER -->
   <footer class="footer" aria-label="Footer">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">Terraza</div>
-        <div class="footer-brand-sub">Waterfront by De Leon's</div>
+        <img src="https://images.squarespace-cdn.com/content/v1/6612317a12990709e0d8d0f5/4ff7e40a-b0e0-4561-9d47-88f204705b7a/Terraza_White.png?format=300w" alt="Terraza Waterfront by De Leon's" style="height:48px;width:auto;margin-bottom:16px;display:block;opacity:0.85;">
         <p class="footer-tagline">A fusion of globally influenced cuisine, meticulously crafted cocktails, and captivating waterfront vistas on Lake Coeur d'Alene.</p>
         <div class="social-row">
           <a href="https://www.instagram.com/terrazacda" target="_blank" rel="noopener" class="social-btn" aria-label="Terraza on Instagram">Instagram</a>
@@ -911,9 +719,12 @@
     </div>
     <div class="footer-bottom">
       <p class="footer-copy">© 2025 Terraza Waterfront by De Leon's. All rights reserved.</p>
-      <div class="review-row">
-        <a href="https://www.google.com/search?q=Terraza+Waterfront+Coeur+d+Alene" target="_blank" rel="noopener" class="review-link">⭐ Google Reviews</a>
-        <a href="https://www.yelp.com/biz/terraza-waterfront-coeur-d-alene" target="_blank" rel="noopener" class="review-link">Yelp</a>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <div class="review-row">
+          <a href="https://www.google.com/search?q=Terraza+Waterfront+Coeur+d+Alene" target="_blank" rel="noopener" class="review-link">⭐ Google Reviews</a>
+          <a href="https://www.yelp.com/biz/terraza-waterfront-coeur-d-alene" target="_blank" rel="noopener" class="review-link">Yelp</a>
+        </div>
+        <p class="footer-credit">Website concept by <a href="https://dgtlsunrise.com" target="_blank" rel="noopener">DGTL Sunrise</a></p>
       </div>
     </div>
   </footer>
@@ -937,7 +748,6 @@
     window.addEventListener('scroll', () => {
       document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
     });
-    // Close drawer on Escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeDrawer();
     });
