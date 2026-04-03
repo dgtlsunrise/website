@@ -311,31 +311,44 @@
       transition: border-color 0.2s, color 0.2s;
     }
     .btn-ghost:hover { border-color: var(--sunrise-mid); color: var(--white); }
-    .hero-stats {
+    .hero-founder {
       display: flex;
-      gap: 32px;
-      margin-top: 56px;
-      padding-top: 40px;
+      align-items: center;
+      gap: 16px;
+      margin-top: 52px;
+      padding-top: 36px;
       border-top: 1px solid var(--border);
-      flex-wrap: wrap;
     }
-    .hero-stat-num {
-      font-family: 'Fraunces', serif;
-      font-size: 32px;
-      font-weight: 700;
-      background: var(--sunrise);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      line-height: 1;
-      margin-bottom: 4px;
+    .hero-headshot {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid rgba(249,115,22,0.4);
+      flex-shrink: 0;
     }
-    .hero-stat-label {
-      font-size: 11px;
+    .hero-founder-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+    .hero-founder-title {
+      font-size: 12px;
       font-weight: 300;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
+      letter-spacing: 0.08em;
       color: var(--white-50);
+    }
+    .about-headshot {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid rgba(249,115,22,0.4);
+      margin-bottom: 20px;
+      display: block;
     }
 
     /* ── SECTION SHARED ── */
@@ -821,18 +834,11 @@
         <a href="mailto:noel@dgtlsunrise.com" class="btn-primary">Let's Talk</a>
         <a href="#what-we-do" class="btn-ghost">See What We Do →</a>
       </div>
-      <div class="hero-stats enter-5">
+      <div class="hero-founder enter-5">
+        <img src="noel.png" alt="Noel Churchill, Founder of DGTL Sunrise" class="hero-headshot">
         <div>
-          <div class="hero-stat-num">2</div>
-          <div class="hero-stat-label">Practice Areas</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">1 day</div>
-          <div class="hero-stat-label">Website Delivery</div>
-        </div>
-        <div>
-          <div class="hero-stat-num">CDA</div>
-          <div class="hero-stat-label">Based & Rooted</div>
+          <div class="hero-founder-name">Noel Churchill</div>
+          <div class="hero-founder-title">Founder — Coeur d'Alene, Idaho</div>
         </div>
       </div>
     </div>
@@ -997,7 +1003,7 @@
     <div class="label">About</div>
     <div class="founder-grid">
       <div>
-        <div class="founder-avatar">NC</div>
+        <img src="noel.png" alt="Noel Churchill" class="about-headshot">
         <div class="founder-name">Noel Churchill</div>
         <div class="founder-title">Founder, DGTL Sunrise</div>
         <p class="founder-bio">
