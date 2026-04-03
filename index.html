@@ -1,452 +1,1114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DGTL Sunrise | Data-Driven Marketing Solutions</title>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DGTL Sunrise | Data-Driven Digital Marketing & Web Development</title>
+  <meta name="description" content="DGTL Sunrise delivers data-driven digital marketing, compliance-aware strategy for regulated industries, and fast web development for local businesses. Based in Coeur d'Alene, Idaho.">
+  <meta name="keywords" content="digital marketing agency, Coeur d'Alene, Idaho, financial marketing, web development, small business websites, SEO, marketing consulting">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://dgtlsunrise.com/">
 
-        body {
-            font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
-            line-height: 1.6;
-            color: #1a1a1a;
-            background-color: #fff;
-        }
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="logo.png">
 
-        /* Navigation & Header */
-        header {
-            background: #fff;
-            border-bottom: 1px solid #e5e5e5;
-            padding: 1.2rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dgtlsunrise.com/">
+  <meta property="og:title" content="DGTL Sunrise — Data-Driven Digital Marketing">
+  <meta property="og:description" content="Enterprise marketing expertise. Small business pricing. Based in Coeur d'Alene, Idaho.">
+  <meta property="og:image" content="https://dgtlsunrise.com/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="DGTL Sunrise">
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-        }
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DGTL Sunrise — Data-Driven Digital Marketing">
+  <meta name="twitter:description" content="Enterprise marketing expertise. Small business pricing. Based in Coeur d'Alene, Idaho.">
+  <meta name="twitter:image" content="https://dgtlsunrise.com/og-image.jpg">
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "DGTL Sunrise",
+    "description": "Data-driven digital marketing agency specializing in compliance-aware marketing for regulated industries and web development for local businesses.",
+    "url": "https://dgtlsunrise.com",
+    "email": "noel@dgtlsunrise.com",
+    "telephone": "+18583543666",
+    "founder": {
+      "@type": "Person",
+      "name": "Noel Churchill"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Coeur d'Alene",
+      "addressRegion": "ID",
+      "addressCountry": "US"
+    },
+    "areaServed": ["United States", "Coeur d'Alene, ID"],
+    "sameAs": ["https://www.linkedin.com/company/dgtlsunrise"]
+  }
+  </script>
 
-        .logo-container img {
-            height: 50px;
-            width: auto;
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,700;1,300;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
-        .logo-text {
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            color: #000;
-        }
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-        nav a {
-            color: #1a1a1a;
-            text-decoration: none;
-            margin-left: 2.5rem;
-            transition: color 0.3s;
-            font-size: 0.95rem;
-            font-weight: 500;
-        }
+    :root {
+      --navy:     #0a0f1e;
+      --navy-mid: #0f172a;
+      --navy-light: #1e293b;
+      --slate:    #334155;
+      --muted:    #64748b;
+      --border:   rgba(255,255,255,0.08);
+      --border-mid: rgba(255,255,255,0.12);
+      --white:    #f8fafc;
+      --white-70: rgba(248,250,252,0.7);
+      --white-50: rgba(248,250,252,0.5);
+      --white-30: rgba(248,250,252,0.3);
+      --sunrise-start: #f97316;
+      --sunrise-mid:   #fb923c;
+      --sunrise-end:   #facc15;
+      --sunrise: linear-gradient(90deg, #f97316, #facc15);
+      --sunrise-diag: linear-gradient(135deg, #f97316, #fb923c, #facc15);
+    }
 
-        nav a:hover {
-            color: #0066cc;
-        }
+    html { scroll-behavior: smooth; }
 
-        /* Hero Section */
-        .hero {
-            background: #fff;
-            color: #1a1a1a;
-            padding: 6rem 3rem;
-            text-align: center;
-            min-height: 600px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+    body {
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
+    /* ── NOISE TEXTURE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
 
-        .hero p {
-            font-size: 1.15rem;
-            max-width: 750px;
-            margin: 0 auto 2.5rem;
-            color: #555;
-            line-height: 1.8;
-        }
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 24px;
+      background: rgba(10,15,30,0.0);
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s, border-color 0.4s;
+    }
+    .nav.scrolled {
+      background: rgba(10,15,30,0.95);
+      border-bottom-color: var(--border);
+      backdrop-filter: blur(12px);
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    .nav-logo-icon { display: none; }
+    .nav-logo-text { display: none; }
+    .nav-links { display: none; }
+    .nav-cta {
+      display: none;
+      background: var(--sunrise-diag);
+      color: var(--navy);
+      border: none;
+      padding: 9px 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.88; }
+    .hamburger {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border-mid);
+      padding: 8px 10px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      border-radius: 4px;
+    }
+    .hamburger span { display: block; width: 18px; height: 1.5px; background: var(--white); transition: all 0.25s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); }
 
-        .cta-button {
-            display: inline-block;
-            background: #000;
-            color: #fff;
-            padding: 1rem 2.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
+    /* ── DRAWER ── */
+    .drawer {
+      position: fixed; inset: 0; z-index: 99;
+      background: rgba(10,15,30,0.98);
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 48px 28px;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+    .drawer.open { transform: translateX(0); }
+    .drawer-links { list-style: none; display: flex; flex-direction: column; gap: 0; margin-bottom: 40px; }
+    .drawer-links li a {
+      font-family: 'Fraunces', serif;
+      font-size: 38px;
+      font-weight: 300;
+      color: var(--white);
+      text-decoration: none;
+      display: block;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      transition: color 0.2s;
+    }
+    .drawer-links li a:hover { color: var(--sunrise-mid); }
+    .drawer-cta {
+      background: var(--sunrise-diag);
+      color: var(--navy);
+      border: none;
+      padding: 16px 28px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      border-radius: 4px;
+    }
 
-        .cta-button:hover {
-            background: #333;
-            transform: translateY(-2px);
-        }
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      padding: 120px 24px 80px;
+      overflow: hidden;
+    }
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(249,115,22,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(249,115,22,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+    .hero-glow {
+      position: absolute;
+      bottom: -120px; left: 50%;
+      transform: translateX(-50%);
+      width: 800px; height: 400px;
+      background: radial-gradient(ellipse, rgba(249,115,22,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      max-width: 760px;
+      width: 100%;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(249,115,22,0.1);
+      border: 1px solid rgba(249,115,22,0.25);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sunrise-mid);
+      margin-bottom: 28px;
+    }
+    .hero-tag-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--sunrise-mid);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.3;} }
+    .hero-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(42px, 9vw, 88px);
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+    .hero-title .accent {
+      font-style: italic;
+      background: var(--sunrise);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-sub {
+      font-size: clamp(15px, 2vw, 18px);
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--white-70);
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+    .hero-actions { display: flex; flex-direction: column; gap: 12px; }
+    .btn-primary {
+      background: var(--sunrise-diag);
+      color: var(--navy);
+      border: none;
+      padding: 16px 32px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.88; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white-70);
+      border: 1px solid var(--border-mid);
+      padding: 15px 32px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--sunrise-mid); color: var(--white); }
+    .hero-stats {
+      display: flex;
+      gap: 32px;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+    }
+    .hero-stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 32px;
+      font-weight: 700;
+      background: var(--sunrise);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .hero-stat-label {
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white-50);
+    }
 
-        /* Services Section */
-        .services {
-            padding: 6rem 3rem;
-            background: #f8f8f8;
-        }
+    /* ── SECTION SHARED ── */
+    .section { padding: 80px 24px; position: relative; z-index: 1; }
+    .section-alt { background: var(--navy-mid); }
+    .label {
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      background: var(--sunrise);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 5vw, 46px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .section-title em {
+      font-style: italic;
+      background: var(--sunrise);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-sub {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--white-70);
+      max-width: 560px;
+      margin-bottom: 48px;
+    }
 
-        .services-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
+    /* ── WHAT WE DO ── */
+    .tracks { display: grid; grid-template-columns: 1fr; gap: 2px; }
+    .track {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      padding: 40px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .track:hover { border-color: rgba(249,115,22,0.3); }
+    .track-accent {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--sunrise-diag);
+    }
+    .track-icon {
+      width: 48px; height: 48px;
+      background: rgba(249,115,22,0.1);
+      border: 1px solid rgba(249,115,22,0.2);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .track-title {
+      font-family: 'Fraunces', serif;
+      font-size: 24px;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .track-desc {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--white-70);
+      margin-bottom: 24px;
+    }
+    .track-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .track-list li {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--white-50);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .track-list li::before {
+      content: '';
+      display: block;
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--sunrise-mid);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
 
-        .section-title {
-            font-size: 2.8rem;
-            color: #000;
-            margin-bottom: 3.5rem;
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
+    /* ── HOW WE WORK ── */
+    .steps { display: grid; grid-template-columns: 1fr; gap: 2px; }
+    .step {
+      padding: 32px 28px;
+      border: 1px solid var(--border);
+      background: var(--navy-mid);
+      position: relative;
+    }
+    .step-num {
+      font-family: 'Fraunces', serif;
+      font-size: 56px;
+      font-weight: 700;
+      line-height: 1;
+      background: var(--sunrise);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      opacity: 0.3;
+      margin-bottom: 12px;
+    }
+    .step-title {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .step-desc {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--white-50);
+    }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2.5rem;
-        }
+    /* ── WHY US ── */
+    .pillars { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    .pillar {
+      display: flex;
+      gap: 16px;
+      padding: 24px;
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: border-color 0.3s;
+    }
+    .pillar:hover { border-color: rgba(249,115,22,0.25); }
+    .pillar-icon {
+      font-size: 24px;
+      flex-shrink: 0;
+      width: 40px;
+      text-align: center;
+    }
+    .pillar-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .pillar-desc {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--white-50);
+    }
 
-        .service-card {
-            background: #fff;
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            transition: all 0.3s;
-        }
+    /* ── SERVICES ── */
+    .services-grid { display: grid; grid-template-columns: 1fr; gap: 2px; }
+    .service-card {
+      background: var(--navy-mid);
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .service-card:hover {
+      border-color: rgba(249,115,22,0.25);
+      background: rgba(249,115,22,0.03);
+    }
+    .service-icon { font-size: 28px; margin-bottom: 14px; display: block; }
+    .service-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .service-desc {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--white-50);
+    }
 
-        .service-card:hover {
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-            transform: translateY(-3px);
-        }
+    /* ── ABOUT / FOUNDER ── */
+    .founder-grid { display: grid; grid-template-columns: 1fr; gap: 48px; align-items: start; }
+    .founder-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: var(--sunrise-diag);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Fraunces', serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+    .founder-name {
+      font-family: 'Fraunces', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .founder-title {
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--white-50);
+      margin-bottom: 24px;
+    }
+    .founder-bio {
+      font-size: 15px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: var(--white-70);
+      margin-bottom: 16px;
+    }
+    .founder-credentials {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 24px;
+      background: rgba(249,115,22,0.05);
+      border: 1px solid rgba(249,115,22,0.15);
+      border-radius: 8px;
+    }
+    .credential {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--white-70);
+    }
+    .credential-dot {
+      width: 4px; height: 4px;
+      border-radius: 50%;
+      background: var(--sunrise-mid);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
 
-        .service-card h3 {
-            color: #000;
-            margin-bottom: 1rem;
-            font-size: 1.35rem;
-            font-weight: 700;
-        }
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: linear-gradient(135deg, rgba(249,115,22,0.12) 0%, rgba(250,204,21,0.06) 100%);
+      border-top: 1px solid rgba(249,115,22,0.2);
+      border-bottom: 1px solid rgba(249,115,22,0.2);
+      padding: 64px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-strip-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 16px;
+      line-height: 1.15;
+    }
+    .cta-strip-title em {
+      font-style: italic;
+      background: var(--sunrise);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .cta-strip-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--white-70);
+      margin-bottom: 36px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-strip-actions { display: flex; flex-direction: column; gap: 12px; align-items: center; }
 
-        .service-card p {
-            color: #555;
-            line-height: 1.85;
-            font-size: 0.95rem;
-        }
+    /* ── FOOTER ── */
+    .footer { background: var(--navy-mid); padding: 56px 24px 32px; border-top: 1px solid var(--border); }
+    .footer-grid { display: grid; grid-template-columns: 1fr; gap: 40px; margin-bottom: 48px; }
+    .footer-brand-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .footer-brand-sub {
+      font-size: 10px;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: var(--sunrise);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .footer-tagline {
+      font-size: 13px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--white-50);
+      max-width: 260px;
+      margin-bottom: 20px;
+    }
+    .footer-col-label {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      background: var(--sunrise);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a {
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--white-50);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--sunrise-mid); }
+    .footer-info { font-size: 13px; font-weight: 300; color: var(--white-50); line-height: 1.9; }
+    .footer-info a { color: var(--white-50); text-decoration: none; transition: color 0.2s; }
+    .footer-info a:hover { color: var(--sunrise-mid); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .footer-copy { font-size: 11px; color: var(--white-30); letter-spacing: 0.06em; }
+    .footer-linkedin {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--white-30);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--border);
+      padding: 5px 12px;
+      border-radius: 4px;
+      transition: all 0.2s;
+    }
+    .footer-linkedin:hover { color: var(--sunrise-mid); border-color: rgba(249,115,22,0.3); }
 
-        /* Philosophy Section */
-        .philosophy {
-            background: #fff;
-            color: #1a1a1a;
-            padding: 5rem 3rem;
-            text-align: center;
-            border-top: 1px solid #e5e5e5;
-            border-bottom: 1px solid #e5e5e5;
-        }
+    /* ── ANIMATIONS ── */
+    .enter   { animation: fadeUp 0.9s cubic-bezier(0.16,1,0.3,1) both; }
+    .enter-2 { animation: fadeUp 0.9s 0.12s cubic-bezier(0.16,1,0.3,1) both; }
+    .enter-3 { animation: fadeUp 0.9s 0.22s cubic-bezier(0.16,1,0.3,1) both; }
+    .enter-4 { animation: fadeUp 0.9s 0.32s cubic-bezier(0.16,1,0.3,1) both; }
+    .enter-5 { animation: fadeUp 0.9s 0.42s cubic-bezier(0.16,1,0.3,1) both; }
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
 
-        .philosophy-content {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+    /* ── TABLET 600px+ ── */
+    @media (min-width: 600px) {
+      .nav { padding: 20px 40px; }
+      .hero { padding: 140px 40px 100px; }
+      .hero-actions { flex-direction: row; }
+      .section { padding: 96px 40px; }
+      .tracks { grid-template-columns: 1fr 1fr; }
+      .steps { grid-template-columns: repeat(2, 1fr); }
+      .pillars { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-strip-actions { flex-direction: row; justify-content: center; }
+      .footer { padding: 64px 40px 36px; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+    }
 
-        .philosophy h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #000;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .philosophy p {
-            font-size: 1.1rem;
-            line-height: 1.85;
-            color: #555;
-        }
-
-        /* Story Section */
-        .story {
-            padding: 6rem 3rem;
-            background: #fff;
-        }
-
-        .story-container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .story h2 {
-            font-size: 2.8rem;
-            color: #000;
-            margin-bottom: 3rem;
-            text-align: center;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .story-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: flex-start;
-        }
-
-        .story-text p {
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            line-height: 1.85;
-            color: #555;
-        }
-
-        .story-highlight {
-            background: #f0f0f0;
-            color: #1a1a1a;
-            padding: 2.5rem;
-            border-radius: 8px;
-            text-align: left;
-            border: 1px solid #e5e5e5;
-        }
-
-        .story-highlight h3 {
-            font-size: 1.35rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .story-highlight p {
-            margin: 0;
-            font-size: 0.95rem;
-            line-height: 1.85;
-            color: #555;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: #f8f8f8;
-            padding: 5rem 3rem;
-            text-align: center;
-            border-top: 1px solid #e5e5e5;
-        }
-
-        .contact-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .contact h2 {
-            font-size: 2.5rem;
-            color: #000;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-            letter-spacing: -0.5px;
-        }
-
-        .contact p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 2rem;
-            line-height: 1.8;
-        }
-
-        .contact-email {
-            display: inline-block;
-            color: #000;
-            text-decoration: none;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            transition: color 0.3s;
-        }
-
-        .contact-email:hover {
-            color: #0066cc;
-        }
-
-        /* Footer */
-        footer {
-            background: #000;
-            color: #fff;
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-
-        footer p {
-            opacity: 0.8;
-            font-size: 0.95rem;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            nav {
-                padding: 0 1.5rem;
-            }
-
-            nav a {
-                margin-left: 1.5rem;
-                font-size: 0.85rem;
-            }
-
-            .hero {
-                padding: 4rem 1.5rem;
-                min-height: auto;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .services, .story {
-                padding: 4rem 1.5rem;
-            }
-
-            .section-title, .story h2 {
-                font-size: 2rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .story-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-        }
-    </style>
+    /* ── DESKTOP 960px+ ── */
+    @media (min-width: 960px) {
+      .nav { padding: 22px 56px; }
+      .hamburger { display: none; }
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+        align-items: center;
+      }
+      .nav-links a {
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--white-70);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover { color: var(--white); }
+      .nav-cta { display: inline-block; }
+      .hero { padding: 160px 56px 120px; }
+      .section { padding: 112px 56px; }
+      .steps { grid-template-columns: repeat(4, 1fr); }
+      .pillars { grid-template-columns: repeat(2, 1fr); }
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .founder-grid { grid-template-columns: 1fr 1fr; gap: 80px; }
+      .footer { padding: 80px 56px 40px; }
+      .footer-grid { grid-template-columns: 1.6fr 1fr 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <header>
-        <nav>
-            <div class="logo-container">
-                <img src="logo.png" alt="DGTL Sunrise Logo">
-                <span class="logo-text">DGTL SUNRISE</span>
-            </div>
-            <div>
-                <a href="#services">Services</a>
-                <a href="#philosophy">Philosophy</a>
-                <a href="#story">Story</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Data-Driven Marketing Solutions</h1>
-        <p>We deliver data-driven marketing solutions that empower large-scale businesses to connect with their audiences, optimize performance, and achieve unmatched results. Our holistic approach ensures every strategy aligns with your goals, driving measurable success.</p>
-        <a href="mailto:noel@dgtlsunrise.com" class="cta-button">Email Us</a>
-    </section>
+  <!-- DRAWER -->
+  <div class="drawer" id="drawer">
+    <div style="margin-bottom:40px;">
+      <img src="logo.png" alt="DGTL Sunrise" style="height:48px;width:auto;">
+    </div>
+    <ul class="drawer-links">
+      <li><a href="#what-we-do" onclick="closeDrawer()">What We Do</a></li>
+      <li><a href="#how-we-work" onclick="closeDrawer()">How We Work</a></li>
+      <li><a href="#services" onclick="closeDrawer()">Services</a></li>
+      <li><a href="#about" onclick="closeDrawer()">About</a></li>
+      <li><a href="#contact" onclick="closeDrawer()">Contact</a></li>
+    </ul>
+    <a href="mailto:noel@dgtlsunrise.com" class="drawer-cta">Get in Touch</a>
+  </div>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="services-container">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <h3>Audience Segmentation & Personalization</h3>
-                    <p>Unlock the power of your customer data with advanced cross-channel tracking and funnel optimization. We leverage cutting-edge customer data platforms to unify touchpoints—website visits, paid search, social media, and broader internet interactions—into a single, actionable profile. By mapping each customer's journey, we deliver personalized ad experiences and targeted email flows that maximize conversion rates, boost return on ad spend (ROAS), and enhance customer lifetime value.</p>
-                </div>
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <a href="/" class="nav-logo">
+      <img src="logo.png" alt="DGTL Sunrise" style="height:38px;width:auto;display:block;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#what-we-do">What We Do</a></li>
+      <li><a href="#how-we-work">How We Work</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a href="mailto:noel@dgtlsunrise.com" class="nav-cta">Get in Touch</a>
+    <button class="hamburger" id="hamburger" onclick="toggleDrawer()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
 
-                <div class="service-card">
-                    <h3>Paid Search & Social Media Management</h3>
-                    <p>Drive efficiency and impact with expertly managed paid search and social media campaigns. We optimize ad spend by pinpointing high-performing channels and cutting those that underdeliver. Using precise audience segmentation and real-time analytics, we craft ads that resonate, ensuring cost-effective acquisitions and measurable results. Whether it's search engine marketing or social platforms, we align every campaign with your business objectives to achieve maximum ROI.</p>
-                </div>
-
-                <div class="service-card">
-                    <h3>Performance-Based Content Creator Marketing</h3>
-                    <p>Our content creator partnerships are built on authentic relationships, not automation. We negotiate performance-driven deals, often on a cost-per-thousand (CPM) basis, aligning incentives to ensure creators deliver measurable value. By personally engaging with creators through face-to-face video calls and building genuine rapport, we secure high-impact collaborations that stand out in oversaturated inboxes. This hands-on approach drives positive ROI and fosters long-term partnerships.</p>
-                </div>
-
-                <div class="service-card">
-                    <h3>Organic Social Media Consulting</h3>
-                    <p>Build a vibrant, authentic social media presence with our strategic consulting. We guide you in crafting organic content that resonates with your audience, strengthens brand loyalty, and complements your paid efforts. From content ideation to platform-specific strategies, we ensure your social channels engage customers at every stage of their journey, amplifying your reach without relying solely on ad spend.</p>
-                </div>
-            </div>
+  <!-- HERO -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="hero-tag enter">
+        <div class="hero-tag-dot"></div>
+        Coeur d'Alene, Idaho
+      </div>
+      <h1 class="hero-title enter-2">
+        Marketing that<br>
+        <span class="accent">moves the needle.</span>
+      </h1>
+      <p class="hero-sub enter-3">
+        Enterprise marketing expertise — compliance-aware strategy for regulated industries, fast web development for local businesses. We bring big-brand thinking to every client.
+      </p>
+      <div class="hero-actions enter-4">
+        <a href="mailto:noel@dgtlsunrise.com" class="btn-primary">Let's Talk</a>
+        <a href="#what-we-do" class="btn-ghost">See What We Do →</a>
+      </div>
+      <div class="hero-stats enter-5">
+        <div>
+          <div class="hero-stat-num">2</div>
+          <div class="hero-stat-label">Practice Areas</div>
         </div>
-    </section>
-
-    <!-- Philosophy Section -->
-    <section class="philosophy" id="philosophy">
-        <div class="philosophy-content">
-            <h2>Our Philosophy: Do Whatever It Takes to Win</h2>
-            <p>At DGTL Sunrise, we're relentless in our pursuit of your success. We combine data-driven precision with creative ingenuity to overcome challenges and deliver results that matter. Whether it's optimizing a campaign, forging creator partnerships, or mapping complex customer journeys, we go the extra mile to ensure your brand rises above the competition. Your victories are our victories, and we're committed to making them happen.</p>
+        <div>
+          <div class="hero-stat-num">1 day</div>
+          <div class="hero-stat-label">Website Delivery</div>
         </div>
-    </section>
-
-    <!-- Story Section -->
-    <section class="story" id="story">
-        <div class="story-container">
-            <h2>Our Story</h2>
-            <div class="story-content">
-                <div class="story-text">
-                    <p><strong>DGTL Sunrise</strong> was founded by Noel Churchill, a proven entrepreneur who built RainbowOPTX, a sunglasses brand, from the ground up with zero external funding. Under his leadership, RainbowOPTX grew into a multi-million-dollar business before a successful exit, showcasing his ability to navigate every aspect of a business, from product innovation to sophisticated marketing strategies.</p>
-                    <p>Our team brings a 360-degree perspective to digital marketing, understanding how each strategy impacts the bigger picture. Whether serving financial institutions, e-commerce giants, or fintech innovators, we deliver data-driven solutions that align with your goals, powered by cutting-edge tools and a commitment to excellence.</p>
-                    <p><strong>At DGTL Sunrise, we're dedicated to helping your brand rise with impactful, measurable results.</strong></p>
-                </div>
-                <div class="story-highlight">
-                    <h3>Built on Proven Success</h3>
-                    <p>From zero to multi-million dollar exit with RainbowOPTX. Now applying that expertise to accelerate your brand's growth through data-driven, creative marketing solutions.</p>
-                </div>
-            </div>
+        <div>
+          <div class="hero-stat-num">CDA</div>
+          <div class="hero-stat-label">Based & Rooted</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="contact-container">
-            <h2>Ready to Rise?</h2>
-            <p>Let's discuss how DGTL Sunrise can transform your marketing strategy and deliver measurable results for your brand.</p>
-            <a href="mailto:noel@dgtlsunrise.com" class="contact-email">noel@dgtlsunrise.com</a>
+  <!-- WHAT WE DO -->
+  <section class="section section-alt" id="what-we-do">
+    <div class="label">What We Do</div>
+    <h2 class="section-title">Two practices.<br>One <em>relentless</em> standard.</h2>
+    <p class="section-sub">Whether you're a regulated financial institution navigating compliance requirements or a local business that deserves a better website, we bring the same data-driven discipline to every engagement.</p>
+    <div class="tracks">
+      <div class="track">
+        <div class="track-accent"></div>
+        <div class="track-icon">🏦</div>
+        <div class="track-title">Marketing Consulting</div>
+        <p class="track-desc">Strategic marketing for regulated industries. We push the boundaries of what's possible within compliance frameworks — driving growth without crossing lines.</p>
+        <ul class="track-list">
+          <li>Compliance-aware campaign strategy</li>
+          <li>Digital channel optimization</li>
+          <li>Data analysis & performance reporting</li>
+          <li>Marketing program development</li>
+          <li>Regulated industry expertise</li>
+        </ul>
+      </div>
+      <div class="track">
+        <div class="track-accent"></div>
+        <div class="track-icon">🌐</div>
+        <div class="track-title">Web & Digital</div>
+        <p class="track-desc">Fast, beautiful, affordable websites for local and small businesses. Built with AI-assisted development, delivered in days, hosted for a flat monthly fee.</p>
+        <ul class="track-list">
+          <li>Homepage & full website design</li>
+          <li>Mobile-first development</li>
+          <li>SEO & social share optimization</li>
+          <li>Cloudflare hosting & SSL</li>
+          <li>Ongoing content updates</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE WORK -->
+  <section class="section" id="how-we-work">
+    <div class="label">How We Work</div>
+    <h2 class="section-title">A clear process.<br>No <em>surprises.</em></h2>
+    <p class="section-sub">We move fast without cutting corners. Every engagement follows the same disciplined framework.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title">Discover</div>
+        <p class="step-desc">We start by understanding your business, your goals, and your audience. No templates, no assumptions.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title">Strategize</div>
+        <p class="step-desc">We build a clear plan of attack — what we'll do, why we'll do it, and how we'll measure success.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title">Execute</div>
+        <p class="step-desc">We build fast and iterate. AI-assisted development means websites in days, not weeks or months.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title">Optimize</div>
+        <p class="step-desc">We monitor, measure, and improve. Data drives every decision after launch.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section section-alt">
+    <div class="label">Why DGTL Sunrise</div>
+    <h2 class="section-title">Enterprise thinking.<br><em>Without</em> the enterprise price tag.</h2>
+    <p class="section-sub">We're not a big agency with layers of account managers and bloated timelines. We're a focused practice built for clients who want results, not meetings about meetings.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pillar-icon">🎯</div>
+        <div>
+          <div class="pillar-title">Founder-Led</div>
+          <p class="pillar-desc">You work directly with Noel — a founder who has built, scaled, and exited a consumer brand. No hand-offs to junior staff.</p>
         </div>
-    </section>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📊</div>
+        <div>
+          <div class="pillar-title">Data-Driven</div>
+          <p class="pillar-desc">Every recommendation is backed by data. We don't guess — we measure, analyze, and optimize based on what the numbers say.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">⚡</div>
+        <div>
+          <div class="pillar-title">AI-Accelerated</div>
+          <p class="pillar-desc">We leverage AI tools to move faster and deliver more value at lower cost. A website that used to take weeks now takes a day.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🔒</div>
+        <div>
+          <div class="pillar-title">Compliance-Aware</div>
+          <p class="pillar-desc">Deep experience marketing within regulated environments. We know where the lines are and how to push right up to them.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">📍</div>
+        <div>
+          <div class="pillar-title">Local & Committed</div>
+          <p class="pillar-desc">Based in Coeur d'Alene. We're invested in this community and the businesses that make it what it is.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-icon">🤝</div>
+        <div>
+          <div class="pillar-title">Transparent Pricing</div>
+          <p class="pillar-desc">Flat rates, no surprises. Websites from $1,000. Hosting from $49/month. You know exactly what you're paying for.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 DGTL Sunrise. All rights reserved.</p>
-        <p>Data-Driven Marketing Solutions for Ambitious Brands</p>
-    </footer>
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="label">Services</div>
+    <h2 class="section-title">Everything you need.<br><em>Nothing</em> you don't.</h2>
+    <p class="section-sub">A focused set of services built around what actually moves the needle for our clients.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">📈</span>
+        <div class="service-title">Audience Segmentation & Personalization</div>
+        <p class="service-desc">Advanced cross-channel tracking and funnel optimization using customer data platforms to unify touchpoints into actionable profiles. We deliver personalized experiences that maximize conversion rates, boost ROAS, and enhance customer lifetime value.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏦</span>
+        <div class="service-title">Regulated Industry Marketing</div>
+        <p class="service-desc">Compliance-aware campaigns for financial institutions and other regulated businesses. We know where the lines are and how to push right up to them — driving growth without crossing boundaries.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🖥️</span>
+        <div class="service-title">Website Design & Development</div>
+        <p class="service-desc">Fast, beautiful, mobile-first websites built with AI-assisted development. Delivered in days, not weeks. Cloudflare-hosted with SSL, global CDN, and ongoing support starting at $49/month.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🎯</span>
+        <div class="service-title">Paid Search & Social Media</div>
+        <p class="service-desc">Expertly managed paid search and social campaigns optimized for efficiency and impact. We pinpoint high-performing channels, craft precision-targeted ads, and align every dollar with measurable business objectives.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🤝</span>
+        <div class="service-title">Creator Marketing</div>
+        <p class="service-desc">Performance-driven creator partnerships built on authentic relationships. We negotiate CPM-based deals, engage creators personally, and secure high-impact collaborations that drive positive ROI and long-term value.</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔍</span>
+        <div class="service-title">SEO & Organic Social</div>
+        <p class="service-desc">On-page SEO, schema markup, local search optimization, and organic social strategy that strengthens brand loyalty and complements paid efforts — without relying solely on ad spend.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section section-alt" id="about">
+    <div class="label">About</div>
+    <div class="founder-grid">
+      <div>
+        <div class="founder-avatar">NC</div>
+        <div class="founder-name">Noel Churchill</div>
+        <div class="founder-title">Founder, DGTL Sunrise</div>
+        <p class="founder-bio">
+          DGTL Sunrise was founded by Noel Churchill, a proven entrepreneur who built RainbowOPTX — a sunglasses brand — from the ground up with zero external funding. Under his leadership, RainbowOPTX grew into a multi-million-dollar business before a successful exit in 2025.
+        </p>
+        <p class="founder-bio">
+          Today, DGTL Sunrise brings that same 360-degree perspective to digital marketing — understanding how every strategy impacts the bigger picture. Whether serving financial institutions, local businesses, or ambitious brands, we deliver data-driven solutions aligned with your goals, powered by cutting-edge tools and a commitment to excellence.
+        </p>
+        <p class="founder-bio">
+          Based in Riverstone, Coeur d'Alene. Invested in this community.
+        </p>
+      </div>
+      <div class="founder-credentials">
+        <p style="font-size:13px;font-weight:500;color:var(--white);margin-bottom:8px;letter-spacing:0.04em;">Background & Experience</p>
+        <div class="credential"><div class="credential-dot"></div><span>Founder & exit — RainbowOPTX consumer brand (2025)</span></div>
+        <div class="credential"><div class="credential-dot"></div><span>Marketing consulting for regulated financial institutions</span></div>
+        <div class="credential"><div class="credential-dot"></div><span>Data-driven digital marketing strategy & execution</span></div>
+        <div class="credential"><div class="credential-dot"></div><span>AI-assisted development & modern web tooling</span></div>
+        <div class="credential"><div class="credential-dot"></div><span>Local business marketing & web development, CDA</span></div>
+        <div class="credential"><div class="credential-dot"></div><span>Based in Coeur d'Alene, Idaho</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <section class="cta-strip" id="contact">
+    <h2 class="cta-strip-title">Ready to grow?<br>Let's <em>talk.</em></h2>
+    <p class="cta-strip-sub">Whether you need a new website by tomorrow or a long-term marketing partner, we'd love to hear from you.</p>
+    <div class="cta-strip-actions">
+      <a href="mailto:noel@dgtlsunrise.com" class="btn-primary">Email Noel Directly</a>
+      <a href="tel:+18583543666" class="btn-ghost">Call 858.354.3666</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <img src="logo.png" alt="DGTL Sunrise" style="height:44px;width:auto;margin-bottom:16px;display:block;">
+        <p class="footer-tagline">Enterprise marketing expertise. Small business pricing. Based in Coeur d'Alene, Idaho.</p>
+      </div>
+      <div>
+        <span class="footer-col-label">Navigate</span>
+        <ul class="footer-links">
+          <li><a href="#what-we-do">What We Do</a></li>
+          <li><a href="#how-we-work">How We Work</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-label">Services</span>
+        <ul class="footer-links">
+          <li><a href="#services">Marketing Strategy</a></li>
+          <li><a href="#services">Regulated Industry</a></li>
+          <li><a href="#services">Website Design</a></li>
+          <li><a href="#services">Hosting & Support</a></li>
+          <li><a href="#services">SEO & Content</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-label">Contact</span>
+        <div class="footer-info">
+          Coeur d'Alene, Idaho<br><br>
+          <a href="mailto:noel@dgtlsunrise.com">noel@dgtlsunrise.com</a><br>
+          <a href="tel:+18583543666">858.354.3666</a><br><br>
+          <a href="https://www.dgtlsunrise.com" style="background:var(--sunrise);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;">dgtlsunrise.com →</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 DGTL Sunrise LLC. All rights reserved.</p>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
+        <a href="https://linkedin.com/company/dgtlsunrise" target="_blank" rel="noopener" class="footer-linkedin">LinkedIn →</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDrawer() {
+      const d = document.getElementById('drawer');
+      const h = document.getElementById('hamburger');
+      const open = d.classList.toggle('open');
+      h.classList.toggle('open');
+      h.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    }
+    function closeDrawer() {
+      document.getElementById('drawer').classList.remove('open');
+      const h = document.getElementById('hamburger');
+      h.classList.remove('open');
+      h.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 40);
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>
