@@ -837,7 +837,7 @@ body.ron .dyn-wrap{outline:1px dashed rgba(167,139,250,.35);outline-offset:3px}
         <li><strong>Return visitor, no application</strong> &mdash; Warmer re-engagement tone. Eyebrow: "Welcome back &mdash; rates updated today." Creates urgency through time reference.</li>
       </ul>
       <div class="ann-divider"></div>
-      <div class="ann-col-h b">Tealium implementation spec for John De Vito</div>
+      <div class="ann-col-h b">Tealium implementation spec</div>
       <ul class="ann-ul b-li">
         <li><strong>Integration point:</strong> Populate <code>window.utag_data</code> before this page's <code>&lt;script&gt;</code> block executes, OR fire <code>applyVariant(key)</code> from a Tealium tag after AudienceStream audience resolution.</li>
         <li><strong>Expected utag_data shape:</strong> <code>customer_type</code> ('new' | 'existing'), <code>application_status</code> ('none' | 'incomplete'), <code>visit_count</code> (Number), <code>balance_tier</code> ('standard' | 'high').</li>
@@ -2315,7 +2315,7 @@ function detectAndApply(){
           utm.source === 'facebook' || utm.source === 'instagram') key = 'social';
 
   // ── Tealium CDP integration point ────────────────────────────────────────
-  // John De Vito's team: populate window.utag_data BEFORE this script runs,
+  // Implementation team: populate window.utag_data BEFORE this script runs,
   // or fire applyVariant() from a Tealium tag after audience resolution.
   //
   // Expected utag_data shape:
