@@ -387,6 +387,169 @@ h2.sh em{color:#0055a4;font-style:italic}
   background-size:cover;background-position:right center;
 }
 .ig-sec .w{position:relative;z-index:1}
+
+/* ═══════════════════════════════════════════════════════
+   APPLICATION MODAL
+   ═══════════════════════════════════════════════════════ */
+.modal-backdrop{
+  position:fixed;inset:0;z-index:10000;
+  background:rgba(6,15,30,0.72);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  display:flex;align-items:center;justify-content:center;
+  padding:16px;
+  opacity:0;pointer-events:none;
+  transition:opacity .3s cubic-bezier(.22,1,.36,1);
+}
+.modal-backdrop.open{opacity:1;pointer-events:all}
+.modal-backdrop.open .modal-card{transform:translateY(0) scale(1);opacity:1}
+
+.modal-card{
+  background:#fff;border-radius:20px;
+  width:100%;max-width:860px;
+  display:flex;flex-direction:column;
+  overflow:hidden;
+  transform:translateY(24px) scale(0.97);opacity:0;
+  transition:transform .35s cubic-bezier(.22,1,.36,1),opacity .3s cubic-bezier(.22,1,.36,1);
+  max-height:calc(100vh - 32px);
+  overflow-y:auto;
+}
+@media(min-width:680px){
+  .modal-card{flex-direction:row;overflow:hidden;overflow-y:visible}
+}
+
+/* Left panel — value reinforcement */
+.modal-left{
+  background:var(--navy-dk);
+  padding:clamp(28px,4vw,40px);
+  display:flex;flex-direction:column;justify-content:space-between;
+  flex-shrink:0;
+  position:relative;overflow:hidden;
+}
+@media(min-width:680px){.modal-left{width:300px;min-height:480px}}
+.modal-left-bg{
+  position:absolute;inset:0;opacity:0.7;
+  background:radial-gradient(ellipse at 110% 110%,rgba(245,162,39,.14) 0%,transparent 60%),
+             radial-gradient(ellipse at -10% -10%,rgba(26,58,107,.6) 0%,transparent 55%);
+}
+.modal-left-content{position:relative;z-index:1}
+.ml-eyebrow{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;display:flex;align-items:center;gap:6px}
+.ml-eyebrow::before{content:'';display:block;width:12px;height:2px;background:var(--amber);border-radius:1px}
+.ml-rate{font-family:'DM Serif Display',Georgia,serif;font-size:56px;line-height:1;color:var(--amber)}
+.ml-apy{font-size:14px;color:rgba(255,255,255,.5);margin-top:2px;margin-bottom:20px}
+.ml-earnings-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:14px;margin-bottom:20px}
+.ml-ec-label{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px}
+.ml-ec-amount{font-family:'DM Serif Display',Georgia,serif;font-size:28px;color:var(--amber)}
+.ml-ec-period{font-size:11px;color:rgba(255,255,255,.4);margin-top:1px}
+.ml-checks{display:flex;flex-direction:column;gap:8px}
+.ml-check{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.65)}
+.ml-check-dot{width:18px;height:18px;border-radius:50%;background:rgba(245,162,39,.15);border:1px solid rgba(245,162,39,.3);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ml-check-dot svg{width:9px;height:9px;stroke:var(--amber);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.ml-trust{position:relative;z-index:1;margin-top:20px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08);display:flex;align-items:center;gap:8px;font-size:11px;color:rgba(255,255,255,.35)}
+.ml-fdic{background:rgba(255,255,255,.1);border-radius:3px;padding:2px 5px;font-size:9px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.04em}
+
+/* Right panel — form */
+.modal-right{
+  padding:clamp(28px,4vw,40px);
+  flex:1;display:flex;flex-direction:column;
+  background:#fff;
+}
+.modal-close{
+  position:absolute;top:16px;right:16px;z-index:10;
+  width:32px;height:32px;border-radius:50%;
+  background:rgba(0,0,0,.07);border:none;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:background .2s;
+  color:var(--gray-dk);
+}
+.modal-close:hover{background:rgba(0,0,0,.14)}
+.modal-close svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round}
+
+.modal-steps{display:flex;gap:0;margin-bottom:28px;border-bottom:2px solid var(--gray-lt);padding-bottom:0}
+.modal-step-btn{
+  flex:1;padding:0 0 12px;font-size:12px;font-weight:500;
+  color:var(--gray);background:none;border:none;cursor:default;
+  border-bottom:2px solid transparent;margin-bottom:-2px;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  transition:color .2s,border-color .2s;
+}
+.modal-step-btn.active{color:var(--navy);border-bottom-color:var(--amber)}
+.modal-step-num{width:20px;height:20px;border-radius:50%;background:var(--gray-lt);font-size:10px;font-weight:600;display:flex;align-items:center;justify-content:center;transition:background .2s,color .2s}
+.modal-step-btn.active .modal-step-num{background:var(--amber);color:var(--navy-dk)}
+.modal-step-btn.done .modal-step-num{background:var(--teal);color:#fff}
+.modal-step-btn.done{color:var(--teal)}
+
+.modal-panel{display:none;flex-direction:column;flex:1}
+.modal-panel.active{display:flex}
+.modal-panel h2{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(22px,3vw,28px);font-weight:400;color:var(--navy);margin-bottom:6px}
+.modal-panel .mp-sub{font-size:13px;color:var(--gray-dk);margin-bottom:24px;line-height:1.6}
+
+.field-group{display:flex;flex-direction:column;gap:14px;margin-bottom:20px}
+.field-wrap{display:flex;flex-direction:column;gap:5px}
+.field-label{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gray-dk)}
+.field-input{
+  height:48px;border:1.5px solid var(--border);border-radius:9px;
+  padding:0 14px;font-size:15px;font-family:inherit;outline:none;
+  transition:border-color .2s,box-shadow .2s;color:var(--navy);
+  background:#fff;width:100%;
+}
+.field-input:focus{border-color:var(--amber);box-shadow:0 0 0 3px rgba(245,162,39,.12)}
+.field-input::placeholder{color:var(--gray)}
+.field-input.has-error{border-color:#e53e3e}
+.field-error{font-size:11px;color:#e53e3e;display:none}
+.field-wrap.error .field-error{display:block}
+.field-wrap.error .field-input{border-color:#e53e3e}
+
+.modal-btn-primary{
+  width:100%;height:52px;background:var(--amber);color:var(--navy-dk);
+  font-size:15px;font-weight:700;border:none;border-radius:10px;
+  cursor:pointer;transition:background .18s,transform .15s;
+  letter-spacing:.01em;display:flex;align-items:center;justify-content:center;gap:8px;
+  margin-top:auto;
+}
+.modal-btn-primary:hover{background:#f5b240;transform:translateY(-1px)}
+.modal-btn-primary:active{transform:translateY(0)}
+.modal-btn-primary svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+.modal-legal{font-size:11px;color:var(--gray);line-height:1.55;margin-top:12px;text-align:center}
+.modal-legal a{color:var(--blue);text-decoration:none}
+
+.modal-divider{display:flex;align-items:center;gap:10px;margin:16px 0}
+.modal-divider-line{flex:1;height:1px;background:var(--gray-lt)}
+.modal-divider-txt{font-size:11px;color:var(--gray)}
+
+/* Step 3: handoff */
+.handoff-wrap{text-align:center;padding:12px 0}
+.handoff-icon{width:64px;height:64px;border-radius:50%;background:var(--teal-lt);margin:0 auto 16px;display:flex;align-items:center;justify-content:center}
+.handoff-icon svg{width:28px;height:28px;stroke:var(--teal);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.handoff-title{font-family:'DM Serif Display',Georgia,serif;font-size:24px;color:var(--navy);margin-bottom:8px}
+.handoff-sub{font-size:13px;color:var(--gray-dk);line-height:1.65;max-width:340px;margin:0 auto 24px}
+.handoff-link{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--amber);color:var(--navy-dk);
+  font-size:14px;font-weight:700;padding:14px 28px;border-radius:10px;
+  text-decoration:none;transition:background .18s,transform .15s;
+}
+.handoff-link:hover{background:#f5b240;transform:translateY(-1px)}
+.handoff-link svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round}
+.handoff-note{font-size:11px;color:var(--gray);margin-top:12px}
+
+/* Name row: two fields side by side on desktop */
+.name-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:420px){.name-row{grid-template-columns:1fr}}
+
+/* Mobile: hide left panel for space, show summary bar instead */
+.modal-mobile-summary{
+  background:var(--navy);padding:14px 20px;
+  display:flex;justify-content:space-between;align-items:center;
+}
+@media(min-width:680px){.modal-mobile-summary{display:none}}
+.mms-rate{font-family:'DM Serif Display',Georgia,serif;font-size:22px;color:var(--amber)}
+.mms-label{font-size:11px;color:rgba(255,255,255,.5)}
+.mms-earn{text-align:right}
+.mms-earn-amt{font-size:16px;font-weight:600;color:var(--amber)}
+.mms-earn-lbl{font-size:10px;color:rgba(255,255,255,.4)}
+@media(min-width:680px){.modal-left{display:flex}}
+
 </style>
 </head>
 <body>
@@ -653,7 +816,7 @@ h2.sh em{color:#0055a4;font-style:italic}
           <div class="rnote">Variable rate &middot; Set daily &middot; No teaser pricing</div>
         </div>
         <div class="hero-ctas rv d4">
-          <button class="btn btn-amber" onclick="scrollToFinal()">Open my account</button>
+          <button class="btn btn-amber" onclick="openModal()">Open my account</button>
           <button class="btn btn-ghost" onclick="scrollToCalc()">Run my numbers</button>
         </div>
       </div>
@@ -671,7 +834,7 @@ h2.sh em{color:#0055a4;font-style:italic}
             <div class="hc-row"><span class="hc-bank">Chase Savings</span><span class="hc-earn" id="h-ch">$1</span></div>
             <div class="hc-row"><span class="hc-bank">National avg (0.41%)</span><span class="hc-earn" id="h-na">$41</span></div>
           </div>
-          <button class="hc-cta" onclick="scrollToFinal()">Open account &mdash; start earning today</button>
+          <button class="hc-cta" onclick="openModal()">Open account &mdash; start earning today</button>
         </div>
       </div>
     </div>
@@ -927,7 +1090,7 @@ h2.sh em{color:#0055a4;font-style:italic}
       </div>
     </div>
     <div style="text-align:center;margin-top:36px" class="rv d4">
-      <button class="btn btn-amber" onclick="scrollToFinal()">Open my account</button>
+      <button class="btn btn-amber" onclick="openModal()">Open my account</button>
     </div>
   </div>
 </section>
@@ -1002,7 +1165,7 @@ h2.sh em{color:#0055a4;font-style:italic}
         </div>
       </div>
       <div class="fc-cta-row">
-        <button class="btn btn-amber btn-amber-lg" id="fc-btn" onclick="scrollToFinal()">Open account &middot; earn $2,923 over 3 years</button>
+        <button class="btn btn-amber btn-amber-lg" id="fc-btn" onclick="openModal()">Open account &middot; earn $2,923 over 3 years</button>
       </div>
       <div class="fc-sub">No minimum deposit &middot; No monthly fees &middot; Open in under 3 minutes</div>
     </div>
@@ -1224,7 +1387,7 @@ h2.sh em{color:#0055a4;font-style:italic}
     <div class="final-rate rv d2">3.75%</div>
     <div class="final-apy rv d3">APY* &middot; Updated daily &middot; No teaser pricing</div>
     <div class="final-social rv d3">Join 1,000,000+ customers already earning more on their savings</div>
-    <button class="btn btn-amber btn-amber-lg rv d4" onclick="#">Open my account &mdash; it's free</button>
+    <button class="btn btn-amber btn-amber-lg rv d4" onclick="openModal()">Open my account &mdash; it's free</button>
     <p class="final-fine rv d5">No minimum deposit &nbsp;&middot;&nbsp; No monthly fees &nbsp;&middot;&nbsp; FDIC insured &nbsp;&middot;&nbsp; Open in under 3 minutes<br>No hard credit check &nbsp;&middot;&nbsp; No branch visit required</p>
   </div>
 </section>
@@ -1251,7 +1414,135 @@ h2.sh em{color:#0055a4;font-style:italic}
 // ── Helpers ──────────────────────────────────────────
 function cpd(p,r,y){return p*(Math.pow(1+r/365,365*y)-1)}
 function fmt(n){return'$'+Math.round(n).toLocaleString('en-US')}
-function scrollToFinal(){document.querySelector('.final-sec').scrollIntoView({behavior:'smooth'})}
+
+// ── Modal state ────────────────────────────────────────────────
+var modalEarnings = { amount: 375, balance: 10000, years: 1 };
+
+function openModal(){
+  // Sync earnings from whatever the calculator currently shows
+  try {
+    var axosEl = document.getElementById('fc-ax');
+    var balEl  = document.getElementById('fc-b');
+    var yrEl   = document.getElementById('fc-y');
+    if(axosEl && balEl && yrEl){
+      var amt = axosEl.textContent.replace(/[$,]/g,'');
+      modalEarnings.amount  = parseInt(amt)||375;
+      modalEarnings.balance = parseInt(balEl.value)||10000;
+      modalEarnings.years   = parseInt(yrEl.value)||1;
+    } else {
+      // Fall back to hero calc
+      var hEl = document.getElementById('h-ax');
+      var hiEl= document.getElementById('hero-in');
+      if(hEl && hiEl){
+        var amt2 = hEl.textContent.replace(/[$,]/g,'');
+        modalEarnings.amount  = parseInt(amt2)||375;
+        modalEarnings.balance = parseInt(hiEl.value)||10000;
+        modalEarnings.years   = 1;
+      }
+    }
+  } catch(e){}
+
+  // Update left panel earnings display
+  var earnEl = document.getElementById('modal-earn-amt');
+  var periodEl= document.getElementById('modal-earn-period');
+  var mobileEl= document.getElementById('modal-mobile-earn');
+  var y = modalEarnings.years;
+  var b = modalEarnings.balance;
+  var a = modalEarnings.amount;
+  if(earnEl)  earnEl.textContent  = '$' + a.toLocaleString();
+  if(periodEl)periodEl.textContent= (y===1?'per year':('over '+y+' years'))+' on $'+b.toLocaleString();
+  if(mobileEl)mobileEl.textContent= '$'+a.toLocaleString()+'/'+(y===1?'yr':(y+'yr'));
+
+  // Show left panel on desktop
+  var leftPanel = document.querySelector('.modal-left');
+  if(leftPanel) leftPanel.style.display = window.innerWidth >= 680 ? 'flex' : 'none';
+
+  // Reset to step 1
+  setStep(1);
+
+  var bd = document.getElementById('appModal');
+  bd.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(function(){
+    var emailIn = document.getElementById('m-email');
+    if(emailIn) emailIn.focus();
+  }, 350);
+}
+
+function closeModal(){
+  var bd = document.getElementById('appModal');
+  bd.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// Close on backdrop click
+document.getElementById('appModal').addEventListener('click', function(e){
+  if(e.target === this) closeModal();
+});
+
+// Close on Escape
+document.addEventListener('keydown', function(e){
+  if(e.key === 'Escape') closeModal();
+});
+
+function setStep(n){
+  [1,2,3].forEach(function(i){
+    var panel = document.getElementById('modal-step-'+i);
+    var btn   = document.getElementById('step-btn-'+i);
+    if(!panel||!btn) return;
+    panel.classList.toggle('active', i===n);
+    btn.classList.remove('active','done');
+    if(i===n)   btn.classList.add('active');
+    if(i<n)     btn.classList.add('done');
+  });
+}
+
+function goToStep2(){
+  var emailEl = document.getElementById('m-email');
+  var wrap    = document.getElementById('wrap-email');
+  var val     = emailEl ? emailEl.value.trim() : '';
+  var valid   = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+  if(!valid){
+    wrap.classList.add('error');
+    return;
+  }
+  wrap.classList.remove('error');
+  setStep(2);
+  setTimeout(function(){
+    var fn = document.getElementById('m-fname');
+    if(fn) fn.focus();
+  }, 100);
+}
+
+function goToStep3(){
+  var fnEl  = document.getElementById('m-fname');
+  var lnEl  = document.getElementById('m-lname');
+  var wfn   = document.getElementById('wrap-fname');
+  var wln   = document.getElementById('wrap-lname');
+  var fn    = fnEl ? fnEl.value.trim() : '';
+  var ln    = lnEl ? lnEl.value.trim() : '';
+  var ok    = true;
+  if(!fn){ wfn.classList.add('error'); ok=false; } else wfn.classList.remove('error');
+  if(!ln){ wln.classList.add('error'); ok=false; } else wln.classList.remove('error');
+  if(!ok) return;
+
+  // Update handoff title with first name
+  var titleEl = document.getElementById('handoff-title');
+  if(titleEl) titleEl.textContent = 'You're all set, ' + fn + '.';
+
+  setStep(3);
+}
+
+// Resize: show/hide left panel
+window.addEventListener('resize', function(){
+  if(!document.getElementById('appModal').classList.contains('open')) return;
+  var lp = document.querySelector('.modal-left');
+  if(lp) lp.style.display = window.innerWidth >= 680 ? 'flex' : 'none';
+});
+
+// Keep scrollToFinal as fallback (used nowhere now but kept for safety)
+function scrollToFinal(){openModal()}
+
 function scrollToCalc(){document.getElementById('calc-sec').scrollIntoView({behavior:'smooth'})}
 
 // ── Scroll reveal ─────────────────────────────────────
@@ -1362,5 +1653,125 @@ function toggleReview(){
   }
 }
 </script>
+
+<!-- ═══════════════════════════════════════════════
+     APPLICATION MODAL
+     ═══════════════════════════════════════════════ -->
+<div class="modal-backdrop" id="appModal" role="dialog" aria-modal="true" aria-label="Open Summit Savings account">
+  <div class="modal-card">
+
+    <!-- Mobile summary bar (replaces left panel on small screens) -->
+    <div class="modal-mobile-summary">
+      <div>
+        <div class="mms-rate">3.75%</div>
+        <div class="mms-label">APY* — Summit Savings</div>
+      </div>
+      <div class="mms-earn">
+        <div class="mms-earn-amt" id="modal-mobile-earn">$375/yr</div>
+        <div class="mms-earn-lbl">on your balance</div>
+      </div>
+    </div>
+
+    <!-- Left panel -->
+    <div class="modal-left" style="display:none">
+      <div class="modal-left-bg" aria-hidden="true"></div>
+      <div class="modal-left-content">
+        <div class="ml-eyebrow">Summit Savings</div>
+        <div class="ml-rate">3.75%</div>
+        <div class="ml-apy">APY* · No minimums · No fees</div>
+        <div class="ml-earnings-card">
+          <div class="ml-ec-label">Your estimated earnings</div>
+          <div class="ml-ec-amount" id="modal-earn-amt">$375</div>
+          <div class="ml-ec-period" id="modal-earn-period">per year on $10,000</div>
+        </div>
+        <div class="ml-checks">
+          <div class="ml-check"><div class="ml-check-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Open in under 3 minutes</div>
+          <div class="ml-check"><div class="ml-check-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>No hard credit check</div>
+          <div class="ml-check"><div class="ml-check-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>No minimum deposit</div>
+          <div class="ml-check"><div class="ml-check-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>No monthly fees — ever</div>
+        </div>
+      </div>
+      <div class="ml-trust">
+        <span class="ml-fdic">FDIC</span>
+        Insured to $250,000 · Axos Bank, Est. 2000
+      </div>
+    </div>
+
+    <!-- Right panel -->
+    <div class="modal-right" style="position:relative">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <!-- Step indicators -->
+      <div class="modal-steps" role="tablist">
+        <button class="modal-step-btn active" id="step-btn-1" role="tab"><span class="modal-step-num">1</span>Get started</button>
+        <button class="modal-step-btn" id="step-btn-2" role="tab"><span class="modal-step-num">2</span>Your details</button>
+        <button class="modal-step-btn" id="step-btn-3" role="tab"><span class="modal-step-num">3</span>Open account</button>
+      </div>
+
+      <!-- ── STEP 1: Email ── -->
+      <div class="modal-panel active" id="modal-step-1">
+        <h2>Start earning<br>3.75% APY today.</h2>
+        <p class="mp-sub">Enter your email and we'll get you set up in under 3 minutes.</p>
+        <div class="field-group">
+          <div class="field-wrap" id="wrap-email">
+            <label class="field-label" for="m-email">Email address</label>
+            <input class="field-input" id="m-email" type="email" placeholder="you@email.com" inputmode="email" autocomplete="email" autocapitalize="off">
+            <span class="field-error">Please enter a valid email address</span>
+          </div>
+        </div>
+        <button class="modal-btn-primary" onclick="goToStep2()">
+          Continue
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <p class="modal-legal">By continuing you agree to Axos Bank's <a href="https://www.axosbank.com/legal/privacy" target="_blank">Privacy Policy</a> and <a href="https://www.axosbank.com/legal/disclosures" target="_blank">Terms</a>.</p>
+      </div>
+
+      <!-- ── STEP 2: Name ── -->
+      <div class="modal-panel" id="modal-step-2">
+        <h2>Almost there.</h2>
+        <p class="mp-sub">Just your name to personalize your account. That's it for now.</p>
+        <div class="field-group">
+          <div class="name-row">
+            <div class="field-wrap" id="wrap-fname">
+              <label class="field-label" for="m-fname">First name</label>
+              <input class="field-input" id="m-fname" type="text" placeholder="First" autocomplete="given-name">
+              <span class="field-error">Required</span>
+            </div>
+            <div class="field-wrap" id="wrap-lname">
+              <label class="field-label" for="m-lname">Last name</label>
+              <input class="field-input" id="m-lname" type="text" placeholder="Last" autocomplete="family-name">
+              <span class="field-error">Required</span>
+            </div>
+          </div>
+        </div>
+        <button class="modal-btn-primary" onclick="goToStep3()">
+          Open my account
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <p class="modal-legal">No credit check. Deposits FDIC insured to $250K.</p>
+      </div>
+
+      <!-- ── STEP 3: Handoff ── -->
+      <div class="modal-panel" id="modal-step-3">
+        <div class="handoff-wrap">
+          <div class="handoff-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="handoff-title" id="handoff-title">You're ready, there.</div>
+          <p class="handoff-sub">Your Summit Savings account is waiting. Tap below to complete your application on Axos — it takes about 2 minutes and there's no credit check.</p>
+          <a class="handoff-link" href="https://www.axosbank.com/recommended-for-you?products[]=DDUL" target="_blank">
+            Complete my application
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <p class="handoff-note">You'll be redirected to Axos Bank's secure application. Your information is encrypted and protected.</p>
+        </div>
+      </div>
+
+    </div><!-- /modal-right -->
+  </div><!-- /modal-card -->
+</div><!-- /modal-backdrop -->
+
 </body>
 </html>
