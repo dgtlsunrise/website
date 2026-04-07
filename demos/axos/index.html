@@ -65,7 +65,7 @@ button{cursor:pointer;font-family:inherit}
 
 /* ── Review toggle ──────────────────────────────────── */
 #rtoggle{
-  position:fixed;bottom:20px;right:16px;z-index:9000;
+  position:fixed;bottom:20px;right:16px;z-index:9001;
   background:var(--navy);color:#fff;font-size:12px;font-weight:600;
   padding:10px 15px;border-radius:22px;border:none;
   display:flex;align-items:center;gap:7px;
@@ -550,6 +550,208 @@ h2.sh em{color:#0055a4;font-style:italic}
 .mms-earn-lbl{font-size:10px;color:rgba(255,255,255,.4)}
 @media(min-width:680px){.modal-left{display:flex}}
 
+/* ── Product name banner ───────────────────────────── */
+.product-banner{
+  display:flex;flex-direction:column;align-items:flex-start;gap:0;
+  margin-bottom:28px;
+}
+.product-name{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:clamp(28px,4vw,44px);font-weight:400;
+  color:#fff;letter-spacing:-.01em;line-height:1;
+}
+.product-label{
+  font-size:13px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);margin-top:6px;font-family:-apple-system,system-ui,sans-serif;
+}
+.product-name span{color:#94C4E8}
+.product-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.product-rate-pill{
+  background:rgba(245,162,39,.15);border:1px solid rgba(245,162,39,.3);
+  border-radius:20px;padding:5px 14px;
+  font-size:13px;font-weight:600;color:var(--amber);
+  display:flex;align-items:center;gap:5px;
+}
+.product-rate-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--amber);animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)}}
+.product-pill-label{font-size:11px;color:rgba(255,255,255,.45);font-weight:400}
+
+.incomplete-banner.show{display:flex}
+
+body.ron 
+.sp-title{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:10px;display:flex;align-items:center;gap:5px}
+.sp-title::before{content:'';display:block;width:10px;height:2px;background:var(--amber)}
+.sp-group{margin-bottom:12px}
+.sp-group-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:rgba(255,255,255,.35);margin-bottom:6px}
+.sp-btn{
+  display:block;width:100%;text-align:left;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);border-radius:7px;
+  padding:7px 10px;margin-bottom:5px;
+  font-size:11px;color:rgba(255,255,255,.65);cursor:pointer;
+  transition:all .18s;font-family:inherit;
+}
+.sp-btn:hover{background:rgba(255,255,255,.09);border-color:rgba(245,162,39,.3);color:#fff}
+.sp-btn.active{background:rgba(245,162,39,.1);border-color:rgba(245,162,39,.4);color:var(--amber)}
+.sp-btn .sp-icon{display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:rgba(255,255,255,.3);margin-right:6px;vertical-align:middle;flex-shrink:0}
+.sp-btn.active .sp-icon{background:var(--amber)}
+.sp-reset{
+  width:100%;background:transparent;border:1px solid rgba(255,255,255,.1);border-radius:6px;
+  padding:6px;font-size:10px;color:rgba(255,255,255,.35);cursor:pointer;margin-top:4px;
+  transition:all .18s;font-family:inherit;
+}
+.sp-reset:hover{border-color:rgba(255,255,255,.25);color:rgba(255,255,255,.6)}
+.sp-tealium-note{background:rgba(0,137,123,.08);border:1px solid rgba(0,137,123,.2);
+  border-radius:6px;padding:8px 10px;margin-top:8px;
+  font-size:10px;color:rgba(255,255,255,.45);line-height:1.5}
+.sp-tealium-note strong{color:#4dd0c4;font-weight:500}
+
+/* ── UTM / source badge shown on page in review mode ── */
+
+body.ron 
+
+
+
+/* ── Announcement bar (dynamic CTA zone, between header and hero) ─── */
+.announcement-bar{
+  display:none;  /* hidden by default — shown by JS when scenario warrants */
+  width:100%;
+  padding:0;
+  border:none;
+}
+.announcement-bar.show{display:block}
+
+/* Incomplete application announcement */
+.ann-bar-incomplete{
+  background:linear-gradient(90deg,#1a3557 0%,#1f4070 100%);
+  border-bottom:3px solid var(--amber);
+  padding:10px clamp(16px,4vw,40px);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+/* Return visitor announcement */
+.ann-bar-returning{
+  background:#152d52;
+  border-bottom:2px solid rgba(148,196,232,.4);
+  padding:10px clamp(16px,4vw,40px);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+/* Existing customer announcement */
+.ann-bar-existing{
+  background:linear-gradient(90deg,#0f3d38 0%,#155f54 100%);
+  border-bottom:2px solid rgba(78,205,196,.35);
+  padding:10px clamp(16px,4vw,40px);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+}
+
+.ann-bar-content{display:flex;align-items:center;gap:10px;flex:1}
+.ann-bar-icon{
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.ann-bar-incomplete .ann-bar-icon{background:rgba(245,162,39,.15);border:1px solid rgba(245,162,39,.3)}
+.ann-bar-returning  .ann-bar-icon{background:rgba(148,196,232,.12);border:1px solid rgba(148,196,232,.25)}
+.ann-bar-existing   .ann-bar-icon{background:rgba(78,205,196,.12);border:1px solid rgba(78,205,196,.25)}
+.ann-bar-icon svg{width:14px;height:14px;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.ann-bar-incomplete .ann-bar-icon svg{stroke:var(--amber)}
+.ann-bar-returning  .ann-bar-icon svg{stroke:#94C4E8}
+.ann-bar-existing   .ann-bar-icon svg{stroke:#4ECDC4}
+.ann-bar-text{font-size:13px;color:#fff;line-height:1.4}
+.ann-bar-text strong{font-weight:600}
+.ann-bar-incomplete .ann-bar-text strong{color:var(--amber)}
+.ann-bar-returning  .ann-bar-text strong{color:#94C4E8}
+.ann-bar-existing   .ann-bar-text strong{color:#4ECDC4}
+.ann-bar-actions{display:flex;gap:8px;align-items:center;flex-shrink:0}
+.ann-bar-btn{
+  font-size:12px;font-weight:600;padding:7px 16px;border-radius:6px;border:none;
+  cursor:pointer;transition:all .18s;white-space:nowrap;font-family:inherit;
+}
+.ann-bar-incomplete .ann-bar-btn{background:var(--amber);color:var(--navy-dk)}
+.ann-bar-incomplete .ann-bar-btn:hover{background:#f5b240}
+.ann-bar-returning  .ann-bar-btn{background:rgba(148,196,232,.2);color:#94C4E8;border:1px solid rgba(148,196,232,.3)}
+.ann-bar-returning  .ann-bar-btn:hover{background:rgba(148,196,232,.3)}
+.ann-bar-existing   .ann-bar-btn{background:rgba(78,205,196,.2);color:#4ECDC4;border:1px solid rgba(78,205,196,.3)}
+.ann-bar-existing   .ann-bar-btn:hover{background:rgba(78,205,196,.3)}
+.ann-bar-dismiss{
+  background:none;border:none;color:rgba(255,255,255,.35);font-size:17px;
+  cursor:pointer;padding:2px 6px;line-height:1;transition:color .2s;font-family:inherit;
+}
+.ann-bar-dismiss:hover{color:#fff}
+
+
+/* ── Hero variant show/hide (visitor-existing CDP class) ───── */
+.hero-existing{display:none}
+.hero-default{display:block}
+body.visitor-existing .hero-existing{display:block}
+body.visitor-existing .hero-default{display:none}
+.existing-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,137,123,.2);
+  border:1px solid rgba(0,137,123,.4);border-radius:20px;padding:5px 12px;
+  font-size:11px;font-weight:600;color:#4dd0c4;margin-bottom:14px;letter-spacing:.04em;text-transform:uppercase}
+
+/* ── Scenario panel: hidden by default, shown in review mode ── */
+.scenario-panel{
+  display:none;
+  position:fixed;top:140px;left:16px;z-index:8000;
+  background:#0a1829;border:1px solid rgba(245,162,39,.3);border-radius:12px;
+  padding:16px;width:240px;
+  box-shadow:0 8px 32px rgba(0,0,0,.4);
+}
+
+
+/* ── Dynamic content markers (Design Review only) ─────── */
+.dyn-marker{display:none;position:absolute;top:-10px;right:-4px;z-index:50;
+  background:#7c3aed;color:#fff;font-size:9px;font-weight:700;letter-spacing:.06em;
+  padding:2px 6px;border-radius:4px;text-transform:uppercase;white-space:nowrap;pointer-events:none}
+.dyn-wrap{position:relative}
+body.ron .dyn-marker{display:block}
+body.ron .dyn-wrap{outline:1px dashed rgba(167,139,250,.35);outline-offset:3px}
+
+
+/* ── Visitor scenarios button + popup ─────────────────────────── */
+#sc-toggle{
+  position:fixed;bottom:20px;right:156px;z-index:9000;
+  background:#1A3557;color:#fff;font-size:12px;font-weight:600;
+  padding:10px 15px;border-radius:22px;border:none;
+  display:flex;align-items:center;gap:7px;
+  box-shadow:0 4px 18px rgba(0,0,0,.28);letter-spacing:.02em;
+  transition:background .2s,transform .15s;cursor:pointer;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+#sc-toggle:hover{background:#243F6A;transform:translateY(-1px)}
+#sc-toggle.sc-open{background:#243F6A}
+.sc-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);flex-shrink:0;transition:background .3s}
+#sc-toggle.sc-open .sc-dot{background:#94C4E8}
+.sc-active-label{max-width:130px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+/* Scenarios popup panel */
+#sc-popup{
+  position:fixed;bottom:60px;right:156px;z-index:8999;
+  background:#0D1F35;border:1px solid rgba(245,162,39,.28);border-radius:14px;
+  padding:16px;width:230px;
+  box-shadow:0 8px 36px rgba(0,0,0,.45);
+  display:none;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+#sc-popup.open{display:block}
+.scp-group-label{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.3);margin-bottom:7px;padding:0 2px}
+.scp-group{margin-bottom:12px}
+.scp-group:last-child{margin-bottom:0}
+.scp-btn{
+  display:flex;align-items:center;gap:8px;width:100%;text-align:left;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+  border-radius:8px;padding:8px 10px;margin-bottom:5px;
+  font-size:11px;color:rgba(255,255,255,.65);cursor:pointer;
+  transition:all .18s;font-family:inherit;
+}
+.scp-btn:last-child{margin-bottom:0}
+.scp-btn:hover{background:rgba(255,255,255,.09);border-color:rgba(245,162,39,.3);color:#fff}
+.scp-btn.active{background:rgba(245,162,39,.1);border-color:rgba(245,162,39,.4);color:var(--amber)}
+.scp-btn-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.25);flex-shrink:0;transition:background .2s}
+.scp-btn.active .scp-btn-dot{background:var(--amber)}
+.scp-divider{height:1px;background:rgba(255,255,255,.07);margin:10px 0}
+
 </style>
 </head>
 <body>
@@ -582,6 +784,14 @@ h2.sh em{color:#0055a4;font-style:italic}
   <div class="sub-item">Borrow <span class="sub-arr">&#8964;</span></div>
   <div class="sub-item">Invest <span class="sub-arr">&#8964;</span></div>
   <div class="sub-item">Plan <span class="sub-arr">&#8964;</span></div>
+
+
+
+
+
+  <div class="sb-val" id="sourceBadgeVal">Default (direct)</div>
+</div>
+
 </div>
 
 <!-- REVIEW TOGGLE -->
@@ -589,81 +799,55 @@ h2.sh em{color:#0055a4;font-style:italic}
   <span class="rt-dot"></span>Design review
 </button>
 
-
-<!-- IMAGE STRATEGY ANNOTATION (visible in Design Review mode) -->
-<div class="ann" id="ann-images">
+<!-- PERSONALIZATION ANNOTATION (Design Review mode only) -->
+<div class="ann" id="ann-personalization" style="margin-top:0">
   <div class="ann-hd">
-    <span class="ann-name">&#128247; Image strategy &mdash; where to place photography for production</span>
+    <span class="ann-name">&#127758; Dynamic personalization engine &mdash; UTM + Tealium CDP</span>
     <div class="ann-badges">
-      <span class="ab ab-c">Demo uses SVG patterns</span>
-      <span class="ab ab-w">Replace with real photos for production</span>
+      <span class="ab ab-c">10 visitor scenarios</span>
+      <span class="ab ab-w">Zero dev lift for UTM variants</span>
+      <span class="ab ab-t">Tealium integration spec below</span>
     </div>
   </div>
   <div class="ann-bd">
     <div>
-      <div class="ann-col-h c">Hero background (highest priority)</div>
+      <div class="ann-col-h c">UTM-based variants (live on this page now)</div>
       <ul class="ann-ul c-li">
-        <li><strong>Recommended image:</strong> Aspirational lifestyle &mdash; person confidently checking their phone/laptop showing a savings balance. Or an aerial view of a mountain summit (ties directly to "Summit" brand name). Clean, optimistic, financially aspirational tone.</li>
-        <li><strong>Technical spec:</strong> 1920&times;1080px minimum, JPG, ~200&ndash;400KB. The gradient overlay (already in place) will reduce it to 55&ndash;92% opacity so the text stays readable on any background.</li>
-        <li><strong>Overlay already coded:</strong> A multi-stop gradient overlay is built into the hero now &mdash; it gets darker toward the left where the headline lives, and lighter toward the right where the calculator is. This keeps both sides readable regardless of photo content.</li>
-        <li><strong>Implementation:</strong> Add <code>background-image: url('your-photo.jpg')</code> to the <code>.hero-bg</code> CSS class. The overlay layer above it handles contrast automatically.</li>
+        <li><strong>Google Search:</strong> Visitor is actively comparing HYSA rates. Headline shifts to comparison framing: "Still comparing? Summit Savings wins." Calculator pre-set to $25K. Rate comparison language in subhead.</li>
+        <li><strong>Reddit Ads:</strong> Community-primed skeptics. No marketing speak. Headline: "The HYSA rate that's actually what it says." Directly addresses teaser-rate fear in subhead. Eyebrow: "No BS, no teaser rates."</li>
+        <li><strong>Affiliate (NerdWallet etc.):</strong> Mirrors the editorial credibility of the referring source. Eyebrow: "Recommended by NerdWallet." Subhead references independent rating.</li>
+        <li><strong>Social / Display:</strong> Low-intent passive discovery. More provocative hook: "Your savings account is making someone else rich." Idle cash persona card highlighted.</li>
+        <li><strong>Email / CRM:</strong> Warm existing relationship tone. "Earn more on the money you already have at Axos." Shorter conversion path assumed.</li>
       </ul>
       <div class="ann-divider"></div>
-      <div class="ann-col-h w">Steps section background (medium priority)</div>
+      <div class="ann-col-h w">How UTM detection works</div>
       <ul class="ann-ul w-li">
-        <li><strong>Recommended image:</strong> Axos mobile app screenshot or lifestyle shot of someone on their phone. Placed on the right half of the section as a subtle reinforcement of "open in 3 minutes from your phone."</li>
-        <li><strong>Technical spec:</strong> 1400&times;800px, low-saturation works best against the dark navy. Keep image to right 40% of frame to avoid overlapping centered text.</li>
-        <li><strong>Overlay:</strong> A radial gradient overlay is already in place to fade the image toward the text area &mdash; no additional work needed.</li>
+        <li>Reads <code>utm_source</code>, <code>utm_medium</code>, <code>utm_campaign</code> from URL on page load — zero Tealium dependency for this layer.</li>
+        <li>Priority order: Tealium CDP (if available) &gt; UTM source &gt; default. CDP data always wins when present.</li>
+        <li>Swaps: eyebrow text, h1 headline, subheadline, primary CTA button copy, calculator pre-set balance, persona card highlight.</li>
+        <li>Use the <strong>scenario switcher panel</strong> (visible in Design Review mode, top-left) to preview all 10 variants live on this page.</li>
       </ul>
     </div>
     <div>
-      <div class="ann-col-h s">InsureGuard+ section (lower priority, high value)</div>
+      <div class="ann-col-h s">Tealium CDP variants (require utag.js on live page)</div>
       <ul class="ann-ul s-li">
-        <li><strong>Recommended image:</strong> Abstract representation of security/protection &mdash; a vault door, a shield, or an architectural/institutional photo. This section targets high-balance customers so the visual tone should feel premium and serious.</li>
-        <li><strong>Technical spec:</strong> 1200&times;800px, dark or desaturated image works best. Right-side placement, with diamond/hexagon geometric overlay already in place as placeholder.</li>
+        <li><strong>Incomplete application</strong> &mdash; Highest-value segment. Dismissible banner appears at top of page. Headline: "You're one step away from earning 3.75%." CTA: "Complete my application." Estimated lift: 40&ndash;60% re-engagement vs. no personalization.</li>
+        <li><strong>Existing Axos customer</strong> &mdash; Alternate hero block activates. Messaging: "Add Summit Savings in seconds &mdash; your info is pre-filled." No Axos credibility building needed. Skips the trust-building sections mentally.</li>
+        <li><strong>High-balance prospect ($100K+)</strong> &mdash; InsureGuard+ leads the subhead. Calculator pre-set to $100,000. The $265M coverage message is the primary differentiator for this segment.</li>
+        <li><strong>Return visitor, no application</strong> &mdash; Warmer re-engagement tone. Eyebrow: "Welcome back &mdash; rates updated today." Creates urgency through time reference.</li>
       </ul>
       <div class="ann-divider"></div>
-      <div class="ann-col-h b">Sections that do NOT need photos</div>
+      <div class="ann-col-h b">Tealium implementation spec for John De Vito</div>
       <ul class="ann-ul b-li">
-        <li><strong>Trust bar:</strong> Clean navy background. Icons/stats should stand alone without photo distraction.</li>
-        <li><strong>No-catch grid:</strong> White background with teal icon cards. Photo would compete with the card content.</li>
-        <li><strong>Comparison table:</strong> Data-heavy &mdash; photo backgrounds reduce readability of table cells.</li>
-        <li><strong>FAQ:</strong> White background. Clarity over decoration.</li>
-        <li><strong>Final CTA:</strong> The large rate number (3.75%) is the visual hero here. A photo background would dilute its impact. Dark navy + amber is the right call.</li>
+        <li><strong>Integration point:</strong> Populate <code>window.utag_data</code> before this page's <code>&lt;script&gt;</code> block executes, OR fire <code>applyVariant(key)</code> from a Tealium tag after AudienceStream audience resolution.</li>
+        <li><strong>Expected utag_data shape:</strong> <code>customer_type</code> ('new' | 'existing'), <code>application_status</code> ('none' | 'incomplete'), <code>visit_count</code> (Number), <code>balance_tier</code> ('standard' | 'high').</li>
+        <li><strong>AudienceStream audiences to create:</strong> (1) Incomplete_Application_Summit, (2) Existing_Customer_No_Summit, (3) HighBalance_Prospect, (4) Return_Visitor_No_App. Map each to a <code>utag_data</code> flag.</li>
+        <li><strong>A/B test hook:</strong> Tealium can 50/50 split the UTM variants independently — e.g., test Reddit headline A vs. B by appending <code>&utm_content=variant_b</code> and adding a content-key lookup to the variant map.</li>
       </ul>
-      <div class="ann-divider"></div>
-      <div class="ann-col-h t">Stock photo sources to recommend</div>
-      <ul class="ann-ul t-li">
-        <li><strong>Unsplash:</strong> free, high quality, commercial license &mdash; search "savings", "financial freedom", "mountain summit", "mobile banking"</li>
-        <li><strong>Getty / Shutterstock:</strong> for a licensed production asset. Budget ~$50&ndash;200/image.</li>
-        <li><strong>Axos brand library:</strong> check if Axos has existing approved lifestyle photography from their marketing team before sourcing externally.</li>
-      </ul>
-      <div class="ann-divider"></div>
-      <div class="ab-box">
-        <div class="ab-box-title">&#9670; Recommended A/B tests for images</div>
-        <div class="ab-test">
-          <div class="ab-test-label">Image Test 1 &mdash; Hero background: lifestyle vs. abstract</div>
-          <div class="ab-test-row">Control: <span>Mountain SVG / geometric background (current — no real photo)</span></div>
-          <div class="ab-test-row">Variant A: <span>Real lifestyle photo — person confidently using phone/laptop, financial context, optimistic tone</span></div>
-          <div class="ab-test-row">Variant B: <span>Aerial mountain summit photo — ties directly to "Summit" brand name, aspirational, premium</span></div>
-          <div class="ab-kpi">KPI: Hero scroll depth &middot; Time on page &middot; Application start rate &middot; Hypothesis: lifestyle outperforms on conversion; mountain reinforces brand</div>
-        </div>
-        <div class="ab-test">
-          <div class="ab-test-label">Image Test 2 &mdash; Hero photo with vs. without overlay text box</div>
-          <div class="ab-test-row">Control: <span>Headline and body copy directly on top of gradient overlay (current layout)</span></div>
-          <div class="ab-test-row">Variant A: <span>Semi-transparent card behind headline text — increases contrast, more legible on busy photos</span></div>
-          <div class="ab-kpi">KPI: Bounce rate &middot; Scroll depth &middot; Run this test only after a real photo is in place</div>
-        </div>
-        <div class="ab-test">
-          <div class="ab-test-label">Image Test 3 &mdash; Steps section: app screenshot vs. no image</div>
-          <div class="ab-test-row">Control: <span>Dark navy section with no real photo (current)</span></div>
-          <div class="ab-test-row">Variant A: <span>Axos mobile app screenshot faded into right side of section — shows the product, reinforces "3 minutes on your phone" message</span></div>
-          <div class="ab-kpi">KPI: Step section engagement &middot; Application start rate from steps CTA button</div>
-        </div>
-      </div>
     </div>
   </div>
 </div>
+
 <!-- ════════════════════════════════════════════════════
      HERO
      ════════════════════════════════════════════════════ -->
@@ -724,7 +908,85 @@ h2.sh em{color:#0055a4;font-style:italic}
         </div>
       </div>
     </div>
+  
+  <div style="grid-column:1/-1">
+    <div class="ann-divider"></div>
+    <div class="ann-col-h c" style="margin-bottom:6px">Background image &mdash; highest priority</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div>
+        <ul class="ann-ul c-li">
+          <li><strong>Recommended:</strong> Aspirational lifestyle &mdash; person confidently checking phone/laptop with a savings balance visible. Or an aerial mountain summit view (ties directly to "Summit" brand name). Optimistic, financially aspirational tone.</li>
+          <li><strong>Spec:</strong> 1920&times;1080px min, JPG, ~200&ndash;400KB. The gradient overlay already in place reduces opacity to 55&ndash;92% so text stays readable on any background.</li>
+          <li><strong>Implementation:</strong> Add <code>background-image: url('photo.jpg')</code> to the <code>.hero-bg</code> CSS class. The overlay handles contrast automatically &mdash; no other code changes needed.</li>
+          <li><strong>Sources:</strong> Check Axos brand library first. Unsplash (free) &mdash; search "savings", "financial freedom", "mountain summit". Getty / Shutterstock for licensed assets (~$50&ndash;200/image).</li>
+        </ul>
+      </div>
+      <div>
+        <div class="ab-box">
+          <div class="ab-box-title">&#9670; Image A/B tests &mdash; hero</div>
+          <div class="ab-test">
+            <div class="ab-test-label">Image Test 1 &mdash; Lifestyle vs. mountain summit</div>
+            <div class="ab-test-row">Control: <span>Mountain SVG (current &mdash; no real photo)</span></div>
+            <div class="ab-test-row">Variant A: <span>Lifestyle &mdash; person on phone, financial context, optimistic</span></div>
+            <div class="ab-test-row">Variant B: <span>Aerial mountain summit &mdash; aspirational, ties to "Summit" name</span></div>
+            <div class="ab-kpi">KPI: Scroll depth &middot; Time on page &middot; Application start rate</div>
+          </div>
+          <div class="ab-test">
+            <div class="ab-test-label">Image Test 2 &mdash; Overlay card vs. bare text on photo</div>
+            <div class="ab-test-row">Control: <span>Headline directly on gradient overlay (current)</span></div>
+            <div class="ab-test-row">Variant A: <span>Semi-transparent card behind headline text for contrast</span></div>
+            <div class="ab-kpi">KPI: Bounce rate &middot; Scroll depth &middot; Run after real photo is live</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════
+     ANNOUNCEMENT BAR — dynamic CTA zone (Tealium / UTM driven)
+     This is the ONLY zone between the nav and hero that may show
+     dynamic content. The nav chrome above never changes.
+     ═══════════════════════════════════════════════════════ -->
+<div class="announcement-bar" id="announcementBar">
+
+  <!-- Variant: incomplete application (highest priority) -->
+  <div class="ann-bar-incomplete" id="ann-bar-incomplete" style="display:none">
+    <div class="ann-bar-content">
+      <div class="ann-bar-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="ann-bar-text"><strong>Your application is saved.</strong> Pick up where you left off &mdash; less than 2 minutes to complete.</div>
+    </div>
+    <div class="ann-bar-actions">
+      <button class="ann-bar-btn" onclick="openModal()">Complete my application</button>
+      <button class="ann-bar-dismiss" onclick="hideAnnouncementBar()" aria-label="Dismiss">&times;</button>
+    </div>
+  </div>
+
+  <!-- Variant: return visitor -->
+  <div class="ann-bar-returning" id="ann-bar-returning" style="display:none">
+    <div class="ann-bar-content">
+      <div class="ann-bar-icon"><svg viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg></div>
+      <div class="ann-bar-text"><strong>Welcome back.</strong> Rates updated today &mdash; 3.75% APY* is still available on any balance.</div>
+    </div>
+    <div class="ann-bar-actions">
+      <button class="ann-bar-btn" onclick="openModal()">Open my account</button>
+      <button class="ann-bar-dismiss" onclick="hideAnnouncementBar()" aria-label="Dismiss">&times;</button>
+    </div>
+  </div>
+
+  <!-- Variant: existing customer upsell -->
+  <div class="ann-bar-existing" id="ann-bar-existing" style="display:none">
+    <div class="ann-bar-content">
+      <div class="ann-bar-icon"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div class="ann-bar-text"><strong>You're an Axos customer.</strong> Add Summit Savings in seconds &mdash; your details are already on file.</div>
+    </div>
+    <div class="ann-bar-actions">
+      <button class="ann-bar-btn" onclick="openModal()">Open in seconds</button>
+      <button class="ann-bar-dismiss" onclick="hideAnnouncementBar()" aria-label="Dismiss">&times;</button>
+    </div>
+  </div>
+
 </div>
 
 <div class="hero">
@@ -830,19 +1092,41 @@ h2.sh em{color:#0055a4;font-style:italic}
   <div class="w">
     <div class="hero-inner">
       <div class="hero-left">
-        <div class="eyebrow rv">High-yield savings account</div>
-        <h1 class="hero-h rv d1">Other banks have been<br><em>quietly costing you money.</em></h1>
-        <p class="hero-sub rv d2">Most Americans earn under 0.5% on their savings. Axos Summit Savings pays <strong style="color:rgba(255,255,255,.8)">3.75% APY*</strong> on any balance &mdash; no fees, no minimums, no fine print.</p>
+        
+<div class="product-banner rv">
+          <div class="product-name">Summit <span>Savings</span></div>
+          <div class="product-label" id="hero-eyebrow">High-yield savings account</div>
+        </div>
+        <!-- EXISTING CUSTOMER VARIANT (Tealium CDP: customer_type=existing) -->
+        <div class="hero-existing">
+          <div class="existing-badge">&#10003; &nbsp;Axos customer</div>
+          <div class="eyebrow" style="justify-content:flex-start">Add Summit Savings to your account</div>
+          <h1 class="hero-h" id="hero-h1-existing">Your money in Axos.<br><em>Now earning more of it.</em></h1>
+          <p class="hero-sub">Your information is already saved. Open Summit Savings in seconds — no re-entering your details, no credit check.</p>
+          <div class="hero-rate-block">
+            <div class="rlbl">Current rate &mdash; updated April 6, 2026</div>
+            <div class="rrow"><div class="rbig">3.75</div><div class="runit">% APY*</div></div>
+            <div class="rnote">Variable rate &middot; Set daily &middot; No teaser pricing</div>
+          </div>
+          <div class="ctas">
+            <button class="btn btn-amber" onclick="openModal()">Open in seconds &mdash; info pre-filled</button>
+          </div>
+        </div>
+        <!-- DEFAULT HERO (all other visitors) -->
+        <div class="hero-default">
+        <div class="dyn-wrap"><h1 class="hero-h rv d1" id="hero-h1">Other banks have been<br><em>quietly costing you money.</em></h1><span class="dyn-marker">UTM + CDP</span></div>
+        <div class="dyn-wrap"><p class="hero-sub rv d2" id="hero-sub">Most Americans earn under 0.5% on their savings. Axos Summit Savings pays <strong style="color:rgba(255,255,255,.8)">3.75% APY*</strong> on any balance &mdash; no fees, no minimums, no fine print.</p><span class="dyn-marker">UTM source</span></div>
         <div class="hero-rate-block rv d3">
           <div class="rlbl">Current rate &mdash; updated April 6, 2026</div>
           <div class="rrow"><div class="rbig" id="rnum">0.00</div><div class="runit">% APY*</div></div>
           <div class="rnote">Variable rate &middot; Set daily &middot; No teaser pricing</div>
         </div>
         <div class="hero-ctas rv d4">
-          <button class="btn btn-amber" onclick="openModal()">Open my account</button>
+          <div class="dyn-wrap"><button class="btn btn-amber" onclick="openModal()" id="hero-cta-btn">Open my account</button><span class="dyn-marker">CDP intent</span></div>
           <button class="btn btn-ghost" onclick="scrollToCalc()">Run my numbers</button>
         </div>
-      </div>
+        </div><!-- /hero-default -->
+      </div><!-- /hero-left -->
       <div class="hero-right rvr d2">
         <div class="hero-calc">
           <div class="hc-lbl">If I currently have saved...</div>
@@ -883,6 +1167,14 @@ h2.sh em{color:#0055a4;font-style:italic}
       <div class="ann-col-h b" style="margin-top:10px">Where we beat them</div>
       <ul class="ann-ul b-li"><li>No competitor stacks <strong>all 5 trust signals</strong> in one scannable bar. Most use 2&ndash;3. Our wall of credibility is harder to dismiss.</li></ul>
     </div>
+  
+  <div style="grid-column:1/-1">
+    <div class="ann-divider"></div>
+    <div class="ann-col-h b" style="margin-bottom:6px">Background image &mdash; not recommended</div>
+    <ul class="ann-ul b-li">
+      <li>Clean navy background is intentional. The trust bar's job is pure signal density &mdash; five statistics in a scannable row. A photo background would compete with the numbers and reduce legibility. No image needed here.</li>
+    </ul>
+  </div>
   </div>
 </div>
 
@@ -980,6 +1272,14 @@ h2.sh em{color:#0055a4;font-style:italic}
         </div>
       </div>
     </div>
+  
+  <div style="grid-column:1/-1">
+    <div class="ann-divider"></div>
+    <div class="ann-col-h b" style="margin-bottom:6px">Background image &mdash; not recommended</div>
+    <ul class="ann-ul b-li">
+      <li>White background with teal icon cards. A photo would compete directly with the 4-card grid content. The cards need to be the visual focus. No image needed here.</li>
+    </ul>
+  </div>
   </div>
 </div>
 
@@ -1032,6 +1332,14 @@ h2.sh em{color:#0055a4;font-style:italic}
       <div class="ann-col-h b" style="margin-top:10px">Where we beat them</div>
       <ul class="ann-ul b-li"><li>SoFi's personas are lifestyle labels. Ours show <strong>specific dollar earnings</strong> per scenario &mdash; concrete, not aspirational.</li></ul>
     </div>
+  
+  <div style="grid-column:1/-1">
+    <div class="ann-divider"></div>
+    <div class="ann-col-h b" style="margin-bottom:6px">Background image &mdash; not recommended</div>
+    <ul class="ann-ul b-li">
+      <li>White background keeps the persona cards scannable and self-contained. A background photo would blur the distinction between the page background and the card surfaces. No image needed here.</li>
+    </ul>
+  </div>
   </div>
 </div>
 
@@ -1081,6 +1389,31 @@ h2.sh em{color:#0055a4;font-style:italic}
       <div class="ann-col-h b" style="margin-top:10px">Where we beat them</div>
       <ul class="ann-ul b-li"><li>We're the only HYSA page to include <strong>time estimates per step</strong>. Ally and Marcus list steps without timing. Ours is a commitment.</li></ul>
     </div>
+  
+  <div style="grid-column:1/-1">
+    <div class="ann-divider"></div>
+    <div class="ann-col-h w" style="margin-bottom:6px">Background image &mdash; medium priority</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div>
+        <ul class="ann-ul w-li">
+          <li><strong>Recommended:</strong> Axos mobile app screenshot, or a lifestyle shot of someone on their phone. Placed on the right half of the section as a visual reinforcement of "open in 3 minutes from your phone."</li>
+          <li><strong>Spec:</strong> 1400&times;800px. Low-saturation or dark-toned image works best against the navy. Keep subject to the right 40% of frame to avoid overlapping the centered step text.</li>
+          <li><strong>Implementation:</strong> A radial gradient overlay already fades the image toward the text area &mdash; add <code>background-image: url('photo.jpg')</code> to the <code>.steps-sec-bg</code> CSS class.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="ab-box">
+          <div class="ab-box-title">&#9670; Image A/B test &mdash; steps section</div>
+          <div class="ab-test">
+            <div class="ab-test-label">Image Test 3 &mdash; App screenshot vs. no image</div>
+            <div class="ab-test-row">Control: <span>Dark navy section, no photo (current)</span></div>
+            <div class="ab-test-row">Variant A: <span>Axos app screenshot faded into right side &mdash; shows the product, reinforces the "3 minutes on your phone" message viscerally</span></div>
+            <div class="ab-kpi">KPI: Step section scroll depth &middot; Application start rate from steps CTA</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
 </div>
 
@@ -1146,6 +1479,14 @@ h2.sh em{color:#0055a4;font-style:italic}
         </div>
       </div>
     </div>
+  
+  <div style="grid-column:1/-1">
+    <div class="ann-divider"></div>
+    <div class="ann-col-h b" style="margin-bottom:6px">Background image &mdash; not recommended</div>
+    <ul class="ann-ul b-li">
+      <li>The off-white section background keeps focus on the calculator interaction and the earnings results. A photo background would distract from the slider interaction and make the result numbers harder to read. No image needed here.</li>
+    </ul>
+  </div>
   </div>
 </div>
 
@@ -1212,6 +1553,14 @@ h2.sh em{color:#0055a4;font-style:italic}
       <div class="ann-col-h b" style="margin-top:10px">Where we beat them</div>
       <ul class="ann-ul b-li"><li><strong>95,000+ fee-free ATMs</strong> for a savings account &mdash; unique in the category.</li><li><strong>InsureGuard+ ($265M coverage)</strong> has zero competitor equivalent.</li><li><strong>Free incoming wires</strong> &mdash; not one major competitor offers this on savings.</li></ul>
     </div>
+  
+  <div style="grid-column:1/-1">
+    <div class="ann-divider"></div>
+    <div class="ann-col-h b" style="margin-bottom:6px">Background image &mdash; not recommended</div>
+    <ul class="ann-ul b-li">
+      <li>Data-heavy table content. Photo backgrounds reduce table cell readability significantly and create contrast issues across every row. White background is the correct call for any comparison table. No image needed here.</li>
+    </ul>
+  </div>
   </div>
 </div>
 
@@ -1265,6 +1614,14 @@ h2.sh em{color:#0055a4;font-style:italic}
       <div class="ann-col-h b" style="margin-top:10px">Where we beat them</div>
       <ul class="ann-ul b-li"><li>Competitors use generic praise ("love this bank!"). Ours are <strong>sequenced to a specific objection ladder.</strong> Generic praise entertains. Objection-matched testimonials convert.</li></ul>
     </div>
+  
+  <div style="grid-column:1/-1">
+    <div class="ann-divider"></div>
+    <div class="ann-col-h b" style="margin-bottom:6px">Background image &mdash; not recommended</div>
+    <ul class="ann-ul b-li">
+      <li>The off-white section background and white review cards create a clean, credible reading environment. A photo background would undermine the "authentic customer review" feel. No image needed here.</li>
+    </ul>
+  </div>
   </div>
 </div>
 
@@ -1309,6 +1666,31 @@ h2.sh em{color:#0055a4;font-style:italic}
       <div class="ann-col-h b" style="margin-top:10px">Where we beat them</div>
       <ul class="ann-ul b-li"><li><strong>Every competitor.</strong> Capital One, Chase, Marcus, SoFi &mdash; none offer extended FDIC coverage. Axos is the only HYSA competitive on rate <em>and</em> offering institutional-grade protection.</li></ul>
     </div>
+  
+  <div style="grid-column:1/-1">
+    <div class="ann-divider"></div>
+    <div class="ann-col-h s" style="margin-bottom:6px">Background image &mdash; lower priority, high value</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+      <div>
+        <ul class="ann-ul s-li">
+          <li><strong>Recommended:</strong> Abstract representation of security and protection &mdash; a vault door, architectural columns, or a shield form. This section targets high-balance customers and the visual tone should feel institutional, premium, and serious.</li>
+          <li><strong>Spec:</strong> 1200&times;800px. Dark or heavily desaturated image works best against the navy background. Right-side placement; a diamond/hexagon geometric SVG overlay is already in place as a placeholder.</li>
+          <li><strong>Implementation:</strong> Add <code>background-image: url('photo.jpg')</code> to the <code>.ig-sec-bg</code> CSS class. The geometric overlay remains on top.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="ab-box">
+          <div class="ab-box-title">&#9670; Image A/B test &mdash; InsureGuard+ section</div>
+          <div class="ab-test">
+            <div class="ab-test-label">Image Test 4 &mdash; Security photo vs. geometric pattern</div>
+            <div class="ab-test-row">Control: <span>Geometric SVG pattern (current &mdash; no real photo)</span></div>
+            <div class="ab-test-row">Variant A: <span>Vault / architectural photo &mdash; institutional, premium, reinforces $265M coverage claim</span></div>
+            <div class="ab-kpi">KPI: InsureGuard+ CTA click rate &middot; Time on section &middot; Most impactful for high-balance segments</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   </div>
 </div>
 
@@ -1350,6 +1732,14 @@ h2.sh em{color:#0055a4;font-style:italic}
       <div class="ann-col-h b" style="margin-top:10px">Where we beat them</div>
       <ul class="ann-ul b-li"><li>Added <strong>"Does opening affect my credit score?"</strong> &mdash; highly searched by first-time online banking users; no major competitor FAQ includes this.</li><li>Added <strong>"Can I open multiple accounts?"</strong> &mdash; increases average account value per customer.</li></ul>
     </div>
+  
+  <div style="grid-column:1/-1">
+    <div class="ann-divider"></div>
+    <div class="ann-col-h b" style="margin-bottom:6px">Background image &mdash; not recommended</div>
+    <ul class="ann-ul b-li">
+      <li>White background maximises FAQ readability. The accordion interaction needs a clean, distraction-free environment. A photo background would create contrast issues on the question text and undermine the "clear answers" intent of the section. No image needed here.</li>
+    </ul>
+  </div>
   </div>
 </div>
 
@@ -1400,6 +1790,14 @@ h2.sh em{color:#0055a4;font-style:italic}
         </div>
       </div>
     </div>
+  
+  <div style="grid-column:1/-1">
+    <div class="ann-divider"></div>
+    <div class="ann-col-h b" style="margin-bottom:6px">Background image &mdash; not recommended</div>
+    <ul class="ann-ul b-li">
+      <li>The large 3.75% rate number is the intentional visual hero of this section. A photo background would dilute its impact and draw the eye away from the number at the exact moment of conversion. Dark navy + amber gradient is the correct call. No image needed here.</li>
+    </ul>
+  </div>
   </div>
 </div>
 
@@ -1684,6 +2082,270 @@ window.addEventListener('resize', function(){
   if(lp) lp.style.display = window.innerWidth >= 680 ? 'flex' : 'none';
 });
 
+// ═══════════════════════════════════════════════════════════════════════════
+// PERSONALIZATION ENGINE
+// Combines UTM parameter reading + Tealium CDP data + scenario switcher
+// ═══════════════════════════════════════════════════════════════════════════
+
+// ── UTM reader ─────────────────────────────────────────────────────────────
+function getUTM(){
+  var p = new URLSearchParams(window.location.search);
+  return {
+    source:   p.get('utm_source')   || '',
+    medium:   p.get('utm_medium')   || '',
+    campaign: p.get('utm_campaign') || '',
+    content:  p.get('utm_content')  || '',
+    term:     p.get('utm_term')     || ''
+  };
+}
+
+// ── Content variant map ────────────────────────────────────────────────────
+// Each scenario defines: eyebrow, headline, subhead, ctaText, highlightPersona
+var VARIANTS = {
+
+  default: {
+    eyebrow:    'High-yield savings account',
+    headline:   'Other banks have been<br><em>quietly costing you money.</em>',
+    subhead:    'Most Americans earn under 0.5% on their savings. Axos Summit Savings pays <strong style="color:rgba(255,255,255,.8)">3.75% APY*</strong> on any balance — no fees, no minimums, no fine print.',
+    ctaText:    'Open my account',
+    calcBalance: 10000,
+    highlightPersona: null,
+    sourceBadge: 'Default (direct / unknown)',
+    bannerMode: null
+  },
+
+  search: {
+    // Google Search: high intent, comparing rates. Lead with comparison frame.
+    eyebrow:    'Best high-yield savings — 2026',
+    headline:   'Still comparing? <br><em>Summit Savings wins.</em>',
+    subhead:    'Axos Summit Savings pays <strong style="color:rgba(255,255,255,.8)">3.75% APY*</strong> — higher than Capital One 360, no monthly fees, no minimum balance, and an ATM card no competitor offers. No teaser rate.',
+    ctaText:    'Get my rate now',
+    calcBalance: 25000,
+    highlightPersona: null,
+    sourceBadge: 'Google Search (utm_medium=cpc)',
+    bannerMode: null
+  },
+
+  reddit: {
+    // Reddit: skeptical audience, community-primed against marketing speak. Be direct.
+    eyebrow:    'No BS, no teaser rates',
+    headline:   'The HYSA rate that\'s<br><em>actually what it says.</em>',
+    subhead:    '3.75% APY* on any balance. No "introductory period." No direct deposit requirement. No fine print that changes the number. We\'ve been doing this for 25 years.',
+    ctaText:    'See what I\'d earn',
+    calcBalance: 15000,
+    highlightPersona: null,
+    sourceBadge: 'Reddit Ads (utm_source=reddit)',
+    bannerMode: null
+  },
+
+  affiliate: {
+    // Affiliate (NerdWallet, Bankrate): pre-qualified, trust the source, mirror their framing.
+    eyebrow:    'Recommended by NerdWallet',
+    headline:   'The savings account<br><em>that earned the rating.</em>',
+    subhead:    'Axos Summit Savings is independently rated one of the top high-yield savings accounts of 2026. <strong style="color:rgba(255,255,255,.8)">3.75% APY*</strong> — verified, no minimums, no monthly fees.',
+    ctaText:    'Open my account',
+    calcBalance: 25000,
+    highlightPersona: null,
+    sourceBadge: 'Affiliate — NerdWallet (utm_source=nerdwallet)',
+    bannerMode: null
+  },
+
+  social: {
+    // Display/Social: low-to-mid intent, passive discovery. They weren't looking. Plant the seed.
+    eyebrow:    'You probably haven\'t thought about this',
+    headline:   'Your savings account<br><em>is making someone else rich.</em>',
+    subhead:    'Big banks pay 0.01% while they lend your money out at 7%. Axos Summit Savings pays you <strong style="color:rgba(255,255,255,.8)">3.75% APY*</strong> back. No fees. Takes 3 minutes to switch.',
+    ctaText:    'See how much I\'m missing',
+    calcBalance: 10000,
+    highlightPersona: 2, // highlight "idle cash" persona
+    sourceBadge: 'Social / Display (utm_medium=display)',
+    bannerMode: null
+  },
+
+  email: {
+    // Email: existing Axos relationship, warm. They know us.
+    eyebrow:    'From Axos — for account holders',
+    headline:   'Earn more on the money<br><em>you already have at Axos.</em>',
+    subhead:    'Summit Savings pays <strong style="color:rgba(255,255,255,.8)">3.75% APY*</strong> — add it to your existing account in seconds. Your information is already on file.',
+    ctaText:    'Add Summit Savings',
+    calcBalance: 25000,
+    highlightPersona: null,
+    sourceBadge: 'Email / CRM (utm_medium=email)',
+    bannerMode: null
+  },
+
+  returning: {
+    // Return visitor, no application. Warmer tone, acknowledge prior visit.
+    eyebrow:    'Welcome back — rates updated today',
+    headline:   'Still thinking about it?<br><em>The rate\'s still 3.75%.</em>',
+    subhead:    'You\'ve seen the numbers. Axos Summit Savings pays <strong style="color:rgba(255,255,255,.8)">3.75% APY*</strong> on any balance with no fees. Every day you wait is money left on the table.',
+    ctaText:    'Open my account today',
+    calcBalance: 15000,
+    highlightPersona: null,
+    sourceBadge: 'Tealium CDP: return visitor (no app)',
+    bannerMode: 'returning'
+  },
+
+  incomplete: {
+    // Incomplete application. Highest-intent segment. Single-minded.
+    eyebrow:    'Your application is saved',
+    headline:   'You\'re one step away<br><em>from earning 3.75%.</em>',
+    subhead:    'Your Summit Savings application is in progress. Complete it now — takes less than 2 minutes and your place is saved.',
+    ctaText:    'Complete my application',
+    calcBalance: 10000,
+    highlightPersona: null,
+    sourceBadge: 'Tealium CDP: incomplete application',
+    bannerMode: 'incomplete'
+  },
+
+  existing: {
+    // Existing Axos customer. Don't sell Axos — sell the add-on.
+    eyebrow:    'Exclusively for Axos customers',
+    headline:   'Your money in Axos.<br><em>Now earning more of it.</em>',
+    subhead:    'Add Summit Savings to your existing account in seconds. Your information is already on file — no forms to refill, no credit check.',
+    ctaText:    'Open in seconds — info pre-filled',
+    calcBalance: 25000,
+    highlightPersona: null,
+    sourceBadge: 'Tealium CDP: existing customer',
+    bannerMode: 'existing'
+  },
+
+  highbal: {
+    // High-balance prospect. Lead with InsureGuard+, not basic rate.
+    eyebrow:    'For balances over $100,000',
+    headline:   'The only HYSA with<br><em>institutional-grade protection.</em>',
+    subhead:    '<strong style="color:rgba(255,255,255,.8)">3.75% APY*</strong> on any balance — plus Axos InsureGuard+ Savings protects up to $265 million through IntraFi Network Deposits. No other HYSA comes close.',
+    ctaText:    'Open my account',
+    calcBalance: 100000,
+    highlightPersona: null,
+    sourceBadge: 'Tealium CDP: high-balance prospect',
+    bannerMode: null
+  }
+};
+
+// ── Apply a variant to the page ─────────────────────────────────────────────
+var currentScenario = 'default';
+
+function applyVariant(key){
+  var v = VARIANTS[key] || VARIANTS['default'];
+  currentScenario = key;
+
+  // Hero text
+  var ey = document.getElementById('hero-eyebrow');
+  var h1 = document.getElementById('hero-h1');
+  var hs = document.getElementById('hero-sub');
+  var cb = document.getElementById('hero-cta-btn');
+  if(ey) ey.textContent = v.eyebrow;
+  if(h1) h1.innerHTML  = v.headline;
+  if(hs) hs.innerHTML  = v.subhead;
+  if(cb) cb.textContent = v.ctaText;
+
+  // Calculator balance
+  var fcb = document.getElementById('fc-b');
+  var hin = document.getElementById('hero-in');
+  if(fcb && v.calcBalance){ fcb.value = v.calcBalance; uFC(); }
+  if(hin && v.calcBalance){ hin.value = v.calcBalance; uHero(); }
+
+  // Persona highlight
+  var pcards = document.querySelectorAll('.pcard');
+  pcards.forEach(function(c,i){
+    c.style.borderColor = (v.highlightPersona === i+1) ? 'var(--amber)' : '';
+    c.style.boxShadow   = (v.highlightPersona === i+1) ? '0 0 0 2px var(--amber)' : '';
+  });
+
+  // Existing customer hero swap
+  if(key === 'existing'){
+    document.body.classList.add('visitor-existing');
+  } else {
+    document.body.classList.remove('visitor-existing');
+  }
+
+  // Announcement bar
+  showAnnouncementBar(v.bannerMode);
+
+  // Source badge
+  var sb = document.getElementById('sourceBadgeVal');
+  if(sb) sb.textContent = v.sourceBadge || key;
+
+  // (scenario panel buttons handled by applyScenario wrapper)
+
+  // If high-balance, scroll InsureGuard section into slightly more prominent position
+  // (just ensure it's visible in viewport when modal opens)
+}
+
+// ── Scenario switcher (legacy alias) ─────────────────────────────────────
+function setScenario(key){ applyScenario(key); }
+
+// ── Announcement bar helpers ────────────────────────────────────────────────
+function showAnnouncementBar(mode){
+  var bar = document.getElementById('announcementBar');
+  if(!bar) return;
+  // Hide all variants first
+  ['incomplete','returning','existing'].forEach(function(v){
+    var el = document.getElementById('ann-bar-'+v);
+    if(el) el.style.display = 'none';
+  });
+  if(mode && ['incomplete','returning','existing'].indexOf(mode) >= 0){
+    var active = document.getElementById('ann-bar-'+mode);
+    if(active) active.style.display = 'flex';
+    bar.classList.add('show');
+  } else {
+    bar.classList.remove('show');
+  }
+}
+function hideAnnouncementBar(){
+  var bar = document.getElementById('announcementBar');
+  if(bar) bar.classList.remove('show');
+}
+
+// ── Auto-detect UTM params on load ─────────────────────────────────────────
+function detectAndApply(){
+  var utm = getUTM();
+  var key = 'default';
+
+  if(utm.medium === 'email' || utm.source === 'email')      key = 'email';
+  else if(utm.source === 'reddit')                           key = 'reddit';
+  else if(utm.source === 'nerdwallet' ||
+          utm.source === 'bankrate' ||
+          utm.source === 'thepointsguy' ||
+          utm.medium === 'affiliate')                        key = 'affiliate';
+  else if(utm.medium === 'cpc' || utm.medium === 'ppc' ||
+          utm.source === 'google')                           key = 'search';
+  else if(utm.medium === 'display' || utm.medium === 'social' ||
+          utm.source === 'facebook' || utm.source === 'instagram') key = 'social';
+
+  // ── Tealium CDP integration point ────────────────────────────────────────
+  // John De Vito's team: populate window.utag_data BEFORE this script runs,
+  // or fire applyVariant() from a Tealium tag after audience resolution.
+  //
+  // Expected utag_data shape:
+  // window.utag_data = {
+  //   customer_type:        'new' | 'existing' | 'prospect',
+  //   application_status:   'none' | 'incomplete' | 'complete',
+  //   visit_count:          Number,
+  //   balance_tier:         'standard' | 'high' | null,
+  //   axos_audience:        String   // Tealium AudienceStream audience name
+  // }
+  //
+  // CDP overrides take priority over UTM source:
+  if(window.utag_data){
+    var td = window.utag_data;
+    if(td.application_status === 'incomplete')      key = 'incomplete';
+    else if(td.customer_type === 'existing')         key = 'existing';
+    else if(td.balance_tier === 'high')              key = 'highbal';
+    else if(td.visit_count > 1 && key === 'default') key = 'returning';
+  }
+
+  applyVariant(key);
+}
+
+// Run on load
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', detectAndApply);
+} else {
+  detectAndApply();
+}
+
 // Keep scrollToFinal as fallback (used nowhere now but kept for safety)
 function scrollToFinal(){openModal()}
 
@@ -1796,9 +2458,83 @@ function toggleReview(){
     if(first)setTimeout(function(){first.scrollIntoView({behavior:'smooth',block:'nearest'})},100);
   }
 }
+
+// ── Visitor scenarios popup ───────────────────────────────────────────────
+var scPopupOpen = false;
+
+function toggleScenarioPopup(){
+  scPopupOpen = !scPopupOpen;
+  var popup = document.getElementById("sc-popup");
+  var btn   = document.getElementById("sc-toggle");
+  if(popup) popup.classList.toggle("open", scPopupOpen);
+  if(btn)   btn.classList.toggle("sc-open", scPopupOpen);
+}
+
+document.addEventListener("click", function(e){
+  if(!scPopupOpen) return;
+  var popup  = document.getElementById("sc-popup");
+  var toggle = document.getElementById("sc-toggle");
+  if(popup && toggle && !popup.contains(e.target) && !toggle.contains(e.target)){
+    scPopupOpen = false;
+    popup.classList.remove("open");
+    toggle.classList.remove("sc-open");
+  }
+});
+
+function applyScenario(key){
+  applyVariant(key);
+  document.querySelectorAll(".scp-btn").forEach(function(b){ b.classList.remove("active"); });
+  var ab = document.getElementById("scp-"+key);
+  if(ab) ab.classList.add("active");
+  var labels = {default:"Default",search:"Google Search",reddit:"Reddit Ads",
+    affiliate:"Affiliate",social:"Social / Display",email:"Email (CRM)",
+    returning:"Return visitor",incomplete:"Incomplete app",
+    existing:"Existing customer",highbal:"High balance"};
+  var lel = document.getElementById("sc-active-label");
+  if(lel) lel.textContent = labels[key] || key;
+  setTimeout(function(){
+    scPopupOpen = false;
+    var p = document.getElementById("sc-popup");
+    var t = document.getElementById("sc-toggle");
+    if(p) p.classList.remove("open");
+    if(t) t.classList.remove("sc-open");
+  }, 600);
+}
+
 </script>
 
 
+<!-- ═══════════════════════════════════════════════
+     VISITOR SCENARIOS BUTTON + POPUP (always available)
+     ═══════════════════════════════════════════════ -->
+<button id="sc-toggle" onclick="toggleScenarioPopup()" aria-label="Switch visitor scenario">
+  <span class="sc-dot"></span>
+  <span class="sc-active-label" id="sc-active-label">Visitor scenarios</span>
+</button>
+
+<div id="sc-popup" role="menu">
+
+  <div class="scp-group">
+    <div class="scp-group-label">UTM / traffic source</div>
+    <button class="scp-btn active" id="scp-default" onclick="applyScenario('default')"><span class="scp-btn-dot"></span>Default (direct / unknown)</button>
+    <button class="scp-btn" id="scp-search"    onclick="applyScenario('search')"><span class="scp-btn-dot"></span>Google Search</button>
+    <button class="scp-btn" id="scp-reddit"    onclick="applyScenario('reddit')"><span class="scp-btn-dot"></span>Reddit Ads</button>
+    <button class="scp-btn" id="scp-affiliate" onclick="applyScenario('affiliate')"><span class="scp-btn-dot"></span>Affiliate (NerdWallet)</button>
+    <button class="scp-btn" id="scp-social"    onclick="applyScenario('social')"><span class="scp-btn-dot"></span>Social / Display</button>
+    <button class="scp-btn" id="scp-email"     onclick="applyScenario('email')"><span class="scp-btn-dot"></span>Email (Axos CRM)</button>
+  </div>
+
+  <div class="scp-divider"></div>
+
+  <div class="scp-group">
+    <div class="scp-group-label">Tealium CDP &mdash; visitor profile</div>
+    <button class="scp-btn" id="scp-returning"  onclick="applyScenario('returning')"><span class="scp-btn-dot"></span>Return visitor, no app</button>
+    <button class="scp-btn" id="scp-incomplete" onclick="applyScenario('incomplete')"><span class="scp-btn-dot"></span>Incomplete application</button>
+    <button class="scp-btn" id="scp-existing"   onclick="applyScenario('existing')"><span class="scp-btn-dot"></span>Existing Axos customer</button>
+    <button class="scp-btn" id="scp-highbal"    onclick="applyScenario('highbal')"><span class="scp-btn-dot"></span>High-balance ($100K+)</button>
+  </div>
+
+</div>
 
 </body>
 </html>
