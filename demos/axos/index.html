@@ -1410,6 +1410,124 @@ h2.sh em{color:#0055a4;font-style:italic}
   </div>
 </div>
 
+<!-- ═══════════════════════════════════════════════
+     APPLICATION MODAL
+     ═══════════════════════════════════════════════ -->
+<div class="modal-backdrop" id="appModal" role="dialog" aria-modal="true" aria-label="Open Summit Savings account">
+  <div class="modal-card">
+
+    <!-- Mobile summary bar (replaces left panel on small screens) -->
+    <div class="modal-mobile-summary">
+      <div>
+        <div class="mms-rate">3.75%</div>
+        <div class="mms-label">APY* — Summit Savings</div>
+      </div>
+      <div class="mms-earn">
+        <div class="mms-earn-amt" id="modal-mobile-earn">$375/yr</div>
+        <div class="mms-earn-lbl">on your balance</div>
+      </div>
+    </div>
+
+    <!-- Left panel -->
+    <div class="modal-left" style="display:none">
+      <div class="modal-left-bg" aria-hidden="true"></div>
+      <div class="modal-left-content">
+        <div class="ml-eyebrow">Summit Savings</div>
+        <div class="ml-rate">3.75%</div>
+        <div class="ml-apy">APY* · No minimums · No fees</div>
+        <div class="ml-earnings-card">
+          <div class="ml-ec-label">Your estimated earnings</div>
+          <div class="ml-ec-amount" id="modal-earn-amt">$375</div>
+          <div class="ml-ec-period" id="modal-earn-period">per year on $10,000</div>
+        </div>
+        <div class="ml-checks">
+          <div class="ml-check"><div class="ml-check-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Open in under 3 minutes</div>
+          <div class="ml-check"><div class="ml-check-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>No hard credit check</div>
+          <div class="ml-check"><div class="ml-check-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>No minimum deposit</div>
+          <div class="ml-check"><div class="ml-check-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>No monthly fees — ever</div>
+        </div>
+      </div>
+      <div class="ml-trust">
+        <span class="ml-fdic">FDIC</span>
+        Insured to $250,000 · Axos Bank, Est. 2000
+      </div>
+    </div>
+
+    <!-- Right panel -->
+    <div class="modal-right" style="position:relative">
+      <button class="modal-close" onclick="closeModal()" aria-label="Close">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+
+      <!-- Step indicators -->
+      <div class="modal-steps" role="tablist">
+        <button class="modal-step-btn active" id="step-btn-1" role="tab"><span class="modal-step-num">1</span>Get started</button>
+        <button class="modal-step-btn" id="step-btn-2" role="tab"><span class="modal-step-num">2</span>Your details</button>
+        <button class="modal-step-btn" id="step-btn-3" role="tab"><span class="modal-step-num">3</span>Open account</button>
+      </div>
+
+      <!-- ── STEP 1: Email ── -->
+      <div class="modal-panel active" id="modal-step-1">
+        <h2>Start earning<br>3.75% APY today.</h2>
+        <p class="mp-sub">Enter your email and we'll get you set up in under 3 minutes.</p>
+        <div class="field-group">
+          <div class="field-wrap" id="wrap-email">
+            <label class="field-label" for="m-email">Email address</label>
+            <input class="field-input" id="m-email" type="email" placeholder="you@email.com" inputmode="email" autocomplete="email" autocapitalize="off">
+            <span class="field-error">Please enter a valid email address</span>
+          </div>
+        </div>
+        <button class="modal-btn-primary" onclick="goToStep2()">
+          Continue
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <p class="modal-legal">By continuing you agree to Axos Bank's <a href="https://www.axosbank.com/legal/privacy" target="_blank">Privacy Policy</a> and <a href="https://www.axosbank.com/legal/disclosures" target="_blank">Terms</a>.</p>
+      </div>
+
+      <!-- ── STEP 2: Name ── -->
+      <div class="modal-panel" id="modal-step-2">
+        <h2>Almost there.</h2>
+        <p class="mp-sub">Just your name to personalize your account. That's it for now.</p>
+        <div class="field-group">
+          <div class="name-row">
+            <div class="field-wrap" id="wrap-fname">
+              <label class="field-label" for="m-fname">First name</label>
+              <input class="field-input" id="m-fname" type="text" placeholder="First" autocomplete="given-name">
+              <span class="field-error">Required</span>
+            </div>
+            <div class="field-wrap" id="wrap-lname">
+              <label class="field-label" for="m-lname">Last name</label>
+              <input class="field-input" id="m-lname" type="text" placeholder="Last" autocomplete="family-name">
+              <span class="field-error">Required</span>
+            </div>
+          </div>
+        </div>
+        <button class="modal-btn-primary" onclick="goToStep3()">
+          Open my account
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <p class="modal-legal">No credit check. Deposits FDIC insured to $250K.</p>
+      </div>
+
+      <!-- ── STEP 3: Handoff ── -->
+      <div class="modal-panel" id="modal-step-3">
+        <div class="handoff-wrap">
+          <div class="handoff-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="handoff-title" id="handoff-title">You're ready, there.</div>
+          <p class="handoff-sub">Your Summit Savings account is waiting. Tap below to complete your application on Axos — it takes about 2 minutes and there's no credit check.</p>
+          <a class="handoff-link" href="https://www.axosbank.com/recommended-for-you?products[]=DDUL" target="_blank">
+            Complete my application
+            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+          <p class="handoff-note">You'll be redirected to Axos Bank's secure application. Your information is encrypted and protected.</p>
+        </div>
+      </div>
+
+    </div><!-- /modal-right -->
+  </div><!-- /modal-card -->
+</div><!-- /modal-backdrop -->
 <script>
 // ── Helpers ──────────────────────────────────────────
 function cpd(p,r,y){return p*(Math.pow(1+r/365,365*y)-1)}
@@ -1475,9 +1593,12 @@ function closeModal(){
   document.body.style.overflow = '';
 }
 
-// Close on backdrop click
-document.getElementById('appModal').addEventListener('click', function(e){
-  if(e.target === this) closeModal();
+// Close on backdrop click — wrapped in DOMContentLoaded so appModal exists
+document.addEventListener('DOMContentLoaded', function(){
+  var bd = document.getElementById('appModal');
+  if(bd) bd.addEventListener('click', function(e){
+    if(e.target === this) closeModal();
+  });
 });
 
 // Close on Escape
@@ -1528,7 +1649,7 @@ function goToStep3(){
 
   // Update handoff title with first name
   var titleEl = document.getElementById('handoff-title');
-  if(titleEl) titleEl.textContent = 'You're all set, ' + fn + '.';
+  if(titleEl) titleEl.textContent = "You're all set, " + fn + ".";
 
   setStep(3);
 }
@@ -1654,124 +1775,7 @@ function toggleReview(){
 }
 </script>
 
-<!-- ═══════════════════════════════════════════════
-     APPLICATION MODAL
-     ═══════════════════════════════════════════════ -->
-<div class="modal-backdrop" id="appModal" role="dialog" aria-modal="true" aria-label="Open Summit Savings account">
-  <div class="modal-card">
 
-    <!-- Mobile summary bar (replaces left panel on small screens) -->
-    <div class="modal-mobile-summary">
-      <div>
-        <div class="mms-rate">3.75%</div>
-        <div class="mms-label">APY* — Summit Savings</div>
-      </div>
-      <div class="mms-earn">
-        <div class="mms-earn-amt" id="modal-mobile-earn">$375/yr</div>
-        <div class="mms-earn-lbl">on your balance</div>
-      </div>
-    </div>
-
-    <!-- Left panel -->
-    <div class="modal-left" style="display:none">
-      <div class="modal-left-bg" aria-hidden="true"></div>
-      <div class="modal-left-content">
-        <div class="ml-eyebrow">Summit Savings</div>
-        <div class="ml-rate">3.75%</div>
-        <div class="ml-apy">APY* · No minimums · No fees</div>
-        <div class="ml-earnings-card">
-          <div class="ml-ec-label">Your estimated earnings</div>
-          <div class="ml-ec-amount" id="modal-earn-amt">$375</div>
-          <div class="ml-ec-period" id="modal-earn-period">per year on $10,000</div>
-        </div>
-        <div class="ml-checks">
-          <div class="ml-check"><div class="ml-check-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>Open in under 3 minutes</div>
-          <div class="ml-check"><div class="ml-check-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>No hard credit check</div>
-          <div class="ml-check"><div class="ml-check-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>No minimum deposit</div>
-          <div class="ml-check"><div class="ml-check-dot"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>No monthly fees — ever</div>
-        </div>
-      </div>
-      <div class="ml-trust">
-        <span class="ml-fdic">FDIC</span>
-        Insured to $250,000 · Axos Bank, Est. 2000
-      </div>
-    </div>
-
-    <!-- Right panel -->
-    <div class="modal-right" style="position:relative">
-      <button class="modal-close" onclick="closeModal()" aria-label="Close">
-        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-
-      <!-- Step indicators -->
-      <div class="modal-steps" role="tablist">
-        <button class="modal-step-btn active" id="step-btn-1" role="tab"><span class="modal-step-num">1</span>Get started</button>
-        <button class="modal-step-btn" id="step-btn-2" role="tab"><span class="modal-step-num">2</span>Your details</button>
-        <button class="modal-step-btn" id="step-btn-3" role="tab"><span class="modal-step-num">3</span>Open account</button>
-      </div>
-
-      <!-- ── STEP 1: Email ── -->
-      <div class="modal-panel active" id="modal-step-1">
-        <h2>Start earning<br>3.75% APY today.</h2>
-        <p class="mp-sub">Enter your email and we'll get you set up in under 3 minutes.</p>
-        <div class="field-group">
-          <div class="field-wrap" id="wrap-email">
-            <label class="field-label" for="m-email">Email address</label>
-            <input class="field-input" id="m-email" type="email" placeholder="you@email.com" inputmode="email" autocomplete="email" autocapitalize="off">
-            <span class="field-error">Please enter a valid email address</span>
-          </div>
-        </div>
-        <button class="modal-btn-primary" onclick="goToStep2()">
-          Continue
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-        <p class="modal-legal">By continuing you agree to Axos Bank's <a href="https://www.axosbank.com/legal/privacy" target="_blank">Privacy Policy</a> and <a href="https://www.axosbank.com/legal/disclosures" target="_blank">Terms</a>.</p>
-      </div>
-
-      <!-- ── STEP 2: Name ── -->
-      <div class="modal-panel" id="modal-step-2">
-        <h2>Almost there.</h2>
-        <p class="mp-sub">Just your name to personalize your account. That's it for now.</p>
-        <div class="field-group">
-          <div class="name-row">
-            <div class="field-wrap" id="wrap-fname">
-              <label class="field-label" for="m-fname">First name</label>
-              <input class="field-input" id="m-fname" type="text" placeholder="First" autocomplete="given-name">
-              <span class="field-error">Required</span>
-            </div>
-            <div class="field-wrap" id="wrap-lname">
-              <label class="field-label" for="m-lname">Last name</label>
-              <input class="field-input" id="m-lname" type="text" placeholder="Last" autocomplete="family-name">
-              <span class="field-error">Required</span>
-            </div>
-          </div>
-        </div>
-        <button class="modal-btn-primary" onclick="goToStep3()">
-          Open my account
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </button>
-        <p class="modal-legal">No credit check. Deposits FDIC insured to $250K.</p>
-      </div>
-
-      <!-- ── STEP 3: Handoff ── -->
-      <div class="modal-panel" id="modal-step-3">
-        <div class="handoff-wrap">
-          <div class="handoff-icon">
-            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-          </div>
-          <div class="handoff-title" id="handoff-title">You're ready, there.</div>
-          <p class="handoff-sub">Your Summit Savings account is waiting. Tap below to complete your application on Axos — it takes about 2 minutes and there's no credit check.</p>
-          <a class="handoff-link" href="https://www.axosbank.com/recommended-for-you?products[]=DDUL" target="_blank">
-            Complete my application
-            <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          </a>
-          <p class="handoff-note">You'll be redirected to Axos Bank's secure application. Your information is encrypted and protected.</p>
-        </div>
-      </div>
-
-    </div><!-- /modal-right -->
-  </div><!-- /modal-card -->
-</div><!-- /modal-backdrop -->
 
 </body>
 </html>
