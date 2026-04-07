@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summit Savings | High-Yield Online Savings Account | Axos Bank</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* Summit Savings Old PDP — faithful reproduction for A/B test demo
+   Source: axosbank.com/personal/bank/savings-accounts/summit-savings
+   Image URLs kept as-is from live site */
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;color:#18355f;background:#fff;overflow-x:hidden}
+
+:root{
+  --navy:#18355f;
+  --navy-dk:#0d1f35;
+  --amber:#f5a227;
+  --blue:#0066cc;
+  --teal:#00a99d;
+  --gray:#6b7c93;
+  --gray-lt:#f4f6f9;
+  --white:#fff;
+  --green:#2d8653;
+  --border:#e2e8f0;
+  --wrap:1200px;
+}
+
+/* ── AXOS HEADER (matches live site) ─────────────── */
+.fdic-bar{background:#1a1a1a;padding:6px 32px;display:flex;align-items:center;gap:8px}
+.fdic-badge{background:#fff;color:#00549f;font-size:10px;font-weight:800;padding:2px 5px;border-radius:2px;letter-spacing:.02em;flex-shrink:0}
+.fdic-txt{font-size:11px;color:rgba(255,255,255,.65)}
+
+.main-nav{background:#fff;border-bottom:1px solid var(--border);height:64px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+.logo-img{height:28px;width:auto;display:block;mix-blend-mode:multiply}
+.nav-tabs{display:flex;gap:0;height:64px;align-items:stretch}
+.nav-tab{padding:0 20px;display:flex;align-items:center;font-size:14px;color:#4a6080;border-bottom:2px solid transparent;transition:color .2s,border-color .2s;cursor:pointer}
+.nav-tab.active{color:var(--navy);border-bottom-color:var(--navy);font-weight:500}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-support{font-size:13px;color:#4a6080;cursor:pointer}
+.nav-login{background:var(--navy);color:#fff;font-size:13px;font-weight:500;padding:9px 20px;border-radius:6px;border:none;cursor:pointer;display:flex;align-items:center;gap:5px}
+
+.sub-nav{background:var(--navy);height:42px;padding:0 32px;display:flex;align-items:center;gap:0}
+.sub-item{padding:0 18px;height:42px;display:flex;align-items:center;gap:4px;font-size:13px;color:rgba(255,255,255,.75);cursor:pointer;white-space:nowrap;transition:color .2s,background .2s}
+.sub-item:hover{color:#fff;background:rgba(255,255,255,.08)}
+.sub-arr{font-size:8px;opacity:.7}
+
+/* ── HERO ─────────────────────────────────────────── */
+.hero{background:var(--gray-lt);padding:0}
+.hero-inner{max-width:var(--wrap);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:420px}
+.hero-text{padding:48px 40px 48px 40px}
+.hero-eyebrow{display:none} /* hidden in control, shown in variants */
+.hero-h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(32px,4vw,48px);font-weight:400;color:var(--navy);line-height:1.15;margin-bottom:10px}
+.hero-h1 span{display:block}
+.hero-tag{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:14px}
+.hero-sub{font-size:16px;color:var(--gray);line-height:1.65;margin-bottom:24px;max-width:480px}
+.hero-rate-display{font-size:42px;font-weight:700;color:var(--navy);margin-bottom:4px;display:none} /* shown in variants */
+.hero-rate-note{font-size:11px;color:var(--gray);margin-bottom:20px;display:none}
+.hero-cta{display:inline-block;background:var(--amber);color:#fff;font-size:15px;font-weight:600;padding:14px 32px;border-radius:6px;border:none;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s}
+.hero-cta:hover{background:#e8931a;transform:translateY(-1px)}
+.hero-img{width:100%;height:420px;object-fit:cover;display:block}
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-img{height:260px}
+  .main-nav{padding:0 16px}
+  .sub-nav{padding:0 16px}
+}
+
+/* ── SECTION SHARED ───────────────────────────────── */
+section{padding:60px 32px}
+.w{max-width:var(--wrap);margin:0 auto}
+h2.section-h{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(24px,3vw,36px);font-weight:400;color:var(--navy);text-align:center;margin-bottom:8px;line-height:1.25}
+.section-sub{font-size:15px;color:var(--gray);text-align:center;margin-bottom:36px;line-height:1.65}
+
+/* ── PILLARS ──────────────────────────────────────── */
+.pillars-section{background:#fff;border-top:1px solid var(--border)}
+.pillars-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:40px}
+.pillar{text-align:center;padding:0 16px}
+.pillar img{width:64px;height:64px;margin:0 auto 16px;display:block;object-fit:contain}
+.pillar h3{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:8px}
+.pillar p{font-size:14px;color:var(--gray);line-height:1.6}
+@media(max-width:768px){.pillars-grid{grid-template-columns:1fr 1fr;gap:20px}}
+
+/* ── CALCULATOR SECTION ───────────────────────────── */
+.calc-section{background:var(--gray-lt)}
+.calc-section h2{color:var(--navy)}
+.calc-rate-callout{text-align:center;font-size:18px;color:var(--gray);margin-bottom:6px}
+.calc-rate-callout strong{color:var(--navy);font-size:22px}
+.calc-note{text-align:center;font-size:13px;color:var(--gray);margin-bottom:32px}
+
+/* Static calculator (control) */
+.static-calc{max-width:560px;margin:0 auto}
+.static-calc-label{display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap;justify-content:center}
+.static-calc-label span{font-size:15px;color:var(--navy);font-weight:500}
+.balance-input{border:1px solid var(--border);border-radius:6px;padding:10px 14px;font-size:16px;font-family:inherit;outline:none;width:140px;color:var(--navy)}
+.balance-input:focus{border-color:var(--blue)}
+.calc-btn{background:var(--blue);color:#fff;font-size:14px;font-weight:500;padding:10px 24px;border-radius:6px;border:none;cursor:pointer;transition:background .2s}
+.calc-btn:hover{background:#0055a4}
+.calc-table{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.calc-table thead th{background:var(--navy);color:#fff;padding:12px 16px;font-size:13px;font-weight:500;text-align:left}
+.calc-table tbody td{padding:12px 16px;border-bottom:1px solid var(--border);font-size:14px;color:var(--navy)}
+.calc-table tbody tr:last-child td{border-bottom:none}
+.calc-table tbody tr.axos-row td{font-weight:700;color:var(--navy);background:#f0f4ff}
+.calc-table tbody td.earn{text-align:right}
+
+/* Interactive calculator (Test 2 variant) */
+.interactive-calc{max-width:640px;margin:0 auto;background:#fff;border-radius:12px;padding:28px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+.ic-hidden{display:none}
+.ic-show{display:block}
+.ic-slider-row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.ic-lbl{font-size:13px;font-weight:500;color:var(--gray);min-width:56px}
+.ic-val{font-size:14px;font-weight:600;color:var(--navy);min-width:72px;text-align:right}
+.ic-range{flex:1;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:var(--border);outline:none}
+.ic-range::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--amber);border:2px solid #fff;box-shadow:0 2px 5px rgba(0,0,0,.15)}
+.ic-results{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+.ic-card{border:1px solid var(--border);border-radius:8px;padding:14px;text-align:center}
+.ic-card.winner{border:2px solid var(--amber);background:#fffdf5}
+.ic-bank{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray);margin-bottom:5px}
+.ic-earn{font-size:22px;font-weight:300;font-family:'DM Serif Display',Georgia,serif;color:var(--navy)}
+.ic-earn.top{color:var(--green)}
+.ic-apy{font-size:10px;color:var(--gray);margin-top:2px}
+.ic-cta-row{text-align:center;margin-top:20px}
+@media(max-width:600px){.ic-results{grid-template-columns:1fr 1fr}}
+
+/* ── FEATURES ─────────────────────────────────────── */
+.features-section{background:#fff}
+.features-list{max-width:540px;margin:0 auto}
+.features-list li{font-size:15px;color:var(--gray);padding:8px 0;border-bottom:1px solid var(--border);line-height:1.6;list-style:none;padding-left:20px;position:relative}
+.features-list li::before{content:"•";position:absolute;left:0;color:var(--amber)}
+.features-list li strong{color:var(--navy)}
+
+/* ── COMPARISON TABLE ─────────────────────────────── */
+.comp-section{background:var(--gray-lt)}
+.comp-tbl{width:100%;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 6px rgba(0,0,0,.06)}
+.comp-tbl th{padding:14px 16px;font-size:13px;font-weight:600;color:var(--gray);border-bottom:2px solid var(--border);text-align:center}
+.comp-tbl th.axos-col{background:var(--navy);color:#fff}
+.comp-tbl td{padding:12px 16px;text-align:center;border-bottom:1px solid var(--border);font-size:13px;color:var(--navy)}
+.comp-tbl td.row-lbl{text-align:left;font-weight:500}
+.comp-tbl td.axos-col{background:#f0f4ff;font-weight:600}
+.comp-tbl tr:last-child td{border-bottom:none}
+.check{color:var(--green);font-size:16px}
+
+/* ── FDIC / INSUREGUARD ───────────────────────────── */
+.fdic-section{background:#fff;text-align:center;padding:48px 32px}
+.fdic-section img{max-width:100%;height:auto;margin:24px auto 0;display:block}
+.fdic-section p{font-size:15px;color:var(--gray);line-height:1.7;max-width:680px;margin:0 auto 16px}
+.fdic-link{color:var(--blue);text-decoration:none;font-weight:500;font-size:14px}
+.fdic-link:hover{text-decoration:underline}
+
+/* ── RATES TABLE ──────────────────────────────────── */
+.rates-section{background:var(--gray-lt)}
+.rates-tbl{width:100%;max-width:600px;margin:0 auto;border-collapse:collapse;background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.07)}
+.rates-tbl th{background:var(--navy);color:#fff;padding:12px 16px;font-size:13px;font-weight:500;text-align:left}
+.rates-tbl td{padding:11px 16px;border-bottom:1px solid var(--border);font-size:14px;color:var(--navy)}
+.rates-tbl tr:last-child td{border-bottom:none}
+
+/* ── CONVENIENCE ──────────────────────────────────── */
+.conv-section{background:#fff}
+.conv-list{max-width:540px;margin:0 auto}
+.conv-list li{font-size:15px;color:var(--gray);padding:7px 0;list-style:none;padding-left:20px;position:relative}
+.conv-list li::before{content:"•";position:absolute;left:0;color:var(--amber)}
+
+/* ── APP SECTION ──────────────────────────────────── */
+.app-section{background:var(--navy);padding:56px 32px}
+.app-inner{max-width:var(--wrap);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.app-left h2{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(26px,3vw,38px);font-weight:400;color:#fff;margin-bottom:12px;text-align:left}
+.app-left p{font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;margin-bottom:20px;max-width:440px}
+.app-qr-row{display:flex;align-items:center;gap:16px}
+.app-qr-img{width:100px;height:100px;border-radius:8px;background:#fff;padding:4px}
+.app-stores{display:flex;flex-direction:column;gap:10px}
+.app-stores a{display:block}
+.app-stores img{height:38px;width:auto}
+.app-right img{width:100%;border-radius:12px;display:block}
+@media(max-width:768px){.app-inner{grid-template-columns:1fr}}
+
+/* ── FAQ ──────────────────────────────────────────── */
+.faq-section{background:var(--gray-lt)}
+.faq-list{max-width:700px;margin:0 auto}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:8px;margin-bottom:10px;overflow:hidden}
+.faq-btn{width:100%;padding:16px 20px;background:none;border:none;text-align:left;font-size:15px;font-weight:500;color:var(--navy);cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-family:inherit}
+.faq-icon{font-size:18px;color:var(--gray);transition:transform .3s}
+.faq-body{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .35s cubic-bezier(.22,1,.36,1)}
+.faq-item.open .faq-body{max-height:200px;padding-bottom:16px}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{font-size:14px;color:var(--gray);line-height:1.7}
+
+/* ── FINAL CTA ────────────────────────────────────── */
+/* CONTROL */
+.final-cta-control{background:var(--navy);padding:56px 32px;text-align:center}
+.final-cta-control h2{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(24px,3vw,36px);font-weight:400;color:#fff;margin-bottom:20px}
+.final-cta-control .cta-btn{display:inline-block;background:var(--amber);color:#fff;font-size:15px;font-weight:600;padding:14px 36px;border-radius:6px;border:none;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s}
+.final-cta-control .cta-btn:hover{background:#e8931a;transform:translateY(-1px)}
+
+/* Test 3 variant */
+.final-cta-variant{background:var(--navy-dk);padding:72px 32px;text-align:center;position:relative;overflow:hidden;display:none}
+.final-cta-variant::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(245,162,39,.07) 0%,transparent 70%);pointer-events:none}
+.fcv-eyebrow{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:8px}
+.fcv-eyebrow::before,.fcv-eyebrow::after{content:'';display:block;width:20px;height:1px;background:var(--amber)}
+.fcv-h{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(24px,3.5vw,38px);font-weight:400;color:#fff;margin-bottom:12px}
+.fcv-rate{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(60px,9vw,90px);line-height:1;color:var(--amber)}
+.fcv-apy{font-size:16px;color:rgba(255,255,255,.45);margin-bottom:8px}
+.fcv-social{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:24px}
+.fcv-btn{display:inline-block;background:var(--amber);color:var(--navy-dk);font-size:15px;font-weight:600;padding:14px 36px;border-radius:8px;border:none;cursor:pointer;transition:background .2s,transform .15s}
+.fcv-btn:hover{background:#f5b240;transform:translateY(-2px)}
+.fcv-fine{font-size:11px;color:rgba(255,255,255,.3);margin-top:14px;line-height:1.8}
+
+/* ── FOOTER ───────────────────────────────────────── */
+.site-footer{background:#0d1f35;padding:40px 32px}
+.footer-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-bottom:28px;max-width:var(--wrap);margin-left:auto;margin-right:auto}
+.footer-col h4{font-size:12px;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.footer-link{display:block;font-size:12px;color:rgba(255,255,255,.45);margin-bottom:7px;text-decoration:none;transition:color .2s}
+.footer-link:hover{color:rgba(255,255,255,.75)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.07);padding-top:20px;max-width:var(--wrap);margin:0 auto}
+.footer-legal{font-size:10px;color:rgba(255,255,255,.25);line-height:1.7}
+.footer-legal-links{display:flex;gap:16px;flex-wrap:wrap;margin-top:10px}
+.footer-legal-links a{font-size:11px;color:rgba(255,255,255,.3);text-decoration:none}
+.footer-disclaim{font-size:10px;color:rgba(255,255,255,.2);margin-top:14px;line-height:1.7}
+@media(max-width:640px){.footer-grid{grid-template-columns:1fr 1fr}}
+
+/* ── DGTL SUNRISE DEMO BADGE ──────────────────────── */
+.demo-badge{
+  background:rgba(13,31,53,.9);border:1px solid rgba(245,162,39,.3);
+  border-radius:8px;padding:8px 14px;
+  font-size:10px;color:rgba(255,255,255,.5);
+  font-family:-apple-system,system-ui,sans-serif;letter-spacing:.04em;
+  text-align:center;margin:0 auto;
+}
+.demo-badge strong{color:var(--amber)}
+
+/* ── SCENARIO BUTTONS ─────────────────────────────── */
+#sc-toggle{
+  position:fixed;bottom:20px;right:156px;z-index:9000;
+  background:#1A3557;color:#fff;font-size:12px;font-weight:600;
+  padding:10px 15px;border-radius:22px;border:none;
+  display:flex;align-items:center;gap:7px;
+  box-shadow:0 4px 18px rgba(0,0,0,.28);letter-spacing:.02em;
+  transition:background .2s,transform .15s;cursor:pointer;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+#sc-toggle:hover{background:#243F6A;transform:translateY(-1px)}
+#sc-toggle.sc-open{background:#243F6A}
+.sc-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35);flex-shrink:0;transition:background .3s}
+#sc-toggle.sc-open .sc-dot{background:#94C4E8}
+.sc-active-label{max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
+#sc-popup{
+  position:fixed;bottom:60px;right:156px;z-index:8999;
+  background:#0D1F35;border:1px solid rgba(245,162,39,.28);border-radius:14px;
+  padding:16px;width:248px;
+  box-shadow:0 8px 36px rgba(0,0,0,.45);
+  display:none;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+#sc-popup.open{display:block}
+.scp-title{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,162,39,.9);margin-bottom:12px;border-bottom:1px solid rgba(255,255,255,.07);padding-bottom:8px}
+.scp-group-label{font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin:10px 0 6px}
+.scp-btn{
+  display:flex;align-items:center;gap:8px;width:100%;text-align:left;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+  border-radius:7px;padding:8px 10px;margin-bottom:5px;
+  font-size:11px;color:rgba(255,255,255,.65);cursor:pointer;
+  transition:all .18s;font-family:inherit;line-height:1.3;
+}
+.scp-btn:last-child{margin-bottom:0}
+.scp-btn:hover{background:rgba(255,255,255,.09);border-color:rgba(245,162,39,.3);color:#fff}
+.scp-btn.active{background:rgba(245,162,39,.1);border-color:rgba(245,162,39,.4);color:#f5a227}
+.scp-btn-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.2);flex-shrink:0;transition:background .2s;margin-top:1px}
+.scp-btn.active .scp-btn-dot{background:#f5a227}
+.scp-divider{height:1px;background:rgba(255,255,255,.07);margin:10px 0}
+.scp-note{font-size:10px;color:rgba(255,255,255,.3);margin-top:10px;line-height:1.5;padding:8px 10px;background:rgba(255,255,255,.03);border-radius:6px}
+
+/* Design review button */
+#dr-toggle{
+  position:fixed;bottom:20px;right:16px;z-index:9001;
+  background:#1A3557;color:#fff;font-size:12px;font-weight:600;
+  padding:10px 15px;border-radius:22px;border:none;
+  display:flex;align-items:center;gap:7px;
+  box-shadow:0 4px 18px rgba(0,0,0,.28);letter-spacing:.02em;
+  cursor:pointer;transition:background .2s;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+}
+#dr-toggle:hover{background:#243F6A}
+#dr-toggle.on{background:#155a3e}
+.dr-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4);transition:background .3s}
+#dr-toggle.on .dr-dot{background:#5ecc8e}
+
+/* Design review panels */
+.dr-panel{
+  display:none;background:#0a1829;border-left:3px solid #f5a227;
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:12px;
+}
+body.dr-on .dr-panel{display:block}
+.drp-hd{background:rgba(245,162,39,.1);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.drp-name{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#f5a227}
+.drp-badges{display:flex;gap:5px;flex-wrap:wrap}
+.drp-badge{font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:10px}
+.drp-bd{padding:14px 20px 18px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.drp-bd{grid-template-columns:1fr}}
+.drp-col-h{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:7px;padding-left:10px;border-left:2px solid transparent}
+.drp-col-h.c{color:#93c5fd;border-left-color:#93c5fd}
+.drp-col-h.w{color:#6ee7b7;border-left-color:#6ee7b7}
+.drp-col-h.s{color:#fcd34d;border-left-color:#fcd34d}
+.drp-col-h.b{color:#fca5a5;border-left-color:#fca5a5}
+.drp-col-h.t{color:#c4b5fd;border-left-color:#c4b5fd}
+.drp-ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.drp-ul li{font-size:11px;color:rgba(255,255,255,.58);line-height:1.55;padding-left:12px;position:relative}
+.drp-ul li::before{content:'';position:absolute;left:0;top:5px;width:5px;height:5px;border-radius:50%;opacity:.65}
+.c-li li::before{background:#93c5fd}.w-li li::before{background:#6ee7b7}
+.s-li li::before{background:#fcd34d}.b-li li::before{background:#fca5a5}
+.t-li li::before{background:#c4b5fd}
+.drp-ul li strong{color:rgba(255,255,255,.88);font-weight:500}
+.drp-divider{height:1px;background:rgba(255,255,255,.07);margin:10px 0}
+.ab-box{background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.2);border-radius:8px;padding:10px 12px;margin-top:8px}
+.ab-box-title{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#c4b5fd;margin-bottom:7px}
+.ab-test{margin-bottom:8px}.ab-test:last-child{margin-bottom:0}
+.ab-test-label{font-size:10px;font-weight:600;color:rgba(255,255,255,.7);margin-bottom:3px}
+.ab-test-row{font-size:11px;color:rgba(255,255,255,.5);line-height:1.5;padding-left:10px}
+.ab-test-row span{color:rgba(255,255,255,.8)}
+.ab-kpi{font-size:10px;color:#c4b5fd;margin-top:4px;padding-left:10px}
+.badge-changed{background:rgba(96,165,250,.18);color:#93c5fd}
+.badge-why{background:rgba(52,211,153,.13);color:#6ee7b7}
+.badge-ab{background:rgba(167,139,250,.15);color:#c4b5fd}
+</style>
+</head>
+<body>
+
+<!-- FDIC BAR -->
+<div class="fdic-bar">
+  <span class="fdic-badge">FDIC</span>
+  <span class="fdic-txt">FDIC-Insured &middot; Backed by the full faith and credit of the U.S. Government</span>
+</div>
+
+<!-- MAIN NAV -->
+<nav class="main-nav">
+  <a href="https://www.axosbank.com" target="_blank">
+    <img class="logo-img" src="data:image/png;base64,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" alt="Axos Bank">
+  </a>
+  <div class="nav-tabs">
+    <div class="nav-tab active">Personal</div>
+    <div class="nav-tab">Business</div>
+    <div class="nav-tab">Partners</div>
+  </div>
+  <div class="nav-right">
+    <span class="nav-support">Support</span>
+    <button class="nav-login">Log in &#8964;</button>
+  </div>
+</nav>
+<div class="sub-nav">
+  <div class="sub-item">Bank <span class="sub-arr">&#8964;</span></div>
+  <div class="sub-item">Borrow <span class="sub-arr">&#8964;</span></div>
+  <div class="sub-item">Invest <span class="sub-arr">&#8964;</span></div>
+  <div class="sub-item">Plan <span class="sub-arr">&#8964;</span></div>
+</div>
+
+<!-- ══ DESIGN REVIEW: HERO ══ -->
+<div class="dr-panel">
+  <div class="drp-hd">
+    <span class="drp-name">&#9670; Hero section &mdash; Current page (control)</span>
+    <div class="drp-badges">
+      <span class="drp-badge badge-changed">Issues identified</span>
+      <span class="drp-badge badge-ab">3 A/B tests available</span>
+    </div>
+  </div>
+  <div class="drp-bd">
+    <div>
+      <div class="drp-col-h b">What's underperforming</div>
+      <ul class="drp-ul b-li">
+        <li><strong>"Go higher. Earn faster."</strong> — aspirational but vague. Doesn't name the visitor's pain. No competitor rate mentioned. No urgency.</li>
+        <li><strong>"Start Earning"</strong> — generic CTA. No specificity about what action is being taken.</li>
+        <li>Hero image is decorative — adds no conversion value and takes up half the viewport.</li>
+        <li>Rate (3.75% APY) is not shown prominently in the hero — buried in body copy.</li>
+        <li>Only 2 CTAs on the entire page (hero + bottom). Industry best practice is 5–7.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="drp-col-h t">A/B tests (use Visitor Scenarios button to preview)</div>
+      <div class="ab-box">
+        <div class="ab-box-title">&#9670; Test 1A &mdash; Pain-first headline</div>
+        <div class="ab-test">
+          <div class="ab-test-row">Control: <span>"Go higher. Earn faster."</span></div>
+          <div class="ab-test-row">Variant: <span>"Your savings deserve better than 0.01%."</span></div>
+          <div class="ab-kpi">KPI: Scroll depth &middot; Application start rate</div>
+        </div>
+        <div class="ab-box-title" style="margin-top:8px">&#9670; Test 1B &mdash; Rate-led headline</div>
+        <div class="ab-test">
+          <div class="ab-test-row">Control: <span>"Go higher. Earn faster."</span></div>
+          <div class="ab-test-row">Variant: <span>"Stop earning 0.01%. Start earning 3.75%."</span></div>
+          <div class="ab-kpi">KPI: Hero CTA click-through rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow" id="hero-eyebrow" style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;display:none"></div>
+      <div class="hero-tag" id="hero-tag">Summit Savings</div>
+      <h1 class="hero-h1" id="hero-h1"><span>Go higher.</span><span>Earn faster.</span></h1>
+      <p class="hero-sub" id="hero-sub"><strong>The easiest way to earn more on your savings.</strong><br><br>Earn a competitive <strong>3.75% APY*</strong>&mdash;no maintenance fees, no balance requirements. Just simple, high-yield savings.</p>
+      <div class="hero-rate-display" id="hero-rate-display">3.75% <span style="font-size:22px;font-weight:400;color:var(--gray)">APY*</span></div>
+      <div class="hero-rate-note" id="hero-rate-note">Variable rate &middot; No fees &middot; No minimums</div>
+      <a class="hero-cta" id="hero-cta" href="https://www.axosbank.com/recommended-for-you?products[]=DDUL" target="_blank">Start Earning</a>
+    </div>
+    <img class="hero-img" src="https://www.axosbank.com/_next/image?url=https%3A%2F%2Fimages.axos.com%2Fo9ov1v03uwqk%2F38neqKiTmkEHMpXwgtqbLw%2F8cb32c29a5ae50d313133a1d552cfda6%2Faxb-img-summit-hero.png%3Fw%3D604%26h%3D480%26fit%3Dfill%26q%3D85&w=1920&q=75" alt="Summit Savings">
+  </div>
+</div>
+
+<!-- PILLARS -->
+<section class="pillars-section">
+  <div class="w">
+    <h2 class="section-h">Earn more. Worry less.</h2>
+    <p class="section-sub">Summit Savings makes growing your money easy&mdash;no monthly fees, no hassle.</p>
+    <div class="pillars-grid">
+      <div class="pillar">
+        <img src="https://images.axos.com/o9ov1v03uwqk/MTI0OU7Lr5U2nGVLfNN5S/b15867008391c67ea32400d60b599e11/growth.svg" alt="High Rates">
+        <h3>High Rates on Any Balance</h3>
+        <p>Earn 3.75% APY* on every dollar&mdash;no limits, just more growth.</p>
+      </div>
+      <div class="pillar">
+        <img src="https://images.axos.com/o9ov1v03uwqk/6n7NJ0gBIQAdQmF0jIqnOM/b275a818e4520e269bc29ed94aa12587/savings.svg" alt="More Savings">
+        <h3>More Savings, Less Fees</h3>
+        <p>No monthly maintenance fees, balance requirements, or extra hurdles.</p>
+      </div>
+      <div class="pillar">
+        <img src="https://images.axos.com/o9ov1v03uwqk/1SxMP78UJ4DAvjWAm7yIvq/13018f162fc386d726f32a2d443f1e5c/efficient.svg" alt="Seamless Transfers">
+        <h3>Seamless Transfers</h3>
+        <p>Move money instantly between Axos accounts&mdash;no delays.</p>
+      </div>
+      <div class="pillar">
+        <img src="https://images.axos.com/o9ov1v03uwqk/EmNJRjmUZD211c5x5LDlB/b6a7cfd3c6287b4fe38d08612720cb9c/insured.svg" alt="FDIC Insured">
+        <h3>FDIC Insured</h3>
+        <p>Your savings are protected and insured up to $250<strong>K</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DESIGN REVIEW: CALCULATOR ══ -->
+<div class="dr-panel">
+  <div class="drp-hd">
+    <span class="drp-name">&#9670; Calculator section &mdash; Current page (control)</span>
+    <div class="drp-badges">
+      <span class="drp-badge badge-changed">Issues identified</span>
+      <span class="drp-badge badge-ab">Test 2 available</span>
+    </div>
+  </div>
+  <div class="drp-bd">
+    <div>
+      <div class="drp-col-h b">What's underperforming</div>
+      <ul class="drp-ul b-li">
+        <li>Calculator requires typing a balance and clicking "Calculate" — friction. Most visitors won't interact with it.</li>
+        <li>Results table is static and hard to read on mobile.</li>
+        <li>No competitor rate context — just four rows of numbers with no visual hierarchy.</li>
+        <li>Bank of America (0.04%) makes Axos look mediocre vs. Capital One (3.40%) — not the right comparison set.</li>
+        <li>Rate data is dated (footnotes reference 12/10/25).</li>
+      </ul>
+    </div>
+    <div>
+      <div class="drp-col-h t">A/B test (use Visitor Scenarios button to preview)</div>
+      <div class="ab-box">
+        <div class="ab-box-title">&#9670; Test 2 &mdash; Interactive dual-slider calculator</div>
+        <div class="ab-test">
+          <div class="ab-test-row">Control: <span>Static form + table with pre-set data</span></div>
+          <div class="ab-test-row">Variant: <span>Dual sliders (balance + time) updating results live, with dynamic CTA showing projected earnings</span></div>
+          <div class="ab-kpi">KPI: Calculator engagement rate &middot; CTA clicks from calculator section</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CALCULATOR -->
+<section class="calc-section">
+  <div class="w">
+    <h2 class="section-h">See it. Believe it. Earn it.</h2>
+    <p class="calc-rate-callout">Discover how much more you could be earning with a rate <strong>9x higher than the national average.&dagger;</strong></p>
+
+    <!-- CONTROL: static calculator -->
+    <div class="static-calc" id="static-calc">
+      <div class="static-calc-label">
+        <span>Savings Balance: $</span>
+        <input class="balance-input" type="number" id="balance-input" value="10000" min="0">
+        <button class="calc-btn" onclick="updateStaticCalc()">Calculate</button>
+      </div>
+      <table class="calc-table">
+        <thead><tr><th>Bank</th><th>Annual Percentage Yield*</th><th style="text-align:right">Annual Earnings</th></tr></thead>
+        <tbody>
+          <tr class="axos-row"><td><strong>Axos Bank</strong></td><td><strong>3.75%</strong></td><td class="earn"><strong id="earn-axos">$375</strong></td></tr>
+          <tr><td>Capital One 360 Performance Savings<sup>1</sup></td><td>3.40%</td><td class="earn" id="earn-cap1">$340</td></tr>
+          <tr><td>Bank of America Advantage Savings<sup>2</sup></td><td>0.04%</td><td class="earn" id="earn-boa">$4</td></tr>
+          <tr><td>Chase Savings<sup>3</sup></td><td>0.01%</td><td class="earn" id="earn-chase">$1</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- TEST 2 VARIANT: interactive slider calculator -->
+    <div class="interactive-calc ic-hidden" id="interactive-calc">
+      <div class="ic-slider-row">
+        <span class="ic-lbl">Balance</span>
+        <input type="range" class="ic-range" id="ic-bal" min="1000" max="250000" step="1000" value="25000">
+        <span class="ic-val" id="ic-bal-out">$25,000</span>
+      </div>
+      <div class="ic-slider-row">
+        <span class="ic-lbl">Time</span>
+        <input type="range" class="ic-range" id="ic-yr" min="1" max="10" step="1" value="3">
+        <span class="ic-val" id="ic-yr-out">3 years</span>
+      </div>
+      <div class="ic-results">
+        <div class="ic-card winner"><div class="ic-bank">Axos Summit</div><div class="ic-earn top" id="ic-axos">$2,923</div><div class="ic-apy">3.75% APY</div></div>
+        <div class="ic-card"><div class="ic-bank">Capital One</div><div class="ic-earn" id="ic-cap1">$2,649</div><div class="ic-apy">3.40% APY</div></div>
+        <div class="ic-card"><div class="ic-bank">Chase</div><div class="ic-earn" id="ic-chase2">$8</div><div class="ic-apy">0.01% APY</div></div>
+        <div class="ic-card"><div class="ic-bank">Natl Avg</div><div class="ic-earn" id="ic-natl">$103</div><div class="ic-apy">0.41% APY</div></div>
+      </div>
+      <div class="ic-cta-row">
+        <a class="hero-cta" id="ic-cta" href="https://www.axosbank.com/recommended-for-you?products[]=DDUL" target="_blank">Start Earning &mdash; earn $2,923 over 3 years</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="w">
+    <h2 class="section-h">More features means more freedom.</h2>
+    <ul class="features-list" style="margin-top:24px">
+      <li><strong>Easy mobile deposits:</strong> Deposit checks through the Axos App.</li>
+      <li><strong>24/7 digital access:</strong> Manage your account anywhere, anytime.</li>
+      <li><strong>Free incoming wires:</strong> Unlimited and hassle-free transfers.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="comp-section">
+  <div class="w">
+    <h2 class="section-h">See why Summit Savings wins.</h2>
+    <p class="section-sub">With a high-yield rate, and full flexibility, reaching your financial peak has never been easier.</p>
+    <table class="comp-tbl">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="axos-col">Axos Bank<br>Summit Savings</th>
+          <th>Capital One<br>360 Performance</th>
+          <th>Bank of America<br>Advantage Savings</th>
+          <th>Chase<br>Savings</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="row-lbl">APY</td><td class="axos-col"><strong>3.75%</strong></td><td>3.40%</td><td>0.04%</td><td>0.01%</td></tr>
+        <tr><td class="row-lbl">No Minimum Balance for APY</td><td class="axos-col check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td></td></tr>
+        <tr><td class="row-lbl">No Minimum Balance Fees</td><td class="axos-col check">&#10003;</td><td class="check">&#10003;</td><td></td><td></td></tr>
+        <tr><td class="row-lbl">No Maintenance Fees</td><td class="axos-col check">&#10003;</td><td class="check">&#10003;</td><td></td><td></td></tr>
+        <tr><td class="row-lbl">No Minimum Initial Deposit</td><td class="axos-col check">&#10003;</td><td class="check">&#10003;</td><td></td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FDIC / INSUREGUARD -->
+<section class="fdic-section">
+  <div class="w">
+    <h2 class="section-h" style="font-size:clamp(20px,2.5vw,28px)">Your deposits are protected with FDIC insurance up to $250<strong>K</strong>.</h2>
+    <p>Or up to $500<strong>K</strong> with a joint account. Need more coverage? Access up to $265<strong>MM</strong> with Axos Bank InsureGuard+ Savings through IntraFi&reg; Network Deposits&#8480;.</p>
+    <a class="fdic-link" href="https://www.axosbank.com/personal/bank/premier/insureguard-savings" target="_blank">Learn More &rarr;</a>
+    <img src="https://images.axos.com/o9ov1v03uwqk/2ndpTS4INLHBGen7zRtRXV/9e03275a4152c4bc75a18cf126f38c65/Frame_1000000812__1_.png" alt="InsureGuard+ Coverage" style="max-width:600px">
+  </div>
+</section>
+
+<!-- RATES TABLE -->
+<section class="rates-section">
+  <div class="w">
+    <h2 class="section-h">Summit Savings Rates &amp; Annual Percentage Yield</h2>
+    <table class="rates-tbl" style="margin-top:28px">
+      <thead><tr><th>Balance</th><th>APY*</th><th>Rate</th></tr></thead>
+      <tbody>
+        <tr><td><strong>$0 &ndash; $9,999.99</strong></td><td>3.75%</td><td>3.68%</td></tr>
+        <tr><td><strong>$10,000 &ndash; $24,999.99</strong></td><td>3.75%</td><td>3.68%</td></tr>
+        <tr><td><strong>$25,000 &ndash; $49,999.99</strong></td><td>3.75%</td><td>3.68%</td></tr>
+        <tr><td><strong>$50,000 &ndash; $99,999.99</strong></td><td>3.75%</td><td>3.68%</td></tr>
+        <tr><td><strong>&gt;$100k</strong></td><td>3.75%</td><td>3.68%</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CONVENIENCE -->
+<section class="conv-section">
+  <div class="w">
+    <h2 class="section-h">Convenience is our specialty.</h2>
+    <ul class="conv-list" style="margin-top:24px">
+      <li>Manage all your bank accounts from one place in the Axos app.</li>
+      <li>Access a network of over 95,000 fee-free ATMs.</li>
+      <li>Avoid fees, because your earnings should stay earnings.</li>
+      <li>Link external accounts in the app to move your money seamlessly.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- APP SECTION -->
+<section class="app-section">
+  <div class="app-inner">
+    <div class="app-left">
+      <h2>All in one App</h2>
+      <p class="section-sub" style="text-align:left;color:rgba(255,255,255,.55);margin-bottom:20px">Finally &mdash; a bank that supports you. With the Axos app, managing finances is easy. Sync all your accounts to check balances, deposit checks, pay bills, and get custom account alerts quickly.</p>
+      <div class="app-qr-row">
+        <img class="app-qr-img" src="https://images.axos.com/o9ov1v03uwqk/1IurwAda5QYrFF4nJCrWw9/afcdd3990359810ee9a5dfbe229274c8/scan-qr-code.png" alt="Scan QR code">
+        <div class="app-stores">
+          <a href="https://axos.app.link/App_Store" target="_blank"><img src="https://images.axos.com/o9ov1v03uwqk/o446Mf5JdBS9RsXaaZYKb/10e6b082f3eeec4ecffc5d9b29ea4954/google-play.svg" alt="Get it on Google Play"></a>
+          <a href="https://axos.app.link/App_Store" target="_blank"><img src="https://images.axos.com/o9ov1v03uwqk/6Ja0ODDH2HVdAFBIfQEiuh/d1894874d54c0dced3d7fe879135315a/app-store.svg" alt="Download on the App Store"></a>
+        </div>
+      </div>
+    </div>
+    <div class="app-right">
+      <img src="https://www.axosbank.com/_next/image?url=https%3A%2F%2Fimages.axos.com%2Fo9ov1v03uwqk%2F7jIVayGisZCwDuVzWWCYgP%2F04cde6a99a9db0951d1da673e17a0903%2Faxb-img-mobile-app-banner.png%3Fw%3D604%26h%3D480%26fit%3Dfill%26q%3D85&w=1920&q=75" alt="Axos App">
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="w">
+    <h2 class="section-h">Summit Savings Frequently Asked Questions</h2>
+    <div class="faq-list" style="margin-top:28px">
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Does Summit Savings have a minimum balance requirement?<span class="faq-icon">+</span></button>
+        <div class="faq-body"><p class="faq-a">There is no minimum balance to open your account and earn 3.75% APY*.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Can I get an ATM card with my Summit Savings account?<span class="faq-icon">+</span></button>
+        <div class="faq-body"><p class="faq-a">Yes, ATM cards are available. Send us a secure message online or in the mobile app to request one.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-btn" onclick="toggleFaq(this)">Is my Summit Savings Account FDIC insured?<span class="faq-icon">+</span></button>
+        <div class="faq-body"><p class="faq-a">Yes, Summit Savings is an FDIC-insured deposit account at Axos Bank, which is a member of the FDIC.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DESIGN REVIEW: FINAL CTA ══ -->
+<div class="dr-panel">
+  <div class="drp-hd">
+    <span class="drp-name">&#9670; Final CTA section &mdash; Current page (control)</span>
+    <div class="drp-badges">
+      <span class="drp-badge badge-changed">Issues identified</span>
+      <span class="drp-badge badge-ab">Test 3 available</span>
+    </div>
+  </div>
+  <div class="drp-bd">
+    <div>
+      <div class="drp-col-h b">What's underperforming</div>
+      <ul class="drp-ul b-li">
+        <li><strong>"Get 3.75% APY* with Summit Savings"</strong> — restates what the page already said. No new value. Visitors who reach the bottom have read everything; they need risk reduction, not repetition.</li>
+        <li>No social proof. No friction reducers. No urgency element.</li>
+        <li><strong>"Start Earning"</strong> — same generic CTA as the hero. No specificity about action, time, or cost.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="drp-col-h t">A/B test (use Visitor Scenarios button to preview)</div>
+      <div class="ab-box">
+        <div class="ab-box-title">&#9670; Test 3 &mdash; Benefit-led close with social proof</div>
+        <div class="ab-test">
+          <div class="ab-test-row">Control: <span>"Get 3.75% APY*" + "Start Earning"</span></div>
+          <div class="ab-test-row">Variant: <span>Rate as visual centerpiece + "Join 1M+ customers" + "Open my account &mdash; it's free" + 4 friction reducers</span></div>
+          <div class="ab-kpi">KPI: Bottom-of-page CTA click rate &middot; Application completion rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA: CONTROL -->
+<div class="final-cta-control" id="final-cta-control">
+  <h2>Get 3.75% APY* with Summit Savings</h2>
+  <a class="cta-btn" id="final-cta-btn" href="https://www.axosbank.com/recommended-for-you?products[]=DDUL" target="_blank">Start Earning</a>
+</div>
+
+<!-- FINAL CTA: TEST 3 VARIANT -->
+<div class="final-cta-variant" id="final-cta-variant">
+  <div class="fcv-eyebrow">Ready?</div>
+  <h2 class="fcv-h">Stop leaving money on the table.</h2>
+  <div class="fcv-rate">3.75%</div>
+  <div class="fcv-apy">APY* &middot; Updated daily &middot; No teaser pricing</div>
+  <div class="fcv-social">Join 1,000,000+ customers already earning more on their savings</div>
+  <a class="fcv-btn" href="https://www.axosbank.com/recommended-for-you?products[]=DDUL" target="_blank">Open my account &mdash; it&apos;s free</a>
+  <p class="fcv-fine">No minimum deposit &nbsp;&middot;&nbsp; No monthly fees &nbsp;&middot;&nbsp; FDIC insured &nbsp;&middot;&nbsp; Open in under 3 minutes</p>
+</div>
+
+<!-- FOOTER -->
+<div class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <h4>Personal</h4>
+      <a class="footer-link" href="https://www.axosbank.com/personal/bank" target="_blank">Bank</a>
+      <a class="footer-link" href="https://www.axosbank.com/personal/bank/checking-accounts" target="_blank">Checking</a>
+      <a class="footer-link" href="https://www.axosbank.com/personal/bank/savings-accounts" target="_blank">Savings</a>
+      <a class="footer-link" href="https://www.axosbank.com/personal/bank/premier" target="_blank">Premier</a>
+    </div>
+    <div>
+      <h4>Borrow</h4>
+      <a class="footer-link" href="https://www.axosbank.com/personal/borrow/mortgages" target="_blank">Mortgages</a>
+      <a class="footer-link" href="https://www.axosbank.com/personal/borrow/personal-loans" target="_blank">Personal Loans</a>
+      <a class="footer-link" href="https://www.axosbank.com/personal/borrow/auto-loans" target="_blank">Auto Loans</a>
+      <a class="footer-link" href="https://www.axosbank.com/personal/borrow/marine-loans" target="_blank">Marine Loans</a>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <a class="footer-link" href="https://www.axosbank.com/customer-support" target="_blank">Customer Support</a>
+      <a class="footer-link" href="https://www.axosbank.com/personal/support/atm-locator" target="_blank">ATM Locator</a>
+      <a class="footer-link" href="https://www.axosbank.com/legal/privacy" target="_blank">Privacy</a>
+      <a class="footer-link" href="https://www.axosbank.com/legal/security-center" target="_blank">Security</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a class="footer-link" href="https://www.axosbank.com/about-us" target="_blank">Company</a>
+      <a class="footer-link" href="https://www.axosbank.com/careers" target="_blank">Careers</a>
+      <a class="footer-link" href="https://www.axosbank.com/personal/insights" target="_blank">Insights</a>
+      <a class="footer-link" href="https://www.axosbank.com/tools" target="_blank">Tools</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div style="text-align:center;margin-bottom:16px">
+      <img src="https://www.axos.com/images/39ROPfvmXnJMkijBPBr6F/axos-25years-min.png" alt="Axos Bank 25 Years" style="height:40px;width:auto;display:inline-block">
+    </div>
+    <div class="footer-legal">&copy; 2026 Axos Financial, Inc., All Rights Reserved. &copy; 2026 Axos Bank, All Rights Reserved. FDIC Member. NMLS #524995.</div>
+    <div class="footer-legal-links">
+      <a href="https://www.axosbank.com/legal/disclosures" target="_blank">Disclosures</a>
+      <a href="https://www.axosbank.com/legal/privacy" target="_blank">Privacy</a>
+      <a href="https://www.axosbank.com/legal/security-center" target="_blank">Security</a>
+      <a href="https://www.axosbank.com/legal/fdic-notice" target="_blank">FDIC Notice</a>
+      <a href="https://www.axosbank.com/accessibility" target="_blank">Accessibility</a>
+    </div>
+    <div class="footer-disclaim">
+      *The Annual Percentage Yield (APY) is accurate as of 4/7/2026. The interest rate and corresponding APY for savings is variable and is set at our discretion. Rates may change without prior notice. Fees may reduce earnings.<br>
+      &dagger;National savings rate comparison as of 12/10/25 from fdic.gov. &nbsp; <sup>1</sup>As of 12/10/2025 capitalone.com &nbsp; <sup>2</sup>As of 12/10/2025 bankofamerica.com &nbsp; <sup>3</sup>As of 12/10/2025 chase.com
+    </div>
+    <div style="margin-top:16px;text-align:center">
+      <div class="demo-badge">
+        <strong>Summit Savings Old PDP</strong> &mdash; A/B Test Demo &middot; Prepared by DGTL Sunrise<br>
+        <span style="opacity:.7">Control = current live page &middot; Use "Visitor scenarios" to preview test variants</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VISITOR SCENARIOS BUTTON + POPUP -->
+<button id="sc-toggle" onclick="toggleScenarioPopup()">
+  <span class="sc-dot"></span>
+  <span class="sc-active-label" id="sc-active-label">Visitor scenarios</span>
+</button>
+
+<div id="sc-popup">
+  <div class="scp-title">&#9670; A/B Test Scenarios</div>
+
+  <div class="scp-group-label">Control</div>
+  <button class="scp-btn active" id="scp-control" onclick="applyScenario('control')"><span class="scp-btn-dot"></span>Current page (control)</button>
+
+  <div class="scp-divider"></div>
+
+  <div class="scp-group-label">Test 1 &mdash; Hero headline &amp; CTA (low lift)</div>
+  <button class="scp-btn" id="scp-test1a" onclick="applyScenario('test1a')"><span class="scp-btn-dot"></span>Variant 1A &mdash; Pain-first headline</button>
+  <button class="scp-btn" id="scp-test1b" onclick="applyScenario('test1b')"><span class="scp-btn-dot"></span>Variant 1B &mdash; Rate comparison headline</button>
+
+  <div class="scp-divider"></div>
+
+  <div class="scp-group-label">Test 2 &mdash; Interactive calculator (low lift)</div>
+  <button class="scp-btn" id="scp-test2" onclick="applyScenario('test2')"><span class="scp-btn-dot"></span>Variant 2 &mdash; Slider calculator</button>
+
+  <div class="scp-divider"></div>
+
+  <div class="scp-group-label">Test 3 &mdash; Final CTA section (low lift)</div>
+  <button class="scp-btn" id="scp-test3" onclick="applyScenario('test3')"><span class="scp-btn-dot"></span>Variant 3 &mdash; Benefit-led close</button>
+
+  <div class="scp-divider"></div>
+
+  <div class="scp-group-label">All tests combined</div>
+  <button class="scp-btn" id="scp-all" onclick="applyScenario('all')"><span class="scp-btn-dot"></span>All variants together</button>
+
+  <div class="scp-note">Each test is independently deployable via Tealium iQ tag &mdash; no dev deploy required. Run sequentially or simultaneously.</div>
+</div>
+
+<!-- DESIGN REVIEW BUTTON -->
+<button id="dr-toggle" onclick="toggleDesignReview()">
+  <span class="dr-dot"></span>Design review
+</button>
+
+<script>
+// ── Helpers ──────────────────────────────────────────────────────────────
+function cpd(p,r,y){return p*(Math.pow(1+r/365,365*y)-1)}
+function fmt(n){return'$'+Math.round(n).toLocaleString('en-US')}
+
+// ── Static calculator (control) ───────────────────────────────────────────
+function updateStaticCalc(){
+  var p = parseFloat(document.getElementById('balance-input').value)||10000;
+  document.getElementById('earn-axos').textContent = fmt(cpd(p,.0375,1));
+  document.getElementById('earn-cap1').textContent = fmt(cpd(p,.034,1));
+  document.getElementById('earn-boa').textContent  = fmt(cpd(p,.0004,1));
+  document.getElementById('earn-chase').textContent= fmt(cpd(p,.0001,1));
+}
+
+// ── Interactive calculator (Test 2) ───────────────────────────────────────
+var icBal = document.getElementById('ic-bal');
+var icYr  = document.getElementById('ic-yr');
+function updateIC(){
+  var p = parseInt(icBal.value), y = parseInt(icYr.value);
+  document.getElementById('ic-bal-out').textContent = '$'+p.toLocaleString();
+  document.getElementById('ic-yr-out').textContent  = y+(y===1?' year':' years');
+  var ax=cpd(p,.0375,y), c1=cpd(p,.034,y), ch=cpd(p,.0001,y), na=cpd(p,.0041,y);
+  document.getElementById('ic-axos').textContent = fmt(ax);
+  document.getElementById('ic-cap1').textContent = fmt(c1);
+  document.getElementById('ic-chase2').textContent = fmt(ch);
+  document.getElementById('ic-natl').textContent  = fmt(na);
+  var ctaEl = document.getElementById('ic-cta');
+  if(ctaEl) ctaEl.textContent = 'Start Earning — earn '+fmt(ax)+' over '+y+(y===1?' year':' years');
+}
+if(icBal) icBal.addEventListener('input', updateIC);
+if(icYr)  icYr.addEventListener('input', updateIC);
+
+// ── FAQ accordion ─────────────────────────────────────────────────────────
+function toggleFaq(btn){
+  var item = btn.parentElement;
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(function(i){i.classList.remove('open')});
+  if(!wasOpen) item.classList.add('open');
+}
+
+// ── Scenario definitions ──────────────────────────────────────────────────
+var SCENARIOS = {
+  control: {
+    label: 'Control',
+    heroH1: '<span>Go higher.</span><span>Earn faster.</span>',
+    heroTag: 'Summit Savings',
+    heroSub: '<strong>The easiest way to earn more on your savings.</strong><br><br>Earn a competitive <strong>3.75% APY*</strong>—no maintenance fees, no balance requirements. Just simple, high-yield savings.',
+    heroCta: 'Start Earning',
+    heroEyebrow: null,
+    heroRateDisplay: false,
+    calcVariant: false,
+    finalVariant: false
+  },
+  test1a: {
+    label: '1A — Pain-first',
+    heroH1: 'Your savings deserve<br><em style="color:var(--amber);font-style:italic">better than 0.01%.</em>',
+    heroTag: 'Summit Savings',
+    heroSub: 'Most Americans earn under 0.5% on their savings. Axos Summit Savings pays <strong>3.75% APY*</strong> on any balance — no fees, no minimums, no fine print.',
+    heroCta: 'Open My Account',
+    heroEyebrow: 'High-yield savings account',
+    heroRateDisplay: true,
+    calcVariant: false,
+    finalVariant: false
+  },
+  test1b: {
+    label: '1B — Rate comparison',
+    heroH1: 'Stop earning 0.01%.<br><em style="color:var(--amber);font-style:italic">Start earning 3.75%.</em>',
+    heroTag: 'Summit Savings',
+    heroSub: 'Axos Summit Savings pays <strong>3.75% APY*</strong> on any balance — 9x the national average, no fees, no minimums. Switch in 3 minutes.',
+    heroCta: 'Get my rate',
+    heroEyebrow: 'High-yield savings account',
+    heroRateDisplay: true,
+    calcVariant: false,
+    finalVariant: false
+  },
+  test2: {
+    label: 'Test 2 — Calculator',
+    heroH1: '<span>Go higher.</span><span>Earn faster.</span>',
+    heroTag: 'Summit Savings',
+    heroSub: '<strong>The easiest way to earn more on your savings.</strong><br><br>Earn a competitive <strong>3.75% APY*</strong>—no maintenance fees, no balance requirements. Just simple, high-yield savings.',
+    heroCta: 'Start Earning',
+    heroEyebrow: null,
+    heroRateDisplay: false,
+    calcVariant: true,
+    finalVariant: false
+  },
+  test3: {
+    label: 'Test 3 — Final CTA',
+    heroH1: '<span>Go higher.</span><span>Earn faster.</span>',
+    heroTag: 'Summit Savings',
+    heroSub: '<strong>The easiest way to earn more on your savings.</strong><br><br>Earn a competitive <strong>3.75% APY*</strong>—no maintenance fees, no balance requirements. Just simple, high-yield savings.',
+    heroCta: 'Start Earning',
+    heroEyebrow: null,
+    heroRateDisplay: false,
+    calcVariant: false,
+    finalVariant: true
+  },
+  all: {
+    label: 'All variants',
+    heroH1: 'Your savings deserve<br><em style="color:var(--amber);font-style:italic">better than 0.01%.</em>',
+    heroTag: 'Summit Savings',
+    heroSub: 'Most Americans earn under 0.5% on their savings. Axos Summit Savings pays <strong>3.75% APY*</strong> on any balance — no fees, no minimums, no fine print.',
+    heroCta: 'Open My Account',
+    heroEyebrow: 'High-yield savings account',
+    heroRateDisplay: true,
+    calcVariant: true,
+    finalVariant: true
+  }
+};
+
+// ── Apply scenario ────────────────────────────────────────────────────────
+function applyScenario(key){
+  var v = SCENARIOS[key];
+  if(!v) return;
+
+  // Hero
+  document.getElementById('hero-h1').innerHTML = v.heroH1;
+  document.getElementById('hero-sub').innerHTML = v.heroSub;
+  document.getElementById('hero-cta').textContent = v.heroCta;
+  document.getElementById('hero-tag').textContent = v.heroTag;
+
+  var eyebrow = document.getElementById('hero-eyebrow');
+  if(eyebrow){
+    eyebrow.textContent = v.heroEyebrow || '';
+    eyebrow.style.display = v.heroEyebrow ? 'block' : 'none';
+  }
+
+  var rateDisplay = document.getElementById('hero-rate-display');
+  var rateNote    = document.getElementById('hero-rate-note');
+  if(rateDisplay) rateDisplay.style.display = v.heroRateDisplay ? 'block' : 'none';
+  if(rateNote)    rateNote.style.display    = v.heroRateDisplay ? 'block' : 'none';
+
+  // Calculator
+  document.getElementById('static-calc').style.display     = v.calcVariant ? 'none' : 'block';
+  document.getElementById('interactive-calc').className    = v.calcVariant ? 'interactive-calc ic-show' : 'interactive-calc ic-hidden';
+  if(v.calcVariant) updateIC();
+
+  // Final CTA
+  document.getElementById('final-cta-control').style.display = v.finalVariant ? 'none' : 'block';
+  document.getElementById('final-cta-variant').style.display  = v.finalVariant ? 'block' : 'none';
+
+  // Scenario buttons
+  document.querySelectorAll('.scp-btn').forEach(function(b){b.classList.remove('active')});
+  var ab = document.getElementById('scp-'+key);
+  if(ab) ab.classList.add('active');
+
+  // Toggle button label
+  var lel = document.getElementById('sc-active-label');
+  if(lel) lel.textContent = v.label;
+
+  // Close popup
+  setTimeout(function(){
+    scPopupOpen = false;
+    document.getElementById('sc-popup').classList.remove('open');
+    document.getElementById('sc-toggle').classList.remove('sc-open');
+  }, 600);
+}
+
+// ── Scenario popup ────────────────────────────────────────────────────────
+var scPopupOpen = false;
+function toggleScenarioPopup(){
+  scPopupOpen = !scPopupOpen;
+  document.getElementById('sc-popup').classList.toggle('open', scPopupOpen);
+  document.getElementById('sc-toggle').classList.toggle('sc-open', scPopupOpen);
+}
+document.addEventListener('click', function(e){
+  if(!scPopupOpen) return;
+  var popup = document.getElementById('sc-popup');
+  var btn   = document.getElementById('sc-toggle');
+  if(popup && btn && !popup.contains(e.target) && !btn.contains(e.target)){
+    scPopupOpen = false;
+    popup.classList.remove('open');
+    btn.classList.remove('sc-open');
+  }
+});
+
+// ── Design review ─────────────────────────────────────────────────────────
+var drOn = false;
+function toggleDesignReview(){
+  drOn = !drOn;
+  document.body.classList.toggle('dr-on', drOn);
+  var btn = document.getElementById('dr-toggle');
+  btn.classList.toggle('on', drOn);
+  btn.innerHTML = drOn
+    ? '<span class="dr-dot"></span>Exit review'
+    : '<span class="dr-dot"></span>Design review';
+}
+</script>
+</body>
+</html>
