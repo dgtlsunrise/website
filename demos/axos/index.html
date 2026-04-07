@@ -91,13 +91,13 @@ body.ron .ann{display:block}
 .ab-t{background:rgba(167,139,250,.15);color:#c4b5fd}
 .ann-bd{padding:12px clamp(12px,4vw,20px) 16px;display:grid;grid-template-columns:1fr;gap:12px}
 @media(min-width:700px){.ann-bd{grid-template-columns:1fr 1fr}}
-.ann-col-h{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:flex;align-items:center;gap:5px}
-.ann-col-h::before{content:'';display:inline-block;width:7px;height:7px;border-radius:50%}
-.ann-col-h.c{color:#93c5fd}.ann-col-h.c::before{background:#93c5fd}
-.ann-col-h.w{color:#6ee7b7}.ann-col-h.w::before{background:#6ee7b7}
-.ann-col-h.s{color:#fcd34d}.ann-col-h.s::before{background:#fcd34d}
-.ann-col-h.b{color:#fca5a5}.ann-col-h.b::before{background:#fca5a5}
-.ann-col-h.t{color:#c4b5fd}.ann-col-h.t::before{background:#c4b5fd}
+.ann-col-h{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px;display:block;padding-left:10px;border-left:2px solid transparent}
+
+.ann-col-h.c{color:#93c5fd;border-left-color:#93c5fd}
+.ann-col-h.w{color:#6ee7b7;border-left-color:#6ee7b7}
+.ann-col-h.s{color:#fcd34d;border-left-color:#fcd34d}
+.ann-col-h.b{color:#fca5a5;border-left-color:#fca5a5}
+.ann-col-h.t{color:#c4b5fd;border-left-color:#c4b5fd}
 .ann-ul{list-style:none;display:flex;flex-direction:column;gap:4px}
 .ann-ul li{font-size:11px;color:rgba(255,255,255,.58);line-height:1.55;padding-left:11px;position:relative}
 .ann-ul li::before{content:'';position:absolute;left:0;top:5px;width:5px;height:5px;border-radius:50%;opacity:.65}
@@ -638,6 +638,29 @@ h2.sh em{color:#0055a4;font-style:italic}
         <li><strong>Getty / Shutterstock:</strong> for a licensed production asset. Budget ~$50&ndash;200/image.</li>
         <li><strong>Axos brand library:</strong> check if Axos has existing approved lifestyle photography from their marketing team before sourcing externally.</li>
       </ul>
+      <div class="ann-divider"></div>
+      <div class="ab-box">
+        <div class="ab-box-title">&#9670; Recommended A/B tests for images</div>
+        <div class="ab-test">
+          <div class="ab-test-label">Image Test 1 &mdash; Hero background: lifestyle vs. abstract</div>
+          <div class="ab-test-row">Control: <span>Mountain SVG / geometric background (current — no real photo)</span></div>
+          <div class="ab-test-row">Variant A: <span>Real lifestyle photo — person confidently using phone/laptop, financial context, optimistic tone</span></div>
+          <div class="ab-test-row">Variant B: <span>Aerial mountain summit photo — ties directly to "Summit" brand name, aspirational, premium</span></div>
+          <div class="ab-kpi">KPI: Hero scroll depth &middot; Time on page &middot; Application start rate &middot; Hypothesis: lifestyle outperforms on conversion; mountain reinforces brand</div>
+        </div>
+        <div class="ab-test">
+          <div class="ab-test-label">Image Test 2 &mdash; Hero photo with vs. without overlay text box</div>
+          <div class="ab-test-row">Control: <span>Headline and body copy directly on top of gradient overlay (current layout)</span></div>
+          <div class="ab-test-row">Variant A: <span>Semi-transparent card behind headline text — increases contrast, more legible on busy photos</span></div>
+          <div class="ab-kpi">KPI: Bounce rate &middot; Scroll depth &middot; Run this test only after a real photo is in place</div>
+        </div>
+        <div class="ab-test">
+          <div class="ab-test-label">Image Test 3 &mdash; Steps section: app screenshot vs. no image</div>
+          <div class="ab-test-row">Control: <span>Dark navy section with no real photo (current)</span></div>
+          <div class="ab-test-row">Variant A: <span>Axos mobile app screenshot faded into right side of section — shows the product, reinforces "3 minutes on your phone" message</span></div>
+          <div class="ab-kpi">KPI: Step section engagement &middot; Application start rate from steps CTA button</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -658,7 +681,7 @@ h2.sh em{color:#0055a4;font-style:italic}
     <div>
       <div class="ann-col-h c">Changed from current page</div>
       <ul class="ann-ul c-li">
-        <li>Headline: <strong>"Go higher. Earn faster."</strong> &rarr; <strong>"Your bank has been quietly costing you money."</strong> Problem-aware framing replaces aspirational positioning.</li>
+        <li>Headline: <strong>"Go higher. Earn faster."</strong> &rarr; <strong>"Other banks have been quietly costing you money."</strong> Problem-aware framing replaces aspirational positioning.</li>
         <li>Static rate text &rarr; <strong>animated counter</strong> that counts 0 &rarr; 3.75% on load. The number feels earned, not just stated.</li>
         <li>Generic hero image &rarr; <strong>embedded live calculator</strong>. Visitors see their personal earnings before a single scroll.</li>
         <li>2 CTAs total on page &rarr; sticky nav + 6 inline placements throughout scroll depth.</li>
@@ -687,7 +710,7 @@ h2.sh em{color:#0055a4;font-style:italic}
         <div class="ab-box-title">&#9670; Recommended A/B tests</div>
         <div class="ab-test">
           <div class="ab-test-label">Test 1A &mdash; Headline copy (highest impact)</div>
-          <div class="ab-test-row">Control: <span>"Your bank has been quietly costing you money."</span></div>
+          <div class="ab-test-row">Control: <span>"Other banks have been quietly costing you money."</span></div>
           <div class="ab-test-row">Variant A: <span>"You're leaving $374/year on the table. Time to fix that."</span> (specific average dollar loss)</div>
           <div class="ab-test-row">Variant B: <span>"Stop earning 0.01%. Start earning 3.75%."</span> (rate comparison as headline)</div>
           <div class="ab-kpi">KPI: Scroll depth past hero &middot; Application start rate</div>
@@ -808,7 +831,7 @@ h2.sh em{color:#0055a4;font-style:italic}
     <div class="hero-inner">
       <div class="hero-left">
         <div class="eyebrow rv">High-yield savings account</div>
-        <h1 class="hero-h rv d1">Your bank has been<br><em>quietly costing you money.</em></h1>
+        <h1 class="hero-h rv d1">Other banks have been<br><em>quietly costing you money.</em></h1>
         <p class="hero-sub rv d2">Most Americans earn under 0.5% on their savings. Axos Summit Savings pays <strong style="color:rgba(255,255,255,.8)">3.75% APY*</strong> on any balance &mdash; no fees, no minimums, no fine print.</p>
         <div class="hero-rate-block rv d3">
           <div class="rlbl">Current rate &mdash; updated April 6, 2026</div>
@@ -1015,7 +1038,7 @@ h2.sh em{color:#0055a4;font-style:italic}
 <section>
   <div class="w">
     <div class="sec-eye rv">Who it's for</div>
-    <h2 class="sh rv d1">Summit Savings works for most people.<br>Here's which one you are.</h2>
+    <h2 class="sh rv d1">Summit Savings works for most people.</h2>
     <div class="persona-grid">
       <div class="pcard rv d1">
         <div class="p-tag">Emergency fund</div>
