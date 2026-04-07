@@ -360,12 +360,13 @@ h2.sh em{color:#0055a4;font-style:italic}
 /* Gradient overlay — ensures hero text stays readable over any background photo */
 .hero-overlay{
   position:absolute;inset:0;z-index:1;
-  background:linear-gradient(
-    110deg,
-    rgba(7,20,38,0.86) 0%,
-    rgba(7,20,38,0.65) 40%,
-    rgba(7,20,38,0.28) 100%
-  );
+  background:
+    linear-gradient(110deg,
+      rgba(6,15,30,0.88) 0%,
+      rgba(6,15,30,0.60) 42%,
+      rgba(6,15,30,0.22) 70%,
+      rgba(6,15,30,0.42) 100%
+    );
 }
 .hero .w{position:relative;z-index:2}
 /* ── Steps section background treatment ─────────────────────────── */
@@ -545,72 +546,97 @@ h2.sh em{color:#0055a4;font-style:italic}
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 1200 520" preserveAspectRatio="xMidYMax slice" style="position:absolute;inset:0;width:100%;height:100%">
   <defs>
     <linearGradient id="hsky" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#071426"/>
-      <stop offset="100%" stop-color="#0f2340"/>
+      <stop offset="0%" stop-color="#060f1e"/>
+      <stop offset="100%" stop-color="#0f2240"/>
     </linearGradient>
+    <!-- Far range: blue-shifted, atmospheric -->
     <linearGradient id="hr3" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#1a3a6b"/>
-      <stop offset="100%" stop-color="#122448"/>
+      <stop offset="0%" stop-color="#1b3d6f" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#112240" stop-opacity="1"/>
     </linearGradient>
+    <!-- Mid range -->
     <linearGradient id="hr2" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#0f1f3a"/>
-      <stop offset="100%" stop-color="#0b1828"/>
+      <stop offset="0%" stop-color="#0e1e38" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#09152a" stop-opacity="1"/>
     </linearGradient>
+    <!-- Foreground -->
     <linearGradient id="hr1" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#09152a"/>
-      <stop offset="100%" stop-color="#060e1c"/>
+      <stop offset="0%" stop-color="#080f1e"/>
+      <stop offset="100%" stop-color="#050b15"/>
     </linearGradient>
-    <radialGradient id="hmoon" cx="72%" cy="12%" r="22%">
-      <stop offset="0%" stop-color="#2a5494" stop-opacity="0.6"/>
-      <stop offset="100%" stop-color="#071426" stop-opacity="0"/>
+    <!-- Soft moonlight upper-left -->
+    <radialGradient id="hmoon" cx="20%" cy="8%" r="35%">
+      <stop offset="0%" stop-color="#1e4080" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#060f1e" stop-opacity="0"/>
     </radialGradient>
-    <radialGradient id="hpeak-glow" cx="68%" cy="32%" r="8%">
-      <stop offset="0%" stop-color="#f5a227" stop-opacity="0.22"/>
+    <!-- Amber summit glow — placed at left-center peak, away from calculator -->
+    <radialGradient id="hglow" cx="38%" cy="28%" r="12%">
+      <stop offset="0%" stop-color="#f5a227" stop-opacity="0.16"/>
       <stop offset="100%" stop-color="#f5a227" stop-opacity="0"/>
     </radialGradient>
+    <!-- Extra vignette on right side so calculator card has clean backdrop -->
+    <linearGradient id="hright-fade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="55%" stop-color="#060f1e" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#060f1e" stop-opacity="0.55"/>
+    </linearGradient>
   </defs>
 
-  <!-- Sky gradient -->
+  <!-- Sky -->
   <rect width="1200" height="520" fill="url(#hsky)"/>
-  <!-- Moonlight radial glow -->
+  <!-- Moonlight -->
   <rect width="1200" height="520" fill="url(#hmoon)"/>
 
-  <!-- Stars -->
-  <circle cx="810" cy="38" r="1.3" fill="#fff" opacity="0.55"/>
-  <circle cx="870" cy="22" r="1.0" fill="#fff" opacity="0.45"/>
-  <circle cx="940" cy="55" r="1.2" fill="#fff" opacity="0.5"/>
-  <circle cx="1010" cy="18" r="0.9" fill="#fff" opacity="0.4"/>
-  <circle cx="1060" cy="44" r="1.1" fill="#fff" opacity="0.48"/>
-  <circle cx="1120" cy="30" r="0.8" fill="#fff" opacity="0.35"/>
-  <circle cx="1160" cy="62" r="1.0" fill="#fff" opacity="0.42"/>
-  <circle cx="760" cy="30" r="0.9" fill="#fff" opacity="0.38"/>
-  <circle cx="990" cy="72" r="0.8" fill="#fff" opacity="0.3"/>
-  <circle cx="895" cy="85" r="0.7" fill="#fff" opacity="0.28"/>
-  <circle cx="1085" cy="78" r="0.9" fill="#fff" opacity="0.32"/>
-  <circle cx="840" cy="68" r="0.7" fill="#fff" opacity="0.25"/>
+  <!-- Stars — clustered upper-left, away from calculator side -->
+  <circle cx="120" cy="45" r="1.1" fill="#fff" opacity="0.45"/>
+  <circle cx="185" cy="28" r="0.9" fill="#fff" opacity="0.38"/>
+  <circle cx="255" cy="58" r="1.2" fill="#fff" opacity="0.5"/>
+  <circle cx="310" cy="22" r="0.8" fill="#fff" opacity="0.35"/>
+  <circle cx="370" cy="50" r="1.0" fill="#fff" opacity="0.42"/>
+  <circle cx="80"  cy="72" r="0.8" fill="#fff" opacity="0.3"/>
+  <circle cx="440" cy="35" r="0.7" fill="#fff" opacity="0.28"/>
+  <circle cx="195" cy="82" r="0.7" fill="#fff" opacity="0.25"/>
+  <!-- A few on the right but smaller/dimmer -->
+  <circle cx="820" cy="42" r="0.8" fill="#fff" opacity="0.2"/>
+  <circle cx="900" cy="28" r="0.7" fill="#fff" opacity="0.18"/>
+  <circle cx="960" cy="60" r="0.6" fill="#fff" opacity="0.15"/>
 
-  <!-- Far mountain range (most distant, blue-tinted) -->
+  <!-- Far mountain range — peaks concentrated LEFT of center, gently sloping right -->
   <polygon
-    points="0,520 0,320 80,270 150,295 240,225 320,265 410,190 490,235 570,175 650,215 730,158 810,198 890,145 960,185 1040,130 1110,170 1200,145 1200,520"
+    points="0,520 0,280
+      80,230 160,265 250,190 340,240 420,165 500,210
+      580,175 640,205 700,185 760,215 820,200 880,225
+      940,210 1010,230 1080,218 1150,235 1200,225
+      1200,520"
     fill="url(#hr3)"/>
 
-  <!-- Mid mountain range -->
+  <!-- Amber glow over the hero tallest left-side peak -->
+  <rect width="1200" height="520" fill="url(#hglow)"/>
+
+  <!-- Snow highlight on the LEFT peak (x~420, y~165) — far from calculator -->
+  <polygon points="390,205 420,165 450,205" fill="white" opacity="0.38"/>
+  <polygon points="420,165 424,154 435,176 422,178" fill="white" opacity="0.3"/>
+  <!-- Amber rim on that peak -->
+  <line x1="420" y1="165" x2="424" y2="154" stroke="#f5a227" stroke-width="1.5" opacity="0.45"/>
+
+  <!-- Mid mountain range — smooth, no sharp peaks on right side -->
   <polygon
-    points="0,520 0,400 70,355 150,380 240,305 330,345 430,270 520,315 610,255 690,295 780,235 870,275 950,215 1040,260 1130,205 1200,235 1200,520"
+    points="0,520 0,380
+      70,340 160,370 260,300 360,340 460,275 550,315
+      640,285 720,310 800,290 880,315 960,295 1040,318
+      1120,300 1200,315
+      1200,520"
     fill="url(#hr2)"/>
 
-  <!-- Peak glow — amber halo on the summit (ties to brand color) -->
-  <rect width="1200" height="520" fill="url(#hpeak-glow)"/>
+  <!-- Right-side vignette — darkens behind calculator for clean card backdrop -->
+  <rect width="1200" height="520" fill="url(#hright-fade)"/>
 
-  <!-- Snow cap on tallest peak -->
-  <polygon points="820,195 850,158 878,195" fill="white" opacity="0.55"/>
-  <polygon points="850,158 855,146 868,170 853,172" fill="white" opacity="0.45"/>
-  <!-- Amber rim light on peak -->
-  <line x1="850" y1="158" x2="855" y2="146" stroke="#f5a227" stroke-width="1.5" opacity="0.5"/>
-
-  <!-- Foreground range (darkest, closest) -->
+  <!-- Foreground ridge -->
   <polygon
-    points="0,520 0,450 60,415 130,440 210,385 300,425 400,370 490,410 580,360 670,400 760,355 850,390 930,345 1020,380 1110,340 1200,365 1200,520"
+    points="0,520 0,455
+      70,420 150,445 240,400 330,430 430,390 520,418
+      610,385 700,412 790,380 880,405 970,378 1060,400
+      1140,382 1200,395
+      1200,520"
     fill="url(#hr1)"/>
 </svg>
 </div>
