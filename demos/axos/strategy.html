@@ -81,7 +81,6 @@
     padding: 56px 32px 80px;
   }
 
-  /* Intro */
   .intro {
     display: grid;
     grid-template-columns: 1.6fr 1fr;
@@ -114,7 +113,6 @@
   .pov-card h4 { margin-top: 0; color: var(--amber); text-transform: uppercase; font-size: .78rem; letter-spacing: .12em; }
   .pov-card p { color: var(--navy); font-size: 1rem; margin-bottom: 0; }
 
-  /* Sections */
   section.block {
     background: var(--card);
     border-radius: 14px;
@@ -138,7 +136,6 @@
     max-width: 760px;
   }
 
-  /* Architecture diagram */
   .arch {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -162,7 +159,6 @@
   .arch-step h4 { margin: 0 0 4px; font-size: .98rem; }
   .arch-step p { font-size: .85rem; margin: 0; color: var(--muted); }
 
-  /* Channel cards */
   .channels {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -214,7 +210,6 @@
   }
   .channel .variant strong { color: var(--amber); text-transform: uppercase; font-size: .72rem; letter-spacing: .08em; }
 
-  /* Tables */
   table {
     width: 100%;
     border-collapse: collapse;
@@ -244,7 +239,6 @@
     color: var(--navy);
   }
 
-  /* UTM block */
   .utm-example {
     background: #1a2740;
     color: #e8eef7;
@@ -260,7 +254,6 @@
   .utm-example .url { word-break: break-all; }
   .utm-example .url .k { color: #ffd58a; }
 
-  /* Roadmap */
   .roadmap {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -285,7 +278,6 @@
   .phase ul { padding-left: 18px; margin: 0; font-size: .9rem; color: var(--navy-soft); }
   .phase ul li { margin-bottom: 8px; }
 
-  /* KPI cards */
   .kpis {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -303,7 +295,6 @@
   .kpi h4 { font-family: "DM Serif Display", serif; font-size: 1.5rem; margin: 6px 0 8px; font-weight: 400; }
   .kpi p { font-size: .9rem; margin: 0; }
 
-  /* Footer */
   footer.site {
     background: #fff;
     border-top: 1px solid var(--line);
@@ -338,12 +329,13 @@
 </head>
 <body>
 
-<div class="fdic-bar">FDIC-insured — Backed by the full faith and credit of the U.S. Government</div>
+<div class="fdic-bar">FDIC-insured &mdash; Backed by the full faith and credit of the U.S. Government</div>
 
 <header class="site">
   <div class="header-inner">
-    <img src="./axos-logo.png" alt="Axos Bank" style="height:26px;width:auto;display:block">
-    <a href="./index.html" class="back-link">← Back to overview</a>
+    <!-- Logo embedded as base64 for self-contained viewing -->
+    <img src="data:image/png;base64,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" alt="Axos Bank" style="height:26px;width:auto;display:block">
+    <a href="./index.html" class="back-link">&larr; Back to overview</a>
   </div>
 </header>
 
@@ -352,13 +344,13 @@
   <!-- INTRO -->
   <div class="intro">
     <div>
-      <span class="eyebrow">Page 4 of 4 — Marketing Strategy</span>
+      <span class="eyebrow">Page 4 of 4 &mdash; Marketing Strategy</span>
       <h1>Summit Savings deserves its own front door.</h1>
-      <p class="lede">Today, Summit Savings is a sitelink under an Axos ONE campaign, a handful of Reddit ads, and editorial mentions on NerdWallet. The product is being marketed as an accessory. It isn't one. This page lays out how to run Summit Savings as a standalone acquisition engine — the channels, the bidding architecture, the UTM plumbing, and the measurement spine that ties it all to one number: cost per funded account.</p>
+      <p class="lede">Today, Summit Savings is a sitelink under an Axos ONE campaign, a handful of Reddit ads, and editorial mentions on NerdWallet. The product is being marketed as an accessory. It isn&rsquo;t one. This page lays out how to run Summit Savings as a standalone acquisition engine &mdash; the channels, the bidding architecture, the UTM plumbing, and the measurement spine that ties it all to one number: cost per funded account.</p>
     </div>
     <aside class="pov-card">
       <h4>The point of view</h4>
-      <p>Summit Savings has the simplest pitch in HYSA: 3.75% on dollar one, no requirements, no fees. The landing page is built to convert. The gap is upstream. Fix the channel mix, wire up value-based bidding through Tealium, and the same media dollars start producing materially better funded-account economics — because the platforms will be optimizing for funded balance, not clicks.</p>
+      <p>Summit Savings has the simplest pitch in HYSA: 3.75% on dollar one, no requirements, no fees. The landing page is built to convert. The gap is upstream. Fix the channel mix, wire up value-based bidding through Tealium, and the same media dollars start producing materially better funded-account economics &mdash; because the platforms will be optimizing for funded balance, not clicks.</p>
     </aside>
   </div>
 
@@ -366,7 +358,7 @@
   <section class="block">
     <div class="section-eyebrow">The measurement spine</div>
     <h2>One signal, optimized end-to-end</h2>
-    <p class="section-sub">Every recommendation in this document hinges on a single architectural fact: Tealium fires a funded-account event with the initial deposit balance as its value. That value is the optimization signal — and it's what makes value-based bidding viable on Google and Meta. This is the differentiator versus a typical bank acquisition setup.</p>
+    <p class="section-sub">Every recommendation in this document hinges on a single architectural fact: Tealium fires a funded-account event with the initial deposit balance as its value. That value is the optimization signal &mdash; and it&rsquo;s what makes value-based bidding viable on Google and Meta. This is the differentiator versus a typical bank acquisition setup.</p>
 
     <div class="arch">
       <div class="arch-step">
@@ -387,124 +379,125 @@
       <div class="arch-step">
         <div class="num">04</div>
         <h4>Platforms optimize</h4>
-        <p>Bidding shifts from "find me clicks" to "find me people likely to fund at higher balances."</p>
+        <p>Bidding shifts from &ldquo;find me clicks&rdquo; to &ldquo;find me people likely to fund at higher balances.&rdquo;</p>
       </div>
     </div>
 
-    <p style="margin-top:24px;font-size:.95rem;">The catch: value-based bidding needs signal density before it works. Google's Smart Bidding wants roughly 30 conversions in the prior 30 days per campaign before tROAS becomes reliable; Meta's value optimization wants meaningfully more — 50+ value events per ad set per week is the rough working floor. <strong>Run cost cap (Meta) and target CPA (Google) during ramp. Switch to value bidding only when the conversion volume is actually there.</strong> Switching too early teaches the algorithm noise.</p>
+    <p style="margin-top:24px;font-size:.95rem;">The catch: value-based bidding needs signal density before it works. Google&rsquo;s Smart Bidding wants roughly 30 conversions in the prior 30 days per campaign before tROAS becomes reliable; Meta&rsquo;s value optimization wants meaningfully more &mdash; 50+ value events per ad set per week is the rough working floor. <strong>Run cost cap (Meta) and target CPA (Google) during ramp. Switch to value bidding only when the conversion volume is actually there.</strong> Switching too early teaches the algorithm noise.</p>
   </section>
 
   <!-- CHANNELS -->
   <section class="block">
     <div class="section-eyebrow">Channel strategy</div>
     <h2>Audit the existing. Build the missing.</h2>
-    <p class="section-sub">The current mix has two right answers (Reddit, affiliate) executed without the supporting infrastructure, and one structural error (Search sitelinks doing the job a standalone Search campaign should do). Below: what to fix, what to add, and which landing variant each channel activates.</p>
+    <p class="section-sub">The current mix has the right channels in the right places &mdash; the audit questions below identify what to examine in each, and what best practice looks like. The clearest structural gap is a standalone Search campaign for Summit Savings that doesn&rsquo;t yet exist.</p>
 
     <div class="channels">
 
       <!-- EXISTING -->
       <div class="channel">
-        <span class="channel-tag tag-fix">Existing — Audit</span>
+        <span class="channel-tag tag-fix">Existing &mdash; Audit</span>
         <h3>Google Search sitelinks on Axos ONE</h3>
-        <div class="role">Symptom, not the disease</div>
-        <p>Summit Savings is currently riding under Axos ONE's cold prospecting Search campaigns as a sitelink. Two problems. First, those visitors searched for "best checking account" — they don't know Axos and they aren't Summit-intent. Second, this is being asked to substitute for the campaign that doesn't exist yet.</p>
+        <div class="role">Incremental real estate on cold prospecting campaigns</div>
+        <p>Summit Savings appears as a sitelink extension on Axos ONE campaigns that target cold prospecting terms like &ldquo;best checking account.&rdquo; These visitors may not yet know the Axos brand. A sitelink in this position can be effective &mdash; someone searching for a checking account may also want a high-yield savings account &mdash; but the placement warrants a structured audit before drawing conclusions about its performance.</p>
         <ul>
-          <li>Keep sitelinks active — they're free incremental real estate</li>
-          <li>Confirm sitelink destinations carry the default landing variant, not the affiliate one</li>
-          <li>Treat this as a complement, never the main vehicle</li>
+          <li><strong>Audit:</strong> Are sitelink destination URLs using the correct UTM parameters? Is the default landing variant (not the affiliate variant) activating for these cold visitors?</li>
+          <li><strong>Audit:</strong> What is the sitelink CTR and downstream funded-account rate? This tells us whether the intent match is working.</li>
+          <li><strong>Best practice:</strong> Sitelinks function as complementary real estate, not a substitute for a dedicated campaign. Treat them as incremental, not primary.</li>
         </ul>
-        <div class="variant"><strong>Landing variant →</strong> Default (cold)</div>
+        <div class="variant"><strong>Landing variant &rarr;</strong> Default (cold)</div>
       </div>
 
       <div class="channel">
-        <span class="channel-tag tag-fix">Existing — Audit</span>
+        <span class="channel-tag tag-fix">Existing &mdash; Audit</span>
         <h3>Reddit Ads</h3>
-        <div class="role">Right channel, wrong voice</div>
-        <p>Reddit's personal finance subs are the highest-intent free audience in HYSA marketing. They're also the fastest to dismiss anything that smells like a bank ad. The current creative needs to read like a comment, not a campaign. Lead with the rate, the no-strings claim, and a screenshot of the calculator. No stock photography. No "unlock your financial future."</p>
+        <div class="role">High-intent audience with specific creative requirements</div>
+        <p>Reddit&rsquo;s personal finance communities &mdash; r/personalfinance, r/Bogleheads, r/Fire, r/financialindependence &mdash; are among the most concentrated high-intent HYSA audiences available in paid media. These communities are also highly attuned to advertising tone, and respond better to data-led, direct creative than to traditional bank ad formats. An audit of the current campaigns will clarify targeting precision and creative performance.</p>
         <ul>
-          <li>Tighten targeting: r/personalfinance, r/Bogleheads, r/Fire, r/financialindependence, r/HYSA</li>
-          <li>Creative tone: data-led, plain text, zero marketing language</li>
-          <li>Use the conversation placement, not the feed-only placement</li>
+          <li><strong>Audit:</strong> Are campaigns targeting the specific personal finance subreddits? Or broader interest categories that include lower-intent audiences?</li>
+          <li><strong>Audit:</strong> Is the Reddit UTM variant activating on landing? (utm_source=reddit should trigger &ldquo;The HYSA rate that&rsquo;s actually what it says.&rdquo;)</li>
+          <li><strong>Best practice:</strong> Data-led creative (rate figures, dollar comparisons, no lifestyle imagery) consistently outperforms traditional ad formats in these communities. Conversation placement often outperforms feed placement.</li>
         </ul>
-        <div class="variant"><strong>Landing variant →</strong> Reddit ("The HYSA rate that's actually what it says.")</div>
+        <div class="variant"><strong>Landing variant &rarr;</strong> Reddit (&ldquo;The HYSA rate that&rsquo;s actually what it says.&rdquo;)</div>
       </div>
 
       <div class="channel">
-        <span class="channel-tag tag-fix">Existing — Audit</span>
+        <span class="channel-tag tag-fix">Existing &mdash; Audit</span>
         <h3>Affiliate (NerdWallet, Bankrate, et al.)</h3>
-        <div class="role">Pre-qualified, but operationally fragile</div>
-        <p>Editorial traffic arrives already convinced. The per-affiliate landing variants are built and mirror editorial framing — that work is done. The exposure is operational: if Axos's published rate falls behind the table-leading rate on these comparison sites, editorial teams quietly de-prioritize the listing. The protocol below is the highest-ROI operational fix on this entire page.</p>
+        <div class="role">Pre-qualified, editorially-referred traffic</div>
+        <p>Affiliate traffic from editorial comparison publishers arrives pre-qualified &mdash; visitors have already read an independent review that recommended Axos. This is among the highest-quality traffic in the HYSA category. The landing page already has per-affiliate variants that mirror editorial framing. The key operational area to audit is rate synchronization: affiliate editors monitor published rates closely, and alignment between the live page rate and comparison tables is essential to maintaining editorial placement quality.</p>
         <ul>
-          <li>Stand up a rate-update protocol with a named owner and an SLA (24 hours after any rate change)</li>
-          <li>Monitor competitor rate movements weekly</li>
-          <li>Use unique utm_source per publisher so attribution stays clean</li>
+          <li><strong>Audit:</strong> Is there a defined process for updating affiliate partner dashboards when rates change? Who owns it and what is the SLA?</li>
+          <li><strong>Audit:</strong> Are unique utm_source values in use per publisher? (nerdwallet, bankrate, etc.) This is required for clean per-partner attribution.</li>
+          <li><strong>Best practice:</strong> Rate update protocols with a named owner and a 24-hour SLA after any rate change are standard in high-performing affiliate programs. Regular briefing of editorial contacts on unique differentiators (InsureGuard+, no-minimum positioning) supports placement quality over time.</li>
         </ul>
-        <div class="variant"><strong>Landing variant →</strong> Affiliate (per publisher)</div>
+        <div class="variant"><strong>Landing variant &rarr;</strong> Affiliate (per publisher)</div>
       </div>
 
       <!-- NEW -->
       <div class="channel priority">
-        <span class="channel-tag tag-priority">New — Top Priority</span>
+        <span class="channel-tag tag-priority">New &mdash; Top Priority</span>
         <h3>Standalone Google Search campaign</h3>
-        <div class="role">The biggest gap in the current plan</div>
-        <p>This is the single highest-leverage missing piece. People typing "high yield savings account," "best HYSA 2026," "Marcus vs Ally," and "Capital One savings rate" are mid-funnel and ready. They are not currently being served by an Axos Summit Savings ad. They should be.</p>
+        <div class="role">The highest-priority channel addition</div>
+        <p>A dedicated Summit Savings Search campaign is the single most significant gap in the current channel mix. Visitors actively searching &ldquo;high yield savings account,&rdquo; &ldquo;best HYSA 2026,&rdquo; or competitor brand terms are mid-funnel and in-market. This intent is not currently being captured by a Summit Savings-specific campaign. A standalone campaign &mdash; separate budget, separate structure, never co-mingled with Axos ONE &mdash; is the recommended first addition.</p>
         <ul>
-          <li>Separate budget, separate campaign — never co-mingled with Axos ONE</li>
           <li>Three ad groups: generic HYSA terms, competitor brand terms, rate-comparison terms</li>
-          <li>Start on target CPA bidding; graduate to tROAS once the signal threshold is hit</li>
-          <li>Negative-keyword "checking" aggressively — wrong product</li>
+          <li>Negative-keyword &ldquo;checking&rdquo; aggressively &mdash; wrong product, wrong intent</li>
+          <li>Start on target CPA bidding; graduate to tROAS once the conversion signal threshold is met</li>
+          <li>Activates the Search landing variant, which is already built and waiting</li>
         </ul>
-        <div class="variant"><strong>Landing variant →</strong> Google Search ("Still comparing? Summit Savings wins.")</div>
+        <div class="variant"><strong>Landing variant &rarr;</strong> Google Search (&ldquo;Still comparing? Summit Savings wins.&rdquo;)</div>
       </div>
 
       <div class="channel">
         <span class="channel-tag tag-new">New</span>
-        <h3>Meta — Facebook & Instagram</h3>
-        <div class="role">Cost cap, static-first, value bidding later</div>
-        <p>Facebook's 35–55 demographic is the demographic that actually has savings to move. Start with static and carousel creative — faster to produce and iterate than video, and good enough to validate the channel. Cost cap bidding lets daily spend flex with predicted performance while holding the CPA ceiling. Switch to value optimization only after the funded-event volume crosses the working floor.</p>
+        <h3>Meta &mdash; Facebook &amp; Instagram</h3>
+        <div class="role">Cost cap prospecting, value optimization at scale</div>
+        <p>Facebook&rsquo;s 35&ndash;55 demographic skews toward people who actually have savings to move &mdash; which makes it a natural fit for Summit Savings prospecting. Static and carousel creative are faster to produce and iterate than video, and well-suited to the opportunity-cost framing the landing page already uses. Cost cap bidding holds the CPA ceiling while letting daily spend flex with predicted performance signals.</p>
         <ul>
-          <li>Cost cap bidding from day one — set the ceiling, let volume fluctuate</li>
-          <li>Two creative tracks: opportunity-cost framing ("your savings is making someone else rich") and rate-and-trust framing</li>
-          <li>Lookalikes off existing funded customers once the seed audience is large enough</li>
+          <li>Cost cap bidding from day one &mdash; set the ceiling, let volume fluctuate with performance signals</li>
+          <li>Two creative tracks: opportunity-cost framing and rate-and-trust framing</li>
+          <li>Lookalike audiences off existing funded customers once the seed audience is large enough</li>
+          <li>Shift to value optimization only after funded-event volume crosses the platform&rsquo;s working floor</li>
         </ul>
-        <div class="variant"><strong>Landing variant →</strong> Social/Display ("Your savings account is making someone else rich.")</div>
+        <div class="variant"><strong>Landing variant &rarr;</strong> Social/Display (&ldquo;Your savings account is making someone else rich.&rdquo;)</div>
       </div>
 
       <div class="channel">
         <span class="channel-tag tag-new">New</span>
-        <h3>CRM overlay — Summit → Axos ONE</h3>
-        <div class="role">Zero media cost. Tealium-triggered.</div>
-        <p>The complementary-product opportunity, played correctly. Funded Summit Savings customers at the 90-day tenure mark get a low-pressure introduction to Axos ONE — framed as "now that you're earning more on savings, here's the checking account designed to pair with it." Not an upsell push. Tealium fires on the funded + tenure milestone; the email and in-app message land in sequence.</p>
+        <h3>CRM overlay &mdash; Summit &rarr; Axos ONE</h3>
+        <div class="role">Zero media cost, Tealium-triggered</div>
+        <p>Funded Summit Savings customers at the 90-day tenure mark are a natural, low-cost audience for an Axos ONE introduction &mdash; not an upsell push, but a well-timed, relevant introduction to a complementary product. Tealium fires on the funded + tenure milestone; a short email and in-app sequence follows. This is an entirely separate product pitch and should be framed accordingly: &ldquo;Now that you&rsquo;re earning more on savings, here&rsquo;s the checking account designed to pair with it.&rdquo;</p>
         <ul>
-          <li>Trigger: funded_status=true AND tenure_days >= 90</li>
+          <li>Trigger: funded_status=true AND tenure_days &ge; 90</li>
           <li>Three-touch sequence: email, in-app banner, follow-up email</li>
           <li>Suppress anyone who already holds an Axos ONE account</li>
         </ul>
-        <div class="variant"><strong>Landing variant →</strong> n/a — sends to Axos ONE landing</div>
+        <div class="variant"><strong>Landing variant &rarr;</strong> n/a &mdash; sends to Axos ONE landing</div>
       </div>
 
       <div class="channel">
-        <span class="channel-tag tag-new">New — Phase 2</span>
+        <span class="channel-tag tag-new">New &mdash; Phase 2</span>
         <h3>Creator sponsorships</h3>
-        <div class="role">The fast path to video learnings</div>
-        <p>Personal finance YouTubers and TikTok creators are the right first move into video — not branded YouTube spend. Summit Savings is one of the easiest products in banking to brief: no requirements, no teaser rates, not a Big Bank. Creators write it themselves. The reads double as creative R&amp;D; the best-performing scripts become the brief for in-house video later.</p>
+        <div class="role">Video channel development, lower production risk</div>
+        <p>Personal finance YouTubers and TikTok creators are the right entry point into video &mdash; lower production risk than branded YouTube spend, and valuable as creative R&amp;D. Summit Savings is straightforward to brief: no requirements, no teaser rates, straightforward rate. Creators write it in their own voice. The formats that perform well from this wave become the brief for in-house video production in Phase 3.</p>
         <ul>
-          <li>Mid-tier creators (100K–1M subscribers) — better economics than top-tier, often better engagement</li>
-          <li>Flat-fee + custom UTM per creator for clean attribution</li>
-          <li>Treat the first wave as creative testing, not pure performance</li>
+          <li>Mid-tier creators (100K&ndash;1M subscribers) typically offer better economics than top-tier</li>
+          <li>Flat-fee + unique UTM per creator for clean attribution</li>
+          <li>Treat the first wave as creative learning as much as performance delivery</li>
         </ul>
-        <div class="variant"><strong>Landing variant →</strong> Default or custom per creator</div>
+        <div class="variant"><strong>Landing variant &rarr;</strong> Default or custom per creator</div>
       </div>
 
       <div class="channel">
         <span class="channel-tag tag-new">Deferred</span>
         <h3>YouTube paid media</h3>
-        <div class="role">Not yet</div>
-        <p>YouTube is a video-creative-led channel. Without strong video assets, the spend converts to a learning tax. Run creator sponsorships first; harvest the formats that work; then commission in-house video against those proven scripts; then turn on YouTube paid. Doing it in the other order is how banks waste seven figures on YouTube.</p>
+        <div class="role">Gated on creative readiness</div>
+        <p>YouTube is a video-creative-led channel. Allocating budget before strong creative assets exist tends to produce learning costs rather than performance. The recommended sequence: run creator sponsorships first, identify the formats and hooks that resonate, commission in-house production against those proven scripts, then open YouTube paid spend. This ordering avoids the common pattern of launching YouTube before the creative is ready to compete.</p>
         <ul>
-          <li>Gate: ship at least three creator videos and identify two winning hooks first</li>
+          <li>Gate: complete at least three creator videos and identify two strong-performing hooks first</li>
           <li>Then commission production against those hooks</li>
-          <li>Then — and only then — open the YouTube spend</li>
+          <li>Then open YouTube spend with proven creative in hand</li>
         </ul>
       </div>
 
@@ -514,21 +507,21 @@
   <!-- UTM TAXONOMY -->
   <section class="block">
     <div class="section-eyebrow">UTM taxonomy</div>
-    <h2>Naming is plumbing. Get it wrong and the whole engine drips.</h2>
-    <p class="section-sub">The landing page personalization engine reads UTM parameters on load and activates the matching variant. Inconsistent naming silently breaks two things at once: the visitor sees the wrong landing experience, and Tealium attribution merges or splits channels incorrectly. The taxonomy below is non-negotiable across all channels.</p>
+    <h2>Recommended naming conventions</h2>
+    <p class="section-sub">The landing page personalization engine reads UTM parameters on load and activates the matching variant. Inconsistent naming silently breaks two things simultaneously: the visitor sees the wrong landing experience, and Tealium attribution merges or mis-attributes channels. The conventions below are recommended across all campaigns.</p>
 
     <table>
       <thead>
         <tr>
           <th>Parameter</th>
           <th>Purpose</th>
-          <th>Allowed values (lowercase, no spaces)</th>
+          <th>Recommended values (lowercase, no spaces)</th>
         </tr>
       </thead>
       <tbody>
         <tr><td><code>utm_source</code></td><td>Specific platform or publisher</td><td><code>google</code>, <code>reddit</code>, <code>meta</code>, <code>nerdwallet</code>, <code>bankrate</code>, <code>doctorofcredit</code>, <code>creator-{name}</code></td></tr>
-        <tr><td><code>utm_medium</code></td><td>Channel category — drives the landing variant</td><td><code>cpc</code>, <code>social</code>, <code>display</code>, <code>affiliate</code>, <code>email</code>, <code>sponsorship</code></td></tr>
-        <tr><td><code>utm_campaign</code></td><td>Campaign name — use a stable convention</td><td><code>summit-{intent}-{quarter}</code> e.g. <code>summit-hysa-generic-q2</code></td></tr>
+        <tr><td><code>utm_medium</code></td><td>Channel category &mdash; drives the landing variant</td><td><code>cpc</code>, <code>social</code>, <code>display</code>, <code>affiliate</code>, <code>email</code>, <code>sponsorship</code></td></tr>
+        <tr><td><code>utm_campaign</code></td><td>Campaign name &mdash; use a stable convention</td><td><code>summit-{intent}-{quarter}</code> e.g. <code>summit-hysa-generic-q2</code></td></tr>
         <tr><td><code>utm_content</code></td><td>Ad/creative identifier for granular reporting</td><td><code>{format}-{variant}</code> e.g. <code>carousel-opp-cost-a</code></td></tr>
       </tbody>
     </table>
@@ -536,12 +529,12 @@
     <h4 style="margin-top:32px;">Example URLs</h4>
 
     <div class="utm-example">
-      <span class="label">Google Search — generic HYSA term</span>
+      <span class="label">Google Search &mdash; generic HYSA term</span>
       <span class="url">https://www.axosbank.com/summit-savings?<span class="k">utm_source</span>=google&amp;<span class="k">utm_medium</span>=cpc&amp;<span class="k">utm_campaign</span>=summit-hysa-generic-q2&amp;<span class="k">utm_content</span>=rsa-rate-headline-a</span>
     </div>
 
     <div class="utm-example">
-      <span class="label">Reddit — r/personalfinance conversation placement</span>
+      <span class="label">Reddit &mdash; r/personalfinance conversation placement</span>
       <span class="url">https://www.axosbank.com/summit-savings?<span class="k">utm_source</span>=reddit&amp;<span class="k">utm_medium</span>=social&amp;<span class="k">utm_campaign</span>=summit-pf-conversation-q2&amp;<span class="k">utm_content</span>=text-no-bs-a</span>
     </div>
 
@@ -551,38 +544,38 @@
     </div>
 
     <div class="utm-example">
-      <span class="label">Meta carousel — opportunity cost creative</span>
+      <span class="label">Meta carousel &mdash; opportunity cost creative</span>
       <span class="url">https://www.axosbank.com/summit-savings?<span class="k">utm_source</span>=meta&amp;<span class="k">utm_medium</span>=social&amp;<span class="k">utm_campaign</span>=summit-prospecting-q2&amp;<span class="k">utm_content</span>=carousel-opp-cost-a</span>
     </div>
 
-    <p style="margin-top:18px;font-size:.92rem;"><strong>Governance:</strong> Lock the taxonomy in a shared sheet. New campaigns reference it before launch. Any deviation flagged in the weekly QA report. This is the kind of detail that looks small until six months of attribution data is unusable.</p>
+    <p style="margin-top:18px;font-size:.92rem;"><strong>Governance:</strong> Maintain the taxonomy in a shared reference document. New campaigns reference it before launch, and any deviations are flagged in the weekly QA review. Attribution data compounds in value over time &mdash; consistent naming from the start protects that investment.</p>
   </section>
 
   <!-- MEASUREMENT -->
   <section class="block">
     <div class="section-eyebrow">Measurement framework</div>
     <h2>One north star. One feeder metric. No vanity.</h2>
-    <p class="section-sub">Application starts are not the goal. Clicks are not the goal. Funded accounts at strong initial balances are the goal — and the entire stack should be measured against that.</p>
+    <p class="section-sub">Application starts are not the goal. Clicks are not the goal. Funded accounts at strong initial balances are the goal &mdash; and the entire stack should be measured against that.</p>
 
     <div class="kpis">
       <div class="kpi primary">
         <div class="label">North star</div>
         <h4>Cost per Funded Account (CPFA)</h4>
-        <p>Total channel spend divided by funded accounts attributed to that channel via Tealium. Reported by channel, by campaign, weekly. This is the only number that matters at the executive level.</p>
+        <p>Total channel spend divided by funded accounts attributed to that channel via Tealium. Reported by channel, by campaign, weekly. This is the primary metric at the executive level.</p>
       </div>
       <div class="kpi">
         <div class="label">Feeder metric</div>
         <h4>Average Funded Balance by Channel</h4>
-        <p>The signal that powers value-based bidding. Channels skew differently — Search and affiliate typically deliver higher-balance funders than Reddit or Meta prospecting. This metric tells the platforms which clicks are worth more.</p>
+        <p>The signal that powers value-based bidding. Channels tend to skew differently &mdash; Search and affiliate typically deliver higher-intent funnels than broad prospecting. This metric tells the platforms which clicks are worth more and informs ROAS target-setting.</p>
       </div>
     </div>
 
     <h4 style="margin-top:8px;">Diagnostic metrics (operational, not reported up)</h4>
     <ul style="font-size:.95rem;color:var(--navy-soft);padding-left:20px;">
-      <li>Application start rate per landing variant — diagnoses whether the right variant is firing for the right channel</li>
-      <li>Application completion rate — isolates funnel friction from acquisition friction</li>
-      <li>Funded rate (funded ÷ application complete) — diagnoses match-quality drift before it shows up in CPFA</li>
-      <li>Time to fund — leading indicator of intent quality</li>
+      <li>Application start rate per landing variant &mdash; identifies whether the right variant is activating for the right channel</li>
+      <li>Application completion rate &mdash; isolates funnel friction from acquisition friction</li>
+      <li>Funded rate (funded &divide; application complete) &mdash; identifies match-quality shifts before they surface in CPFA</li>
+      <li>Time to fund &mdash; a leading indicator of intent quality by channel</li>
     </ul>
 
     <h4 style="margin-top:24px;">Bidding strategy by phase</h4>
@@ -593,51 +586,51 @@
       <tbody>
         <tr><td>Google Search</td><td>Target CPA</td><td>Target ROAS (value-based, fed by funded balance)</td></tr>
         <tr><td>Meta prospecting</td><td>Cost cap (CPA ceiling)</td><td>Value optimization with min-ROAS bid cap</td></tr>
-        <tr><td>Reddit</td><td>Manual / max conversions</td><td>Hold — Reddit's bidding sophistication isn't there yet</td></tr>
+        <tr><td>Reddit</td><td>Manual / max conversions</td><td>Hold &mdash; Reddit&rsquo;s bidding sophistication is limited compared to Google and Meta</td></tr>
       </tbody>
     </table>
-    <p style="margin-top:14px;font-size:.92rem;"><strong>The threshold rule:</strong> Don't switch to value-based bidding until the campaign is producing sustained funded-event volume above the platform's signal floor. Switching early degrades performance by training the model on noise. Better to under-optimize for a month than overcorrect and lose three.</p>
+    <p style="margin-top:14px;font-size:.92rem;"><strong>The threshold principle:</strong> Switch to value-based bidding only when the campaign is producing sustained funded-event volume above the platform&rsquo;s signal floor. Switching too early trains the algorithm on insufficient data and typically degrades performance. A conservative ramp protects the longer-term bidding efficiency.</p>
   </section>
 
   <!-- ROADMAP -->
   <section class="block">
     <div class="section-eyebrow">Execution roadmap</div>
-    <h2>Phased, not dated.</h2>
-    <p class="section-sub">Three phases. Each gates on the previous. Dates are deliberately omitted — the right pace depends on internal dev capacity and creative production timelines, not on a Gantt chart drafted before the work starts.</p>
+    <h2>Phased execution plan</h2>
+    <p class="section-sub">Three phases, each gating on the previous. Specific timelines depend on internal development capacity and creative production schedules &mdash; the phases are sequenced by dependency, not by a fixed calendar.</p>
 
     <div class="roadmap">
       <div class="phase">
-        <div class="phase-label">Phase 1 — Immediate</div>
-        <h3>Fix the plumbing</h3>
+        <div class="phase-label">Phase 1 &mdash; Immediate</div>
+        <h3>Establish the foundation</h3>
         <ul>
           <li>Lock the UTM taxonomy and audit every existing campaign against it</li>
           <li>Confirm Tealium funded-event firing is clean and includes balance value</li>
-          <li>Verify Search sitelinks point to the default landing variant, not affiliate</li>
-          <li>Stand up the affiliate rate-update protocol with a named owner</li>
-          <li>Re-cut Reddit creative in plain-text, data-led format and rotate in</li>
-          <li>Confirm landing personalization is firing correctly per channel</li>
+          <li>Verify Search sitelinks point to the default landing variant, not the affiliate variant</li>
+          <li>Establish the affiliate rate-update protocol with a named owner</li>
+          <li>Confirm landing page personalization is firing correctly per channel</li>
+          <li>Complete the Reddit campaign audit: targeting, creative format, placement type</li>
         </ul>
       </div>
       <div class="phase">
-        <div class="phase-label">Phase 2 — Near-term</div>
+        <div class="phase-label">Phase 2 &mdash; Near-term</div>
         <h3>Build the missing channels</h3>
         <ul>
-          <li>Launch the standalone Google Search campaign — target CPA bidding</li>
+          <li>Launch the standalone Google Search campaign on target CPA bidding</li>
           <li>Launch Meta prospecting on cost cap with two creative tracks</li>
-          <li>Activate the Summit → Axos ONE CRM sequence at 90-day tenure</li>
+          <li>Activate the Summit &rarr; Axos ONE CRM sequence at 90-day tenure</li>
           <li>Begin weekly CPFA-by-channel reporting with funnel diagnostics</li>
-          <li>Brief and ship the first wave of creator sponsorships</li>
+          <li>Brief and launch the first wave of creator sponsorships</li>
         </ul>
       </div>
       <div class="phase">
-        <div class="phase-label">Phase 3 — Longer-term</div>
+        <div class="phase-label">Phase 3 &mdash; Longer-term</div>
         <h3>Optimize and scale</h3>
         <ul>
-          <li>Switch Search to tROAS once signal threshold is met</li>
-          <li>Switch Meta to value optimization on the same gate</li>
-          <li>Build lookalikes off the funded-customer seed audience</li>
-          <li>Commission in-house video against the winning creator hooks</li>
-          <li>Open YouTube paid media — only after creative is proven</li>
+          <li>Transition Search to tROAS once signal threshold is met</li>
+          <li>Transition Meta to value optimization on the same gate</li>
+          <li>Build lookalike audiences off the funded-customer seed</li>
+          <li>Commission in-house video production from winning creator hooks</li>
+          <li>Open YouTube paid media with proven creative in hand</li>
           <li>Test high-balance prospect targeting against the InsureGuard+ landing variant</li>
         </ul>
       </div>
@@ -647,16 +640,16 @@
   <!-- CLOSE -->
   <section class="block">
     <div class="section-eyebrow">In summary</div>
-    <h2>The work isn't building something new. It's letting the existing engine actually run.</h2>
-    <p style="font-size:1.05rem;color:var(--navy);">The landing page is already sophisticated. The personalization engine is already built. The Tealium spine is already firing the right event with the right value. What's missing is a marketing program that respects all of that — clean UTMs that activate the right variant, a standalone Search campaign instead of a sitelink, Meta running on cost cap with the right creative, Reddit in the right voice, affiliate operations that don't decay, a CRM bridge to Axos ONE, and a measurement frame that points everything at CPFA. None of this requires new technology. All of it requires discipline. That's the recommendation.</p>
+    <h2>Building on a strong foundation</h2>
+    <p style="font-size:1.05rem;color:var(--navy);">The landing page is already sophisticated. The personalization engine is already built. The Tealium spine is already firing the right event with the right value. The opportunity is to build a marketing program that fully utilizes all of that &mdash; clean UTMs that activate the right variant, a standalone Search campaign, Meta running on cost cap with the right creative, Reddit in the right voice, affiliate operations that stay current, a CRM bridge to Axos ONE, and a measurement frame that points everything at cost per funded account. None of this requires new technology. All of it builds on what&rsquo;s already in place.</p>
   </section>
 
 </main>
 
 <footer class="site">
   <div class="footer-inner">
-    <span>Prepared by DGTL Sunrise for Axos Bank — Confidential — April 2026</span>
-    <a href="./index.html" class="back-link">← Back to overview</a>
+    <span>Prepared by DGTL Sunrise for Axos Bank &mdash; Confidential &mdash; April 2026</span>
+    <a href="./index.html" class="back-link">&larr; Back to overview</a>
   </div>
 </footer>
 
