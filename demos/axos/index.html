@@ -148,12 +148,92 @@ header{
 /* ── Footer ───────────────────────────────────────── */
 footer{
   margin-top:auto;padding:20px clamp(24px,5vw,60px);
-  border-top:1px solid rgba(255,255,255,.06);
+  border-top:1px solid #e2e8f0;
   display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;
+  background:#fff;
 }
-.footer-credit{font-size:11px;color:rgba(255,255,255,.22)}
-.footer-credit strong{color:rgba(255,255,255,.4);font-weight:500}
-.footer-date{font-size:11px;color:rgba(255,255,255,.18)}
+.footer-credit{font-size:11px;color:rgba(24,53,95,.45)}
+.footer-credit strong{color:rgba(24,53,95,.7);font-weight:500}
+.footer-date{font-size:11px;color:rgba(24,53,95,.35)}
+
+/* ── Compliance section ───────────────────────────── */
+.compliance-section{
+  padding:0 clamp(24px,5vw,60px) clamp(40px,5vw,56px);
+  max-width:1000px;
+}
+.compliance-header{
+  display:flex;align-items:center;gap:10px;margin-bottom:20px;
+}
+.compliance-header h2{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:clamp(18px,2.5vw,24px);font-weight:400;color:#fff;
+}
+.compliance-icon{
+  width:36px;height:36px;border-radius:50%;
+  background:rgba(252,211,77,.12);border:1px solid rgba(252,211,77,.25);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  font-size:16px;
+}
+.compliance-intro{
+  font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;
+  margin-bottom:20px;max-width:760px;
+  background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);
+  border-radius:10px;padding:14px 18px;
+}
+.compliance-intro strong{color:rgba(255,255,255,.7)}
+.compliance-grid{display:flex;flex-direction:column;gap:10px}
+.flag{
+  border-radius:10px;padding:16px 18px;
+  border:1px solid transparent;
+}
+.flag-review{background:rgba(252,211,77,.07);border-color:rgba(252,211,77,.2)}
+.flag-ok{background:rgba(52,211,153,.05);border-color:rgba(52,211,153,.15)}
+.flag-addressed{background:rgba(96,165,250,.05);border-color:rgba(96,165,250,.15)}
+.badge-addressed{background:rgba(96,165,250,.12);color:#93c5fd}
+.flag-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:6px}
+.flag-badge{
+  font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 8px;border-radius:20px;flex-shrink:0;margin-top:1px;
+}
+.badge-review{background:rgba(252,211,77,.15);color:#fcd34d}
+.badge-ok{background:rgba(52,211,153,.12);color:#6ee7b7}
+.flag-title{font-size:13px;font-weight:600;color:#fff}
+.flag-body{font-size:12px;color:rgba(255,255,255,.5);line-height:1.65;padding-left:0}
+.flag-body strong{color:rgba(255,255,255,.75);font-weight:500}
+.flag-body code{font-size:11px;background:rgba(255,255,255,.08);padding:1px 5px;border-radius:3px;color:rgba(255,255,255,.7)}
+.compliance-footer-note{
+  margin-top:14px;font-size:11px;color:rgba(255,255,255,.3);
+  line-height:1.65;padding:10px 14px;
+  border:1px solid rgba(255,255,255,.06);border-radius:8px;
+  background:rgba(255,255,255,.02);
+}
+
+/* ── Disclaimer section ───────────────────────────── */
+.disclaimer-section{
+  padding:0 clamp(24px,5vw,60px) clamp(32px,4vw,48px);
+  max-width:1000px;
+}
+.disclaimer-box{
+  background:#fff;border-radius:12px;
+  padding:22px 26px;
+  border:1px solid #e2e8f0;
+}
+.disclaimer-eyebrow{
+  font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(24,53,95,.4);margin-bottom:10px;
+}
+.disclaimer-body{
+  font-size:12px;color:rgba(24,53,95,.6);line-height:1.75;
+}
+.disclaimer-body strong{color:rgba(24,53,95,.85);font-weight:600}
+.disclaimer-divider{height:1px;background:#e2e8f0;margin:14px 0}
+
+/* ── Section separator ───────────────────────────── */
+.section-sep{
+  height:1px;background:rgba(255,255,255,.07);
+  margin:0 clamp(24px,5vw,60px) clamp(32px,4vw,48px);
+}
+
 </style>
 </head>
 <body>
@@ -212,6 +292,168 @@ footer{
       <div class="cs-item">Open either page and click <strong style="color:rgba(255,255,255,.6)">"Visitor scenarios"</strong> (bottom right) to preview all A/B test variants live without leaving the page.</div>
       <div class="cs-item">Click <strong style="color:rgba(255,255,255,.6)">"Design review"</strong> (bottom right) to see the full strategic rationale for every section &mdash; what changed, why, and what competitors do.</div>
       <div class="cs-item">All links go to live Axos URLs. Both files are self-contained &mdash; no login or external dependencies required to view.</div>
+    </div>
+  </div>
+
+  <!-- COMPLIANCE SECTION -->
+  <div class="section-sep"></div>
+  <div class="compliance-section">
+    <div class="compliance-header">
+      <div class="compliance-icon">&#9888;</div>
+      <h2>Regulatory compliance notes</h2>
+    </div>
+    <div class="compliance-intro">
+      <strong>7 of 10 issues addressed directly in the demo pages.</strong> The remaining 3 items require data or regulatory review that only Axos's legal and compliance team can complete. See details below. This assessment is based on <strong>Regulation DD (Truth in Savings Act, 12 CFR Part 1030)</strong>, the <strong>FTC Act Section 5(a) / UDAAP</strong> prohibition on unfair or deceptive acts and practices, and <strong>FDIC advertising rules (12 CFR Part 328)</strong>. This is a design strategy document — it does not constitute legal advice and is not a substitute for review by qualified legal counsel.
+    </div>
+    <div class="compliance-grid">
+
+      <!-- ── ADDRESSED ──────────────────────────────────────────── -->
+
+      <div class="flag flag-addressed">
+        <div class="flag-header">
+          <span class="flag-badge badge-addressed">Addressed in demo</span>
+          <div class="flag-title">Reg DD §1030.8(b) — "Annual percentage yield" spelled out</div>
+        </div>
+        <div class="flag-body">
+          Both pages now spell out <strong>"annual percentage yield (APY*)"</strong> in full on the first hero mention before using the abbreviation, satisfying the Regulation DD requirement. The footer footnote on both pages also uses the full term.
+        </div>
+      </div>
+
+      <div class="flag flag-addressed">
+        <div class="flag-header">
+          <span class="flag-badge badge-addressed">Addressed in demo</span>
+          <div class="flag-title">Reg DD §1030.8(c)(1) — "Rate may change after account is opened"</div>
+        </div>
+        <div class="flag-body">
+          Both pages now include an explicit <strong>"Rate may change after the account is opened"</strong> statement. On the Best In Class PDP this appears directly beneath the animated rate counter. On the Old PDP it appears below the hero CTA and in the strengthened footer footnote. Axos legal should confirm placement meets the "clearly and conspicuously" standard on mobile.
+        </div>
+      </div>
+
+      <div class="flag flag-addressed">
+        <div class="flag-header">
+          <span class="flag-badge badge-addressed">Addressed in demo</span>
+          <div class="flag-title">Reg DD §1030.8(c)(6) — "Fees may reduce earnings" footer footnote</div>
+        </div>
+        <div class="flag-body">
+          Both pages carry "Fees may reduce earnings" in strengthened footer footnotes. The Best In Class PDP footer now reads: <em>"Rate may change after the account is opened, as often as daily, without prior notice. Fees may reduce earnings."</em> Axos legal should confirm final footnote sizing and placement meets the conspicuousness standard.
+        </div>
+      </div>
+
+      <div class="flag flag-addressed">
+        <div class="flag-header">
+          <span class="flag-badge badge-addressed">Addressed in demo</span>
+          <div class="flag-title">UDAAP — Competitor rate data flagged as illustrative</div>
+        </div>
+        <div class="flag-body">
+          All competitor rate footnotes on both pages now include explicit language: <em>"illustrative — verify against current published rates before publishing."</em> The comparison table note on the Best In Class PDP similarly flags competitor rates as illustrative. Axos's team must update all competitor rates and the national average figure to current data before any page goes live.
+        </div>
+      </div>
+
+      <div class="flag flag-addressed">
+        <div class="flag-header">
+          <span class="flag-badge badge-addressed">Addressed in demo</span>
+          <div class="flag-title">UDAAP — Testimonials marked as demo placeholders</div>
+        </div>
+        <div class="flag-body">
+          The Best In Class PDP testimonials section now carries a visible amber compliance notice: <em>"Reviews below are illustrative placeholders for design purposes only. Replace with verified, documented real customer reviews before publishing."</em> This notice is visible to anyone reviewing the page.
+        </div>
+      </div>
+
+      <div class="flag flag-addressed">
+        <div class="flag-header">
+          <span class="flag-badge badge-addressed">Addressed in demo</span>
+          <div class="flag-title">UDAAP — Application time claims qualified</div>
+        </div>
+        <div class="flag-body">
+          Time claims on the Best In Class PDP now read <strong>"under 3 minutes for most applicants"</strong> rather than an unqualified absolute. Axos should validate this against real application completion data before publishing and adjust the specific time estimates as needed.
+        </div>
+      </div>
+
+      <div class="flag flag-addressed">
+        <div class="flag-header">
+          <span class="flag-badge badge-addressed">Addressed in demo</span>
+          <div class="flag-title">UDAAP — Trust bar stats marked for verification</div>
+        </div>
+        <div class="flag-body">
+          A small note now appears beneath the trust bar on the Best In Class PDP: <em>"Stats subject to verification prior to publishing — Demo document only."</em> Before publishing, Axos should verify and update: 1M+ customer count, 4.8★ App Store rating, A+ BBB rating.
+        </div>
+      </div>
+
+      <!-- ── STILL REQUIRES REVIEW ──────────────────────────────── -->
+
+      <div class="flag flag-review">
+        <div class="flag-header">
+          <span class="flag-badge badge-review">Still requires review</span>
+          <div class="flag-title">Reg DD §1030.8(c)(4) — Minimum balance disclosure placement</div>
+        </div>
+        <div class="flag-body">
+          "No minimum balance" appears in body copy and footnotes on both pages. Axos legal should confirm that placement relative to each APY figure meets the <strong>"clearly and conspicuously"</strong> standard under Regulation DD — particularly on mobile where footnote text may be small.
+        </div>
+      </div>
+
+      <div class="flag flag-review">
+        <div class="flag-header">
+          <span class="flag-badge badge-review">Still requires review</span>
+          <div class="flag-title">FDIC Advertising Rule (12 CFR Part 328) — Updated 2025 digital sign requirements</div>
+        </div>
+        <div class="flag-body">
+          Both pages carry FDIC language, but Axos legal should confirm exact wording and placement meets the <strong>updated FDIC digital advertising sign rules effective 2025</strong>. This cannot be verified from a design demo — it requires review against the specific regulatory text by qualified compliance staff.
+        </div>
+      </div>
+
+      <div class="flag flag-review">
+        <div class="flag-header">
+          <span class="flag-badge badge-review">Still requires review</span>
+          <div class="flag-title">UDAAP — "9x the national average" claim requires current data</div>
+        </div>
+        <div class="flag-body">
+          The "9x national average" claim references FDIC data from 12/10/25. This figure must be recalculated against current FDIC national average data before publishing. If the current national average has changed, the multiplier must be updated or removed.
+        </div>
+      </div>
+
+      <!-- ── COMPLIANT AS DESIGNED ───────────────────────────────── -->
+
+      <div class="flag flag-ok">
+        <div class="flag-header">
+          <span class="flag-badge badge-ok">Compliant as designed</span>
+          <div class="flag-title">No "free" account claims triggering Reg DD</div>
+        </div>
+        <div class="flag-body">
+          Neither page uses "free" to describe the account itself. "No fees" and "it's free" reference the cost to apply. Axos legal should confirm this usage is acceptable under Reg DD's "free" account advertising restrictions.
+        </div>
+      </div>
+
+      <div class="flag flag-ok">
+        <div class="flag-header">
+          <span class="flag-badge badge-ok">Compliant as designed</span>
+          <div class="flag-title">InsureGuard+ / IntraFi® attribution — accurate and attributed</div>
+        </div>
+        <div class="flag-body">
+          The Best In Class PDP references InsureGuard+ Savings through IntraFi® Network Deposits℠ with the $265M figure and registered trademark, matching language on the live Axos page. This claim appears accurate and properly attributed.
+        </div>
+      </div>
+
+    </div>
+
+        <div class="compliance-footer-note">
+      &#9432; This compliance assessment was prepared by DGTL Sunrise as a strategic design consultancy and does not constitute legal advice. All content, copy, and claims must be reviewed and approved by Axos Bank's legal, compliance, and regulatory affairs teams before any element is published or made available to consumers. The responsibility for regulatory compliance rests with Axos Bank.
+    </div>
+  </div>
+
+  <!-- DISCLAIMER SECTION -->
+  <div class="section-sep"></div>
+  <div class="disclaimer-section">
+    <div class="disclaimer-box">
+      <div class="disclaimer-eyebrow">Disclaimer &mdash; DGTL Sunrise</div>
+      <div class="disclaimer-body">
+        <strong>These pages are design and strategy concept demonstrations prepared exclusively for internal review by Axos Bank.</strong> They are not intended for public distribution, consumer-facing publication, or use as a final production deliverable without further development and review.
+        <div class="disclaimer-divider"></div>
+        All content, copy, rates, statistics, testimonials, customer counts, competitive claims, and code contained in these demonstrations are <strong>subject to verification, legal review, and approval by Axos Bank's legal, compliance, regulatory affairs, and technology teams</strong> prior to any publication. Placeholder statistics and testimonials are clearly noted as such and must be replaced with verified data before any page goes live.
+        <div class="disclaimer-divider"></div>
+        DGTL Sunrise has prepared these materials as a marketing strategy and UX design consultancy. <strong>Nothing in these materials constitutes legal, compliance, or regulatory advice.</strong> DGTL Sunrise makes no representation that these demonstrations are compliant with applicable federal or state banking regulations, including but not limited to the Truth in Savings Act (Regulation DD), the FTC Act, UDAAP, or FDIC advertising requirements. Axos Bank assumes all responsibility for regulatory compliance of any content it chooses to publish.
+        <div class="disclaimer-divider"></div>
+        <strong>All links to axosbank.com and affiliated URLs are for reference only.</strong> This demonstration uses publicly available Axos Bank brand assets (logo, imagery) solely for the purpose of illustrating design concepts for Axos Bank's internal review. These assets remain the property of Axos Bank and are not licensed for any other use.
+      </div>
     </div>
   </div>
 
