@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Axos Summit Savings — PDP Concept · DGTL Sunrise</title>
+<title>Axos Summit Savings — PDP Concept (Light) · DGTL Sunrise</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
@@ -11,7 +11,7 @@
 /* ── Reset ─────────────────────────────────────────── */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;background:#fff;color:#18355f;overflow-x:hidden;line-height:1.5}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Helvetica Neue',Arial,sans-serif;background:var(--page-bg);color:#18355f;overflow-x:hidden;line-height:1.5}
 img{max-width:100%;display:block}
 button{cursor:pointer;font-family:inherit}
 
@@ -20,10 +20,15 @@ button{cursor:pointer;font-family:inherit}
   --navy:#18355f; --navy-dk:#0e1e35; --navy-mid:#1a3a6a;
   --amber:#f5a227; --amber-lt:#fef3dc; --amber-dk:#b87500;
   --teal:#007c74; --teal-lt:#e0f4f1;
-  --gray:#7a8fa8; --gray-dk:#3d5270; --gray-lt:#edf0f4;
-  --border:rgba(24,53,95,.1); --white:#fff; --off:#f7f9fb;
+  --gray:#5a7080; --gray-dk:#3d5270; --gray-lt:#edf0f4;
+  --border:rgba(24,53,95,.1); --white:#fff; --off:#F2F5F9;
   --r:10px; --rlg:16px; --rxl:22px;
   --wrap:1160px;
+  /* Light theme additions */
+  --page-bg:#F2F5F9;
+  --card-shadow:0 2px 12px rgba(24,53,95,.07);
+  --card-shadow-hover:0 8px 28px rgba(24,53,95,.12);
+  --section-dark-soft:#1a3557;
 }
 
 /* ── Content wrapper ────────────────────────────────── */
@@ -174,7 +179,7 @@ h1.hero-h em{color:var(--amber);font-style:italic}
 @media(max-width:519px){.trust-item:nth-child(4),.trust-item:nth-child(5){display:none}}
 
 /* ── Section base ───────────────────────────────────── */
-section{background:#fff}
+section{background:#fff;border-bottom:1px solid rgba(24,53,95,.06)}
 section .w{padding-top:clamp(48px,6vw,72px);padding-bottom:clamp(48px,6vw,72px)}
 .sec-eye{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
 .sec-eye::before{content:'';display:block;width:14px;height:2px;background:var(--teal);border-radius:1px}
@@ -185,8 +190,8 @@ h2.sh em{color:#0055a4;font-style:italic}
 /* ── GAP section ────────────────────────────────────── */
 .gap-grid{display:flex;flex-direction:column;gap:14px}
 @media(min-width:580px){.gap-grid{display:grid;grid-template-columns:repeat(3,1fr)}}
-.gap-card{border:1px solid var(--border);border-radius:var(--rlg);padding:18px;background:#fff;position:relative;overflow:visible;transition:transform .22s,box-shadow .22s}
-.gap-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(24,53,95,.08)}
+.gap-card{border:1px solid var(--border);border-radius:var(--rlg);padding:18px;background:#fff;position:relative;overflow:visible;transition:transform .22s,box-shadow .22s;box-shadow:var(--card-shadow)}
+.gap-card:hover{transform:translateY(-3px);box-shadow:var(--card-shadow-hover)}
 .gap-card.winner{border:2px solid var(--amber);background:#fffcf5}
 /* Winner tag: in-flow on mobile, absolute on wider screens */
 .gap-winner-tag{
@@ -210,8 +215,8 @@ h2.sh em{color:#0055a4;font-style:italic}
 .nc-sec{background:var(--off)}
 .nc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 @media(min-width:860px){.nc-grid{grid-template-columns:repeat(4,1fr)}}
-.nc-card{background:#fff;border:1px solid var(--border);border-radius:var(--rlg);padding:18px;transition:transform .22s,box-shadow .22s}
-.nc-card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(24,53,95,.07)}
+.nc-card{background:#fff;border:1px solid var(--border);border-radius:var(--rlg);padding:18px;transition:transform .22s,box-shadow .22s;box-shadow:var(--card-shadow)}
+.nc-card:hover{transform:translateY(-3px);box-shadow:var(--card-shadow-hover)}
 .nc-icon{width:34px;height:34px;background:var(--teal-lt);border-radius:9px;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
 .nc-icon svg{width:16px;height:16px;stroke:var(--teal);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
 .nc-title{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:4px}
@@ -220,7 +225,7 @@ h2.sh em{color:#0055a4;font-style:italic}
 /* ── Personas ────────────────────────────────────────── */
 .persona-grid{display:flex;flex-direction:column;gap:14px}
 @media(min-width:860px){.persona-grid{display:grid;grid-template-columns:repeat(3,1fr)}}
-.pcard{border:1px solid var(--border);border-radius:var(--rlg);padding:20px;background:#fff;transition:transform .22s,box-shadow .22s,border-color .22s}
+.pcard{border:1px solid var(--border);border-radius:var(--rlg);padding:20px;background:#fff;transition:transform .22s,box-shadow .22s,border-color .22s;box-shadow:var(--card-shadow)}
 .pcard:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(24,53,95,.08);border-color:var(--amber)}
 .p-tag{display:inline-block;background:var(--amber-lt);color:var(--amber-dk);font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-bottom:10px}
 .p-h{font-size:14px;font-weight:600;color:var(--navy);margin-bottom:7px}
@@ -228,7 +233,7 @@ h2.sh em{color:#0055a4;font-style:italic}
 .p-earn{padding-top:10px;border-top:1px solid var(--border);font-size:12px;font-weight:600;color:#1a6b4a}
 
 /* ── Steps ───────────────────────────────────────────── */
-.steps-sec{background:var(--navy-dk)}
+.steps-sec{background:var(--section-dark-soft)}
 .steps-sec .w{padding-top:clamp(48px,6vw,68px);padding-bottom:clamp(48px,6vw,68px)}
 .steps-grid{display:flex;flex-direction:column;gap:28px;margin-top:36px;position:relative}
 @media(min-width:860px){
@@ -245,7 +250,7 @@ h2.sh em{color:#0055a4;font-style:italic}
 
 /* ── Calculator ──────────────────────────────────────── */
 .calc-sec{background:var(--off)}
-.fc-wrap{background:#fff;border:1px solid var(--border);border-radius:var(--rxl);padding:clamp(18px,3vw,28px)}
+.fc-wrap{background:#fff;border:1px solid var(--border);border-radius:var(--rxl);padding:clamp(18px,3vw,28px);box-shadow:var(--card-shadow)}
 .fc-sliders{display:flex;flex-direction:column;gap:14px;margin-bottom:20px}
 .fc-row{display:flex;align-items:center;gap:12px}
 .fc-lbl{font-size:12px;font-weight:500;color:var(--gray-dk);min-width:50px}
@@ -267,7 +272,7 @@ h2.sh em{color:#0055a4;font-style:italic}
 .fc-sub{font-size:12px;color:var(--gray);margin-top:7px;text-align:center}
 
 /* ── Comparison ──────────────────────────────────────── */
-.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r);border:1px solid var(--border)}
+.tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:var(--r);border:1px solid var(--border);box-shadow:var(--card-shadow)}
 .tbl-scroll::-webkit-scrollbar{height:4px}
 .tbl-scroll::-webkit-scrollbar-track{background:var(--gray-lt)}
 .tbl-scroll::-webkit-scrollbar-thumb{background:var(--gray);border-radius:2px}
@@ -287,8 +292,8 @@ h2.sh em{color:#0055a4;font-style:italic}
 .rev-sec{background:var(--off)}
 .rev-grid{display:flex;flex-direction:column;gap:14px}
 @media(min-width:860px){.rev-grid{display:grid;grid-template-columns:repeat(3,1fr)}}
-.rev-card{background:#fff;border:1px solid var(--border);border-radius:var(--rlg);padding:20px;transition:transform .22s,box-shadow .22s}
-.rev-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(24,53,95,.08)}
+.rev-card{background:#fff;border:1px solid var(--border);border-radius:var(--rlg);padding:20px;transition:transform .22s,box-shadow .22s;box-shadow:var(--card-shadow)}
+.rev-card:hover{transform:translateY(-3px);box-shadow:var(--card-shadow-hover)}
 .rev-stars{color:var(--amber);font-size:13px;margin-bottom:9px;letter-spacing:1px}
 .rev-text{font-size:13px;color:var(--gray-dk);line-height:1.7;font-style:italic;margin-bottom:12px}
 .rev-text::before{content:'\201C';font-size:24px;color:var(--amber);line-height:0;vertical-align:-8px;margin-right:2px;font-family:'DM Serif Display',serif}
@@ -317,7 +322,7 @@ h2.sh em{color:#0055a4;font-style:italic}
 
 /* ── FAQ ─────────────────────────────────────────────── */
 .faq-wrap{max-width:740px;margin:0 auto}
-.faq-item{border-bottom:1px solid var(--border)}
+.faq-item{border-bottom:1px solid var(--border);background:#fff}
 .faq-btn{width:100%;background:none;border:none;display:flex;justify-content:space-between;align-items:center;padding:16px 0;text-align:left;gap:12px}
 .faq-q{font-size:14px;font-weight:500;color:var(--navy);flex:1;line-height:1.4;transition:color .2s}
 .faq-btn:hover .faq-q{color:#0055a4}
@@ -621,7 +626,7 @@ body.ron
   padding:0;
   border:none;
 }
-.announcement-bar.show{display:block}
+.announcement-bar.show{display:block;border-bottom:1px solid rgba(24,53,95,.08)}
 
 /* Incomplete application announcement */
 .ann-bar-incomplete{
@@ -1206,7 +1211,7 @@ body.ron .dyn-wrap{outline:1px dashed rgba(167,139,250,.35);outline-offset:3px}
     </div>
     <div>
       <div class="ann-col-h w">Why it converts better</div>
-      <ul class="ann-ul w-li"><li><strong>"3.75% vs 0.01%"</strong> requires mental math. <strong>"$4,861 vs $50 over 5 years"</strong> requires none.</li><li>The 5-year frame makes the cost of inaction visceral. Visitors mentally calculate their own compounding loss.</li><li>Countup animations reward scrollers &mdash; users who watch a number build are more likely to act on it.</li></ul>
+      <ul class="ann-ul w-li"><li><strong>Loss framing beats earnings framing.</strong> "You'd lose $4,811 by staying at Chase" is more visceral than "Axos earns $4,861." The first requires no math and activates loss aversion. The second requires comparison. Both state the same fact — the first lands harder.</li><li>The 5-year frame amplifies the effect. Visitors mentally project that number forward to their own balance and timeline.</li><li>Countup animations reward scrollers &mdash; users who watch a number build are more likely to act on it.</li></ul>
       <div class="ann-col-h b" style="margin-top:10px">Where we beat them</div>
       <ul class="ann-ul b-li"><li><strong>Zero competitors show a 5-year compounding comparison.</strong> Every HYSA page uses only 1-year APY. Our 5-year frame creates 5x the urgency.</li></ul>
     </div>
@@ -1216,30 +1221,38 @@ body.ron .dyn-wrap{outline:1px dashed rgba(167,139,250,.35);outline-offset:3px}
 <section>
   <div class="w">
     <div class="sec-eye rv">The numbers</div>
-    <h2 class="sh rv d1">What staying at your current bank<br><em>actually costs you</em> &mdash; in real dollars.</h2>
-    <p class="ssub rv d2">A $25,000 balance over 5 years, compounded daily. No mental math needed.</p>
+    <h2 class="sh rv d1">What staying at your current bank<br><em>is costing you</em> &mdash; in real dollars.</h2>
+    <p class="ssub rv d2">Every year you don't switch is money you don't earn. Here's exactly how much, on a $25,000 balance over 5 years, compounded daily.</p>
     <div class="gap-grid" id="gap-grid">
+      <!-- Axos is the anchor/reference card — shows what you GAIN -->
       <div class="gap-card winner rv d1">
-        <div class="gap-winner-tag">Best value</div>
+        <div class="gap-winner-tag">Move here</div>
         <div class="gap-bank">Axos Summit Savings</div>
         <div class="gap-earn hi" data-t="4861">$0</div>
-        <div class="gap-apy">3.75% APY &middot; 5-year earnings</div>
+        <div class="gap-apy">3.75% APY &middot; you'd earn this over 5 years</div>
         <div class="bar-track"><div class="bar-fill" data-w="100"></div></div>
       </div>
+      <!-- Competitor cards show the LOSS vs Axos -->
       <div class="gap-card rv d2">
-        <div class="gap-bank">Capital One 360</div>
-        <div class="gap-earn" data-t="4411">$0</div>
-        <div class="gap-apy">3.40% APY &middot; 5-year earnings</div>
-        <div class="bar-track"><div class="bar-fill" data-w="91" style="background:#aab8cc"></div></div>
+        <div class="gap-bank" style="display:flex;align-items:center;justify-content:space-between">
+          <span>Capital One 360</span>
+          <span style="font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#c0392b;background:rgba(192,57,43,.08);border-radius:20px;padding:2px 7px">You lose</span>
+        </div>
+        <div class="gap-earn" data-t="450" style="color:#c0392b">$0</div>
+        <div class="gap-apy">3.40% APY &middot; $450 less than Axos over 5 years</div>
+        <div class="bar-track"><div class="bar-fill" data-w="9" style="background:#e8a0a0"></div></div>
       </div>
       <div class="gap-card rv d3">
-        <div class="gap-bank">Chase / BofA Savings</div>
-        <div class="gap-earn" data-t="50">$0</div>
-        <div class="gap-apy">0.01% APY &middot; 5-year earnings</div>
-        <div class="bar-track"><div class="bar-fill" data-w="1" style="background:#d4dce8"></div></div>
+        <div class="gap-bank" style="display:flex;align-items:center;justify-content:space-between">
+          <span>Chase / BofA Savings</span>
+          <span style="font-size:9px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#c0392b;background:rgba(192,57,43,.08);border-radius:20px;padding:2px 7px">You lose</span>
+        </div>
+        <div class="gap-earn" data-t="4811" style="color:#c0392b">$0</div>
+        <div class="gap-apy">0.01% APY &middot; $4,811 less than Axos over 5 years</div>
+        <div class="bar-track"><div class="bar-fill" data-w="99" style="background:#e8a0a0"></div></div>
       </div>
     </div>
-    <p class="gap-note rv d4">Based on $25,000 initial deposit compounded daily. Rates variable; projection assumes rate remains constant. For illustrative purposes.</p>
+    <p class="gap-note rv d4">Loss figures represent the difference in 5-year compounded earnings vs. Axos Summit Savings on a $25,000 initial deposit. Rates variable; projection assumes rates remain constant. For illustrative purposes. Competitor rates must be verified against current published rates before publishing.</p>
   </div>
 </section>
 
