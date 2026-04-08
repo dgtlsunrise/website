@@ -1106,7 +1106,7 @@ body.ron .dyn-wrap{outline:1px dashed rgba(167,139,250,.35);outline-offset:3px}
           <div class="hero-rate-block">
             <div class="rlbl">Current rate &mdash; updated April 6, 2026</div>
             <div class="rrow"><div class="rbig">3.75</div><div class="runit">% APY*</div></div>
-            <div class="rnote">Variable rate &middot; Set daily &middot; No teaser pricing</div>
+            <div class="rnote">Variable rate &middot; <strong style="color:rgba(255,255,255,.55)">Rate may change after account is opened</strong> &middot; Set daily</div>
           </div>
           <div class="ctas">
             <button class="btn btn-amber" onclick="openModal()">Open in seconds &mdash; info pre-filled</button>
@@ -1115,11 +1115,11 @@ body.ron .dyn-wrap{outline:1px dashed rgba(167,139,250,.35);outline-offset:3px}
         <!-- DEFAULT HERO (all other visitors) -->
         <div class="hero-default">
         <div class="dyn-wrap"><h1 class="hero-h rv d1" id="hero-h1">Other banks have been<br><em>quietly costing you money.</em></h1><span class="dyn-marker">UTM + CDP</span></div>
-        <div class="dyn-wrap"><p class="hero-sub rv d2" id="hero-sub">Most Americans earn under 0.5% on their savings. Axos Summit Savings pays <strong style="color:rgba(255,255,255,.8)">3.75% APY*</strong> on any balance &mdash; no fees, no minimums, no fine print.</p><span class="dyn-marker">UTM source</span></div>
+        <div class="dyn-wrap"><p class="hero-sub rv d2" id="hero-sub">Most Americans earn under 0.5% on their savings. Axos Summit Savings pays <strong style="color:rgba(255,255,255,.8)">3.75% annual percentage yield (APY*)</strong> on any balance &mdash; no fees, no minimums, no fine print.</p><span class="dyn-marker">UTM source</span></div>
         <div class="hero-rate-block rv d3">
           <div class="rlbl">Current rate &mdash; updated April 6, 2026</div>
           <div class="rrow"><div class="rbig" id="rnum">0.00</div><div class="runit">% APY*</div></div>
-          <div class="rnote">Variable rate &middot; Set daily &middot; No teaser pricing</div>
+          <div class="rnote">Variable rate &middot; <strong style="color:rgba(255,255,255,.55)">Rate may change after account is opened</strong> &middot; Set daily</div>
         </div>
         <div class="hero-ctas rv d4">
           <div class="dyn-wrap"><button class="btn btn-amber" onclick="openModal()" id="hero-cta-btn">Open my account</button><span class="dyn-marker">CDP intent</span></div>
@@ -1187,6 +1187,7 @@ body.ron .dyn-wrap{outline:1px dashed rgba(167,139,250,.35);outline-offset:3px}
       <div class="trust-item rv d3"><div class="trust-num">$250K</div><div class="trust-lbl">FDIC insured</div></div>
       <div class="trust-item rv d4"><div class="trust-num">A+</div><div class="trust-lbl">BBB rating</div></div>
     </div>
+    <div style="text-align:center;margin-top:8px;font-size:9px;color:rgba(255,255,255,.22);letter-spacing:.03em">Stats subject to verification prior to publishing &nbsp;&middot;&nbsp; <em>Demo document only</em></div>
   </div>
 </div>
 
@@ -1422,7 +1423,7 @@ body.ron .dyn-wrap{outline:1px dashed rgba(167,139,250,.35);outline-offset:3px}
   <div class="w">
     <div style="text-align:center">
       <div class="eyebrow rv" style="justify-content:center;color:var(--amber)">How to open</div>
-      <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(24px,4vw,36px);font-weight:400;color:#fff;margin-bottom:8px" class="rv d1">Three minutes. No branch.<br>No paperwork.</h2>
+      <h2 style="font-family:'DM Serif Display',Georgia,serif;font-size:clamp(24px,4vw,36px);font-weight:400;color:#fff;margin-bottom:8px" class="rv d1">Under 3 minutes for most applicants. No branch. No paperwork.</h2>
       <p style="font-size:14px;color:rgba(255,255,255,.62);max-width:380px;margin:0 auto" class="rv d2">Everything you need is online or in the app.</p>
     </div>
     <div class="steps-grid">
@@ -1591,7 +1592,7 @@ body.ron .dyn-wrap{outline:1px dashed rgba(167,139,250,.35);outline-offset:3px}
         </tbody>
       </table>
     </div>
-    <p class="comp-note rv">Rates as of April 6, 2026. Chase $5/mo fee waived with $300+ balance or linked checking. All rates variable.</p>
+    <p class="comp-note rv">Axos APY as of April 6, 2026. Competitor rates shown are illustrative; verify against current published rates before publishing. All rates variable. Chase $5/mo fee waived with $300+ balance or linked checking.</p>
   </div>
 </section>
 
@@ -1629,7 +1630,10 @@ body.ron .dyn-wrap{outline:1px dashed rgba(167,139,250,.35);outline-offset:3px}
   <div class="w">
     <div class="sec-eye rv">What customers say</div>
     <h2 class="sh rv d1">From people who were skeptical,<br><em>just like you.</em></h2>
-    <div class="rev-grid">
+    <div style="background:rgba(252,211,77,.09);border:1px solid rgba(252,211,77,.22);border-radius:8px;padding:10px 16px;margin-bottom:18px;font-size:11px;color:rgba(255,200,50,.75);line-height:1.55">
+        <strong style="color:rgba(255,200,50,.95)">&#9888; Compliance note:</strong> Reviews below are illustrative placeholders for design purposes only. Replace with verified, documented real customer reviews before publishing.
+      </div>
+      <div class="rev-grid">
       <div class="rev-card rv d1">
         <div class="rev-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
         <div class="rev-text">I was nervous about switching from a big bank. Transferred $40K in and made more in the first month than I did all of last year. Wish I'd done it sooner.</div>
@@ -1755,7 +1759,7 @@ body.ron .dyn-wrap{outline:1px dashed rgba(167,139,250,.35);outline-offset:3px}
       <div class="faq-item rv"><button class="faq-btn" onclick="toggleFaq(this)"><span class="faq-q">How does Summit Savings compare to a CD or money market?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-body"><p class="faq-a">A CD locks your money for a fixed term (3&ndash;24 months) in exchange for a guaranteed rate. Summit Savings is fully liquid &mdash; move money freely with no penalty. It's the simplest option: high yield, full access, no conditions.</p></div></div>
       <div class="faq-item rv"><button class="faq-btn" onclick="toggleFaq(this)"><span class="faq-q">Does opening an account affect my credit score?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-body"><p class="faq-a">No. Opening a savings account requires identity verification but does not trigger a hard credit inquiry. Your credit score is completely unaffected.</p></div></div>
       <div class="faq-item rv"><button class="faq-btn" onclick="toggleFaq(this)"><span class="faq-q">Can I open multiple Summit Savings accounts?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-body"><p class="faq-a">Yes. Open multiple accounts and label each by goal &mdash; vacation fund, emergency fund, down payment &mdash; all within the Axos app, all earning 3.75% APY.</p></div></div>
-      <div class="faq-item rv"><button class="faq-btn" onclick="toggleFaq(this)"><span class="faq-q">How long does it actually take to open?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-body"><p class="faq-a">Most applications complete in under 3 minutes. You'll need your SSN, a valid ID, and a linked bank account to fund it. No branch visit, no appointment, no hold music.</p></div></div>
+      <div class="faq-item rv"><button class="faq-btn" onclick="toggleFaq(this)"><span class="faq-q">How long does it actually take to open?</span><span class="faq-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button><div class="faq-body"><p class="faq-a">Most applications complete in under 3 minutes for most applicants. You'll need your SSN, a valid ID, and a linked bank account to fund it. No branch visit, no appointment, no hold music.</p></div></div>
     </div>
   </div>
 </section>
@@ -1824,7 +1828,7 @@ body.ron .dyn-wrap{outline:1px dashed rgba(167,139,250,.35);outline-offset:3px}
   <div class="footer-btm">
     <div class="footer-legal">
       &copy; 2026 Axos Financial, Inc. &amp; Axos Bank. All Rights Reserved. FDIC Member. NMLS #524995.<br>
-      *APY accurate as of April 6, 2026. Rate is variable and set at our discretion. May change without notice. Fees may reduce earnings.<br>
+      *Annual Percentage Yield (APY) accurate as of April 6, 2026. Rate is variable and set at our discretion. Rate may change after the account is opened, as often as daily, without prior notice. Fees may reduce earnings.<br>
       <em style="color:rgba(255,255,255,.13)">&mdash; Page redesign concept by DGTL Sunrise. Customer stats and reviews require verification before production.</em>
     </div>
     <div class="footer-links"><a class="footer-fl">Disclosures</a><a class="footer-fl">FDIC Notice</a><a class="footer-fl">Accessibility</a><a class="footer-fl">CRA File</a></div>
