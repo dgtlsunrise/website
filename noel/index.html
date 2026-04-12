@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Heading for the Exit — Noel Churchill</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #faf8f4;
+      --text: #1a1612;
+      --text-secondary: #4a4440;
+      --text-dim: #7a726a;
+      --amber: #8b5e1a;
+      --amber-light: #c4862a;
+      --amber-bg: #fdf4e7;
+      --rule: #d4cdc4;
+      --rule-strong: #8b5e1a;
+      --drop-cap-bg: #1a1612;
+      --drop-cap-text: #faf8f4;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Lora', Georgia, serif;
+      font-size: 20px;
+      line-height: 1.85;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    /* ── Header ──────────────────────────────────────── */
+    .masthead {
+      border-bottom: 1px solid var(--rule);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .masthead-inner {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      width: 100%;
+      max-width: 740px;
+    }
+
+    .masthead-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.01em;
+    }
+
+    .masthead-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .masthead-date {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── Layout ──────────────────────────────────────── */
+    .essay {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 24px 120px;
+    }
+
+    /* ── Hero head ───────────────────────────────────── */
+    .hero-head {
+      padding: 72px 0 56px;
+      border-bottom: 3px solid var(--text);
+    }
+
+    .kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(44px, 7vw, 72px);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      color: var(--text);
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--amber);
+    }
+
+    .dek {
+      font-size: 22px;
+      font-style: italic;
+      color: var(--text-secondary);
+      line-height: 1.5;
+      font-family: 'Lora', serif;
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .byline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── Body copy ───────────────────────────────────── */
+    .essay-body {
+      padding-top: 56px;
+    }
+
+    p {
+      margin-bottom: 28px;
+      color: var(--text);
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    strong { font-weight: 600; }
+
+    em { font-style: italic; }
+
+    /* Drop cap on first paragraph */
+    .drop-cap::first-letter {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-size: 82px;
+      line-height: 0.85;
+      float: left;
+      margin-right: 8px;
+      margin-top: 8px;
+      color: var(--text);
+    }
+
+    /* ── Section breaks ──────────────────────────────── */
+    .section-break {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 64px 0;
+    }
+
+    .section-break::before,
+    .section-break::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .section-break-ornament {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--rule);
+    }
+
+    /* ── Section heading ─────────────────────────────── */
+    h2 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 32px;
+      margin-top: 8px;
+      color: var(--text);
+    }
+
+    h2 em { color: var(--amber); }
+
+    /* ── Pull quote ──────────────────────────────────── */
+    .pull-quote {
+      border-left: 4px solid var(--amber-light);
+      padding: 4px 0 4px 32px;
+      margin: 48px 0;
+    }
+
+    .pull-quote p {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 26px;
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.45;
+      color: var(--text);
+      margin: 0;
+    }
+
+    /* ── Breakout (amber bg) ─────────────────────────── */
+    .breakout {
+      background: var(--amber-bg);
+      border-top: 2px solid var(--amber-light);
+      border-bottom: 2px solid var(--amber-light);
+      padding: 40px 0;
+      margin: 56px -24px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+
+    .breakout p {
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    .breakout p:last-child { margin-bottom: 0; }
+
+    .breakout-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 16px;
+    }
+
+    /* ── Media embed ─────────────────────────────────── */
+    .media-block {
+      margin: 56px 0;
+    }
+
+    .media-block-inner {
+      position: relative;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 9/16;
+    }
+
+    .media-block-inner iframe {
+      width: 100%;
+      height: 100%;
+      display: block;
+      border: none;
+    }
+
+    .media-caption {
+      margin-top: 14px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* ── Tweets grid ─────────────────────────────────── */
+    .tweets-block {
+      margin: 56px 0;
+    }
+
+    .tweets-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .tweets-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    /* ── Stat row ────────────────────────────────────── */
+    .stat-row {
+      display: flex;
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+      margin: 48px 0;
+    }
+
+    .stat-box {
+      flex: 1;
+      background: var(--bg);
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--amber);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-dim);
+      line-height: 1.4;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* ── Steps ───────────────────────────────────────── */
+    .steps {
+      margin: 48px 0;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .step {
+      padding: 36px 32px;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .step:last-child { border-bottom: none; }
+
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      font-weight: 900;
+      color: var(--rule);
+      line-height: 1;
+      margin-top: -4px;
+    }
+
+    .step-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .step-body {
+      font-size: 17px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .step-tag {
+      display: inline-block;
+      margin-top: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--amber);
+      background: var(--amber-bg);
+      padding: 4px 10px;
+      border-radius: 2px;
+    }
+
+    /* ── Closing ─────────────────────────────────────── */
+    .closing-rule {
+      width: 60px;
+      height: 3px;
+      background: var(--text);
+      margin: 64px 0 32px;
+    }
+
+    /* ── Footer ──────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--rule);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    footer p {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      margin: 0;
+    }
+
+    /* ── Animations ──────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ──────────────────────────────────── */
+    @media (max-width: 600px) {
+      body { font-size: 18px; }
+      .breakout { margin-left: -24px; margin-right: -24px; }
+      .step { grid-template-columns: 1fr; gap: 8px; }
+      .step-num { font-size: 32px; }
+      .stat-row { flex-direction: column; gap: 0; }
+      .pull-quote p { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <span class="masthead-name">Noel Churchill</span>
+      <div class="masthead-rule"></div>
+      <span class="masthead-date">April 2026</span>
+    </div>
+  </header>
+
+  <main class="essay">
+
+    <!-- Hero -->
+    <div class="hero-head">
+      <p class="kicker">A personal essay</p>
+      <h1>Heading for<br>the <em>Exit</em></h1>
+      <p class="dek">Why I'm leaving self-employment behind, why I think AI is about to change everything, and how I'm repositioning my career before the flashover.</p>
+      <p class="byline">By Noel Churchill &nbsp;·&nbsp; For family and close friends</p>
+    </div>
+
+    <!-- Essay body -->
+    <div class="essay-body">
+
+      <p class="drop-cap">I want to explain what I'm doing and why, because I think it deserves a real explanation — not a LinkedIn announcement or a vague mention that things are changing. The people reading this have watched me build something for thirteen years, and some of them have watched the last three years be harder than I expected. You deserve the full picture.</p>
+
+      <p>So here it is.</p>
+
+      <div class="section-break reveal"><span class="section-break-ornament">❧</span></div>
+
+      <h2 class="reveal">Three years of<br><em>honest difficulty</em></h2>
+
+      <p class="reveal">RainbowOPTX was genuinely successful for a long time. At its peak, it gave me a good lifestyle and a real sense of accomplishment — building something from nothing, scaling it globally, doing it entirely on my own terms and my own capital. I'm proud of what it was.</p>
+
+      <p class="reveal">But the last three years were harder. Life changed, circumstances changed, and the business suffered for it. I sold it in late 2025 — a clean exit, the right move — but I'll be honest: by the time I sold, it had been a grind, and the financial unpredictability of those years had taken a real toll. Not just on my bank account, but psychologically. The kind of toll that only people close to me have seen clearly.</p>
+
+      <p class="reveal">Self-employment has a specific kind of stress that salaried work doesn't. It's not always about how much money you make — it's about not knowing. A good month followed by a bad one followed by a month where you genuinely can't predict which kind it's going to be. When you have a family to provide for, that uncertainty compounds. It sits with you. It affects how you think, how you plan, how you sleep.</p>
+
+      <p class="reveal">I've been consulting for Axos Bank since leaving RainbowOPTX, and it's good work with good people. But it's still consulting. Still variable. Still without a floor.</p>
+
+      <p class="reveal">Leif is old enough for school now. The obvious move would be to take my marketing and business background and find a full-time role — maybe at Axos, maybe somewhere like it. Clean transition. Familiar territory. Respectable salary.</p>
+
+      <p class="reveal">The more I thought about it, the more that felt like the wrong move. Not because it wouldn't work — it would. But because I kept thinking about something I couldn't shake.</p>
+
+      <div class="section-break reveal"><span class="section-break-ornament">❧</span></div>
+
+      <h2 class="reveal">The fire at<br><em>Le Constellation</em></h2>
+
+      <p class="reveal">On New Year's Eve 2025, a bar called Le Constellation in Crans-Montana, Switzerland — a chic ski resort in the Alps — caught fire during a New Year's party. A waitress, standing on another waitress's shoulders, held a champagne bottle topped with a lit sparkler near the wooden ceiling. The ceiling caught. The fire spread. And then something happened that the fire scientists call a "flashover" — a threshold beyond which everything in a room ignites almost simultaneously.</p>
+
+      <p class="reveal">Forty people were killed. Over a hundred were injured.</p>
+
+      <p class="reveal">What struck me when I first saw the videos wasn't the tragedy itself — it was the moments before the flashover. People standing there, drinks in hand, watching the flames spread across the ceiling with something like amusement. Not panic. Not urgency. Just… curiosity. Maybe the assumption that someone else would handle it. Maybe disbelief that something so visually striking could actually be dangerous. Maybe just the particular human tendency to underestimate fire until it's too late to do anything about it.</p>
+
+      <!-- Video embed -->
+      <div class="media-block reveal">
+        <div class="media-block-inner">
+          <iframe
+            src="https://www.youtube.com/embed/MtNSFkOYaak"
+            title="Crans-Montana Le Constellation fire, New Year's Eve 2025"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <p class="media-caption">Le Constellation bar, Crans-Montana, Switzerland. New Year's Eve 2025.<br>40 killed, 115 injured. The fire went from sparkler to flashover in minutes.</p>
+      </div>
+
+      <p class="reveal">That image — people watching with amusement while the ceiling burns — became my analogy for artificial intelligence.</p>
+
+      <div class="pull-quote reveal">
+        <p>"I think AI is going to be constructive in so many ways. But it's still going to be the fire that burns down all the previous ways of doing things."</p>
+      </div>
+
+      <p class="reveal">I work with AI every day. I've been building with it, experimenting with it, and watching it improve in real time for the past two years. I know exactly what it can do — and what it can do to knowledge-worker jobs is not speculative. It can take over your computer. It can see your full screen, click around, and execute tasks that a human would do — with full AI intelligence and at a fraction of the cost. The technology is already here. The deployment is accelerating.</p>
+
+      <p class="reveal">Most people I know are watching this with something like amusement. It's interesting. It's impressive. It's a little scary in an abstract way. But the urgency hasn't registered yet. The sparklers are near the ceiling and everyone still has a drink in their hand.</p>
+
+      <p class="reveal">I didn't want to be the person who waited for the flashover. After a lot of thinking, I decided I needed to move toward the exit — and I needed to do it deliberately, while there was still time to choose where I landed.</p>
+
+      <div class="section-break reveal"><span class="section-break-ornament">❧</span></div>
+
+      <h2 class="reveal">Three filters,<br><em>one answer</em></h2>
+
+      <p class="reveal">I treated this like a decision problem. I had three non-negotiable criteria for whatever came next, and I filtered every option against all three.</p>
+
+      <p class="reveal"><strong>First: AI-proof.</strong> The role has to depend heavily on human-to-human relationships, complex negotiation, professional judgment developed over years, and the kind of institutional trust that doesn't transfer to a language model. AI can assist with almost everything. There are very few things it cannot replace — and I wanted to be in that category.</p>
+
+      <p class="reveal"><strong>Second: recession-resistant.</strong> After three years of income unpredictability, I'm done with volatility. When the economy contracts, most private sector budgets shrink. But there are sectors that are structurally insulated — primarily anything tied to government spending on essential services or national security. Recessions don't pause defense requirements.</p>
+
+      <p class="reveal"><strong>Third: real long-term upside.</strong> This isn't just about stability. I want a second act — something that compounds into something bigger. A stable job that goes nowhere for fifteen years isn't the answer either. I wanted a path, not just a position.</p>
+
+      <p class="reveal">When I applied all three filters, one sector kept coming back: <strong>defense technology</strong>. And within that, one specific function: <strong>federal acquisition — the government side of how defense contracts get made</strong>.</p>
+
+      <div class="breakout reveal">
+        <p class="breakout-label">Why defense, specifically</p>
+        <p>Global tensions are rising, not falling. The U.S. government is increasing military budgets, not decreasing them. A new generation of defense-tech companies — Anduril, Shield AI, Palantir, Applied Intuition — are reinventing national security with AI, robotics, and autonomous systems, and they are growing at extraordinary speed.</p>
+        <p>And here's the part that matters for AI-proofing: the relationship between the government and these companies is built on human-to-human trust, negotiation, and contracting expertise that cannot be automated. The people who know how the government actually makes buying decisions are rare, valuable, and in extreme demand. A venture capitalist who advises defense startups put it plainly: <em>"Learn procurement, or hire people who already have. They're all coming from Palantir, Anduril — but it's a very small number of people."</em></p>
+        <p>That scarcity is the opportunity.</p>
+      </div>
+
+      <div class="tweets-block reveal">
+        <p class="tweets-label">The signal — what the market is saying</p>
+        <div class="tweets-grid">
+          <blockquote class="twitter-tweet" data-theme="light">
+            <p lang="en" dir="ltr">Defense startup advice, brutally simple: 1) "Just don't build another drone company.. The govt's just not gonna buy that many" If you're serious: 2) "Learn procurement, or hire people who already have.. They're all coming from Palantir, Anduril, Primer—maybe Scale—but a very small number of people." Real talk with Ross @fubini of XYZ VC</p>
+            &mdash; Molly O'Shea (@MollySOShea) <a href="https://x.com/MollySOShea/status/2040211359389065343">April 2026</a>
+          </blockquote>
+          <blockquote class="twitter-tweet" data-theme="light">
+            <p lang="en" dir="ltr">JUST IN - Trump will unveil a $1,500,000,000,000 defense budget request for the next fiscal year — Reuters</p>
+            &mdash; Disclose.tv (@disclosetv) <a href="https://x.com/disclosetv/status/2039793981408629097">April 2026</a>
+          </blockquote>
+          <blockquote class="twitter-tweet" data-theme="light">
+            <p lang="en" dir="ltr">NEW - Trump wants to switch to a war economy in 2027 with massive increase in military spending and cuts to healthcare and other domestic agencies to fund it — Bloomberg</p>
+            &mdash; Disclose.tv (@disclosetv) <a href="https://x.com/disclosetv/status/2039705186495590649">April 2026</a>
+          </blockquote>
+          <blockquote class="twitter-tweet" data-theme="light">
+            <p lang="en" dir="ltr">To create a more lethal and ready @USNavy and @USMC, we're not just talking about the future, we're building it. The era of free money is over. Canceled programs that were not delivering. Created accountable Portfolio Acquisition Executives. Established the Rapid Capabilities Office to accelerate delivery of technology to the warfighter.</p>
+            &mdash; Secretary of the Navy (@secnav) <a href="https://x.com/secnav/status/2041482539836076431">April 2026</a>
+          </blockquote>
+        </div>
+      </div>
+
+      <div class="stat-row reveal">
+        <div class="stat-box">
+          <div class="stat-number">$1.5T</div>
+          <div class="stat-label">Proposed defense budget, next fiscal year</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">$30B</div>
+          <div class="stat-label">Anduril valuation, pre-IPO, 2025</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-number">Few</div>
+          <div class="stat-label">People with real government procurement expertise</div>
+        </div>
+      </div>
+
+      <div class="section-break reveal"><span class="section-break-ornament">❧</span></div>
+
+      <h2 class="reveal">The plan:<br><em>two moves</em></h2>
+
+      <p class="reveal">I engineered this backward — starting with where I want to be in 2031 and working out the clearest path to get there. It's two distinct moves, and each one sets up the next.</p>
+
+      <div class="steps reveal">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div>
+            <div class="step-title">Enter federal acquisition at the DoD</div>
+            <p class="step-body">Get a Contract Specialist role at the Department of Defense — on the government side of defense procurement. Build the credentials that private defense-tech companies value most: federal contracting authority, experience with the acquisition vehicles (OTAs, CSOs) that the government uses to buy cutting-edge technology fast, and the network that comes with being inside the system.<br><br>The federal government is always hiring. I've already applied to multiple GS-1102 Contract Specialist positions at the U.S. Army Corps of Engineers, the Air Force Life Cycle Management Center, and the Department of the Air Force. The Huntsville, Alabama application has advanced the furthest — I've been referred to the hiring manager for a GS-13 position at Redstone Arsenal, one of the most significant defense acquisition installations in the country.</p>
+            <span class="step-tag">In progress now → 2028</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div>
+            <div class="step-title">Exit to the private defense-tech sector</div>
+            <p class="step-body">After building the government-side credentials — contracting authority, OTA expertise, clearance, network — use them to move to the private side. Companies like Anduril, Shield AI, and Palantir are actively recruiting people who understand how the government actually makes buying decisions, because those people are rare. A former government contracting officer who has issued procurement vehicles, held signing authority, and built relationships across the acquisition community is irreplaceable to a company trying to win government contracts.<br><br>The target: a senior role in government operations or business capture at a defense-tech company, with base compensation in the $200,000–$250,000 range plus meaningful equity in a company that is growing fast, likely heading toward an IPO, and doing genuinely important work.</p>
+            <span class="step-tag">Target: 2028 → 2031</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-break reveal"><span class="section-break-ornament">❧</span></div>
+
+      <h2 class="reveal">What this means<br>for <em>our family</em></h2>
+
+      <p class="reveal">Daria is in nursing school at Joyce University right now, working toward her BSN. After that, the goal is CRNA — Certified Registered Nurse Anesthetist — one of the most respected and well-compensated specialties in nursing, with salaries often exceeding $200,000.</p>
+
+      <p class="reveal">The honest truth about relocation is that it's a complication and an opportunity at the same time. Moving is hard. It disrupts routines, schools, and the community we've built here in Coeur d'Alene. We love it here. That part is real and not to be minimized.</p>
+
+      <p class="reveal">But Sacred Heart, while a respected hospital, is not the same as working at a high-volume Level 1 trauma center in a major metro. The hospitals in the areas I'm targeting — Huntsville, the Washington D.C. area, the Dayton area — offer Daria access to more complex cases, more competitive CRNA programs, and a faster path to the level of clinical experience that the best CRNA programs require. The move that's harder for our family in the short term may be the one that's better for her career in the medium term.</p>
+
+      <p class="reveal">For Leif and Elizabeth, we will be deliberate about where we land. School district quality and IEP support access are not afterthoughts — they're primary variables in the hub decision, alongside my career trajectory and Daria's clinical placement options.</p>
+
+      <p class="reveal">None of this is simple. But the alternative — staying in place and hoping things improve — felt more comfortable and more risky at the same time.</p>
+
+      <div class="section-break reveal"><span class="section-break-ornament">❧</span></div>
+
+      <h2 class="reveal">What I want you<br>to <em>understand</em></h2>
+
+      <p class="reveal">This is not a decision made from desperation, even though the last three years have been harder than I wanted them to be. This is a decision made from clarity — about what the next decade is going to look like, about what I want my family's life to look like, and about what I'm capable of building if I point myself at the right thing.</p>
+
+      <p class="reveal">I'm not running from anything. I'm running toward something specific.</p>
+
+      <p class="reveal">I have already applied. I have already been referred to a hiring manager for a GS-13 position at one of the most significant defense acquisition installations in the United States. The plan isn't theoretical — it's already in motion.</p>
+
+      <p class="reveal">I'm not 100% certain it works. There are no guarantees. But I've thought about this carefully, researched it thoroughly, and I believe this is the best course of action available to me right now. The people who know how government procurement works, from the inside, with real credentials and real relationships — there aren't many of them. I intend to be one of them.</p>
+
+      <div class="pull-quote reveal">
+        <p>"Everyone is watching with amusement. I feel the strong need to take action. And after a lot of consideration and research, this is the best course of action I can think of for myself."</p>
+      </div>
+
+      <p class="reveal">If you have questions, I genuinely welcome them. This is the overview. The full picture is more detailed and I'm happy to share it with anyone who wants to understand the specifics — the applications, the timeline, the research behind the hub decisions, what federal contracting actually involves and why my background maps to it better than it might look at first glance.</p>
+
+      <p class="reveal">Thank you for reading. And thank you, in advance, for the support that I know you'll give regardless of whether this goes exactly as planned.</p>
+
+      <div class="closing-rule"></div>
+      <p style="color: var(--text-dim); font-size: 16px; font-family: 'JetBrains Mono', monospace;">Noel Jonathan Churchill<br>Coeur d'Alene, Idaho<br>April 2026</p>
+
+    </div><!-- end essay-body -->
+  </main>
+
+  <footer>
+    <p>Written for family and friends &nbsp;·&nbsp; Noel Jonathan Churchill &nbsp;·&nbsp; April 2026</p>
+  </footer>
+
+  <!-- Twitter embed -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+  <!-- Scroll reveal -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
