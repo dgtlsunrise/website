@@ -5,1106 +5,1670 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>DGTL Sunrise — We compile strategy into systems.</title>
 <link rel="icon" type="image/png" href="favicon.png">
+<meta name="description" content="A founder-led marketing engineering practice. Regulated fintech strategy, AI operations architecture, and data-driven local growth. Nationwide.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=VT323&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --bg:#060908;
-    --bg-2:#0a0f0d;
-    --bg-3:#0e1614;
-    --green:#39d353;
-    --green-bright:#00ff41;
-    --teal:#00e5cc;
-    --cyan:#00bcd4;
-    --amber:#ff8c00;
-    --amber-soft:#ffb347;
-    --maroon:#7a1f2b;
-    --text:#d6e8df;
-    --text-dim:#7a9088;
-    --text-faint:#3d524b;
-    --rule:rgba(57,211,83,0.18);
-    --rule-strong:rgba(57,211,83,0.42);
-    --shadow-green:0 0 12px rgba(57,211,83,0.35);
-    --shadow-amber:0 0 18px rgba(255,140,0,0.45);
-    --mono:'Space Mono', ui-monospace, monospace;
-    --display:'VT323', ui-monospace, monospace;
-  }
+:root {
+  /* Core palette */
+  --bg:        #07070f;
+  --bg-2:      #0d0d1c;
+  --bg-3:      #111126;
+  --bg-card:   #0a0a18;
+  --bg-glass:  rgba(13,13,28,0.7);
 
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--bg);
-    color:var(--text);
-    font-family:var(--mono);
-    font-size:14px;
-    line-height:1.65;
-    overflow-x:hidden;
-    -webkit-font-smoothing:antialiased;
-    background-image:
-      radial-gradient(ellipse at 15% 0%, rgba(255,140,0,0.06), transparent 50%),
-      radial-gradient(ellipse at 85% 100%, rgba(0,229,204,0.05), transparent 55%),
-      linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
-  }
-  ::selection{background:var(--green-bright);color:var(--bg)}
+  /* Text */
+  --text:      #eeeef8;
+  --text-dim:  #8888a8;
+  --text-faint:#3a3a58;
 
-  /* CRT scanline overlay */
-  body::before{
-    content:"";
-    position:fixed;inset:0;
-    background:repeating-linear-gradient(
-      to bottom,
-      rgba(0,0,0,0) 0,
-      rgba(0,0,0,0) 2px,
-      rgba(0,0,0,0.18) 3px,
-      rgba(0,0,0,0) 4px
-    );
-    pointer-events:none;
-    z-index:9998;
-    mix-blend-mode:multiply;
-  }
-  /* Vignette */
-  body::after{
-    content:"";
-    position:fixed;inset:0;
-    background:radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,0.6) 100%);
-    pointer-events:none;
-    z-index:9997;
-  }
+  /* Borders */
+  --border:        rgba(255,255,255,0.055);
+  --border-mid:    rgba(255,255,255,0.10);
+  --border-strong: rgba(255,255,255,0.18);
 
-  /* Moving scan line */
-  .scanbar{
-    position:fixed;left:0;right:0;height:2px;
-    background:linear-gradient(90deg, transparent, rgba(57,211,83,0.55), transparent);
-    box-shadow:0 0 18px rgba(57,211,83,0.55);
-    pointer-events:none;
-    z-index:9999;
-    animation:scan 7s linear infinite;
-  }
-  @keyframes scan{
-    0%{top:-2px;opacity:0}
-    8%{opacity:1}
-    92%{opacity:1}
-    100%{top:100vh;opacity:0}
-  }
+  /* Accents — brand DNA, refined */
+  --amber:      #e8920a;
+  --amber-soft: #ffb347;
+  --amber-glow: rgba(232,146,10,0.15);
+  --amber-dim:  rgba(232,146,10,0.55);
+  --teal:       #00c8b8;
+  --teal-glow:  rgba(0,200,184,0.12);
 
-  /* ---------- NAV ---------- */
-  nav{
-    position:fixed;top:0;left:0;right:0;
-    z-index:100;
-    backdrop-filter:blur(10px);
-    -webkit-backdrop-filter:blur(10px);
-    background:rgba(6,9,8,0.78);
-    border-bottom:1px solid var(--rule);
-  }
-  .nav-inner{
-    max-width:1280px;margin:0 auto;
-    padding:14px 32px;
-    display:flex;align-items:center;justify-content:space-between;
-  }
-  .lockup{display:flex;align-items:center;gap:14px;text-decoration:none}
-  .lockup img{
-    height:42px;width:auto;display:block;
-    filter:drop-shadow(0 0 8px rgba(0,229,204,0.25));
-  }
-  .wordmark{
-    font-family:var(--display);
-    font-size:30px;
-    letter-spacing:1px;
-    color:var(--green-bright);
-    text-shadow:0 0 8px rgba(0,255,65,0.55), 0 0 18px rgba(0,255,65,0.25);
-    line-height:1;
-    display:flex;align-items:center;gap:6px;
-  }
-  .wordmark .caret{
-    display:inline-block;width:11px;height:22px;
-    background:var(--green-bright);
-    box-shadow:0 0 8px rgba(0,255,65,0.7);
-    animation:blink 1.05s steps(1) infinite;
-    transform:translateY(2px);
-  }
-  @keyframes blink{50%{opacity:0}}
-  .nav-links{display:flex;gap:32px;align-items:center}
-  .nav-links a{
-    color:var(--text-dim);
-    text-decoration:none;
-    font-size:13px;
-    text-transform:lowercase;
-    transition:color .15s, text-shadow .15s;
-  }
-  .nav-links a::before{content:"./";color:var(--text-faint);margin-right:2px}
-  .nav-links a:hover{color:var(--green-bright);text-shadow:var(--shadow-green)}
-  .nav-cta{
-    color:var(--amber)!important;
-    border:1px solid rgba(255,140,0,0.4);
-    padding:8px 14px;
-    transition:all .15s;
-  }
-  .nav-cta::before{content:"$ "!important;color:var(--amber)!important}
-  .nav-cta:hover{
-    background:rgba(255,140,0,0.08);
-    border-color:var(--amber);
-    box-shadow:var(--shadow-amber);
-  }
-  .hamburger{display:none;background:none;border:1px solid var(--rule-strong);color:var(--green-bright);font-family:var(--mono);font-size:18px;padding:6px 12px;cursor:pointer}
+  /* Fonts */
+  --sans:  'IBM Plex Sans', system-ui, sans-serif;
+  --display: 'Syne', sans-serif;
+  --mono:  'IBM Plex Mono', monospace;
 
-  /* ---------- HERO ---------- */
-  .hero{
-    min-height:100vh;
-    padding:140px 32px 80px;
-    max-width:1280px;
-    margin:0 auto;
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:64px;
-    align-items:center;
-    position:relative;
-  }
-  .hero::before{
-    content:"";
-    position:absolute;
-    top:120px;left:0;right:0;height:1px;
-    background:linear-gradient(90deg, transparent, var(--rule-strong), transparent);
-  }
+  /* Transitions */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-  /* Boot sequence terminal */
-  .boot{
-    background:rgba(10,15,13,0.75);
-    border:1px solid var(--rule-strong);
-    border-radius:6px;
-    padding:0;
-    box-shadow:0 0 60px rgba(0,255,65,0.06), inset 0 0 40px rgba(0,0,0,0.4);
-    overflow:hidden;
-  }
-  .boot-chrome{
-    display:flex;align-items:center;gap:8px;
-    padding:10px 14px;
-    background:rgba(0,0,0,0.35);
-    border-bottom:1px solid var(--rule);
-  }
-  .dot{width:11px;height:11px;border-radius:50%;background:#3d524b}
-  .dot.r{background:#7a1f2b}
-  .dot.y{background:var(--amber)}
-  .dot.g{background:var(--green)}
-  .boot-title{
-    margin-left:10px;
-    color:var(--text-dim);
-    font-size:11px;
-    letter-spacing:1px;
-  }
-  .boot-body{
-    padding:22px 24px 28px;
-    font-size:15px;
-    min-height:280px;
-  }
-  .boot-line{
-    opacity:0;
-    white-space:pre-wrap;
-    margin:2px 0;
-    font-family:var(--mono);
-  }
-  .boot-line .ok{color:var(--green-bright)}
-  .boot-line .warn{color:var(--amber)}
-  .boot-line .dim{color:var(--text-faint)}
-  .boot-line .key{color:var(--teal)}
-  .boot-cursor{
-    display:inline-block;width:9px;height:16px;
-    background:var(--green-bright);
-    transform:translateY(3px);
-    margin-left:4px;
-    animation:blink 1s steps(1) infinite;
-    box-shadow:0 0 8px rgba(0,255,65,0.7);
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
-  /* Hero copy */
-  .hero-copy{position:relative}
-  .hero-meta{
-    color:var(--text-faint);
-    font-size:11px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    margin-bottom:18px;
-  }
-  .hero-meta .amber{color:var(--amber)}
-  h1.headline{
-    font-family:var(--display);
-    font-size:clamp(48px, 7vw, 96px);
-    line-height:0.92;
-    color:var(--text);
-    letter-spacing:1px;
-    margin-bottom:24px;
-    position:relative;
-  }
-  h1.headline .green{color:var(--green-bright);text-shadow:0 0 14px rgba(0,255,65,0.45)}
-  h1.headline .amber{color:var(--amber);text-shadow:var(--shadow-amber)}
-  h1.headline.glitch{
-    animation:glitch .22s steps(2) 1;
-  }
-  @keyframes glitch{
-    0%{transform:translate(0,0);text-shadow:0 0 0 transparent}
-    20%{transform:translate(-2px,1px);text-shadow:2px 0 0 var(--amber), -2px 0 0 var(--teal)}
-    40%{transform:translate(2px,-1px);text-shadow:-2px 0 0 var(--amber), 2px 0 0 var(--teal)}
-    60%{transform:translate(-1px,0);text-shadow:1px 0 0 var(--green-bright)}
-    100%{transform:translate(0,0);text-shadow:0 0 0 transparent}
-  }
-  .hero-sub{
-    font-size:15px;
-    color:var(--text-dim);
-    max-width:520px;
-    margin-bottom:34px;
-    line-height:1.75;
-  }
-  .hero-sub strong{color:var(--text);font-weight:400;border-bottom:1px dashed var(--rule-strong)}
-  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    padding:14px 22px;
-    font-family:var(--mono);
-    font-size:13px;
-    text-decoration:none;
-    border:1px solid var(--rule-strong);
-    color:var(--green-bright);
-    background:rgba(57,211,83,0.04);
-    transition:all .18s;
-    letter-spacing:0.5px;
-  }
-  .btn:hover{background:rgba(57,211,83,0.1);box-shadow:var(--shadow-green);transform:translateY(-1px)}
-  .btn.amber{
-    color:var(--amber);
-    border-color:rgba(255,140,0,0.45);
-    background:rgba(255,140,0,0.05);
-  }
-  .btn.amber:hover{background:rgba(255,140,0,0.12);box-shadow:var(--shadow-amber)}
-  .btn .arrow{transition:transform .18s}
-  .btn:hover .arrow{transform:translateX(4px)}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 
-  /* ---------- SECTION SHELL ---------- */
-  section{
-    max-width:1280px;
-    margin:0 auto;
-    padding:120px 32px;
-    position:relative;
-  }
-  .sec-tag{
-    display:flex;align-items:center;gap:14px;
-    color:var(--text-faint);
-    font-size:11px;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    margin-bottom:18px;
-  }
-  .sec-tag::before{
-    content:"";display:block;width:36px;height:1px;background:var(--rule-strong);
-  }
-  .sec-tag .num{color:var(--amber)}
-  .sec-title{
-    font-family:var(--display);
-    font-size:clamp(40px, 5.5vw, 72px);
-    line-height:0.95;
-    color:var(--text);
-    margin-bottom:24px;
-    max-width:18ch;
-    letter-spacing:1px;
-  }
-  .sec-title .green{color:var(--green-bright);text-shadow:0 0 12px rgba(0,255,65,0.4)}
-  .sec-title .amber{color:var(--amber);text-shadow:var(--shadow-amber)}
-  .sec-lede{
-    font-size:15px;
-    color:var(--text-dim);
-    max-width:62ch;
-    line-height:1.8;
-  }
-  .sec-lede strong{color:var(--text);font-weight:400}
+::selection { background: var(--amber); color: #07070f; }
 
-  /* ---------- COMPILE / MANIFESTO ---------- */
-  #compile{padding-top:60px}
-  .compile-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:64px;
-    margin-top:64px;
-    align-items:start;
-  }
-  .compile-flow{
-    background:rgba(10,15,13,0.6);
-    border:1px solid var(--rule);
-    padding:28px 30px;
-    font-size:14px;
-    line-height:2;
-  }
-  .compile-flow .row{display:flex;gap:14px;align-items:baseline}
-  .compile-flow .label{color:var(--text-faint);min-width:90px}
-  .compile-flow .val{color:var(--text)}
-  .compile-flow .val.dim{color:var(--text-dim)}
-  .compile-flow .arrow-row{
-    color:var(--amber);
-    margin:12px 0;
-    text-align:center;
-    font-size:18px;
-    letter-spacing:6px;
-  }
-  .compile-flow .out{
-    color:var(--green-bright);
-    text-shadow:0 0 8px rgba(0,255,65,0.4);
-    border-top:1px dashed var(--rule-strong);
-    padding-top:14px;
-    margin-top:8px;
-  }
-  .compile-points p{
-    color:var(--text-dim);
-    font-size:14px;
-    line-height:1.85;
-    margin-bottom:18px;
-  }
-  .compile-points p .hl{color:var(--text);border-bottom:1px solid var(--rule-strong)}
-  .compile-points p .amber{color:var(--amber)}
+/* ── BACKGROUND ── */
+.bg-mesh {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.bg-mesh::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -20%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(ellipse, rgba(232,146,10,0.07) 0%, transparent 65%);
+  animation: drift 18s ease-in-out infinite alternate;
+}
+.bg-mesh::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -15%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(ellipse, rgba(0,200,184,0.05) 0%, transparent 65%);
+  animation: drift 22s ease-in-out infinite alternate-reverse;
+}
+@keyframes drift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(40px, 30px) scale(1.08); }
+}
 
-  /* ---------- PRACTICES (TERMINAL CARDS) ---------- */
-  .practices{
-    display:grid;
-    grid-template-columns:1fr;
-    gap:32px;
-    margin-top:64px;
-  }
-  .term-card{
-    background:rgba(10,15,13,0.7);
-    border:1px solid var(--rule-strong);
-    border-radius:6px;
-    overflow:hidden;
-    box-shadow:0 0 60px rgba(0,255,65,0.04), inset 0 0 50px rgba(0,0,0,0.4);
-    transition:transform .3s, box-shadow .3s, border-color .3s;
-  }
-  .term-card:hover{
-    transform:translateY(-3px);
-    border-color:rgba(0,255,65,0.5);
-    box-shadow:0 12px 60px rgba(0,255,65,0.08), inset 0 0 50px rgba(0,0,0,0.4);
-  }
-  .term-head{
-    display:flex;align-items:center;gap:8px;
-    padding:11px 16px;
-    background:rgba(0,0,0,0.4);
-    border-bottom:1px solid var(--rule);
-  }
-  .term-head .file{
-    margin-left:12px;
-    color:var(--text-dim);
-    font-size:11px;
-    letter-spacing:1px;
-  }
-  .term-head .badge{
-    margin-left:auto;
-    color:var(--amber);
-    font-size:10px;
-    border:1px solid rgba(255,140,0,0.4);
-    padding:2px 8px;
-    letter-spacing:1px;
-  }
-  .term-body{
-    display:grid;
-    grid-template-columns:1fr 1.2fr;
-    gap:0;
-  }
-  .term-left{
-    padding:36px 36px 40px;
-    border-right:1px solid var(--rule);
-  }
-  .term-prompt{
-    color:var(--text-faint);
-    font-size:12px;
-    margin-bottom:12px;
-  }
-  .term-prompt .green{color:var(--green-bright)}
-  .term-name{
-    font-family:var(--display);
-    font-size:42px;
-    line-height:1;
-    color:var(--text);
-    margin-bottom:8px;
-    letter-spacing:1px;
-  }
-  .term-name .amber{color:var(--amber)}
-  .term-tag{
-    color:var(--teal);
-    font-size:12px;
-    letter-spacing:1px;
-    text-transform:lowercase;
-    margin-bottom:24px;
-  }
-  .term-tag::before{content:"// "}
-  .term-desc{
-    color:var(--text-dim);
-    font-size:13px;
-    line-height:1.8;
-  }
-  .term-right{
-    padding:36px 36px 40px;
-    background:rgba(0,0,0,0.2);
-  }
-  .term-right h4{
-    color:var(--text-faint);
-    font-size:11px;
-    text-transform:uppercase;
-    letter-spacing:1.5px;
-    margin-bottom:16px;
-    font-weight:400;
-  }
-  .term-right ul{list-style:none}
-  .term-right li{
-    color:var(--text);
-    font-size:13px;
-    padding:8px 0;
-    border-bottom:1px dashed var(--rule);
-    display:flex;gap:12px;align-items:baseline;
-  }
-  .term-right li:last-child{border-bottom:none}
-  .term-right li::before{
-    content:">";
-    color:var(--green-bright);
-    font-weight:700;
-  }
+/* Subtle dot grid */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.028) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 30%, black 30%, transparent 100%);
+}
 
-  /* ---------- PIPELINE ---------- */
-  .pipeline{
-    margin-top:64px;
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:0;
-    border:1px solid var(--rule-strong);
-    background:rgba(10,15,13,0.6);
-  }
-  .stage{
-    padding:36px 28px;
-    border-right:1px solid var(--rule);
-    position:relative;
-    transition:background .25s;
-  }
-  .stage:last-child{border-right:none}
-  .stage:hover{background:rgba(57,211,83,0.04)}
-  .stage-num{
-    color:var(--amber);
-    font-size:11px;
-    letter-spacing:2px;
-    margin-bottom:14px;
-  }
-  .stage-name{
-    font-family:var(--display);
-    font-size:32px;
-    color:var(--green-bright);
-    line-height:1;
-    margin-bottom:12px;
-    text-shadow:0 0 8px rgba(0,255,65,0.35);
-  }
-  .stage-desc{
-    color:var(--text-dim);
-    font-size:12px;
-    line-height:1.7;
-  }
-  .stage::after{
-    content:"→";
-    position:absolute;
-    right:-9px;top:42px;
-    color:var(--amber);
-    background:var(--bg);
-    width:18px;text-align:center;
-    font-size:14px;
-  }
-  .stage:last-child::after{display:none}
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(7,7,15,0.75);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.lockup {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+.lockup img {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+.wordmark {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--text);
+  line-height: 1;
+}
+.wordmark span {
+  color: var(--amber);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 6px 18px;
+  letter-spacing: 0.02em;
+  transition: color 0.15s;
+  position: relative;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 18px; right: 18px;
+  height: 1px;
+  background: var(--amber);
+  transform: scaleX(0);
+  transition: transform 0.2s var(--ease);
+  transform-origin: left;
+}
+.nav-links a:hover::after { transform: scaleX(1); }
+.nav-cta {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--bg);
+  background: var(--amber);
+  border: none;
+  padding: 10px 22px;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.15s, box-shadow 0.15s, transform 0.15s;
+  border-radius: 2px;
+}
+.nav-cta:hover {
+  background: var(--amber-soft);
+  box-shadow: 0 0 24px rgba(232,146,10,0.35);
+  transform: translateY(-1px);
+}
+.hamburger {
+  display: none;
+  background: none;
+  border: 1px solid var(--border-mid);
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 8px 14px;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: border-color 0.15s, color 0.15s;
+}
+.hamburger:hover { border-color: var(--amber); color: var(--text); }
 
-  /* ---------- OPERATOR ---------- */
-  .op-grid{
-    margin-top:64px;
-    display:grid;
-    grid-template-columns:0.8fr 1.2fr;
-    gap:64px;
-    align-items:start;
-  }
-  .op-photo{
-    position:relative;
-    border:1px solid var(--rule-strong);
-    padding:14px;
-    background:rgba(10,15,13,0.6);
-  }
-  .op-photo img{
-    width:100%;
-    display:block;
-    filter:grayscale(100%) contrast(1.05) brightness(0.85) sepia(0.35) hue-rotate(65deg) saturate(1.4);
-    mix-blend-mode:screen;
-    background:#0a1410;
-  }
-  .op-photo::after{
-    content:"";
-    position:absolute;inset:14px;
-    background:repeating-linear-gradient(
-      to bottom,
-      rgba(0,0,0,0) 0,
-      rgba(0,0,0,0) 2px,
-      rgba(0,255,65,0.08) 3px,
-      rgba(0,0,0,0) 4px
-    );
-    pointer-events:none;
-  }
-  .op-caption{
-    color:var(--text-faint);
-    font-size:11px;
-    margin-top:14px;
-    letter-spacing:1px;
-    display:flex;justify-content:space-between;
-  }
-  .op-caption .green{color:var(--green-bright)}
-  .op-body h3{
-    font-family:var(--display);
-    font-size:48px;
-    color:var(--text);
-    line-height:1;
-    margin-bottom:8px;
-    letter-spacing:1px;
-  }
-  .op-role{
-    color:var(--teal);
-    font-size:13px;
-    margin-bottom:24px;
-  }
-  .op-body p{
-    color:var(--text-dim);
-    font-size:14px;
-    line-height:1.85;
-    margin-bottom:18px;
-  }
-  .op-body p .hl{color:var(--text)}
-  .op-body p .amber{color:var(--amber)}
-  .op-stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:0;
-    margin-top:32px;
-    border-top:1px solid var(--rule-strong);
-    border-bottom:1px solid var(--rule-strong);
-  }
-  .op-stat{
-    padding:22px 18px;
-    border-right:1px solid var(--rule);
-  }
-  .op-stat:last-child{border-right:none}
-  .op-stat .v{
-    font-family:var(--display);
-    font-size:36px;
-    color:var(--amber);
-    line-height:1;
-    text-shadow:var(--shadow-amber);
-  }
-  .op-stat .l{
-    font-size:11px;
-    color:var(--text-faint);
-    letter-spacing:1.5px;
-    text-transform:uppercase;
-    margin-top:8px;
-  }
+/* ── MOBILE DRAWER ── */
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 99;
+  background: rgba(7,7,15,0.98);
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  padding: 100px 40px 60px;
+  transform: translateX(100%);
+  transition: transform 0.4s var(--ease);
+  border-left: 1px solid var(--border);
+}
+.drawer.open { transform: translateX(0); }
+.drawer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 40px;
+  border-top: 1px solid var(--border);
+}
+.drawer-links a {
+  display: block;
+  font-family: var(--display);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.15s;
+  letter-spacing: -0.01em;
+}
+.drawer-links a:hover { color: var(--text); }
+.drawer-cta {
+  display: block;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--bg);
+  background: var(--amber);
+  padding: 16px 28px;
+  text-decoration: none;
+  border-radius: 2px;
+  letter-spacing: 0.03em;
+}
 
-  /* ---------- CONTACT ---------- */
-  #contact{padding-bottom:140px}
-  .contact-box{
-    margin-top:64px;
-    background:rgba(10,15,13,0.75);
-    border:1px solid var(--rule-strong);
-    padding:0;
-    overflow:hidden;
-  }
-  .contact-head{
-    display:flex;align-items:center;gap:8px;
-    padding:11px 16px;
-    background:rgba(0,0,0,0.4);
-    border-bottom:1px solid var(--rule);
-  }
-  .contact-head .file{margin-left:12px;color:var(--text-dim);font-size:11px;letter-spacing:1px}
-  .contact-body{padding:48px 48px 56px}
-  .contact-line{
-    font-size:14px;
-    color:var(--text-dim);
-    margin-bottom:6px;
-  }
-  .contact-line .green{color:var(--green-bright)}
-  .contact-line .amber{color:var(--amber)}
-  .contact-q{
-    font-family:var(--display);
-    font-size:38px;
-    color:var(--text);
-    margin:18px 0 24px;
-    line-height:1.1;
-  }
-  .contact-q .amber{color:var(--amber);text-shadow:var(--shadow-amber)}
-  .contact-actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}
+/* ── SHARED LAYOUT ── */
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+.section { padding: 140px 0; }
+.section-sm { padding: 80px 0; }
 
-  /* ---------- FOOTER ---------- */
-  footer{
-    border-top:1px solid var(--rule);
-    padding:32px;
-    max-width:1280px;
-    margin:0 auto;
-    display:flex;justify-content:space-between;align-items:center;
-    flex-wrap:wrap;gap:18px;
-    color:var(--text-faint);
-    font-size:11px;
-    letter-spacing:1px;
-  }
-  footer .green{color:var(--green-bright)}
-  footer .amber{color:var(--amber)}
-  footer a{color:var(--text-dim);text-decoration:none}
-  footer a:hover{color:var(--green-bright)}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 24px;
+}
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--amber);
+}
+.section-heading {
+  font-family: var(--display);
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.section-heading .dim { color: var(--text-dim); font-weight: 400; }
+.section-heading .amber { color: var(--amber); }
+.section-lede {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-dim);
+  max-width: 580px;
+}
+.section-lede strong { color: var(--text); font-weight: 400; }
 
-  /* ---------- REVEAL ---------- */
-  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease}
-  .reveal.in{opacity:1;transform:translateY(0)}
+/* Ruled divider */
+.rule {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 0;
+}
 
-  /* ---------- RESPONSIVE ---------- */
-  @media (max-width: 960px){
-    .hero{grid-template-columns:1fr;gap:48px;padding-top:120px}
-    .compile-grid{grid-template-columns:1fr;gap:40px}
-    .term-body{grid-template-columns:1fr}
-    .term-left{border-right:none;border-bottom:1px solid var(--rule)}
-    .pipeline{grid-template-columns:1fr 1fr}
-    .stage{border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
-    .stage:nth-child(2n){border-right:none}
-    .stage:nth-child(n+3){border-bottom:none}
-    .stage::after{display:none}
-    .op-grid{grid-template-columns:1fr;gap:40px}
-    .op-photo{max-width:320px}
-    .nav-links{
-      position:absolute;top:100%;left:0;right:0;
-      flex-direction:column;
-      background:rgba(6,9,8,0.96);
-      backdrop-filter:blur(12px);
-      padding:24px 32px;
-      gap:20px;align-items:flex-start;
-      border-bottom:1px solid var(--rule);
-      display:none;
-    }
-    .nav-links.open{display:flex}
-    .hamburger{display:block}
-    section{padding:80px 24px}
-    .nav-inner{padding:14px 24px}
-    .hero{padding-left:24px;padding-right:24px}
-    .contact-body{padding:32px 24px}
-    .op-stats{grid-template-columns:1fr;border:none}
-    .op-stat{border-right:none;border-bottom:1px solid var(--rule)}
-    .lockup img{height:36px}
-    .wordmark{font-size:24px}
-    .wordmark .caret{height:18px;width:9px}
-  }
-  @media (max-width:560px){
-    .term-name{font-size:32px}
-    .stage-name{font-size:26px}
-    .contact-q{font-size:26px}
-    .op-body h3{font-size:36px}
-  }
+/* ── HERO ── */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 140px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Amber horizon line */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--amber-dim) 50%, transparent 100%);
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.hero-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 32px;
+}
+.hero-label .pulse {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 8px var(--amber);
+  animation: pulse 2.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--amber); }
+  50%       { opacity: 0.4; box-shadow: none; }
+}
+
+.hero-title {
+  font-family: var(--display);
+  font-size: clamp(52px, 7vw, 88px);
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+.hero-title .amber { color: var(--amber); }
+.hero-title .dim { color: var(--text-faint); }
+.hero-title .outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--text-faint);
+}
+
+.hero-desc {
+  font-size: 17px;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--text-dim);
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+.hero-desc strong { color: var(--text); font-weight: 400; }
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 56px;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--bg);
+  background: var(--amber);
+  border: none;
+  padding: 14px 28px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.18s var(--ease);
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: var(--amber-soft);
+  box-shadow: 0 8px 32px rgba(232,146,10,0.3);
+  transform: translateY(-2px);
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--text-dim);
+  background: transparent;
+  border: 1px solid var(--border-mid);
+  padding: 14px 28px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.18s;
+}
+.btn-secondary:hover {
+  border-color: var(--border-strong);
+  color: var(--text);
+  background: rgba(255,255,255,0.03);
+}
+
+.hero-proof {
+  display: flex;
+  gap: 40px;
+  padding-top: 32px;
+  border-top: 1px solid var(--border);
+}
+.proof-item { }
+.proof-val {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.proof-label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* Hero right — compile visualization */
+.hero-visual {
+  position: relative;
+}
+.compile-visual {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-mid);
+  border-radius: 12px;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 32px 80px rgba(0,0,0,0.5), 0 0 0 1px var(--border);
+}
+.compile-visual-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0,0,0,0.2);
+}
+.cv-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+}
+.cv-dot-r { background: rgba(255,95,86,0.7); }
+.cv-dot-y { background: rgba(255,189,46,0.7); }
+.cv-dot-g { background: rgba(39,201,63,0.7); }
+.cv-filename {
+  margin-left: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.06em;
+}
+
+.compile-body {
+  padding: 28px 28px 32px;
+}
+
+/* Input files */
+.cv-section-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 14px;
+}
+.cv-files {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.cv-file {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-dim);
+  transition: border-color 0.2s;
+}
+.cv-file:hover { border-color: var(--border-mid); }
+.cv-file-icon { font-size: 14px; }
+.cv-file-name { color: var(--text); }
+.cv-file-ext { color: var(--text-faint); }
+
+/* Compile arrow */
+.cv-compile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 16px 0;
+  margin-bottom: 24px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.cv-compile-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--amber);
+}
+.cv-compile-arrow {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--amber-dim), transparent);
+  position: relative;
+}
+.cv-compile-arrow::after {
+  content: '';
+  position: absolute;
+  right: 0; top: -3px;
+  width: 0; height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 6px solid var(--amber-dim);
+}
+
+/* Output files */
+.cv-outputs { display: flex; flex-direction: column; gap: 8px; }
+.cv-output {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: rgba(232,146,10,0.06);
+  border: 1px solid rgba(232,146,10,0.2);
+  border-radius: 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+  animation: outputReveal 0.5s var(--ease) both;
+}
+.cv-output:nth-child(1) { animation-delay: 2.6s; }
+.cv-output:nth-child(2) { animation-delay: 3.0s; }
+.cv-output:nth-child(3) { animation-delay: 3.4s; }
+.cv-output:nth-child(4) { animation-delay: 3.8s; }
+@keyframes outputReveal {
+  from { opacity: 0; transform: translateX(-6px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.cv-output-name { color: var(--amber); }
+.cv-output-ext  { color: var(--amber-dim); }
+.cv-status {
+  margin-left: auto;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: #3adb6c;
+  background: rgba(58,219,108,0.1);
+  border: 1px solid rgba(58,219,108,0.2);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+/* Floating amber glow behind visual */
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 300px; height: 300px;
+  background: radial-gradient(ellipse, rgba(232,146,10,0.1) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ── THESIS SECTION ── */
+.thesis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 120px;
+  align-items: start;
+  margin-top: 72px;
+}
+.thesis-points { display: flex; flex-direction: column; gap: 32px; }
+.thesis-point {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border);
+}
+.thesis-point:last-child { border-bottom: none; padding-bottom: 0; }
+.thesis-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--amber);
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+.thesis-point-title {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.thesis-point-body {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-dim);
+}
+.thesis-point-body strong { color: var(--text); font-weight: 400; }
+
+/* ── PRACTICES ── */
+.practices-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  margin-top: 72px;
+}
+
+.practice-card {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+.practice-card:hover { border-color: var(--border-mid); }
+
+/* Amber left accent line */
+.practice-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 2px;
+  height: 0;
+  background: var(--amber);
+  transition: height 0.4s var(--ease);
+}
+.practice-card:hover::before { height: 100%; }
+
+.practice-left {
+  padding: 48px 40px 52px;
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.practice-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--amber);
+  border: 1px solid rgba(232,146,10,0.3);
+  padding: 4px 10px;
+  border-radius: 100px;
+  width: fit-content;
+}
+.practice-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+}
+.practice-name {
+  font-family: var(--display);
+  font-size: 34px;
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.practice-name .amber { color: var(--amber); }
+.practice-tagline {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--teal);
+  letter-spacing: 0.06em;
+}
+.practice-tagline::before { content: '// '; color: var(--text-faint); }
+.practice-desc {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+.practice-right {
+  padding: 48px 40px 52px;
+  background: rgba(0,0,0,0.15);
+}
+.practice-right-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 20px;
+}
+.practice-capabilities {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.capability {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.5;
+  transition: color 0.15s;
+}
+.capability:last-child { border-bottom: none; }
+.capability:hover { color: var(--text); }
+.capability-dot {
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: var(--amber);
+  flex-shrink: 0;
+  margin-top: 6px;
+  opacity: 0.5;
+  transition: opacity 0.15s;
+}
+.capability:hover .capability-dot { opacity: 1; }
+
+/* ── PIPELINE ── */
+.pipeline {
+  margin-top: 72px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Amber top border that fills on hover */
+.pipeline::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--amber) 0%, var(--teal) 100%);
+  opacity: 0.4;
+}
+
+.stage {
+  padding: 40px 32px 44px;
+  border-right: 1px solid var(--border);
+  position: relative;
+  transition: background 0.25s;
+}
+.stage:last-child { border-right: none; }
+.stage:hover { background: rgba(232,146,10,0.03); }
+
+.stage-num {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--amber);
+  margin-bottom: 16px;
+  display: block;
+}
+.stage-name {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  line-height: 1;
+}
+.stage-desc {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-dim);
+}
+
+/* Arrow connectors */
+.stage::after {
+  content: '→';
+  position: absolute;
+  right: -10px;
+  top: 44px;
+  font-size: 12px;
+  color: var(--amber-dim);
+  background: var(--bg-card);
+  width: 20px;
+  text-align: center;
+  z-index: 2;
+}
+.stage:last-child::after { display: none; }
+
+/* ── OPERATOR / FOUNDER ── */
+.operator-grid {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 80px;
+  align-items: start;
+  margin-top: 72px;
+}
+.operator-photo-wrap {
+  position: relative;
+}
+.operator-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(20%) contrast(1.05) brightness(0.9);
+  border-radius: 4px;
+}
+/* Frame lines */
+.operator-photo-wrap::before,
+.operator-photo-wrap::after {
+  content: '';
+  position: absolute;
+  border: 1px solid rgba(232,146,10,0.3);
+  border-radius: 4px;
+  transition: all 0.4s var(--ease);
+}
+.operator-photo-wrap::before {
+  inset: -8px;
+  opacity: 0.5;
+}
+.operator-photo-wrap::after {
+  inset: 8px;
+  opacity: 0.15;
+}
+.operator-photo-wrap:hover::before { inset: -12px; opacity: 0.7; }
+.operator-photo-wrap:hover::after  { inset: 4px; opacity: 0.25; }
+
+.operator-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0 0;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--text-faint);
+}
+.operator-caption .online {
+  color: #3adb6c;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.operator-caption .online::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #3adb6c;
+  box-shadow: 0 0 6px #3adb6c;
+}
+
+.operator-content { padding-top: 8px; }
+.operator-name {
+  font-family: var(--display);
+  font-size: 52px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.operator-role {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  color: var(--teal);
+  margin-bottom: 32px;
+}
+.operator-bio {
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text-dim);
+  margin-bottom: 18px;
+}
+.operator-bio strong { color: var(--text); font-weight: 400; }
+.operator-bio .amber { color: var(--amber); }
+
+.operator-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 40px;
+  border: 1px solid var(--border);
+}
+.op-stat {
+  padding: 24px 20px;
+  border-right: 1px solid var(--border);
+}
+.op-stat:last-child { border-right: none; }
+.op-stat-val {
+  font-family: var(--display);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--amber);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.op-stat-label {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+/* ── CONTACT ── */
+.contact-wrap {
+  margin-top: 72px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact-heading {
+  font-family: var(--display);
+  font-size: clamp(40px, 5vw, 68px);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.contact-heading .amber { color: var(--amber); }
+.contact-desc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--text-dim);
+  margin-bottom: 40px;
+  max-width: 480px;
+}
+.contact-cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 360px;
+}
+
+/* Contact detail panel */
+.contact-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.contact-panel-header {
+  padding: 14px 20px;
+  background: rgba(0,0,0,0.2);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.cp-dot { width: 8px; height: 8px; border-radius: 50%; }
+.cp-dot-r { background: rgba(255,95,86,0.5); }
+.cp-dot-y { background: rgba(255,189,46,0.5); }
+.cp-dot-g { background: rgba(39,201,63,0.5); }
+.contact-panel-file {
+  margin-left: 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-faint);
+  letter-spacing: 0.06em;
+}
+.contact-panel-body { padding: 24px 24px 28px; }
+.cp-prompt {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-faint);
+  margin-bottom: 20px;
+}
+.cp-prompt .green { color: #3adb6c; }
+.cp-line {
+  display: flex;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 12px;
+}
+.cp-line:last-child { border-bottom: none; }
+.cp-key {
+  color: var(--teal);
+  flex-shrink: 0;
+  width: 80px;
+}
+.cp-val { color: var(--text-dim); }
+.cp-val a { color: var(--text-dim); text-decoration: none; transition: color 0.15s; }
+.cp-val a:hover { color: var(--amber); }
+.cp-note {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: rgba(232,146,10,0.05);
+  border: 1px solid rgba(232,146,10,0.15);
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--amber-dim);
+  letter-spacing: 0.04em;
+  line-height: 1.6;
+}
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 0;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-brand {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-faint);
+  letter-spacing: 0.02em;
+}
+.footer-brand span { color: var(--amber); }
+.footer-tagline {
+  font-size: 12px;
+  color: var(--text-faint);
+  letter-spacing: 0.04em;
+  font-style: italic;
+}
+.footer-meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+}
+.footer-meta a { color: var(--text-faint); text-decoration: none; }
+.footer-meta a:hover { color: var(--text-dim); }
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.in { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 60px; }
+  .hero-visual { max-width: 560px; }
+  .thesis-grid { grid-template-columns: 1fr; gap: 60px; }
+  .operator-grid { grid-template-columns: 1fr; gap: 48px; }
+  .operator-photo { max-width: 340px; aspect-ratio: 4/3; }
+  .contact-wrap { grid-template-columns: 1fr; gap: 48px; }
+}
+@media (max-width: 900px) {
+  .nav-inner { padding: 0 24px; }
+  .container { padding: 0 24px; }
+  .nav-links, .nav-cta { display: none; }
+  .hamburger { display: block; }
+  .section { padding: 100px 0; }
+  .practice-card { grid-template-columns: 1fr; }
+  .practice-left { border-right: none; border-bottom: 1px solid var(--border); }
+  .pipeline { grid-template-columns: 1fr 1fr; }
+  .stage { border-bottom: 1px solid var(--border); }
+  .stage:nth-child(2n) { border-right: none; }
+  .stage:nth-child(3), .stage:nth-child(4) { border-bottom: none; }
+  .stage::after { display: none; }
+  .operator-stats { grid-template-columns: 1fr; }
+  .op-stat { border-right: none; border-bottom: 1px solid var(--border); }
+  .op-stat:last-child { border-bottom: none; }
+}
+@media (max-width: 600px) {
+  .hero-proof { gap: 24px; }
+  .hero-title { font-size: 46px; }
+  .pipeline { grid-template-columns: 1fr; }
+  .stage { border-right: none; }
+  .stage:last-child { border-bottom: none; }
+  .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+}
 </style>
 </head>
 <body>
 
-<div class="scanbar"></div>
+<div class="bg-mesh"></div>
+<div class="bg-grid"></div>
 
-<!-- ============ NAV ============ -->
+<!-- DRAWER (mobile) -->
+<div class="drawer" id="drawer">
+  <ul class="drawer-links">
+    <li><a href="#thesis" onclick="closeDrawer()">Thesis</a></li>
+    <li><a href="#practices" onclick="closeDrawer()">Practices</a></li>
+    <li><a href="#pipeline" onclick="closeDrawer()">Pipeline</a></li>
+    <li><a href="#operator" onclick="closeDrawer()">Operator</a></li>
+    <li><a href="#contact" onclick="closeDrawer()">Contact</a></li>
+  </ul>
+  <a href="mailto:noel@dgtlsunrise.com" class="drawer-cta">Start a Session →</a>
+</div>
+
+<!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="#top" class="lockup" aria-label="DGTL Sunrise home">
-      <img src="logo.webp" alt="DGTL Sunrise logo">
-      <span class="wordmark">DGTL&nbsp;SUNRISE<span class="caret"></span></span>
+    <a href="#" class="lockup">
+      <img src="logo.webp" alt="DGTL Sunrise">
+      <span class="wordmark">DGTL <span>Sunrise</span></span>
     </a>
-    <button class="hamburger" id="hamb" aria-label="menu">[ menu ]</button>
-    <div class="nav-links" id="navLinks">
-      <a href="#compile">compile</a>
-      <a href="#practices">practices</a>
-      <a href="#pipeline">pipeline</a>
-      <a href="#operator">operator</a>
-      <a href="#contact" class="nav-cta">start_session</a>
-    </div>
+    <ul class="nav-links">
+      <li><a href="#thesis">Thesis</a></li>
+      <li><a href="#practices">Practices</a></li>
+      <li><a href="#pipeline">Pipeline</a></li>
+      <li><a href="#operator">Operator</a></li>
+    </ul>
+    <a href="mailto:noel@dgtlsunrise.com" class="nav-cta">Start a Session →</a>
+    <button class="hamburger" id="hamb" onclick="toggleDrawer()">[&nbsp;menu&nbsp;]</button>
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
+<!-- HERO -->
 <section class="hero" id="top">
-  <div class="hero-copy">
-    <div class="hero-meta">// dgtl_sunrise <span class="amber">●</span> est. 2025 <span class="amber">●</span> nationwide</div>
-    <h1 class="headline" id="headline">
-      We compile<br>
-      <span class="green">strategy</span> into<br>
-      <span class="amber">systems.</span>
-    </h1>
-    <p class="hero-sub">
-      A founder-led practice for regulated fintech, AI operations, and local growth.
-      Most agencies hand you a deck. <strong>We hand you something that runs</strong> &mdash;
-      attribution infrastructure, automation pipelines, deployed sites, dashboards that update themselves.
-      Source code, compiled.
-    </p>
-    <div class="hero-cta">
-      <a href="#contact" class="btn amber">$ start_session<span class="arrow">→</span></a>
-      <a href="#compile" class="btn">./read_more<span class="arrow">→</span></a>
-    </div>
-  </div>
+  <div class="container">
+    <div class="hero-inner">
 
-  <div class="boot reveal">
-    <div class="boot-chrome">
-      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-      <span class="boot-title">tty1 — /usr/local/dgtl_sunrise — boot.log</span>
-    </div>
-    <div class="boot-body" id="bootBody">
-      <!-- lines injected by JS -->
-    </div>
-  </div>
-</section>
-
-<!-- ============ COMPILE / MANIFESTO ============ -->
-<section id="compile">
-  <div class="reveal">
-    <div class="sec-tag"><span class="num">01</span> &nbsp;//&nbsp; the_thesis</div>
-    <h2 class="sec-title">Decks don't run.<br><span class="amber">Systems</span> do.</h2>
-    <p class="sec-lede">
-      Strategy without infrastructure is a PDF that ages in a Google Drive folder. The work that
-      actually moves a number is the work that <strong>compiles</strong> &mdash; that turns positioning,
-      segmentation, and offer architecture into things that execute on their own. Pixels. Pipelines.
-      Schemas. Dashboards. Endpoints. <strong>Source code, compiled into something that runs.</strong>
-    </p>
-  </div>
-
-  <div class="compile-grid">
-    <div class="compile-flow reveal">
-      <div class="row"><span class="label">$ INPUT</span><span class="val">positioning.md</span></div>
-      <div class="row"><span class="label">&nbsp;</span><span class="val dim">audience_segments.json</span></div>
-      <div class="row"><span class="label">&nbsp;</span><span class="val dim">offer_architecture.yml</span></div>
-      <div class="row"><span class="label">&nbsp;</span><span class="val dim">compliance_constraints.lock</span></div>
-      <div class="arrow-row">↓ &nbsp; compile &nbsp; ↓</div>
-      <div class="row"><span class="label">$ OUTPUT</span><span class="val out">acquisition_system.live</span></div>
-      <div class="row"><span class="label">&nbsp;</span><span class="val out">attribution_graph.live</span></div>
-      <div class="row"><span class="label">&nbsp;</span><span class="val out">automation_pipeline.live</span></div>
-      <div class="row"><span class="label">&nbsp;</span><span class="val out">ops_dashboard.live</span></div>
-    </div>
-
-    <div class="compile-points reveal">
-      <p>
-        <span class="amber">//</span> Most agencies sell you the <span class="hl">spec</span>.
-        We sell you the <span class="hl">build</span>. The deliverable isn't a recommendation
-        deck &mdash; it's a working system you can log into the next morning.
-      </p>
-      <p>
-        <span class="amber">//</span> The unifying skill is <span class="hl">marketing engineering</span>:
-        thinking about audiences, offers, and channels with the same precision a software team
-        brings to a production deployment. Versioned. Observable. Owned.
-      </p>
-      <p>
-        <span class="amber">//</span> Built by an <span class="hl">operator</span>, not a committee.
-        The same person who scopes the work writes the prompts, wires the integrations, and
-        ships the artifact. No handoffs. No telephone game. <span class="amber">No surprises in invoice month three.</span>
-      </p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ PRACTICES ============ -->
-<section id="practices">
-  <div class="reveal">
-    <div class="sec-tag"><span class="num">02</span> &nbsp;//&nbsp; practices</div>
-    <h2 class="sec-title">One spine.<br>Three <span class="green">expressions</span>.</h2>
-    <p class="sec-lede">
-      The same compile model, applied to three very different surfaces. Each engagement begins
-      with a paid diagnostic and ends with a system you operate, not a memo you file.
-    </p>
-  </div>
-
-  <div class="practices">
-
-    <!-- FINTECH -->
-    <article class="term-card reveal">
-      <div class="term-head">
-        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="file">~/practices/regulated_fintech.md</span>
-        <span class="badge">PRIMARY</span>
+      <!-- Left: copy -->
+      <div>
+        <div class="hero-label">
+          <span class="pulse"></span>
+          <span>nationwide practice &nbsp;·&nbsp; marketing engineering</span>
+        </div>
+        <h1 class="hero-title">
+          We compile<br>
+          strategy into<br>
+          <span class="amber">systems.</span>
+        </h1>
+        <p class="hero-desc">
+          A founder-led practice operating at the intersection of marketing strategy and technical
+          build. <strong>We don't hand you a deck.</strong> We hand you something that runs —
+          attribution infrastructure, automation pipelines, deployed dashboards, live systems.
+        </p>
+        <div class="hero-actions">
+          <a href="mailto:noel@dgtlsunrise.com" class="btn-primary">Start a Session &nbsp;→</a>
+          <a href="#thesis" class="btn-secondary">How we work</a>
+        </div>
+        <div class="hero-proof">
+          <div class="proof-item">
+            <div class="proof-val">8-fig</div>
+            <div class="proof-label">DTC exit, 2025</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-val">1</div>
+            <div class="proof-label">Operator on every project</div>
+          </div>
+          <div class="proof-item">
+            <div class="proof-val">0</div>
+            <div class="proof-label">Decks without deployments</div>
+          </div>
+        </div>
       </div>
-      <div class="term-body">
-        <div class="term-left">
-          <div class="term-prompt"><span class="green">noel@dgtl</span>:~$ cat practice_01</div>
-          <div class="term-name">regulated<br><span class="amber">fintech</span></div>
-          <div class="term-tag">strategic marketing for compliance-bound institutions</div>
-          <p class="term-desc">
+
+      <!-- Right: compile visualization -->
+      <div class="hero-visual">
+        <div class="compile-visual">
+          <div class="compile-visual-header">
+            <span class="cv-dot cv-dot-r"></span>
+            <span class="cv-dot cv-dot-y"></span>
+            <span class="cv-dot cv-dot-g"></span>
+            <span class="cv-filename">~/dgtl_sunrise/compile.sh</span>
+          </div>
+          <div class="compile-body">
+            <div class="cv-section-label">// INPUT</div>
+            <div class="cv-files">
+              <div class="cv-file">
+                <span class="cv-file-icon">📄</span>
+                <span class="cv-file-name">positioning</span>
+                <span class="cv-file-ext">.strategy</span>
+              </div>
+              <div class="cv-file">
+                <span class="cv-file-icon">📊</span>
+                <span class="cv-file-name">audience_segments</span>
+                <span class="cv-file-ext">.json</span>
+              </div>
+              <div class="cv-file">
+                <span class="cv-file-icon">🔒</span>
+                <span class="cv-file-name">compliance_constraints</span>
+                <span class="cv-file-ext">.lock</span>
+              </div>
+              <div class="cv-file">
+                <span class="cv-file-icon">⚙️</span>
+                <span class="cv-file-name">offer_architecture</span>
+                <span class="cv-file-ext">.yml</span>
+              </div>
+            </div>
+
+            <div class="cv-compile">
+              <div class="cv-compile-arrow"></div>
+              <span class="cv-compile-label">$ compile --deploy</span>
+              <div class="cv-compile-arrow" style="transform:scaleX(-1)"></div>
+            </div>
+
+            <div class="cv-section-label">// OUTPUT</div>
+            <div class="cv-outputs">
+              <div class="cv-output">
+                <span class="cv-output-name">acquisition_system</span>
+                <span class="cv-output-ext">.live</span>
+                <span class="cv-status">RUNNING</span>
+              </div>
+              <div class="cv-output">
+                <span class="cv-output-name">attribution_graph</span>
+                <span class="cv-output-ext">.live</span>
+                <span class="cv-status">RUNNING</span>
+              </div>
+              <div class="cv-output">
+                <span class="cv-output-name">automation_pipeline</span>
+                <span class="cv-output-ext">.live</span>
+                <span class="cv-status">RUNNING</span>
+              </div>
+              <div class="cv-output">
+                <span class="cv-output-name">ops_dashboard</span>
+                <span class="cv-output-ext">.live</span>
+                <span class="cv-status">RUNNING</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- THESIS — Marketing Engineering -->
+<section class="section" id="thesis">
+  <hr class="rule">
+  <div class="container" style="padding-top:140px;">
+    <div class="eyebrow">01 &nbsp;/&nbsp; the thesis</div>
+    <h2 class="section-heading">
+      Decks don't run.<br>
+      <span class="dim">Systems do.</span>
+    </h2>
+    <div class="thesis-grid">
+      <div>
+        <p class="section-lede" style="margin-bottom:28px;">
+          Strategy without infrastructure is a PDF aging in a shared drive. The work that actually
+          moves a number is the work that <strong>compiles</strong> — positioning, segmentation, and
+          offer architecture translated into things that execute on their own.
+        </p>
+        <p class="section-lede">
+          The unifying skill here is <strong>marketing engineering</strong>: thinking about audiences,
+          channels, and systems with the same precision a software team brings to a production
+          deployment. Versioned. Observable. Owned.
+        </p>
+      </div>
+      <div class="thesis-points">
+        <div class="thesis-point reveal">
+          <span class="thesis-num">01</span>
+          <div>
+            <div class="thesis-point-title">The spec is not the deliverable</div>
+            <div class="thesis-point-body">
+              Most agencies sell you a recommendation. We sell you the build. The deliverable
+              isn't a strategy doc — it's <strong>a working system you can log into the next morning.</strong>
+            </div>
+          </div>
+        </div>
+        <div class="thesis-point reveal reveal-delay-1">
+          <span class="thesis-num">02</span>
+          <div>
+            <div class="thesis-point-title">One operator, start to finish</div>
+            <div class="thesis-point-body">
+              The person who scopes the work writes the prompts, wires the integrations, and ships
+              the artifact. No handoffs. No telephone game. <strong>No surprises in month three.</strong>
+            </div>
+          </div>
+        </div>
+        <div class="thesis-point reveal reveal-delay-2">
+          <span class="thesis-num">03</span>
+          <div>
+            <div class="thesis-point-title">Diagnostics before commitments</div>
+            <div class="thesis-point-body">
+              Every engagement starts with a paid diagnostic that stands alone. You see exactly
+              what's broken and what it costs before committing to a build.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICES -->
+<section class="section" id="practices">
+  <hr class="rule">
+  <div class="container" style="padding-top:140px;">
+    <div class="eyebrow">02 &nbsp;/&nbsp; practices</div>
+    <h2 class="section-heading">
+      One spine.<br>
+      <span class="dim">Three</span> <span class="amber">expressions.</span>
+    </h2>
+    <p class="section-lede" style="margin-bottom:0">
+      The same compile model applied to three surfaces. Each begins with a paid diagnostic
+      and ends with a system you operate — not a memo you file.
+    </p>
+
+    <div class="practices-grid">
+
+      <!-- FINTECH -->
+      <div class="practice-card reveal">
+        <div class="practice-left">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span class="practice-num">01</span>
+            <span class="practice-badge">Primary</span>
+          </div>
+          <div class="practice-name">Regulated<br><span class="amber">Fintech</span></div>
+          <div class="practice-tagline">strategic marketing for compliance-bound institutions</div>
+          <p class="practice-desc">
             Acquisition strategy for banks, lenders, and fintech operators where every line of
             copy lives under UDAAP, FCRA, and Reg Z. Audience segmentation, funnel architecture,
-            creator programs, and the attribution infrastructure to prove any of it worked.
+            creator programs, and the attribution infrastructure to prove it worked.
           </p>
         </div>
-        <div class="term-right">
-          <h4>// stack</h4>
-          <ul>
-            <li>audience segmentation &amp; ICP modeling</li>
-            <li>compliance-aware acquisition funnels</li>
-            <li>creator &amp; affiliate program design</li>
-            <li>multi-touch attribution infrastructure</li>
-            <li>performance reporting &amp; review cycles</li>
-            <li>NDA-friendly engagement structure</li>
-          </ul>
+        <div class="practice-right">
+          <div class="practice-right-label">// capabilities</div>
+          <div class="practice-capabilities">
+            <div class="capability"><span class="capability-dot"></span>Audience segmentation &amp; ICP modeling</div>
+            <div class="capability"><span class="capability-dot"></span>Compliance-aware acquisition funnels</div>
+            <div class="capability"><span class="capability-dot"></span>Creator &amp; affiliate program design</div>
+            <div class="capability"><span class="capability-dot"></span>Multi-touch attribution infrastructure</div>
+            <div class="capability"><span class="capability-dot"></span>Performance reporting &amp; review cycles</div>
+            <div class="capability"><span class="capability-dot"></span>NDA-friendly engagement structure</div>
+          </div>
         </div>
       </div>
-    </article>
 
-    <!-- AI OPS -->
-    <article class="term-card reveal">
-      <div class="term-head">
-        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="file">~/practices/ai_operations.md</span>
-        <span class="badge">CORE</span>
-      </div>
-      <div class="term-body">
-        <div class="term-left">
-          <div class="term-prompt"><span class="green">noel@dgtl</span>:~$ cat practice_02</div>
-          <div class="term-name">AI <span class="amber">operations</span><br>architecture</div>
-          <div class="term-tag">map the bleed. build the fix. operate the result.</div>
-          <p class="term-desc">
+      <!-- AI OPS -->
+      <div class="practice-card reveal reveal-delay-1">
+        <div class="practice-left">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span class="practice-num">02</span>
+            <span class="practice-badge">Core</span>
+          </div>
+          <div class="practice-name">AI Operations<br><span class="amber">Architecture</span></div>
+          <div class="practice-tagline">map the bleed. build the fix. operate the result.</div>
+          <p class="practice-desc">
             We map how the business actually runs, find where time and money are bleeding out,
-            and build the AI systems that close the wound. Starts with a paid current-state
-            audit. Ends with a live operating layer that runs on its own and reports back.
+            and build the AI systems that close the wound. Starts with a paid current-state audit.
+            Ends with a live operating layer that runs on its own and reports back.
           </p>
         </div>
-        <div class="term-right">
-          <h4>// stack</h4>
-          <ul>
-            <li>current-state operational audits</li>
-            <li>n8n cloud orchestration pipelines</li>
-            <li>Airtable databases &amp; schemas</li>
-            <li>Claude API agents &amp; prompt stacks</li>
-            <li>Lovable operator dashboards</li>
-            <li>in-person kickoff &amp; handoff</li>
-          </ul>
+        <div class="practice-right">
+          <div class="practice-right-label">// stack</div>
+          <div class="practice-capabilities">
+            <div class="capability"><span class="capability-dot"></span>Current-state operational audits</div>
+            <div class="capability"><span class="capability-dot"></span>n8n workflow orchestration</div>
+            <div class="capability"><span class="capability-dot"></span>Airtable databases &amp; schemas</div>
+            <div class="capability"><span class="capability-dot"></span>Claude API agents &amp; prompt stacks</div>
+            <div class="capability"><span class="capability-dot"></span>Lovable operator dashboards</div>
+            <div class="capability"><span class="capability-dot"></span>In-person kickoff &amp; handoff</div>
+          </div>
         </div>
       </div>
-    </article>
 
-    <!-- LOCAL -->
-    <article class="term-card reveal">
-      <div class="term-head">
-        <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-        <span class="file">~/practices/local_growth.md</span>
-        <span class="badge">REGIONAL</span>
-      </div>
-      <div class="term-body">
-        <div class="term-left">
-          <div class="term-prompt"><span class="green">noel@dgtl</span>:~$ cat practice_03</div>
-          <div class="term-name">local<br><span class="amber">growth</span></div>
-          <div class="term-tag">enterprise strategy at small-business velocity</div>
-          <p class="term-desc">
+      <!-- LOCAL -->
+      <div class="practice-card reveal reveal-delay-2">
+        <div class="practice-left">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <span class="practice-num">03</span>
+            <span class="practice-badge">Regional</span>
+          </div>
+          <div class="practice-name">Local Business<br><span class="amber">Growth</span></div>
+          <div class="practice-tagline">enterprise strategy at small-business velocity</div>
+          <p class="practice-desc">
             Fast websites, local SEO, paid search and social, and positioning for small and
             mid-size businesses in North Idaho and the greater Inland Northwest. Same operator,
-            same precision, scoped to the cadence and budget a local owner can actually run.
+            same precision — scoped to the cadence and budget a local owner can actually run.
           </p>
         </div>
-        <div class="term-right">
-          <h4>// stack</h4>
-          <ul>
-            <li>flat-fee websites on GitHub + Cloudflare</li>
-            <li>local SEO &amp; map-pack optimization</li>
-            <li>paid search &amp; social campaigns</li>
-            <li>brand and positioning workshops</li>
-            <li>email-driven content updates</li>
-            <li>Coeur d'Alene &middot; Spokane &middot; Inland NW</li>
-          </ul>
+        <div class="practice-right">
+          <div class="practice-right-label">// deliverables</div>
+          <div class="practice-capabilities">
+            <div class="capability"><span class="capability-dot"></span>Flat-fee websites on GitHub + Cloudflare</div>
+            <div class="capability"><span class="capability-dot"></span>Local SEO &amp; map-pack optimization</div>
+            <div class="capability"><span class="capability-dot"></span>Paid search &amp; social campaigns</div>
+            <div class="capability"><span class="capability-dot"></span>Brand and positioning workshops</div>
+            <div class="capability"><span class="capability-dot"></span>Ongoing content &amp; site maintenance</div>
+            <div class="capability"><span class="capability-dot"></span>Coeur d'Alene · Spokane · Inland NW</div>
+          </div>
         </div>
       </div>
-    </article>
 
+    </div>
   </div>
 </section>
 
-<!-- ============ PIPELINE ============ -->
-<section id="pipeline">
-  <div class="reveal">
-    <div class="sec-tag"><span class="num">03</span> &nbsp;//&nbsp; how_it_runs</div>
-    <h2 class="sec-title">A four-stage<br><span class="green">pipeline</span>.</h2>
-    <p class="sec-lede">
-      Every engagement &mdash; fintech, ops, or local &mdash; follows the same compile model. The
-      diagnostic is paid and stands alone. You never end up locked into a build you didn't get
+<!-- PIPELINE -->
+<section class="section" id="pipeline">
+  <hr class="rule">
+  <div class="container" style="padding-top:140px;">
+    <div class="eyebrow">03 &nbsp;/&nbsp; how it runs</div>
+    <h2 class="section-heading">
+      A four-stage<br>
+      <span class="amber">pipeline.</span>
+    </h2>
+    <p class="section-lede">
+      Every engagement — fintech, operations, or local — follows the same compile model.
+      The diagnostic is paid and stands alone. You never commit to a build you haven't had
       a chance to evaluate first.
     </p>
-  </div>
-
-  <div class="pipeline reveal">
-    <div class="stage">
-      <div class="stage-num">STAGE 01</div>
-      <div class="stage-name">audit</div>
-      <div class="stage-desc">Paid current-state diagnostic. We map how things actually work today, name the bleed, and define the system worth building. Standalone deliverable.</div>
-    </div>
-    <div class="stage">
-      <div class="stage-num">STAGE 02</div>
-      <div class="stage-name">architect</div>
-      <div class="stage-desc">Design the system. Schemas, integrations, prompts, copy, channels, attribution. The blueprint your team can review and your CFO can budget against.</div>
-    </div>
-    <div class="stage">
-      <div class="stage-num">STAGE 03</div>
-      <div class="stage-name">build</div>
-      <div class="stage-desc">Compile. Wire integrations, write production prompts, deploy automations and dashboards, ship the site, light up the attribution. Real artifacts in version control.</div>
-    </div>
-    <div class="stage">
-      <div class="stage-num">STAGE 04</div>
-      <div class="stage-name">operate</div>
-      <div class="stage-desc">Retainer earned, never pre-pitched. We operate the system, instrument what matters, and iterate against the numbers it reports back.</div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ OPERATOR ============ -->
-<section id="operator">
-  <div class="reveal">
-    <div class="sec-tag"><span class="num">04</span> &nbsp;//&nbsp; operator</div>
-    <h2 class="sec-title">Built by the<br>person you <span class="amber">talk to</span>.</h2>
-  </div>
-
-  <div class="op-grid">
-    <div class="op-photo reveal">
-      <img src="noel.png" alt="Noel Churchill, founder of DGTL Sunrise">
-      <div class="op-caption">
-        <span>// operator.jpg</span>
-        <span class="green">● connected</span>
+    <div class="pipeline reveal">
+      <div class="stage">
+        <span class="stage-num">STAGE 01</span>
+        <div class="stage-name">Audit</div>
+        <p class="stage-desc">Paid current-state diagnostic. We map what's actually running, name the bleed, and define the system worth building. Standalone deliverable.</p>
       </div>
-    </div>
-
-    <div class="op-body reveal">
-      <h3>Noel Churchill</h3>
-      <div class="op-role">// founder &middot; operator &middot; sole point of contact</div>
-      <p>
-        Noel founded <span class="hl">RainbowOPTX</span> &mdash; a sunglasses brand built from zero to
-        eight figures with no outside funding, almost entirely on creator marketing and Meta
-        ads &mdash; and exited in 2025. The operating muscles he built running a DTC brand under
-        real margin pressure now power every DGTL Sunrise engagement.
-      </p>
-      <p>
-        He's a technical power user who works in terminal, deploys his own code, and treats AI
-        tools as production infrastructure rather than novelty. <span class="amber">The same person who scopes
-        the work writes the prompts, wires the integrations, and ships the artifact.</span>
-      </p>
-      <p>
-        DGTL Sunrise is run as a deliberately small founder-led practice. No account managers.
-        No subcontract chain. No deck team. The ceiling on quality is the ceiling on one
-        operator's attention &mdash; and the work is scoped accordingly.
-      </p>
-
-      <div class="op-stats">
-        <div class="op-stat">
-          <div class="v">8-fig</div>
-          <div class="l">DTC brand exit (2025)</div>
-        </div>
-        <div class="op-stat">
-          <div class="v">11+</div>
-          <div class="l">years operating &amp; building</div>
-        </div>
-        <div class="op-stat">
-          <div class="v">1</div>
-          <div class="l">operator on every project</div>
-        </div>
+      <div class="stage">
+        <span class="stage-num">STAGE 02</span>
+        <div class="stage-name">Architect</div>
+        <p class="stage-desc">Design the system. Schemas, integrations, prompts, copy, channels, attribution. A blueprint your team can review and your CFO can budget against.</p>
+      </div>
+      <div class="stage">
+        <span class="stage-num">STAGE 03</span>
+        <div class="stage-name">Build</div>
+        <p class="stage-desc">Compile. Wire integrations, deploy automations and dashboards, ship the site, light up attribution. Real artifacts in version control.</p>
+      </div>
+      <div class="stage">
+        <span class="stage-num">STAGE 04</span>
+        <div class="stage-name">Operate</div>
+        <p class="stage-desc">Retainer earned, never pre-pitched. We operate the system, instrument what matters, and iterate against the numbers it reports back.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ CONTACT ============ -->
-<section id="contact">
-  <div class="reveal">
-    <div class="sec-tag"><span class="num">05</span> &nbsp;//&nbsp; start_session</div>
-    <h2 class="sec-title">Open a <span class="green">socket</span>.</h2>
-  </div>
-
-  <div class="contact-box reveal">
-    <div class="contact-head">
-      <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-      <span class="file">tty2 — /usr/local/dgtl_sunrise — session.new</span>
-    </div>
-    <div class="contact-body">
-      <div class="contact-line"><span class="green">noel@dgtl</span>:~$ ./initiate --inbound</div>
-      <div class="contact-line">[<span class="green">ok</span>] inbound channel listening</div>
-      <div class="contact-line">[<span class="green">ok</span>] response time &lt; 24h on weekdays</div>
-      <div class="contact-line">[<span class="amber">i</span>] all engagements begin with a paid diagnostic</div>
-
-      <div class="contact-q">What are you trying to <span class="amber">compile</span>?</div>
-
-      <p style="color:var(--text-dim);font-size:14px;line-height:1.8;max-width:60ch;">
-        Tell me what's bleeding &mdash; the funnel that won't attribute, the operation that won't
-        scale, the local presence that won't show up. If there's a system worth building, I'll
-        scope a diagnostic and we'll find out together.
-      </p>
-
-      <div class="contact-actions">
-        <a href="mailto:noel@dgtlsunrise.com" class="btn amber">$ noel@dgtlsunrise.com<span class="arrow">→</span></a>
-        <a href="#top" class="btn">./back_to_top<span class="arrow">↑</span></a>
+<!-- OPERATOR -->
+<section class="section" id="operator">
+  <hr class="rule">
+  <div class="container" style="padding-top:140px;">
+    <div class="eyebrow">04 &nbsp;/&nbsp; operator</div>
+    <h2 class="section-heading">
+      Built by the<br>person you <span class="amber">talk to.</span>
+    </h2>
+    <div class="operator-grid">
+      <div class="operator-photo-wrap reveal">
+        <img src="noel.png" alt="Noel Churchill, founder of DGTL Sunrise" class="operator-photo">
+        <div class="operator-caption">
+          <span>// operator.portrait</span>
+          <span class="online">connected</span>
+        </div>
+      </div>
+      <div class="operator-content reveal reveal-delay-1">
+        <div class="operator-name">Noel Churchill</div>
+        <div class="operator-role">// founder &nbsp;·&nbsp; operator &nbsp;·&nbsp; sole point of contact</div>
+        <p class="operator-bio">
+          Noel founded <strong>RainbowOPTX</strong> — a sunglasses brand built from zero to eight
+          figures with no outside funding, almost entirely on creator marketing and Meta ads — and
+          exited in 2025. The operating muscles built running a DTC brand under real margin
+          pressure power every DGTL Sunrise engagement.
+        </p>
+        <p class="operator-bio">
+          He's a technical power user who works in terminal, deploys his own code, and treats AI
+          tools as production infrastructure rather than novelty. <span class="amber">The same person who scopes
+          the work writes the prompts, wires the integrations, and ships the artifact.</span>
+        </p>
+        <p class="operator-bio">
+          DGTL Sunrise is run as a deliberately small founder-led practice. No account managers.
+          No subcontract chain. The ceiling on quality is the ceiling on one operator's
+          full attention — and the work is scoped accordingly.
+        </p>
+        <div class="operator-stats">
+          <div class="op-stat">
+            <div class="op-stat-val">8-fig</div>
+            <div class="op-stat-label">DTC brand exit (2025)</div>
+          </div>
+          <div class="op-stat">
+            <div class="op-stat-val">11+</div>
+            <div class="op-stat-label">years operating &amp; building</div>
+          </div>
+          <div class="op-stat">
+            <div class="op-stat-val">1</div>
+            <div class="op-stat-label">Operator on every engagement</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <hr class="rule">
+  <div class="container" style="padding-top:140px;">
+    <div class="eyebrow">05 &nbsp;/&nbsp; start a session</div>
+    <div class="contact-wrap">
+      <div class="reveal">
+        <h2 class="contact-heading">
+          What are you<br>
+          trying to <span class="amber">compile?</span>
+        </h2>
+        <p class="contact-desc">
+          Tell me what's bleeding — the funnel that won't attribute, the operation that won't
+          scale, the local presence that won't show up. If there's a system worth building,
+          I'll scope a diagnostic and we'll find out together.
+        </p>
+        <div class="contact-cta-group">
+          <a href="mailto:noel@dgtlsunrise.com" class="btn-primary" style="justify-content:center;">
+            Email Noel directly &nbsp;→
+          </a>
+          <a href="tel:+18583543666" class="btn-secondary" style="justify-content:center;">
+            858.354.3666
+          </a>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="contact-panel">
+          <div class="contact-panel-header">
+            <span class="cp-dot cp-dot-r"></span>
+            <span class="cp-dot cp-dot-y"></span>
+            <span class="cp-dot cp-dot-g"></span>
+            <span class="contact-panel-file">session.new — inbound</span>
+          </div>
+          <div class="contact-panel-body">
+            <div class="cp-prompt">
+              <span class="green">noel@dgtl</span>:~$ ./initiate --inbound
+            </div>
+            <div class="cp-line">
+              <span class="cp-key">email</span>
+              <span class="cp-val"><a href="mailto:noel@dgtlsunrise.com">noel@dgtlsunrise.com</a></span>
+            </div>
+            <div class="cp-line">
+              <span class="cp-key">phone</span>
+              <span class="cp-val"><a href="tel:+18583543666">858.354.3666</a></span>
+            </div>
+            <div class="cp-line">
+              <span class="cp-key">response</span>
+              <span class="cp-val">same business day</span>
+            </div>
+            <div class="cp-line">
+              <span class="cp-key">location</span>
+              <span class="cp-val">based in the usa</span>
+            </div>
+            <div class="cp-note">
+              [i] all engagements begin with a paid diagnostic.<br>
+              [i] decks/ directory empty — by design.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-  <div>
-    <span class="green">DGTL SUNRISE</span> <span style="color:var(--text-faint)">//</span>
-    we compile strategy into systems
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">DGTL <span>Sunrise</span></div>
+        <div class="footer-tagline">we compile strategy into systems</div>
+      </div>
+      <div class="footer-meta">
+        © 2026 DGTL Sunrise LLC &nbsp;·&nbsp; all systems running &nbsp;·&nbsp;
+        <a href="https://linkedin.com/company/dgtlsunrise" target="_blank" rel="noopener">linkedin →</a>
+      </div>
+    </div>
   </div>
-  <div>
-    <span class="amber">●</span> nationwide practice &nbsp;|&nbsp; based in the usa
-  </div>
-  <div>&copy; 2026 dgtl sunrise llc &nbsp;//&nbsp; all systems running</div>
 </footer>
 
 <script>
-/* ---------- BOOT SEQUENCE ---------- */
-const bootLines = [
-  { html: '<span class="dim">$</span> ./dgtl_sunrise --init', delay: 0 },
-  { html: '<span class="dim">[</span><span class="ok">ok</span><span class="dim">]</span> loading operator profile: <span class="key">noel.churchill</span>', delay: 380 },
-  { html: '<span class="dim">[</span><span class="ok">ok</span><span class="dim">]</span> mounting practice: <span class="key">regulated_fintech</span>', delay: 700 },
-  { html: '<span class="dim">[</span><span class="ok">ok</span><span class="dim">]</span> mounting practice: <span class="key">ai_operations</span>', delay: 950 },
-  { html: '<span class="dim">[</span><span class="ok">ok</span><span class="dim">]</span> mounting practice: <span class="key">local_growth</span>', delay: 1200 },
-  { html: '<span class="dim">[</span><span class="warn">warn</span><span class="dim">]</span> <span class="key">decks/</span> directory empty &mdash; by design', delay: 1500 },
-  { html: '<span class="dim">[</span><span class="ok">ok</span><span class="dim">]</span> compiler ready. attribution online.', delay: 1820 },
-  { html: '<span class="ok">systems online. ready to compile.</span><span class="boot-cursor"></span>', delay: 2150 },
-];
-
-const bootBody = document.getElementById('bootBody');
-function runBoot(){
-  bootBody.innerHTML = '';
-  bootLines.forEach((line, i) => {
-    const div = document.createElement('div');
-    div.className = 'boot-line';
-    div.innerHTML = line.html;
-    bootBody.appendChild(div);
-    setTimeout(() => {
-      div.style.opacity = '1';
-    }, line.delay);
-  });
-}
-window.addEventListener('load', runBoot);
-
-/* ---------- HEADLINE GLITCH ---------- */
-const headline = document.getElementById('headline');
-function glitch(){
-  headline.classList.add('glitch');
-  setTimeout(() => headline.classList.remove('glitch'), 240);
-}
-setInterval(() => {
-  if (Math.random() < 0.55) glitch();
-}, 4200);
-
-/* ---------- REVEAL ON SCROLL ---------- */
+/* ── SCROLL REVEAL ── */
 const io = new IntersectionObserver((entries) => {
   entries.forEach(e => {
-    if (e.isIntersecting){
-      e.target.classList.add('in');
-      io.unobserve(e.target);
-    }
+    if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-/* ---------- HAMBURGER ---------- */
-const hamb = document.getElementById('hamb');
-const navLinks = document.getElementById('navLinks');
-hamb.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-  hamb.textContent = navLinks.classList.contains('open') ? '[ close ]' : '[ menu ]';
+/* ── HAMBURGER / DRAWER ── */
+function toggleDrawer() {
+  document.getElementById('drawer').classList.toggle('open');
+  document.body.style.overflow =
+    document.getElementById('drawer').classList.contains('open') ? 'hidden' : '';
+}
+function closeDrawer() {
+  document.getElementById('drawer').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
 });
-navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-  navLinks.classList.remove('open');
-  hamb.textContent = '[ menu ]';
-}));
+
+/* ── NAV ACTIVE STATE ── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+const navObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      navLinks.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.4 });
+sections.forEach(s => navObserver.observe(s));
 </script>
 </body>
 </html>
