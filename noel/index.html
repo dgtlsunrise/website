@@ -177,8 +177,11 @@
     }
 
     .section-break span {
-      font-size: 18px;
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
       line-height: 1;
+      color: var(--amber-light);
+      letter-spacing: 0.4em;
     }
 
     /* ── Headings ─────────────────────────────────────── */
@@ -500,6 +503,12 @@
     }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      * { animation: none !important; transition: none !important; }
+    }
+
     /* ── Responsive ───────────────────────────────────── */
     @media (max-width: 600px) {
       body { font-size: 18px; }
@@ -508,6 +517,28 @@
       .stat-row { flex-direction: column; gap: 0; }
       h1 { font-size: 40px; }
       .step-header { grid-template-columns: 48px 1fr; }
+      .prefatory { padding: 18px 20px; }
+      .prefatory p { font-size: 14px; }
+    }
+
+    /* ── Print ────────────────────────────────────────── */
+    @media print {
+      body { font-size: 12pt; line-height: 1.55; background: #fff; color: #000; }
+      .reveal { opacity: 1 !important; transform: none !important; }
+      .essay { padding: 0 0 24pt; max-width: 100%; }
+      .hero-head { padding: 12pt 0 18pt; border-bottom: 2pt solid #000; }
+      h1 { font-size: 32pt; margin-bottom: 12pt; }
+      h2 { font-size: 18pt; margin-top: 18pt; margin-bottom: 10pt; page-break-after: avoid; }
+      h3 { font-size: 13pt; margin-top: 14pt; margin-bottom: 6pt; page-break-after: avoid; }
+      p { margin-bottom: 10pt; orphans: 3; widows: 3; }
+      .pull-quote, .callout, .step, .filter-item, .answer-reveal { page-break-inside: avoid; }
+      .media-block, .tweets-block { display: none; }
+      .answer-reveal { background: #fff; color: #000; border: 1pt solid #000; }
+      .answer-reveal h3, .answer-reveal .answer-label { color: #000; }
+      .step-num-block { background: #000; }
+      .callout { border-color: #000; background: #fff; }
+      footer { border-top: 1pt solid #000; }
+      a { color: #000; text-decoration: none; }
     }
   </style>
 </head>
@@ -538,13 +569,13 @@
 
     <div class="essay-body">
 
-      <p class="drop-cap">I want to explain what I'm doing, because the people who matter most deserve a real explanation — not a summary, not reassurances, but the actual reasoning. You have watched our family navigate a difficult few years. You have been generous and supportive in ways I don't take lightly. So I want to be completely honest with you about where things stand, what I'm planning, and why I believe this is the right move for all of us.</p>
+      <p class="drop-cap">I want to explain what I'm doing, because the people who matter most deserve a real explanation — not a summary, not reassurances, but the reasoning itself. You have watched our family navigate a difficult few years. You have been generous and supportive in ways I don't take lightly. So I want to be completely honest with you about where things stand, what I'm planning, and why I believe this is the right move for all of us.</p>
 
       <p>This is going to be a long read. I'm asking you to stay with it, because the details matter and because I want to answer your questions before you have to ask them.</p>
 
       <p>Some time ago we all sat down together — Daria, me, Kris and Tom — and talked about the need to have a real plan. This is that plan. It has taken me a long time to put it together, and I want you to understand every part of it.</p>
 
-      <div class="section-break reveal"><span>🇺🇸</span></div>
+      <div class="section-break reveal"><span>✦ ✦ ✦</span></div>
 
       <h2 class="reveal">What I built,<br>and why it was<br><em>so hard to let go</em></h2>
 
@@ -558,13 +589,13 @@
 
       <p class="reveal">Leif is two and a half now. He can go to early childhood education. The practical reason I held onto self-employment — the flexibility it gave me to care for him — no longer applies in the same way. And the level of risk that maybe made sense under different circumstances doesn't make sense anymore. I'm done tolerating it. The question I've been working on is: what comes next, and how do I do it right?</p>
 
-      <div class="section-break reveal"><span>🇺🇸</span></div>
+      <div class="section-break reveal"><span>✦ ✦ ✦</span></div>
 
       <h2 class="reveal">The fire at<br><em>Le Constellation</em></h2>
 
       <p class="reveal">Before I get to the plan, I want to explain what changed my thinking — because this isn't just about the last three years. It's about what I see coming.</p>
 
-      <p class="reveal">On New Year's Eve 2025, a bar called Le Constellation in Crans-Montana, Switzerland — a chic ski resort in the Alps — caught fire during a New Year's party. A waitress, standing on another waitress's shoulders, held a champagne bottle topped with a lit sparkler near a wooden ceiling. The ceiling caught. The fire spread. Then something happened that fire scientists call a "flashover" — a threshold beyond which everything in a room ignites almost simultaneously.</p>
+      <p class="reveal">On New Year's Eve 2025, a bar called Le Constellation in Crans-Montana — a ski resort in the Swiss Alps — caught fire during the party. A waitress, standing on another waitress's shoulders, held a champagne bottle topped with a lit sparkler near a wooden ceiling. The ceiling caught. The fire spread. Then something happened that fire scientists call a "flashover" — a threshold beyond which everything in a room ignites almost simultaneously.</p>
 
       <p class="reveal">Forty people were killed. Over a hundred were injured.</p>
 
@@ -588,26 +619,26 @@
         <p>"AI is going to be constructive in so many ways. But it is still going to be the fire that burns down all the previous ways of doing things — and most people are watching with amusement instead of heading for the exit."</p>
       </div>
 
-      <p class="reveal">I work with AI every day. I build with it, experiment with it, and have watched it improve in real time for years. I know exactly what it can do. It can take over your computer — literally see your full screen, click around, navigate software, and complete tasks a human would do — with full AI intelligence, at a fraction of the cost, and without rest. This is not theoretical. It is happening now.</p>
+      <p class="reveal">I work with AI every day. I build with it, experiment with it, and have watched it improve year over year. I know exactly what it can do. It can take over your computer — literally see your full screen, click around, navigate software, and complete tasks a human would do — with full AI intelligence, at a fraction of the cost, and without rest. This is not theoretical. It is happening now.</p>
 
-      <p class="reveal">In March 2026, Anthropic — the company that makes the AI assistant I use most, and one of the leading AI research organizations in the world — published a study mapping which jobs AI is already performing and which it is theoretically capable of performing. The findings were serious. They found that AI can theoretically cover most tasks in business, finance, management, computer science, math, legal work, and office administration. The researchers named the risk plainly: a potential "Great Recession for white-collar workers." Anthropic's own CEO has said the technology could displace half of entry-level white-collar work.</p>
+      <p class="reveal">In March 2026, Anthropic — the company that makes the AI assistant I use most, and one of the leading AI labs in the world — published a study mapping which jobs AI is already performing and which it is theoretically capable of performing. The findings were serious. They found that AI can theoretically cover most tasks in business, finance, management, computer science, math, legal work, and office administration. The researchers named the risk plainly: a potential "Great Recession for white-collar workers." Anthropic's own CEO has said the technology could displace half of entry-level white-collar work.</p>
 
       <p class="reveal">Most people are watching AI with something like amusement. It's interesting. It's impressive. They know it's a little scary. But the urgency hasn't registered yet. The sparklers are near the ceiling and everyone still has a drink in their hand.</p>
 
       <p class="reveal">I decided I needed to move toward the exit — deliberately, while there was still time to choose where I landed.</p>
 
-      <div class="section-break reveal"><span>🇺🇸</span></div>
+      <div class="section-break reveal"><span>✦ ✦ ✦</span></div>
 
       <h2 class="reveal">Three filters,<br><em>applied honestly</em></h2>
 
-      <p class="reveal">I treated this like a decision problem. I had three criteria, and I applied them in sequence — not starting with an answer and working backward, but genuinely following the logic wherever it led.</p>
+      <p class="reveal">I treated this like a decision problem. I had three criteria, and I applied them in sequence — not starting with an answer and working backward, but following the logic wherever it led.</p>
 
       <div class="filter-block reveal">
 
         <div class="filter-item">
           <p class="filter-label">Filter One</p>
           <p class="filter-title">Not replaceable by AI</p>
-          <p class="filter-body">The first instinct most people will have — and I had it too — is to think of manual labor as the safe harbor. AI can't replace a plumber or a carpenter. That's true. But it buys five to ten years at most before robotics and physical automation catches up, and it is not a long-term answer.<br><br>More importantly, it is going to be everyone else's backup plan too. That is the problem. A backup plan only works if you're one of the few people doing it. When a large share of knowledge-worker jobs disappear and millions of displaced professionals all follow the same path of least resistance into service sector work, the competition for those positions becomes ferocious. Wages get pushed down. Hours get cut. People who have been in the trades for decades get priority. A marketing professional in their forties who has never worked in a trade is not going to outcompete someone who has done nothing else.<br><br>What I was actually looking for was work that is difficult to automate not because it's physical, but because it's relational. Work that requires human-to-human trust built over time, complex negotiation, professional judgment developed through years of practice, and the kind of institutional credibility that a language model cannot replicate. AI can assist with almost everything. There are very few categories where it genuinely cannot replace — and I wanted to be in one of those categories.</p>
+          <p class="filter-body">The first instinct most people will have — and I had it too — is to think of manual labor as the safe harbor. AI can't replace a plumber or a carpenter. That's true. But it buys five to ten years at most before robotics and physical automation catches up, and it is not a long-term answer.<br><br>More importantly, it is going to be everyone else's backup plan too. That is the problem. A backup plan only works if you're one of the few people doing it. When a large share of knowledge-worker jobs disappear and millions of displaced professionals all follow the same path of least resistance into service sector work, the competition for those positions becomes ferocious. Wages get pushed down. Hours get cut. People who have been in the trades for decades get priority. A marketing professional in their forties who has never worked in a trade is not going to outcompete someone who has done nothing else.<br><br>What I was looking for was work that is difficult to automate not because it's physical, but because it's relational. Work that requires human-to-human trust built over time, complex negotiation, professional judgment developed through years of practice, and the kind of institutional credibility that a language model cannot replicate. AI can assist with almost everything. There are very few categories where it cannot replace the person doing the work — and I wanted to be in one of them.</p>
           <p class="filter-result">Remaining after Filter One: relationship-based professional work, government sector, skilled trades (short-term only)</p>
         </div>
 
@@ -621,7 +652,7 @@
         <div class="filter-item">
           <p class="filter-label">Filter Three</p>
           <p class="filter-title">Real long-term upside</p>
-          <p class="filter-body">A stable government job with a predictable salary and full benefits would be a genuine improvement over the last three years. I want to be clear: it is a real answer, and if that is where this ends, our family will be better for it. I would be grateful for it, and I would serve well.<br><br>But I want to thrive. I want our family to thrive. Not at the expense of stability — stability comes first, always — but I strongly believe I can build something more than just comfortable, and I intend to try. So the third filter was: is there a path from here to something bigger? A second chapter that builds over time into something meaningful?<br><br>The answer I kept arriving at was defense technology. Global tensions are rising. U.S. military budgets are expanding significantly. A new generation of defense-tech companies — building drones, autonomous systems, and AI-powered national security tools — are growing at extraordinary speed, attracting enormous investment, and heading toward public offerings. The people who understand how the government buys things, from the inside, are rare. The demand for them is growing. That scarcity is the opportunity.</p>
+          <p class="filter-body">A stable government job with a predictable salary and full benefits would be a genuine improvement over the last three years. I want to be clear: it is a good answer, and if that is where this ends, our family will be better for it. I would be grateful for it, and I would serve well.<br><br>But I want to thrive. I want our family to thrive. Not at the expense of stability — stability comes first, always — but I strongly believe I can build something more than just comfortable, and I intend to try. So the third filter was: is there a path from here to something bigger? A second chapter that builds over time into something meaningful?<br><br>The answer I kept arriving at was defense technology. Global tensions are rising. U.S. military budgets are expanding significantly. A new generation of defense-tech companies — building drones, autonomous systems, and AI-powered national security tools — are growing at extraordinary speed, attracting enormous investment, and heading toward public offerings. The people who understand how the government buys things, from the inside, are rare. The demand for them is growing. That scarcity is the opportunity.</p>
           <p class="filter-result">Remaining after Filter Three: federal acquisition within the defense sector</p>
         </div>
 
@@ -656,7 +687,7 @@
         </div>
       </div>
 
-      <div class="section-break reveal"><span>🇺🇸</span></div>
+      <div class="section-break reveal"><span>✦ ✦ ✦</span></div>
 
       <h2 class="reveal">The obvious<br><em>question</em></h2>
 
@@ -678,7 +709,7 @@
         <p>For the first time in years, this would mean a salary that arrives on schedule, benefits that don't depend on a good month, and the kind of predictability that the last three years have not had. That matters enormously — to me, and I think to you too.</p>
       </div>
 
-      <div class="section-break reveal"><span>🇺🇸</span></div>
+      <div class="section-break reveal"><span>✦ ✦ ✦</span></div>
 
       <h2 class="reveal">The plan:<br><em>two moves</em></h2>
 
@@ -702,7 +733,7 @@
             <div class="step-content">
               <p class="step-tag">2028 → 2031</p>
               <h3 class="step-title">Exit to the private defense-tech sector</h3>
-              <p class="step-body">After building government-side credentials — contracting authority, clearance, acquisition expertise, relationships — use them to move to the private side. Companies like Anduril, Shield AI, and Palantir are actively recruiting people who understand how the government actually makes buying decisions, because those people are genuinely rare.<br><br>The target would be a senior role in government operations or business capture — the function that helps defense companies win government contracts. Compensation at that level typically runs between $200,000 and $250,000 in base salary, with meaningful equity in companies that are growing fast and heading toward public offerings. If Daria completes her CRNA path, our combined household income at that stage could be something that changes our family's trajectory entirely. That is the vision. The federal job is the foundation that makes it possible.</p>
+              <p class="step-body">After building government-side credentials — contracting authority, clearance, acquisition expertise, relationships — use them to move to the private side. Companies like Anduril, Shield AI, and Palantir are actively recruiting people who understand how the government actually makes buying decisions, because those people are genuinely rare.<br><br>The target would be a senior role in government operations or business capture — the function that helps defense companies win government contracts. Compensation at that level typically runs between $200,000 and $250,000 in base salary, with meaningful equity in companies that are growing fast and heading toward public offerings. If Daria completes her CRNA path, our combined household income could change our family's trajectory entirely. That is the vision. The federal job is the foundation that makes it possible.</p>
             </div>
           </div>
         </div>
@@ -710,7 +741,7 @@
 
       <p class="reveal">I want to be honest about what this plan is and what it isn't. Step 1 is achievable and I am already pursuing it seriously. Step 2 is the upside — the second chapter I believe is genuinely within reach if I execute Step 1 well. But if Step 2 never materializes, and I build a career in federal service, that is also a good outcome. A stable, well-compensated federal career is the foundation I am building toward first.</p>
 
-      <div class="section-break reveal"><span>🇺🇸</span></div>
+      <div class="section-break reveal"><span>✦ ✦ ✦</span></div>
 
       <h2 class="reveal">What this means<br>for <em>our family</em></h2>
 
@@ -730,7 +761,7 @@
 
       <p class="reveal">Daria is enrolled in a fully online, asynchronous program at Joyce University. Her coursework is not tied to any physical location — she can complete it from anywhere in the country, on her own schedule. A move does not interrupt her program at all.</p>
 
-      <p class="reveal">Clinical rotations are the more nuanced piece. Joyce University arranges clinicals locally where possible, but they do not guarantee local placement — in fact, a very probable option would likely require her to travel to Boise anyway. Clinical logistics are something every nursing student navigates wherever they live.</p>
+      <p class="reveal">Clinical rotations are the more nuanced piece. Joyce University arranges clinicals locally where possible, but they do not guarantee local placement — in fact, the most likely placement would require her to travel to Boise anyway. Clinical logistics are something every nursing student navigates wherever they live.</p>
 
       <p class="reveal">What changes meaningfully is the quality of hospitals available. The cities where these federal positions are concentrated are major metropolitan areas with large, high-volume hospital systems. Working at a Level 1 trauma center in a bigger city offers a complexity and volume of cases that accelerates the clinical experience top CRNA programs require. A federal salary, stable and predictable, also means Daria can focus on school without the financial anxiety that has shadowed the last three years. That is not a small thing.</p>
 
@@ -740,15 +771,15 @@
 
       <p class="reveal">Leif and Elizabeth's wellbeing is not an afterthought in this planning — it is a primary variable. Any location decision will be evaluated on school district quality and support infrastructure before anything else. I will not trade their stability for career opportunity. One important note on Elizabeth specifically: IEPs are transferable across state lines. Her current plan would move with her — she would not need to retest or restart the process from scratch. That continuity matters, and I wanted you to know it's accounted for.</p>
 
-      <p class="reveal">Elizabeth's situation is more complicated in another way, and I want to be honest about it. As you're all well aware, when Daria and Josh separated, he wanted Elizabeth to stay in Texas, Daria fought to move to Idaho, there was the major legal dispute over where Elizabeth would live, and Daria won. That custody arrangement governs where Elizabeth can live, and moving to another state requires Josh's agreement. That is a real legal complexity.</p>
+      <p class="reveal">Elizabeth's situation is more complicated in another way, and I want to be honest about it. As you all know, when Daria and Josh separated, he wanted Elizabeth to stay in Texas. Daria fought to bring her to Idaho. There was a major legal dispute over where Elizabeth would live, and Daria won. That custody arrangement governs where Elizabeth can live, and moving to another state requires Josh's agreement. That is a real legal complexity.</p>
 
-      <p class="reveal">I'll be honest: I never imagined I would be in a position where I need to ask my wife's ex for permission about what I and my family can do with our lives. That's a strange and humbling thing to sit with. But it is the reality of our situation, and I'm not going to pretend otherwise or approach it with anything other than respect for what it is.</p>
+      <p class="reveal">I'll be honest: I never imagined I would be in a position where I need to ask my wife's ex for permission about what my family does with our lives. That's a strange and humbling thing to sit with. But it is the reality of our situation, and I'm not going to pretend otherwise or approach it with anything other than respect for what it is.</p>
 
       <p class="reveal">I've maintained a friendly relationship with Josh over the years. When the location dispute was being resolved, I was the one who got on the phone with Josh and helped negotiate it, because I had a better working relationship with him than Daria did at the time. That goodwill is still there. When the time comes, I will talk to him about this plan directly — about how it's good for Elizabeth, good for our family, and likely easier for him too.</p>
 
       <p class="reveal">On that last point: right now, Elizabeth flies from Coeur d'Alene to Fort Worth every month — a long trip that often requires a connection through Seattle or Salt Lake City, adding hours and stress to what is already a lot of travel for a young child. The cities I'm targeting are all closer to Fort Worth than Coeur d'Alene is. Huntsville is a short, often direct flight from Dallas. Northern Virginia is a few hours with a direct route. Colorado Springs is about two hours direct. For Elizabeth, a move could mean simpler, shorter trips to see her father — not harder ones. I believe that's an argument Josh can hear, and I intend to approach that conversation with the same goodwill that has characterized our relationship.</p>
 
-      <div class="section-break reveal"><span>🇺🇸</span></div>
+      <div class="section-break reveal"><span>✦ ✦ ✦</span></div>
 
       <h2 class="reveal">What I'm<br><em>asking for</em></h2>
 
