@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Axos HOA — Digital Growth Strategy · DGTL Sunrise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F5F9;
+  --card:#ffffff;
+  --navy:#18355f;
+  --navy-soft:#2a4a73;
+  --muted:#5a6b82;
+  --amber:#f5a227;
+  --amber-soft:#fff4e0;
+  --line:#e3e8f0;
+  --shadow:0 2px 12px rgba(24,53,95,.07);
+  --shadow-lg:0 6px 24px rgba(24,53,95,.10);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--navy);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.55;
+}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;color:var(--navy);margin:0 0 .4em}
+h1{font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,2.8vw,2.2rem);line-height:1.15;margin-top:.1em}
+h3{font-size:1.35rem;line-height:1.25}
+h4{font-size:1.05rem;font-weight:600;margin:0 0 .4em;color:var(--navy)}
+p{color:var(--navy-soft);font-size:1rem;line-height:1.65;margin:0 0 1em}
+a{color:var(--navy)}
+ul{margin:0 0 1em;padding-left:1.1em;color:var(--navy-soft)}
+li{margin-bottom:.4em;line-height:1.55}
+strong{color:var(--navy)}
+
+/* Header / footer */
+header.site,footer.site{background:#fff;border-bottom:1px solid var(--line)}
+header.site{position:sticky;top:0;z-index:50}
+footer.site{border-top:1px solid var(--line);border-bottom:0;margin-top:40px}
+.header-inner,.footer-inner{
+  max-width:1180px;margin:0 auto;padding:18px 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.footer-inner{padding:22px 32px;font-size:.88rem;color:var(--muted)}
+.back-link{
+  color:var(--navy);text-decoration:none;font-size:.88rem;font-weight:600;
+  border-bottom:1px solid transparent;transition:border-color .15s;
+}
+.back-link:hover{border-bottom-color:var(--amber)}
+.header-badge{font-size:.78rem;color:var(--muted);letter-spacing:.02em}
+
+/* Main */
+main{max-width:1180px;margin:0 auto;padding:56px 32px 80px}
+
+/* Intro hero */
+.intro{
+  display:grid;grid-template-columns:1.6fr 1fr;gap:40px;align-items:start;
+  margin-bottom:36px;
+}
+.eyebrow{
+  display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--amber);font-weight:700;margin-bottom:14px;
+}
+.lede{font-size:1.18rem;color:var(--navy-soft);max-width:640px;line-height:1.55}
+.pov-card{
+  background:#fff;border:1px solid var(--line);border-left:4px solid var(--amber);
+  border-radius:12px;padding:26px 28px;box-shadow:var(--shadow);
+}
+.pov-card h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--amber);margin-bottom:10px}
+.pov-card p{font-size:.98rem;margin:0;color:var(--navy)}
+
+/* Section block */
+section.block{
+  background:var(--card);
+  border-radius:14px;
+  padding:44px;
+  margin-bottom:28px;
+  box-shadow:var(--shadow);
+}
+.section-eyebrow{
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--amber);font-weight:700;margin-bottom:10px;
+}
+.section-sub{max-width:760px;color:var(--muted);font-size:1.02rem;margin-bottom:28px}
+
+/* Punch list */
+.punch{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.punch-item{
+  display:flex;gap:16px;align-items:flex-start;
+  background:#fbfcfe;border:1px solid var(--line);border-radius:10px;
+  padding:22px 24px;
+}
+.punch-item.top{background:var(--amber-soft);border-color:var(--amber)}
+.punch-num{
+  font-family:"DM Serif Display",serif;font-size:1.8rem;line-height:1;
+  color:var(--amber);min-width:34px;
+}
+.punch-body h4{margin-bottom:4px;font-size:1rem}
+.punch-body p{margin:0;font-size:.92rem;color:var(--muted);line-height:1.5}
+
+/* Channels / generic 2-col cards */
+.channels{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.channels.three{grid-template-columns:1fr 1fr 1fr}
+.channel{
+  border:1px solid var(--line);border-radius:10px;padding:26px;background:#fbfcfe;
+}
+.channel.priority{border-color:var(--amber);background:var(--amber-soft)}
+.channel h4{font-size:1.05rem;margin-bottom:8px}
+.channel p{font-size:.92rem;margin-bottom:.7em}
+.channel p:last-child{margin-bottom:0}
+.channel .example{
+  background:#fff;border:1px solid var(--line);border-radius:8px;
+  padding:12px 14px;margin-top:12px;
+}
+.channel .example .lab{
+  font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--muted);font-weight:700;display:block;margin-bottom:4px;
+}
+.channel .example .val{font-size:.92rem;color:var(--navy);font-weight:600;line-height:1.35}
+.channel .example .sub{font-size:.85rem;color:var(--navy-soft);margin-top:4px;display:block;line-height:1.4}
+
+/* Tags */
+.channel-tag{
+  font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;
+  padding:4px 9px;border-radius:4px;margin-bottom:12px;display:inline-block;
+}
+.tag-priority{background:#18355f;color:#fff}
+.tag-new{background:#f5a227;color:#fff}
+.tag-fix{background:#e8eef7;color:#18355f}
+.tag-phase2{background:#e0f2f0;color:#00695c}
+
+/* Process / arch steps */
+.arch{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.arch.four{grid-template-columns:repeat(4,1fr)}
+.arch-step{
+  background:#f7f9fc;border:1px solid var(--line);border-radius:10px;padding:20px;
+}
+.arch-step .num{
+  font-family:"DM Serif Display",serif;font-size:1.6rem;color:var(--amber);
+  display:block;margin-bottom:6px;line-height:1;
+}
+.arch-step h4{font-size:.98rem;margin-bottom:6px}
+.arch-step p{font-size:.88rem;margin:0;color:var(--muted);line-height:1.5}
+
+/* Tables */
+.table-wrap{overflow-x:auto;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th{
+  background:#f7f9fc;padding:12px 14px;text-align:left;
+  font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--navy);border-bottom:1px solid var(--line);font-weight:700;
+}
+td{padding:13px 14px;border-bottom:1px solid var(--line);color:var(--navy-soft);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+td strong{display:block;margin-bottom:2px;color:var(--navy)}
+td code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+  background:#f2f5f9;padding:2px 6px;border-radius:4px;font-size:.85em;
+}
+
+/* KPI cards */
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.kpi{border:1px solid var(--line);border-radius:10px;padding:22px;background:#fbfcfe}
+.kpi.primary{background:var(--amber-soft);border-color:var(--amber)}
+.kpi .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--amber);font-weight:700}
+.kpi h4{font-family:"DM Serif Display",serif;font-size:1.35rem;font-weight:400;margin:6px 0 8px}
+.kpi p{font-size:.92rem;margin:0;color:var(--navy-soft);line-height:1.5}
+
+/* Pillars */
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+.pillar{
+  border:1px solid var(--line);border-radius:10px;padding:22px 24px;background:#fbfcfe;
+  border-left:4px solid var(--amber);
+}
+.pillar .p-num{
+  font-family:"DM Serif Display",serif;color:var(--amber);font-size:1.1rem;
+  display:block;margin-bottom:2px;
+}
+.pillar h4{font-size:1rem;margin-bottom:8px}
+.pillar .ai-q{
+  font-size:.82rem;color:var(--muted);margin-top:10px;padding-top:10px;
+  border-top:1px dashed var(--line);line-height:1.45;
+}
+.pillar .ai-q strong{color:var(--navy);font-weight:600}
+
+/* Callout rows */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px}
+.split .col h4{margin-top:0}
+.split .col p{font-size:.94rem}
+
+/* Closed-loop flow */
+.loop{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px;
+}
+.loop-step{
+  background:#f7f9fc;border:1px solid var(--line);border-radius:10px;
+  padding:18px;position:relative;
+}
+.loop-step .step-num{
+  font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--amber);font-weight:700;display:block;margin-bottom:6px;
+}
+.loop-step h4{font-size:.95rem;margin-bottom:4px}
+.loop-step p{font-size:.84rem;color:var(--muted);margin:0;line-height:1.45}
+
+/* Responsive */
+@media (max-width:880px){
+  main{padding:36px 20px 60px}
+  section.block{padding:28px 22px}
+  .intro{grid-template-columns:1fr;gap:24px}
+  .punch,.channels,.channels.three,.arch,.arch.four,.kpis,.pillars,.loop,.split{grid-template-columns:1fr}
+  .header-inner,.footer-inner{padding:16px 20px}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="header-inner">
+    <img src="./axos-logo.png" alt="Axos Bank" style="height:26px;width:auto;display:block">
+    <a href="./index.html" class="back-link">← Back to overview</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <div>
+      <span class="eyebrow">HOA Business Unit · Digital Growth Strategy</span>
+      <h1>From one landing page to a full-funnel acquisition engine.</h1>
+      <p class="lede">A plan to evolve the Axos HOA digital presence into a sophisticated, multi-channel funnel — built on source-aligned creative, first-party data activation, and Tealium-powered qualification across inbound and outbound.</p>
+    </div>
+    <aside class="pov-card">
+      <h4>Point of view</h4>
+      <p>The fastest gains come from matching message to source, activating data Axos already owns, and letting Tealium decide where every marketing dollar goes next.</p>
+    </aside>
+  </div>
+
+  <!-- PUNCH LIST -->
+  <section class="block">
+    <div class="section-eyebrow">Immediate Action Items</div>
+    <h2>The punch list</h2>
+    <p class="section-sub">Seven moves to run in parallel. The first four compound on each other — source-aligned pages feed better data into Tealium, which sharpens the paid channels that drive traffic back to those same pages.</p>
+
+    <div class="punch">
+      <div class="punch-item top">
+        <div class="punch-num">01</div>
+        <div class="punch-body">
+          <h4>Split landing pages by source</h4>
+          <p>Separate experiences for Google, LinkedIn, and Meta — matched to how each user arrives.</p>
+        </div>
+      </div>
+      <div class="punch-item top">
+        <div class="punch-num">02</div>
+        <div class="punch-body">
+          <h4>Launch inbound paid search</h4>
+          <p>Prioritize budget against Tealium-badged warm audiences actively searching for solutions.</p>
+        </div>
+      </div>
+      <div class="punch-item top">
+        <div class="punch-num">03</div>
+        <div class="punch-body">
+          <h4>Deploy ZoomInfo prospecting</h4>
+          <p>Feed high-intent decision-maker lists into LinkedIn and Meta to provide air cover for outbound sales.</p>
+        </div>
+      </div>
+      <div class="punch-item top">
+        <div class="punch-num">04</div>
+        <div class="punch-body">
+          <h4>Activate Meta remarketing</h4>
+          <p>Nurture qualified visitors through segmented social retargeting keyed to product interest.</p>
+        </div>
+      </div>
+      <div class="punch-item">
+        <div class="punch-num">05</div>
+        <div class="punch-body">
+          <h4>Expand site navigation with thought-leadership</h4>
+          <p>Deploy FAQ schema and pillar content to capture organic SEO and AI/LLM search traffic.</p>
+        </div>
+      </div>
+      <div class="punch-item">
+        <div class="punch-num">06</div>
+        <div class="punch-body">
+          <h4>Re-engage stale prospects</h4>
+          <p>Upload hashed email lists of past prospects to resurrect dormant leads via Search and Social.</p>
+        </div>
+      </div>
+      <div class="punch-item">
+        <div class="punch-num">07</div>
+        <div class="punch-body">
+          <h4>Build lookalike audiences</h4>
+          <p>Seed Meta and Google with high-LTV HOA client lists to prospect 1%–2% Lookalike / Similar Audiences.</p>
+        </div>
+      </div>
+      <div class="punch-item" style="background:#fff;border-style:dashed">
+        <div class="punch-num" style="color:var(--navy-soft)">→</div>
+        <div class="punch-body">
+          <h4>Full detail below</h4>
+          <p>Each item is expanded in the sections that follow, with architecture, campaign structure, and measurement notes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANDING PAGES -->
+  <section class="block">
+    <div class="section-eyebrow">01 · Landing Page Strategy</div>
+    <h2>Match the page to the source, not the product.</h2>
+    <p class="section-sub">Today, traffic from Google, LinkedIn, and Meta lands on the same page with the same H1 and the same "Submit" CTA. A Google searcher looking for "HOA loans" is in a completely different state than a property manager scrolling LinkedIn — the landing experience should reflect that.</p>
+
+    <div class="channels three">
+      <div class="channel priority">
+        <span class="channel-tag tag-new">Google · High Intent</span>
+        <h4>Direct, keyword-rich, authoritative</h4>
+        <p>User is actively searching for a solution. Match the query, show the product, shorten the path to contact.</p>
+        <div class="example">
+          <span class="lab">Example H1</span>
+          <span class="val">Comprehensive HOA Banking, Lending &amp; Treasury Management Solutions</span>
+          <span class="sub">Tailored lending and automated treasury solutions designed for the unique financial needs of community associations.</span>
+        </div>
+      </div>
+
+      <div class="channel priority">
+        <span class="channel-tag tag-new">LinkedIn · Professional B2B</span>
+        <h4>Scalability, efficiency, partnership</h4>
+        <p>User is in professional research mode — benchmarking vendors, evaluating partners, thinking in terms of their portfolio.</p>
+        <div class="example">
+          <span class="lab">Example H1</span>
+          <span class="val">Scale Your Property Management Portfolio with Integrated Banking Services</span>
+          <span class="sub">Streamline operations and drive efficiency with a banking partner that understands your portfolio's growth requirements.</span>
+        </div>
+      </div>
+
+      <div class="channel priority">
+        <span class="channel-tag tag-new">Meta · Interruptive</span>
+        <h4>Pattern interrupt on a daily frustration</h4>
+        <p>User is scrolling passively. Lead with a concrete pain point they feel every week, not a brand statement.</p>
+        <div class="example">
+          <span class="lab">Example H1</span>
+          <span class="val">Stop Manual Reconciliation — Automate Your Community's Receivables</span>
+          <span class="sub">Integrate your management software with Axos Bank to eliminate manual data entry and free up staff for higher-value work.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROSPECTING ENGINE -->
+  <section class="block">
+    <div class="section-eyebrow">02 · Prospecting Engine</div>
+    <h2>ZoomInfo into social, then sales.</h2>
+    <p class="section-sub">Build a synchronized pipeline so that by the time a Relationship Manager reaches out, the prospect has already seen Axos three to five times in their LinkedIn and Meta feeds. Outbound stops being cold.</p>
+
+    <div class="arch">
+      <div class="arch-step">
+        <span class="num">01</span>
+        <h4>Identify</h4>
+        <p>ZoomInfo firmographic filtering on HOA management companies by units managed, region, and C-suite/board titles, combined with intent monitoring on "HOA banking" and "ECR yield" research spikes. Output: a daily-synced pipeline surfacing prospects at peak research.</p>
+      </div>
+      <div class="arch-step">
+        <span class="num">02</span>
+        <h4>Ingest</h4>
+        <p>Direct API sync from ZoomInfo MarketingOS into LinkedIn Matched Audiences and Meta Custom Audiences. Export both work and personal identifiers to close the business vs. personal email gap and lift match rates meaningfully above the Meta industry average.</p>
+      </div>
+      <div class="arch-step">
+        <span class="num">03</span>
+        <h4>Warm</h4>
+        <p>Non-interruptive air cover on Axos differentiators — Vantaca and CINC integrations, ECR benefits. Sales outreach is delayed until the prospect has spent 7–10 days in the warming pool. The "Who is Axos?" hurdle is already gone when the RM calls.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:28px;background:#f7f9fc;border:1px solid var(--line);border-radius:10px;padding:22px 26px">
+      <h4 style="margin-bottom:8px">Salesforce routing</h4>
+      <p style="margin:0;font-size:.94rem">Leads from Meta and LinkedIn flow instantly into Salesforce, where assignment rules route them to the correct Regional Relationship Manager by territory. For audiences that fall below platform minimums, expand from single intent-trigger contacts to the full ZoomInfo buying committee to meet threshold.</p>
+    </div>
+  </section>
+
+  <!-- INBOUND + TEALIUM -->
+  <section class="block">
+    <div class="section-eyebrow">03 · Inbound Search &amp; Tealium Activation</div>
+    <h2>Capture intent. Qualify with behavior. Convert with precision.</h2>
+    <p class="section-sub">Google Search captures active demand; Tealium identifies who is actually qualified based on how they engage with the site; RLSA and Meta retargeting concentrate spend on the visitors most likely to close.</p>
+
+    <div class="arch">
+      <div class="arch-step">
+        <span class="num">01</span>
+        <h4>Capture</h4>
+        <p>Paid search dominates top-of-page results for high-value HOA banking queries — treasury management, lockbox, lines of credit, assessment and capital improvement loans.</p>
+      </div>
+      <div class="arch-step">
+        <span class="num">02</span>
+        <h4>Qualify</h4>
+        <p>Tealium badges visitors based on behavior — three visits to the Lending page, a guide download, a pricing scroll. Anonymous traffic becomes structured audience data.</p>
+      </div>
+      <div class="arch-step">
+        <span class="num">03</span>
+        <h4>Convert</h4>
+        <p>Badges fuel RLSA bid boosts on Google and specific product-CTA retargeting on Meta. Spend concentrates on known, qualified prospects instead of repeat cold traffic.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:36px;margin-bottom:14px">Three-campaign architecture</h3>
+    <div class="channels three">
+      <div class="channel">
+        <span class="channel-tag tag-new">Campaign 1</span>
+        <h4>Active prospecting</h4>
+        <p><strong>Audience:</strong> Cold traffic only. Exclude Tealium-badged visitors, ZoomInfo lists, and existing customers.</p>
+        <p><strong>Themes:</strong> High-intent pain-point keywords — HOA lockbox, assessment loans, treasury management.</p>
+        <p><strong>Message:</strong> "The specialized bank for community associations" — expertise and HOA-specific features.</p>
+      </div>
+      <div class="channel priority">
+        <span class="channel-tag tag-priority">Campaign 2 · Priority</span>
+        <h4>High-intent retargeting</h4>
+        <p><strong>Audience:</strong> Tealium-badged visitors, stale lead hashed lists, ZoomInfo intent lists.</p>
+        <p><strong>Strategy:</strong> Aggressive bidding when known prospects re-enter the search market. Defend on competitor brand searches.</p>
+        <p><strong>Message:</strong> "Finish your application" or "See why 35,000+ associations trust Axos" — trust, social proof, ease of switching.</p>
+      </div>
+      <div class="channel">
+        <span class="channel-tag tag-new">Campaign 3</span>
+        <h4>Competitor conquesting</h4>
+        <p><strong>Audience:</strong> Cold traffic searching for direct competitors.</p>
+        <p><strong>Strategy:</strong> Appear above competitor organic listings on branded searches.</p>
+        <p><strong>Message:</strong> "Switching made simple" — lead with Vantaca and CINC integrations and the dedicated Relationship Manager model.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:36px;margin-bottom:8px">Closed-loop lead flow</h3>
+    <p class="section-sub" style="margin-bottom:18px">Meta Lead Ads capture low-friction intent; Salesforce routes and enriches; Tealium suppresses converted leads from future spend automatically.</p>
+    <div class="loop">
+      <div class="loop-step">
+        <span class="step-num">Capture</span>
+        <h4>Meta Lead Ads</h4>
+        <p>Pre-filled fields capture high-intent prospects with minimal friction on mobile.</p>
+      </div>
+      <div class="loop-step">
+        <span class="step-num">Route</span>
+        <h4>Salesforce</h4>
+        <p>Native API connector delivers the lead; assignment rules route to the correct Regional RM by territory.</p>
+      </div>
+      <div class="loop-step">
+        <span class="step-num">Sync</span>
+        <h4>Tealium pipeline</h4>
+        <p>Salesforce updates flow back to Tealium, enriching the prospect profile in near real time.</p>
+      </div>
+      <div class="loop-step">
+        <span class="step-num">Optimize</span>
+        <h4>Suppress &amp; learn</h4>
+        <p>Converted leads are auto-badged and suppressed from future campaigns, freeing budget for net-new reach.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:26px;background:var(--amber-soft);border:1px solid var(--amber);border-radius:10px;padding:22px 26px">
+      <h4 style="margin-bottom:6px">Lead-capture enhancement</h4>
+      <p style="margin:0;font-size:.94rem">The only current CTA is "Schedule a Call" — high effort for early-stage researchers. Add a mid-funnel offer such as "Download the 2026 HOA Financial Automation Guide." Anonymous visitors become identified contacts in Tealium, which unlocks the full retargeting and nurture sequence above.</p>
+    </div>
+  </section>
+
+  <!-- SEO & LLM -->
+  <section class="block">
+    <div class="section-eyebrow">04 · SEO &amp; AI / LLM Readiness</div>
+    <h2>Be the source AI models cite.</h2>
+    <p class="section-sub">Traditional SEO rewards the site that answers the question. AI search rewards the site that is structured, verified, and most talked about. Both point to the same technical and content work — done once, it compounds across Google, ChatGPT, Perplexity, and AI Overviews.</p>
+
+    <div class="split">
+      <div class="col">
+        <h4>Technical architecture</h4>
+        <ul>
+          <li><strong>Structured data.</strong> Deploy <code>FinancialService</code> and <code>FAQPage</code> schema so LLMs can identify Axos rates, integrations, and service areas without guessing from page copy.</li>
+          <li><strong>AI-extractable formatting.</strong> Convert ECR tiers and loan requirements into clean HTML tables and bulleted lists — the formats AI models preferentially extract for answers.</li>
+          <li><strong>Entity association.</strong> Earn citations on high-authority industry sites with links back to pillar content. AI recommends what is most frequently referenced.</li>
+          <li><strong>Named authorship.</strong> Attach Relationship Manager bylines and LinkedIn profiles to thought leadership. "Expert-verified" content is ranked higher than anonymous corporate copy.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>A visible gap to close first</h4>
+        <p>The current "Integrated Software Partners" section relies on logos alone. AI crawlers cannot read image files to confirm compatibility, so Axos is effectively invisible on queries like "Which banks integrate with Vantaca?"</p>
+        <p>Add a text description for each partner: "Axos integrates with Vantaca to provide real-time, API-driven account reconciliation." Same logos, same design — but now the claim is machine-readable.</p>
+        <p>Pair this with a natural-language FAQ section targeting queries like "How does an ECR offset HOA banking fees?" and "What are the benefits of a specialized HOA lockbox?" to capture "People Also Ask" placements and feed direct answers to LLM synthesis.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:32px;margin-bottom:6px">Four authority pillars</h3>
+    <p class="section-sub" style="margin-bottom:18px">Each pillar is built to rank traditionally and to be the answer AI models surface when the underlying question is asked.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="p-num">Pillar 01</span>
+        <h4>Yield &amp; efficiency — the ECR model</h4>
+        <p style="font-size:.92rem;margin:0">Definitive guide to ECR optimization for associations. Positions Axos as the authoritative source on offsetting monthly bank fees.</p>
+        <div class="ai-q"><strong>AI target:</strong> "How can my HOA offset monthly bank fees?"</div>
+      </div>
+      <div class="pillar">
+        <span class="p-num">Pillar 02</span>
+        <h4>Modern receivables &amp; integration</h4>
+        <p style="font-size:.92rem;margin:0">The ROI of API-driven banking with Vantaca, CINC, and eUnify. Ties Axos directly to the software decision-makers already use.</p>
+        <div class="ai-q"><strong>AI target:</strong> "Which bank has the best Vantaca or CINC integration?"</div>
+      </div>
+      <div class="pillar">
+        <span class="p-num">Pillar 03</span>
+        <h4>Capital growth &amp; lending</h4>
+        <p style="font-size:.92rem;margin:0">Navigating special assessments and infrastructure loans — owns the "how do we pay for this?" moment for boards and managers.</p>
+        <div class="ai-q"><strong>AI target:</strong> "Can an HOA get a commercial loan for a new roof or siding?"</div>
+      </div>
+      <div class="pillar">
+        <span class="p-num">Pillar 04</span>
+        <h4>Fiduciary security &amp; governance</h4>
+        <p style="font-size:.92rem;margin:0">Reserve fund management and fraud prevention frameworks — positions Axos as the safe default for boards with fiduciary obligations.</p>
+        <div class="ai-q"><strong>AI target:</strong> "What are best practices for HOA reserve fund security?"</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA ACTIVATION -->
+  <section class="block">
+    <div class="section-eyebrow">05 · First-Party Data Activation</div>
+    <h2>Use the data Axos already owns.</h2>
+    <p class="section-sub">Two first-party assets are underutilized today: stale prospect lists from prior campaigns and the active, high-LTV HOA client base. Both can be activated across Meta and Google through hashed email matching.</p>
+
+    <div class="channels">
+      <div class="channel">
+        <span class="channel-tag tag-fix">Existing Asset</span>
+        <h4>Stale prospect re-engagement</h4>
+        <p>Upload hashed email lists of past prospects to Google and Meta. Messaging leads with "Welcome back" or "What's new" — e.g., "Our Vantaca integration is now live."</p>
+        <p>Meta Lead Ads with pre-filled fields make re-capture low friction. On Google, bid aggressively when stale prospects search for competitors. This converts spend already incurred into net-new pipeline.</p>
+      </div>
+      <div class="channel">
+        <span class="channel-tag tag-new">Net-New Prospecting</span>
+        <h4>Lookalike &amp; similar audiences</h4>
+        <p>Seed with hashed email lists of the highest-LTV active HOA clients. Model 1%–2% Lookalike on Meta and Similar Audiences on Google.</p>
+        <p>Lead with educational, thought-leadership creative to build trust before the prospect enters an active search phase. Budget concentrates on audiences with the highest statistical probability of conversion.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- META CONVERSION -->
+  <section class="block">
+    <div class="section-eyebrow">06 · Meta Conversion Optimization</div>
+    <h2>A safety net for mobile bounce.</h2>
+    <p class="section-sub">High-intent prospects drop off on mobile when forms demand manual entry. Meta Lead Ads act as a secondary capture path for the qualified visitor who doesn't complete "Submit" on the site form.</p>
+
+    <div class="split">
+      <div class="col">
+        <h4>Why it works</h4>
+        <ul>
+          <li>Pre-filled fields (name, business email, phone) reduce errors and improve CRM data quality from day one.</li>
+          <li>Native Meta → Salesforce API connector delivers leads in real time — no CSV uploads, no delay between capture and RM follow-up.</li>
+          <li>Automated Salesforce routing assigns each lead to the correct Regional Relationship Manager by territory or firmographics.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Where it fits in the funnel</h4>
+        <p>Lead Ads are not a replacement for the source-aligned landing pages. They are the fallback layer that captures the high-intent mobile user who clicked through, started engaging, and stalled at the form. Paired with Tealium suppression, they add volume without cannibalizing existing conversions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPIs -->
+  <section class="block">
+    <div class="section-eyebrow">07 · Measurement Framework</div>
+    <h2>What to watch, and what to avoid publishing too early.</h2>
+    <p class="section-sub">Each workstream has a primary metric and a directional goal. Specific CPA and conversion-rate targets should be held until a clean baseline exists — publishing a target before baseline sets the program up to be judged against a guess.</p>
+
+    <div class="kpis">
+      <div class="kpi primary">
+        <span class="label">Primary · Inbound</span>
+        <h4>CPA: badged vs. cold</h4>
+        <p>Compare cost-per-acquisition for Tealium-badged audiences against unqualified cold traffic. Badged audiences should show meaningfully lower CPA. Establish baseline before committing to a target number.</p>
+      </div>
+      <div class="kpi primary">
+        <span class="label">Primary · Landing Pages</span>
+        <h4>Conversion &amp; bounce by source</h4>
+        <p>Track conversion rate and bounce rate separately for Google, LinkedIn, and Meta. Source-aligned pages should outperform the uniform experience on both metrics for their respective channels.</p>
+      </div>
+      <div class="kpi">
+        <span class="label">Prospecting Engine</span>
+        <h4>Sales responsiveness</h4>
+        <p>Measurable lift in sales response rates and matched-audience engagement after prospects pass through the 7–10 day LinkedIn and Meta warming sequence.</p>
+      </div>
+      <div class="kpi">
+        <span class="label">Data Activation</span>
+        <h4>Stale &amp; lookalike recovery</h4>
+        <p>Re-engagement rate on stale lists and conversion rate of lookalike audiences vs. generic cold prospecting — both should outperform unmatched audiences.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="footer-inner">
+    <span>Prepared by <strong>DGTL Sunrise</strong> for Axos Bank — Confidential — March 2026</span>
+    <a href="./index.html" class="back-link">← Back to overview</a>
+  </div>
+</footer>
+
+</body>
+</html>
