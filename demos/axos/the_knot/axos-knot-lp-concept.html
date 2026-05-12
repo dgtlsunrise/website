@@ -1,0 +1,3565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Axos ONE® Joint Account · The Knot × Axos Bank — LP Concept</title>
+<meta name="description" content="The Knot × Axos partnership landing page concept — joint Checking + Savings funnel for engaged couples and newlyweds.">
+<style>
+/* ════════════════════════════════════════════════════════════════════
+   AXOS × THE KNOT — Co-branded LP
+   Brand fidelity: axosbank.com primary system (navy + white + clean sans).
+   The Knot DNA: editorial cream backgrounds + couple photography specs,
+   used sparingly so Axos brand dominates.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── Reset ─────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,'Inter','Segoe UI','Helvetica Neue',Arial,sans-serif;
+  background:var(--page-bg);
+  color:var(--ink);
+  overflow-x:hidden;
+  line-height:1.55;
+  font-feature-settings:"ss01","cv11";
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+img{max-width:100%;display:block}
+button{cursor:pointer;font-family:inherit}
+a{color:inherit}
+
+/* ── Tokens (axosbank.com-faithful) ────────────────── */
+:root{
+  /* ── Official Axos brand colors (provided by client, May 2026) ──
+     Primary navy:        #24385D  (logo + headers + nav bar)
+     Dark section navy:   #18263B  (dark section backgrounds)
+     Button blue:         #3A5A85  (CTA buttons, lighter than primary)
+     Accent orange:       #EEAB5C  (logo X-mark + highlight elements)
+     Teal accent:         #3C7F89  (used sparingly for accent text)
+     Body gray:           #353D45  (primary body copy)
+     White:               #FFFFFF  (canvas + text on dark)               */
+  --navy:#24385D;       /* Axos primary navy — logo, headers */
+  --navy-dk:#18263B;    /* Axos dark — section backgrounds, dark blocks */
+  --navy-btn:#3A5A85;   /* Axos button blue — slightly lighter, for CTAs */
+  --navy-mid:#2d4571;   /* Derived between navy and navy-btn for hover/states */
+
+  /* Axos accent — the orange X-mark on the logo */
+  --accent:#EEAB5C;            /* Axos orange */
+  --accent-soft:#fce4c4;       /* Derived soft for backgrounds + highlights */
+  --accent-dk:#c8843c;         /* Derived darker for hover */
+
+  /* Axos teal — used for accent text in body (per brand spec) */
+  --teal:#3C7F89;
+
+  /* Neutrals */
+  --ink:#1a1a1a;
+  --ink-soft:#353D45;          /* Axos brand-spec body text gray */
+  --gray:#5a6b7b;
+  --gray-mid:#8a96a3;
+  --gray-lt:#e2e8f0;
+  --gray-bg:#f5f7fa;
+  --border:rgba(36,56,93,.1);
+  --border-strong:rgba(36,56,93,.18);
+  --white:#fff;
+
+  /* Knot territory (used only in co-branded editorial sections) */
+  --cream:#fff8ee;
+  --cream-dk:#f4ead7;
+  --knot-pink:#f4c4c4;
+  --knot-green:#1f3a2e;
+
+  /* System */
+  --r:8px; --rlg:14px; --rxl:22px;
+  --wrap:1180px;
+  --page-bg:#ffffff;
+  --shadow-sm:0 1px 2px rgba(24,56,93,.06);
+  --shadow-md:0 4px 16px rgba(24,56,93,.08);
+  --shadow-lg:0 12px 32px rgba(24,56,93,.12);
+
+  /* Type scale */
+  --t-xs:11px; --t-sm:13px; --t-md:15px; --t-lg:17px;
+  --t-h3:clamp(20px,2.4vw,26px);
+  --t-h2:clamp(26px,3.4vw,38px);
+  --t-h1:clamp(32px,5vw,52px);
+}
+
+/* ── Content wrapper ──────────────────────────────── */
+.w{max-width:var(--wrap);margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+.w-narrow{max-width:880px;margin:0 auto;padding:0 clamp(16px,4vw,40px)}
+
+/* ── Scroll reveal ────────────────────────────────── */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .55s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1)}
+.rvl{opacity:0;transform:translateX(-22px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
+.rvr{opacity:0;transform:translateX(22px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
+.rv.in,.rvl.in,.rvr.in{opacity:1;transform:none}
+.hero .rv,.hero .rvl,.hero .rvr{transition-delay:0s!important}
+.d1{transition-delay:.07s}.d2{transition-delay:.14s}.d3{transition-delay:.21s}
+.d4{transition-delay:.28s}.d5{transition-delay:.35s}.d6{transition-delay:.42s}
+
+/* ════════════════════════════════════════════════════
+   AXOS HEADER (matches live axosbank.com structure)
+   ════════════════════════════════════════════════════ */
+.fdic-bar{
+  background:var(--navy-dk);padding:6px clamp(16px,4vw,32px);
+  display:flex;align-items:center;gap:10px;
+  font-size:11px;color:rgba(255,255,255,.72);
+}
+.fdic-badge{
+  background:#fff;color:var(--navy);
+  font-size:9.5px;font-weight:800;
+  padding:2px 5px;border-radius:2px;
+  letter-spacing:.04em;flex-shrink:0;
+}
+.fdic-txt{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.main-nav{
+  background:#fff;border-bottom:1px solid var(--gray-lt);
+  height:64px;padding:0 clamp(16px,4vw,32px);
+  display:flex;align-items:center;justify-content:space-between;
+  position:sticky;top:0;z-index:200;
+}
+.logo-wrap{display:flex;align-items:center;gap:14px;text-decoration:none}
+
+/* Axos wordmark — official SVG, colors per brand spec */
+.axos-logo{
+  height:28px;width:auto;display:block;
+}
+.axos-logo .axos-letter{fill:#24385D}   /* Axos primary navy */
+.axos-logo .axos-x{fill:#EEAB5C}        /* Axos accent orange */
+.axos-logo .axos-r{fill:#24385D}        /* The ® mark */
+
+/* Vertical divider between Axos and Knot marks */
+.cobrand-divider{
+  width:1px;height:24px;background:var(--gray-lt);
+  margin:0 4px;flex-shrink:0;
+}
+
+/* The Knot wordmark — italic serif, brand-faithful */
+.knot-mark{
+  font-family:Georgia,'Times New Roman',serif;
+  font-style:italic;font-size:18px;
+  color:var(--ink);font-weight:400;
+  letter-spacing:-.01em;
+  display:inline-flex;align-items:center;
+}
+.knot-mark::after{
+  content:'';
+  display:inline-block;
+  width:6px;height:6px;
+  margin-left:3px;
+  background:#000;
+  clip-path:path('M3 0 C3 0 0 1 0 3 C0 4.5 1.5 5.5 3 6 C4.5 5.5 6 4.5 6 3 C6 1 3 0 3 0');
+}
+@media(max-width:520px){
+  .axos-logo{height:22px}
+  .knot-mark{font-size:14px}
+}
+
+.nav-tabs{display:none;gap:0;height:64px;align-items:stretch;margin-left:38px}
+.nav-tab{
+  padding:0 18px;display:flex;align-items:center;
+  font-size:14px;color:#4a5a72;
+  border-bottom:2px solid transparent;
+  transition:color .2s,border-color .2s;
+  white-space:nowrap;text-decoration:none;
+}
+.nav-tab:hover{color:var(--navy)}
+.nav-tab.active{color:var(--navy);border-bottom-color:var(--navy);font-weight:500}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-support{font-size:13px;color:#4a5a72;display:none;text-decoration:none}
+.nav-login{
+  background:var(--navy-btn);color:#fff;
+  font-size:13px;font-weight:500;
+  padding:9px 22px;border-radius:6px;
+  border:none;
+  display:flex;align-items:center;gap:5px;white-space:nowrap;
+  transition:background .2s;
+}
+.nav-login:hover{background:var(--navy)}
+@media(min-width:880px){.nav-tabs{display:flex}.nav-support{display:block}}
+
+.sub-nav{
+  background:var(--navy);height:42px;
+  padding:0 clamp(16px,4vw,32px);
+  display:flex;align-items:center;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.sub-nav::-webkit-scrollbar{display:none}
+.sub-item{
+  padding:0 16px;height:42px;
+  display:flex;align-items:center;gap:5px;
+  font-size:13px;color:rgba(255,255,255,.78);
+  white-space:nowrap;text-decoration:none;
+  transition:color .2s,background .2s;
+}
+.sub-item:hover{color:#fff;background:rgba(255,255,255,.08)}
+.sub-item.active{color:#fff;background:rgba(255,255,255,.1)}
+.sub-arr{font-size:8px;opacity:.6}
+
+/* ════════════════════════════════════════════════════
+   CO-BRAND BANNER (above hero)
+   ════════════════════════════════════════════════════ */
+.cobrand-bar{
+  background:linear-gradient(90deg,var(--cream) 0%,#fff 60%);
+  border-bottom:1px solid var(--border);
+  padding:14px clamp(16px,4vw,32px);
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  flex-wrap:wrap;
+}
+.cobrand-eyebrow{
+  font-size:10px;font-weight:600;letter-spacing:.16em;
+  color:var(--gray);text-transform:uppercase;
+}
+.cobrand-text{
+  font-size:13px;color:var(--ink-soft);
+  display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center;
+}
+.cobrand-text strong{color:var(--ink);font-weight:600}
+.cobrand-x{color:var(--gray-mid);font-size:11px;margin:0 2px}
+
+/* ════════════════════════════════════════════════════
+   REVIEW TOGGLE (bottom-right floating)
+   ════════════════════════════════════════════════════ */
+#rtoggle{
+  position:fixed;bottom:20px;right:16px;z-index:9001;
+  background:var(--navy);color:#fff;
+  font-size:12px;font-weight:600;
+  padding:11px 16px;border-radius:24px;border:none;
+  display:flex;align-items:center;gap:8px;
+  box-shadow:0 6px 20px rgba(0,0,0,.32);
+  letter-spacing:.02em;
+  transition:background .2s,transform .15s;
+}
+#rtoggle:hover{background:var(--navy-mid);transform:translateY(-1px)}
+#rtoggle.on{background:#155a3e}
+.rt-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.4);transition:background .3s}
+#rtoggle.on .rt-dot{background:var(--teal)}
+
+/* ════════════════════════════════════════════════════
+   ANNOTATION PANELS (Design Review mode)
+   ════════════════════════════════════════════════════ */
+.ann{display:none;background:#18263B;border-left:3px solid var(--accent);font-size:12px}
+body.ron .ann{display:block}
+.ann-hd{
+  background:rgba(238,171,92,.12);
+  padding:10px clamp(12px,4vw,20px);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:6px;
+}
+.ann-name{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+.ann-badges{display:flex;gap:5px;flex-wrap:wrap}
+.ab{font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:2px 7px;border-radius:10px}
+.ab-c{background:rgba(96,165,250,.18);color:#93c5fd}
+.ab-w{background:rgba(52,211,153,.13);color:#6ee7b7}
+.ab-s{background:rgba(251,191,36,.12);color:#fcd34d}
+.ab-b{background:rgba(239,68,68,.12);color:#fca5a5}
+.ab-t{background:rgba(167,139,250,.15);color:#c4b5fd}
+.ann-bd{padding:14px clamp(12px,4vw,20px) 18px;display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.ann-bd{grid-template-columns:1fr 1fr}}
+.ann-col-h{
+  font-size:9px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;margin-bottom:6px;display:block;
+  padding-left:10px;border-left:2px solid transparent;
+}
+.ann-col-h.c{color:#93c5fd;border-left-color:#93c5fd}
+.ann-col-h.w{color:#6ee7b7;border-left-color:#6ee7b7}
+.ann-col-h.s{color:#fcd34d;border-left-color:#fcd34d}
+.ann-col-h.b{color:#fca5a5;border-left-color:#fca5a5}
+.ann-col-h.t{color:#c4b5fd;border-left-color:#c4b5fd}
+.ann-ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.ann-ul li{font-size:11.5px;color:rgba(255,255,255,.6);line-height:1.6;padding-left:11px;position:relative}
+.ann-ul li::before{content:'';position:absolute;left:0;top:6px;width:5px;height:5px;border-radius:50%;opacity:.7}
+.c-li li::before{background:#93c5fd}
+.w-li li::before{background:#6ee7b7}
+.s-li li::before{background:#fcd34d}
+.b-li li::before{background:#fca5a5}
+.t-li li::before{background:#c4b5fd}
+.ann-ul li strong{color:rgba(255,255,255,.9);font-weight:500}
+.ann-ul li code{background:rgba(255,255,255,.08);padding:1px 6px;border-radius:3px;font-size:10.5px;font-family:ui-monospace,'SF Mono',Menlo,monospace;color:#fcd34d}
+.ann-divider{height:1px;background:rgba(255,255,255,.08);margin:11px 0}
+.ab-box{background:rgba(167,139,250,.07);border:1px solid rgba(167,139,250,.2);border-radius:8px;padding:11px 13px}
+.ab-box-title{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#c4b5fd;margin-bottom:7px}
+.ab-test{margin-bottom:9px}
+.ab-test:last-child{margin-bottom:0}
+.ab-test-label{font-size:10px;font-weight:600;color:rgba(255,255,255,.72);margin-bottom:4px}
+.ab-test-row{font-size:11px;color:rgba(255,255,255,.55);line-height:1.55;padding-left:10px}
+.ab-test-row span{color:rgba(255,255,255,.82)}
+.ab-kpi{font-size:10px;color:#c4b5fd;margin-top:5px;padding-left:10px}
+
+/* Image specs (replaces <img> placeholders — describes what image to source) */
+.img-spec{
+  border:1.5px dashed var(--border-strong);
+  background:repeating-linear-gradient(
+    -45deg,
+    rgba(36,56,93,.025),rgba(36,56,93,.025) 8px,
+    rgba(36,56,93,.05) 8px,rgba(36,56,93,.05) 16px
+  );
+  border-radius:var(--rlg);
+  padding:18px 18px 16px;
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+}
+.img-spec.ratio-16-9{aspect-ratio:16/9}
+.img-spec.ratio-4-3{aspect-ratio:4/3}
+.img-spec.ratio-1-1{aspect-ratio:1/1}
+.img-spec.ratio-3-4{aspect-ratio:3/4}
+.img-spec.ratio-2-3{aspect-ratio:2/3}
+.img-spec-tag{
+  position:absolute;top:0;left:0;
+  background:var(--navy);color:#fff;
+  font-size:9px;font-weight:700;letter-spacing:.14em;
+  padding:5px 10px;border-radius:0 0 8px 0;
+  text-transform:uppercase;
+}
+.img-spec-title{
+  font-size:13px;font-weight:600;color:var(--navy);
+  margin-top:24px;margin-bottom:6px;line-height:1.3;
+}
+.img-spec-desc{
+  font-size:11.5px;color:var(--ink-soft);
+  line-height:1.55;margin-bottom:8px;
+}
+.img-spec-must{
+  font-size:10px;color:var(--gray);
+  line-height:1.5;
+  border-top:1px dashed var(--border);
+  padding-top:7px;margin-top:auto;
+}
+.img-spec-must strong{color:var(--accent);font-weight:700;letter-spacing:.06em;font-size:9px;text-transform:uppercase;display:block;margin-bottom:3px}
+.img-spec-must ul{list-style:none;display:flex;flex-direction:column;gap:2px}
+.img-spec-must li{padding-left:10px;position:relative}
+.img-spec-must li::before{content:'•';position:absolute;left:0;color:var(--accent);font-weight:700}
+
+/* ════════════════════════════════════════════════════
+   HERO
+   ════════════════════════════════════════════════════ */
+.hero{background:var(--navy-dk);position:relative;overflow:hidden}
+.hero::before{
+  content:'';position:absolute;
+  top:-200px;right:-150px;width:600px;height:600px;
+  background:radial-gradient(circle,rgba(238,171,92,.10) 0%,transparent 60%);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;
+  bottom:-300px;left:-100px;width:500px;height:500px;
+  background:radial-gradient(circle,rgba(61,107,179,.15) 0%,transparent 65%);
+  pointer-events:none;
+}
+.hero .w{padding-top:48px;padding-bottom:56px;position:relative;z-index:1}
+.hero-inner{display:flex;flex-direction:column;gap:36px}
+@media(min-width:920px){.hero-inner{flex-direction:row;gap:48px;align-items:flex-start}}
+.hero-left{flex:1 1 auto;max-width:560px}
+.hero-right{flex:0 0 auto;width:100%}
+@media(min-width:920px){.hero-right{width:420px;flex-shrink:0}}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10.5px;font-weight:600;letter-spacing:.16em;
+  color:var(--accent);
+  margin-bottom:18px;text-transform:uppercase;
+}
+.hero-eyebrow::before{content:'';width:18px;height:2px;background:var(--accent);border-radius:1px}
+
+h1.hero-h{
+  font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;
+  font-size:var(--t-h1);font-weight:700;
+  line-height:1.08;letter-spacing:-.02em;
+  color:#fff;margin-bottom:18px;
+}
+h1.hero-h em{
+  font-style:normal;color:var(--accent);
+  position:relative;display:inline-block;
+}
+.hero-sub{
+  font-size:clamp(14px,1.6vw,17px);
+  color:rgba(255,255,255,.78);line-height:1.65;
+  margin-bottom:28px;max-width:480px;
+}
+.hero-sub strong{color:#fff;font-weight:600}
+
+.hero-rate-row{
+  display:flex;align-items:flex-end;gap:24px;
+  margin-bottom:28px;flex-wrap:wrap;
+}
+.rate-block{display:flex;flex-direction:column}
+.rate-lbl{
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);margin-bottom:4px;
+}
+.rate-big{
+  font-size:clamp(44px,7vw,62px);font-weight:700;
+  line-height:1;color:#fff;letter-spacing:-.02em;
+}
+.rate-big .pct{color:var(--accent)}
+.rate-unit{font-size:14px;color:rgba(255,255,255,.5);margin-top:6px;font-weight:400}
+.rate-divider{width:1px;height:48px;background:rgba(255,255,255,.15);margin-bottom:8px}
+
+.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{
+  font-size:14px;font-weight:600;
+  padding:14px 26px;border-radius:8px;border:none;
+  transition:all .18s;
+  display:inline-flex;align-items:center;justify-content:center;
+  letter-spacing:.01em;white-space:nowrap;text-align:center;
+  text-decoration:none;cursor:pointer;
+}
+.btn-accent{background:var(--accent);color:#fff}
+.btn-accent:hover{background:#f4ba74;transform:translateY(-2px);box-shadow:0 10px 24px rgba(238,171,92,.40)}
+.btn-white{background:#fff;color:var(--navy)}
+.btn-white:hover{background:#f5f7fa;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:rgba(255,255,255,.88);border:1px solid rgba(255,255,255,.3)}
+.btn-ghost:hover{border-color:rgba(255,255,255,.55);color:#fff}
+.btn-lg{font-size:15px;padding:15px 32px}
+.btn-navy{background:var(--navy-btn);color:#fff}
+.btn-navy:hover{background:var(--navy);transform:translateY(-2px);box-shadow:0 10px 24px rgba(36,56,93,.28)}
+
+.hero-microtrust{
+  margin-top:18px;
+  display:flex;gap:18px;flex-wrap:wrap;align-items:center;
+  font-size:11.5px;color:rgba(255,255,255,.55);
+}
+.hero-microtrust span{display:inline-flex;align-items:center;gap:5px}
+.hero-microtrust span::before{content:'✓';color:var(--teal);font-weight:700;font-size:11px}
+
+/* ════════════════════════════════════════════════════
+   HERO RIGHT — Joint account calculator card
+   Redesigned: removes fake avatars/names. Uses two
+   interlocking rings (universal symbol for "joined")
+   as the visual concept, with a refined goal-based
+   calculator and year-over-year projection.
+   ════════════════════════════════════════════════════ */
+.joint-card{
+  background:linear-gradient(180deg,rgba(255,255,255,.07) 0%,rgba(255,255,255,.025) 100%);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--rxl);
+  padding:22px 24px 22px;
+  backdrop-filter:blur(10px);
+  position:relative;overflow:hidden;
+}
+.joint-card::before{
+  content:'';position:absolute;
+  top:-80px;right:-80px;width:240px;height:240px;
+  background:radial-gradient(circle,rgba(238,171,92,.10) 0%,transparent 65%);
+  pointer-events:none;
+}
+
+/* ── Two interlocking rings: the "joint" symbol ─────── */
+.rings-wrap{
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;position:relative;
+}
+.rings-svg{width:96px;height:48px;display:block}
+.rings-svg circle{fill:none;stroke-width:1.6}
+.rings-svg .ring-you{stroke:var(--accent)}
+.rings-svg .ring-partner{stroke:var(--accent)}
+.rings-labels{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  pointer-events:none;
+}
+.rings-label{
+  font-size:8.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  position:absolute;
+}
+.rings-label.you     {left:0;color:var(--accent)}
+.rings-label.partner {right:0;color:var(--accent)}
+.rings-label.joint{
+  font-size:7.5px;color:rgba(255,255,255,.85);
+  background:var(--navy-dk);padding:1px 6px;border-radius:6px;
+  border:1px solid rgba(255,255,255,.18);
+  letter-spacing:.18em;
+}
+
+.joint-card-tag{
+  font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);text-align:center;
+  margin-bottom:18px;
+}
+
+/* ── Goal selector chips ────────────────────────────── */
+.goal-chips{
+  display:flex;gap:5px;flex-wrap:wrap;justify-content:center;
+  margin-bottom:18px;
+}
+.goal-chip{
+  font-size:11px;font-weight:500;
+  padding:6px 12px;border-radius:14px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.7);
+  cursor:pointer;font-family:inherit;
+  transition:all .18s;letter-spacing:.01em;
+}
+.goal-chip:hover{background:rgba(255,255,255,.08);color:#fff}
+.goal-chip.active{
+  background:var(--accent);
+  border-color:var(--accent);
+  color:var(--navy-dk);font-weight:600;
+}
+
+/* ── Combined goal input ─────────────────────────────── */
+.hc-input-block{margin-bottom:20px}
+.hc-input-lbl{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);margin-bottom:8px;text-align:center;
+}
+.hc-input-wrap{position:relative;margin-bottom:10px}
+.hc-pre{
+  position:absolute;left:14px;top:50%;transform:translateY(-50%);
+  font-size:22px;color:rgba(255,255,255,.55);font-weight:500;
+}
+.hc-input{
+  width:100%;background:rgba(0,0,0,.22);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:10px;
+  padding:14px 14px 14px 32px;
+  color:#fff;font-size:28px;font-weight:700;
+  outline:none;transition:border-color .2s;font-family:inherit;
+  letter-spacing:-.02em;text-align:center;
+}
+.hc-input:focus{border-color:var(--accent)}
+.hc-input::-webkit-outer-spin-button,
+.hc-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+
+.hc-slider{
+  width:100%;-webkit-appearance:none;appearance:none;
+  height:3px;background:rgba(255,255,255,.14);
+  border-radius:2px;outline:none;cursor:pointer;margin-top:6px;
+}
+.hc-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:16px;height:16px;border-radius:50%;
+  background:var(--accent);cursor:pointer;
+  box-shadow:0 0 0 4px rgba(238,171,92,.22);
+}
+.hc-slider::-moz-range-thumb{
+  width:16px;height:16px;border-radius:50%;
+  background:var(--accent);cursor:pointer;border:none;
+}
+
+/* ── The "you'd earn" hero number ────────────────────── */
+.earn-block{
+  background:linear-gradient(180deg,rgba(238,171,92,.10) 0%,rgba(238,171,92,.04) 100%);
+  border:1px solid rgba(238,171,92,.25);
+  border-radius:14px;
+  padding:18px 16px;margin-bottom:14px;
+  text-align:center;
+}
+.earn-lbl{
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.62);margin-bottom:4px;
+}
+.earn-val{
+  font-size:42px;font-weight:700;color:var(--accent);
+  letter-spacing:-.025em;line-height:1;margin-bottom:6px;
+}
+.earn-vs{
+  font-size:11px;color:rgba(255,255,255,.6);
+  display:inline-flex;align-items:center;gap:5px;
+}
+.earn-vs strong{color:var(--accent);font-weight:600}
+.earn-vs::before{content:'↑';color:var(--accent);font-weight:700}
+
+/* ── Year-over-year projection ───────────────────────── */
+.proj-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:6px;
+  background:rgba(0,0,0,.22);
+  border-radius:10px;padding:14px 10px;
+  margin-bottom:16px;
+}
+.proj-col{text-align:center;position:relative}
+.proj-col:not(:last-child)::after{
+  content:'';position:absolute;
+  right:-3px;top:14%;bottom:14%;width:1px;
+  background:rgba(255,255,255,.08);
+}
+.proj-yr{
+  font-size:9px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.45);margin-bottom:4px;
+}
+.proj-val{
+  font-size:15px;font-weight:600;color:#fff;
+  letter-spacing:-.01em;line-height:1.1;
+}
+.proj-val.win{color:var(--accent)}
+
+/* ── NARRATIVE FLOW elements (added — top to bottom story) ──────── */
+
+/* (a) The smart-move opener — small confidence-building badge + headline */
+.smart-move{
+  text-align:center;margin-bottom:16px;
+}
+.smart-rate-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(238,171,92,.12);
+  border:1px solid rgba(238,171,92,.32);
+  border-radius:18px;padding:4px 11px;
+  font-size:10.5px;font-weight:600;letter-spacing:.06em;
+  color:var(--accent);margin-bottom:10px;
+}
+.smart-rate-badge::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 0 3px rgba(238,171,92,.22);
+}
+.smart-move-h{
+  font-size:17px;font-weight:600;color:#fff;
+  letter-spacing:-.01em;line-height:1.3;
+  max-width:280px;margin:0 auto;
+}
+.smart-move-h em{font-style:normal;color:var(--accent)}
+
+/* (b) Step labels — small numbered guides for each control */
+.step-lbl{
+  display:flex;align-items:center;gap:7px;
+  font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);
+}
+.step-lbl-num{
+  width:16px;height:16px;border-radius:50%;
+  background:rgba(238,171,92,.15);
+  border:1px solid rgba(238,171,92,.4);
+  color:var(--accent);
+  font-size:9.5px;font-weight:700;letter-spacing:0;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+
+/* (c) Slider rows — value sits on the right of the step label to save height */
+.slider-row{margin-bottom:14px}
+.slider-row-head{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin-bottom:7px;
+}
+.slider-value{
+  font-size:18px;font-weight:700;color:#fff;
+  letter-spacing:-.02em;line-height:1;
+  white-space:nowrap;
+}
+.slider-value .unit{font-size:12px;color:rgba(255,255,255,.55);font-weight:500;margin-left:3px}
+.slider-track{
+  width:100%;-webkit-appearance:none;appearance:none;
+  height:3px;background:rgba(255,255,255,.14);
+  border-radius:2px;outline:none;cursor:pointer;
+}
+.slider-track::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--accent);cursor:pointer;
+  box-shadow:0 0 0 4px rgba(238,171,92,.22);
+  transition:box-shadow .15s;
+}
+.slider-track:active::-webkit-slider-thumb{box-shadow:0 0 0 6px rgba(238,171,92,.3)}
+.slider-track::-moz-range-thumb{
+  width:18px;height:18px;border-radius:50%;
+  background:var(--accent);cursor:pointer;border:none;
+}
+.slider-bounds{
+  display:flex;justify-content:space-between;
+  font-size:9px;color:rgba(255,255,255,.4);
+  margin-top:4px;letter-spacing:.06em;
+}
+
+/* (d) The big reveal — what your combined balance becomes */
+.reveal-block{
+  background:linear-gradient(180deg,rgba(238,171,92,.14) 0%,rgba(238,171,92,.04) 100%);
+  border:1px solid rgba(238,171,92,.32);
+  border-radius:14px;
+  padding:16px 14px 14px;margin-bottom:14px;
+  text-align:center;position:relative;overflow:hidden;
+}
+.reveal-block::before{
+  content:'';position:absolute;
+  top:-40px;left:50%;transform:translateX(-50%);
+  width:200px;height:80px;
+  background:radial-gradient(ellipse,rgba(238,171,92,.22) 0%,transparent 70%);
+  pointer-events:none;
+}
+.reveal-lbl{
+  font-size:10px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.62);margin-bottom:3px;position:relative;
+}
+.reveal-val{
+  font-size:38px;font-weight:700;color:var(--accent);
+  letter-spacing:-.025em;line-height:1;margin-bottom:6px;
+  position:relative;
+  font-variant-numeric:tabular-nums;
+}
+.reveal-vs{
+  font-size:11.5px;color:rgba(255,255,255,.7);line-height:1.45;
+  position:relative;display:block;
+}
+.reveal-vs strong{color:var(--accent);font-weight:600}
+.reveal-pill{
+  display:inline-flex;align-items:center;gap:5px;
+  background:rgba(60,127,137,.18);
+  border:1px solid rgba(60,127,137,.32);
+  border-radius:14px;padding:3px 9px;
+  font-size:10px;font-weight:600;
+  color:var(--teal);margin-top:8px;position:relative;
+}
+.reveal-pill::before{content:'↑';font-weight:700}
+
+/* (e) Dream chips — inspirational only, no interaction */
+.dreams-block{margin-top:28px}
+.dreams-lbl{
+  font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.5);margin-bottom:12px;
+}
+.dream-chips{
+  display:flex;flex-wrap:wrap;gap:7px;
+}
+.dream-chip{
+  font-size:11.5px;font-weight:500;
+  padding:6px 12px;border-radius:14px;
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.72);
+  letter-spacing:.01em;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.dream-chip-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--accent);opacity:.85;
+}
+
+/* ── CTA + trust microcopy ────────────────────────────── */
+.joint-card-cta{
+  width:100%;background:var(--accent);color:var(--navy-dk);
+  font-size:14px;font-weight:700;padding:13px;
+  border-radius:9px;border:none;letter-spacing:.01em;
+  transition:background .2s,transform .15s,box-shadow .2s;
+}
+.joint-card-cta:hover{
+  background:#f4ba74;transform:translateY(-1px);
+  box-shadow:0 8px 22px rgba(238,171,92,.32);
+}
+.joint-card-trust{
+  margin-top:12px;
+  display:flex;justify-content:center;gap:14px;flex-wrap:wrap;
+  font-size:10px;color:rgba(255,255,255,.5);
+}
+.joint-card-trust span{display:inline-flex;align-items:center;gap:4px}
+.joint-card-trust span::before{
+  content:'✓';color:var(--teal);font-weight:700;font-size:10px;
+}
+
+/* ════════════════════════════════════════════════════
+   TRUST BAR (under hero, navy continuation)
+   ════════════════════════════════════════════════════ */
+.trust-bar{background:var(--navy);border-bottom:1px solid rgba(255,255,255,.06)}
+.trust-bar .w{padding-top:18px;padding-bottom:18px}
+.trust-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:560px){.trust-grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:880px){.trust-grid{grid-template-columns:repeat(5,1fr)}}
+.trust-item{text-align:center;padding:0 6px}
+.trust-num{font-size:20px;font-weight:700;color:var(--accent);letter-spacing:-.01em;line-height:1.2}
+.trust-num em{font-style:normal;color:var(--accent)}
+.trust-lbl{font-size:9.5px;color:rgba(255,255,255,.62);letter-spacing:.1em;text-transform:uppercase;margin-top:3px;line-height:1.3}
+@media(max-width:559px){.trust-item:nth-child(5){display:none}}
+@media(max-width:879px){.trust-item:nth-child(5){display:none}}
+
+/* ════════════════════════════════════════════════════
+   SECTION BASE
+   ════════════════════════════════════════════════════ */
+section{background:#fff;border-bottom:1px solid var(--border)}
+section.cream{background:var(--cream)}
+section.gray{background:var(--gray-bg)}
+section.dark{background:var(--navy-dk);color:#fff;border-bottom-color:rgba(255,255,255,.06)}
+section .w{padding-top:clamp(56px,7vw,88px);padding-bottom:clamp(56px,7vw,88px)}
+
+.sec-eye{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10.5px;font-weight:600;letter-spacing:.16em;
+  color:var(--teal);margin-bottom:12px;text-transform:uppercase;
+}
+.sec-eye::before{content:'';width:18px;height:2px;background:var(--teal);border-radius:1px}
+section.cream .sec-eye{color:var(--teal)}
+section.cream .sec-eye::before{background:var(--teal)}
+
+h2.sh{
+  font-family:-apple-system,BlinkMacSystemFont,'Inter',sans-serif;
+  font-size:var(--t-h2);font-weight:700;
+  line-height:1.15;letter-spacing:-.02em;
+  color:var(--ink);margin-bottom:14px;
+}
+h2.sh em{font-style:normal;color:var(--accent)}
+section.dark h2.sh{color:#fff}
+section.cream h2.sh{color:var(--knot-green)}
+section.cream h2.sh em{color:var(--teal)}
+
+.ssub{
+  font-size:clamp(14px,1.5vw,16px);
+  color:var(--gray);line-height:1.7;
+  max-width:560px;margin-bottom:36px;
+}
+section.dark .ssub{color:rgba(255,255,255,.72)}
+section.cream .ssub{color:var(--ink-soft)}
+
+
+/* ════════════════════════════════════════════════════
+   STAT STRIP — "Knot couples are switching"
+   ════════════════════════════════════════════════════ */
+.stat-strip{
+  display:grid;grid-template-columns:1fr;gap:14px;
+  margin-top:8px;
+}
+@media(min-width:680px){.stat-strip{grid-template-columns:repeat(3,1fr)}}
+.stat-card{
+  background:#fff;border:1px solid var(--border);
+  border-radius:var(--rlg);padding:24px 22px;
+  position:relative;transition:all .25s;
+}
+.stat-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--accent-soft)}
+.stat-num{
+  font-size:48px;font-weight:700;
+  color:var(--navy);letter-spacing:-.03em;line-height:1;
+  margin-bottom:8px;
+}
+.stat-num em{font-style:normal;color:var(--accent)}
+.stat-lbl{
+  font-size:13px;color:var(--ink-soft);
+  line-height:1.55;font-weight:500;
+}
+.stat-src{
+  font-size:10px;color:var(--gray-mid);
+  margin-top:10px;letter-spacing:.04em;
+}
+
+/* ════════════════════════════════════════════════════
+   COUPLE PERSONA CARDS
+   ════════════════════════════════════════════════════ */
+.couple-grid{
+  display:grid;grid-template-columns:1fr;gap:18px;
+}
+@media(min-width:760px){.couple-grid{grid-template-columns:repeat(3,1fr)}}
+.couple-card{
+  background:#fff;border:1px solid var(--border);
+  border-radius:var(--rlg);overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:all .25s;
+}
+.couple-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.couple-card.highlighted{border:2px solid var(--accent);box-shadow:0 0 0 3px rgba(238,171,92,.12)}
+.couple-img-wrap{aspect-ratio:4/3;position:relative}
+.couple-img-wrap .img-spec{height:100%;border-radius:0;border-left:none;border-right:none;border-top:none;border-bottom:1px solid var(--border)}
+.couple-stage{
+  position:absolute;top:12px;left:12px;
+  background:rgba(255,255,255,.95);
+  font-size:10px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--navy);
+  padding:5px 10px;border-radius:14px;
+  backdrop-filter:blur(4px);z-index:2;
+}
+.couple-body{padding:20px 22px 22px;display:flex;flex-direction:column;flex:1}
+.couple-name{
+  font-size:16px;font-weight:600;color:var(--navy);
+  margin-bottom:4px;
+}
+.couple-meta{font-size:12px;color:var(--gray);margin-bottom:14px}
+.couple-quote{
+  font-size:14px;color:var(--ink-soft);
+  line-height:1.6;margin-bottom:18px;flex:1;
+  font-style:italic;
+}
+.couple-quote::before{content:'"';color:var(--accent);font-size:28px;line-height:0;vertical-align:-8px;margin-right:2px;font-weight:700}
+.couple-needs{
+  display:flex;flex-direction:column;gap:6px;
+  padding-top:14px;border-top:1px solid var(--border);
+}
+.couple-need-row{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink-soft)}
+.couple-need-row::before{content:'→';color:var(--accent);font-weight:600;flex-shrink:0}
+.couple-need-row strong{color:var(--navy);font-weight:600}
+
+/* ════════════════════════════════════════════════════
+   FEATURE BENT CARDS — Axos ONE pitch
+   ════════════════════════════════════════════════════ */
+.feat-grid{display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:680px){.feat-grid{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.feat-grid{grid-template-columns:repeat(4,1fr)}}
+.feat-card{
+  background:#fff;border:1px solid var(--border);
+  border-radius:var(--rlg);padding:24px 22px;
+  display:flex;flex-direction:column;
+  transition:all .25s;
+}
+.feat-card:hover{border-color:var(--accent-soft);box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.feat-card.featured{
+  background:linear-gradient(180deg,var(--navy) 0%,var(--navy-dk) 100%);
+  border-color:transparent;color:#fff;
+}
+.feat-icon{
+  width:48px;height:48px;border-radius:10px;
+  background:rgba(238,171,92,.12);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:16px;color:var(--accent);
+}
+.feat-card.featured .feat-icon{background:rgba(238,171,92,.25)}
+.feat-icon svg{width:24px;height:24px}
+.feat-h{font-size:17px;font-weight:600;color:var(--navy);margin-bottom:6px;line-height:1.3}
+.feat-card.featured .feat-h{color:#fff}
+.feat-num{
+  font-size:32px;font-weight:700;color:var(--navy);
+  letter-spacing:-.02em;line-height:1;margin-bottom:6px;
+}
+.feat-num em{font-style:normal;color:var(--accent)}
+.feat-card.featured .feat-num{color:#fff}
+.feat-card.featured .feat-num em{color:var(--accent)}
+.feat-desc{font-size:13px;color:var(--gray);line-height:1.6;margin-bottom:auto}
+.feat-card.featured .feat-desc{color:rgba(255,255,255,.78)}
+.feat-card .feat-link{
+  font-size:12px;font-weight:600;color:var(--navy);
+  margin-top:14px;display:inline-flex;align-items:center;gap:5px;
+  text-decoration:none;
+}
+.feat-card.featured .feat-link{color:var(--accent)}
+.feat-card .feat-link::after{content:'→';transition:transform .2s}
+.feat-card .feat-link:hover::after{transform:translateX(3px)}
+
+/* ════════════════════════════════════════════════════
+   GOAL CALCULATOR (full section)
+   ════════════════════════════════════════════════════ */
+.goal-calc-wrap{
+  background:#fff;border:1px solid var(--border);
+  border-radius:var(--rxl);overflow:hidden;
+  display:grid;grid-template-columns:1fr;
+}
+@media(min-width:880px){.goal-calc-wrap{grid-template-columns:1fr 1fr}}
+.gc-left{
+  padding:32px clamp(20px,4vw,40px);
+  background:var(--navy-dk);color:#fff;position:relative;overflow:hidden;
+}
+.gc-left::before{
+  content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(238,171,92,.15) 0%,transparent 60%);
+  pointer-events:none;
+}
+.gc-eyebrow{
+  font-size:10px;font-weight:600;letter-spacing:.16em;
+  color:var(--accent);text-transform:uppercase;margin-bottom:12px;
+}
+.gc-h{
+  font-size:clamp(22px,3vw,28px);font-weight:700;
+  line-height:1.2;color:#fff;margin-bottom:14px;letter-spacing:-.02em;
+}
+.gc-sub{font-size:14px;color:rgba(255,255,255,.7);line-height:1.6;margin-bottom:24px;position:relative}
+.gc-tabs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:22px;position:relative}
+.gc-tab{
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
+  color:rgba(255,255,255,.7);
+  font-size:12px;font-weight:500;
+  padding:8px 14px;border-radius:18px;
+  transition:all .2s;cursor:pointer;
+}
+.gc-tab:hover{background:rgba(255,255,255,.1);color:#fff}
+.gc-tab.active{background:var(--accent);border-color:var(--accent);color:#fff;font-weight:600}
+
+.gc-input-block{margin-bottom:18px;position:relative}
+.gc-input-lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:7px}
+.gc-input-wrap{position:relative}
+.gc-pre{position:absolute;left:14px;top:50%;transform:translateY(-50%);font-size:18px;color:rgba(255,255,255,.55);font-weight:500}
+.gc-input{
+  width:100%;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.14);border-radius:8px;
+  padding:13px 13px 13px 28px;
+  color:#fff;font-size:22px;font-weight:600;
+  outline:none;transition:border-color .2s;font-family:inherit;
+  letter-spacing:-.01em;
+}
+.gc-input:focus{border-color:var(--accent)}
+.gc-input::-webkit-outer-spin-button,.gc-input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+
+.gc-slider-wrap{position:relative;margin-top:12px}
+.gc-slider{
+  width:100%;-webkit-appearance:none;appearance:none;
+  height:4px;background:rgba(255,255,255,.15);
+  border-radius:2px;outline:none;cursor:pointer;
+}
+.gc-slider::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:18px;height:18px;border-radius:50%;
+  background:var(--accent);cursor:pointer;
+  box-shadow:0 0 0 4px rgba(238,171,92,.25);
+}
+.gc-slider::-moz-range-thumb{
+  width:18px;height:18px;border-radius:50%;
+  background:var(--accent);cursor:pointer;border:none;
+}
+.gc-slider-vals{display:flex;justify-content:space-between;font-size:10px;color:rgba(255,255,255,.4);margin-top:6px}
+
+.gc-right{
+  padding:32px clamp(20px,4vw,40px);
+  background:#fff;display:flex;flex-direction:column;justify-content:center;
+}
+.gc-result-eyebrow{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);margin-bottom:10px}
+.gc-result-h{
+  font-size:14px;color:var(--ink-soft);margin-bottom:6px;line-height:1.5;
+}
+.gc-result-h strong{color:var(--navy)}
+.gc-result-num{
+  font-size:clamp(40px,6vw,58px);font-weight:700;
+  color:var(--accent);letter-spacing:-.025em;line-height:1;
+  margin-bottom:6px;
+}
+.gc-result-sub{
+  font-size:13px;color:var(--gray);line-height:1.6;margin-bottom:22px;
+}
+.gc-compare{
+  background:var(--gray-bg);border-radius:var(--rlg);
+  padding:18px;margin-bottom:22px;
+}
+.gc-compare-h{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:12px;font-weight:600}
+.gc-compare-row{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border)}
+.gc-compare-row:last-child{border-bottom:none}
+.gc-compare-bank{font-size:13px;color:var(--ink-soft)}
+.gc-compare-bank.us{color:var(--accent);font-weight:600}
+.gc-compare-rate{font-size:11px;color:var(--gray-mid);margin-left:6px}
+.gc-compare-earn{font-size:14px;font-weight:600;color:var(--ink-soft)}
+.gc-compare-row.us .gc-compare-earn{color:var(--accent);font-size:17px}
+
+.gc-cta-row{display:flex;gap:10px;flex-wrap:wrap}
+
+/* ════════════════════════════════════════════════════
+   "AS FEATURED" / EDITORIAL TRUST STRIP
+   ════════════════════════════════════════════════════ */
+.editorial-strip{
+  display:grid;grid-template-columns:1fr;gap:24px;
+  align-items:center;
+}
+@media(min-width:760px){.editorial-strip{grid-template-columns:1fr 1.2fr;gap:48px}}
+.es-content h3{
+  font-size:clamp(20px,2.4vw,26px);font-weight:600;
+  color:var(--knot-green);margin-bottom:12px;line-height:1.3;
+  font-family:Georgia,serif;font-style:italic;
+}
+.es-content p{font-size:14px;color:var(--ink-soft);line-height:1.7;margin-bottom:18px}
+.es-pubs{display:flex;gap:18px;flex-wrap:wrap;align-items:center;padding-top:18px;border-top:1px solid var(--border);margin-top:18px}
+.es-pub{
+  font-size:11px;font-weight:600;letter-spacing:.06em;
+  color:var(--gray);text-transform:uppercase;
+}
+.es-pub strong{display:block;font-size:13px;color:var(--knot-green);font-family:Georgia,serif;font-style:italic;text-transform:none;letter-spacing:0;font-weight:400;margin-bottom:2px}
+
+/* ════════════════════════════════════════════════════
+   HOW IT WORKS (3 step)
+   ════════════════════════════════════════════════════ */
+.step-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:8px}
+@media(min-width:760px){.step-grid{grid-template-columns:repeat(3,1fr);gap:24px}}
+.step-card{
+  background:#fff;border:1px solid var(--border);
+  border-radius:var(--rlg);padding:28px 24px;
+  position:relative;
+}
+.step-num{
+  position:absolute;top:-16px;left:24px;
+  width:36px;height:36px;border-radius:50%;
+  background:var(--accent);color:#fff;
+  font-size:15px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  letter-spacing:0;
+}
+.step-h{font-size:17px;font-weight:600;color:var(--navy);margin-bottom:8px;margin-top:8px}
+.step-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.65}
+.step-time{
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-top:14px;
+  display:flex;align-items:center;gap:6px;
+}
+.step-time::before{content:'⏱';font-size:11px}
+
+/* ════════════════════════════════════════════════════
+   AWARDS BAND
+   ════════════════════════════════════════════════════ */
+.awards-band{
+  display:grid;grid-template-columns:1fr;gap:18px;
+  align-items:center;
+}
+@media(min-width:680px){.awards-band{grid-template-columns:repeat(3,1fr);gap:32px}}
+.award-item{
+  text-align:center;padding:18px 14px;
+  border:1px solid var(--border);border-radius:var(--rlg);
+  background:#fff;
+}
+.award-stars{color:var(--accent);font-size:14px;margin-bottom:8px;letter-spacing:2px}
+.award-title{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:4px;line-height:1.4}
+.award-pub{font-size:11px;color:var(--gray);font-style:italic}
+
+/* ════════════════════════════════════════════════════
+   FAQ
+   ════════════════════════════════════════════════════ */
+.faq-wrap{display:flex;flex-direction:column;gap:8px;max-width:780px;margin:0 auto}
+.faq-item{
+  background:#fff;border:1px solid var(--border);
+  border-radius:var(--rlg);overflow:hidden;
+  transition:border-color .2s;
+}
+.faq-item.open{border-color:var(--accent-soft)}
+.faq-q{
+  padding:18px 22px;
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+  font-size:15px;font-weight:600;color:var(--navy);
+  cursor:pointer;background:none;border:none;width:100%;text-align:left;
+  font-family:inherit;
+}
+.faq-q::after{
+  content:'+';font-size:22px;font-weight:300;
+  color:var(--accent);flex-shrink:0;
+  transition:transform .25s;line-height:1;
+}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{
+  padding:0 22px;max-height:0;overflow:hidden;
+  transition:max-height .35s ease,padding .25s ease;
+  font-size:14px;color:var(--ink-soft);line-height:1.7;
+}
+.faq-item.open .faq-a{padding:0 22px 20px;max-height:600px}
+
+/* ════════════════════════════════════════════════════
+   CTA SECTION (final push)
+   ════════════════════════════════════════════════════ */
+.final-cta{
+  background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dk) 100%);
+  border-radius:var(--rxl);padding:clamp(36px,5vw,56px);
+  text-align:center;color:#fff;
+  position:relative;overflow:hidden;
+}
+.final-cta::before{
+  content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(238,171,92,.18) 0%,transparent 60%);
+  pointer-events:none;
+}
+.final-cta::after{
+  content:'';position:absolute;bottom:-80px;left:-80px;width:240px;height:240px;
+  background:radial-gradient(circle,rgba(60,127,137,.08) 0%,transparent 60%);
+  pointer-events:none;
+}
+.final-cta-content{position:relative;z-index:1;max-width:640px;margin:0 auto}
+.final-cta h2{
+  font-size:clamp(26px,3.4vw,40px);font-weight:700;
+  line-height:1.15;letter-spacing:-.02em;
+  color:#fff;margin-bottom:14px;
+}
+.final-cta h2 em{font-style:normal;color:var(--accent)}
+.final-cta p{
+  font-size:clamp(14px,1.5vw,16px);
+  color:rgba(255,255,255,.78);line-height:1.65;
+  margin-bottom:28px;max-width:540px;margin-left:auto;margin-right:auto;
+}
+.final-cta .hero-ctas{justify-content:center}
+.final-cta-trust{
+  margin-top:24px;
+  display:flex;gap:18px;flex-wrap:wrap;justify-content:center;
+  font-size:11px;color:rgba(255,255,255,.55);
+}
+.final-cta-trust span{display:inline-flex;align-items:center;gap:5px}
+.final-cta-trust span::before{content:'✓';color:var(--teal);font-weight:700;font-size:11px}
+
+/* ════════════════════════════════════════════════════
+   FOOTER (with full Axos disclosures)
+   ════════════════════════════════════════════════════ */
+.site-foot{background:var(--navy-dk);color:rgba(255,255,255,.62);padding:48px clamp(16px,4vw,32px) 32px;font-size:12px;line-height:1.7}
+.site-foot .w{padding:0}
+.foot-grid{display:grid;grid-template-columns:1fr;gap:32px;margin-bottom:36px}
+@media(min-width:680px){.foot-grid{grid-template-columns:repeat(4,1fr);gap:40px}}
+.foot-col h4{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:14px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.foot-col a{color:rgba(255,255,255,.55);text-decoration:none;font-size:12.5px}
+.foot-col a:hover{color:#fff}
+.foot-disclaimer{
+  border-top:1px solid rgba(255,255,255,.08);
+  padding-top:24px;font-size:11px;line-height:1.7;
+  color:rgba(255,255,255,.45);
+}
+.foot-disclaimer p{margin-bottom:14px}
+.foot-disclaimer p:last-child{margin-bottom:0}
+.foot-disclaimer strong{color:rgba(255,255,255,.7)}
+.foot-disclaimer a{color:rgba(255,255,255,.65);text-decoration:underline}
+
+/* ════════════════════════════════════════════════════
+   ANNOUNCEMENT BAR (returning visitor / incomplete app)
+   ════════════════════════════════════════════════════ */
+.announce{
+  display:none;
+  background:linear-gradient(90deg,var(--accent) 0%,var(--accent-dk) 100%);
+  color:#fff;padding:11px clamp(16px,4vw,32px);
+  font-size:13px;text-align:center;font-weight:500;
+  position:relative;
+}
+.announce.active{display:block}
+.announce strong{font-weight:700}
+.announce .ann-cta{
+  display:inline-block;margin-left:10px;
+  background:rgba(0,0,0,.2);border-radius:14px;padding:3px 12px;
+  font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;
+  text-decoration:none;color:#fff;
+}
+.announce .ann-cta:hover{background:rgba(0,0,0,.3)}
+.announce .ann-close{
+  position:absolute;right:12px;top:50%;transform:translateY(-50%);
+  background:none;border:none;color:rgba(255,255,255,.65);
+  font-size:18px;cursor:pointer;line-height:1;padding:4px 8px;
+}
+.announce .ann-close:hover{color:#fff}
+
+/* ════════════════════════════════════════════════════
+   VISITOR SCENARIOS BUTTON (bottom-left)
+   ════════════════════════════════════════════════════ */
+#sc-toggle{
+  position:fixed;bottom:20px;left:16px;z-index:9001;
+  background:#fff;color:var(--navy);
+  font-size:12px;font-weight:600;
+  padding:11px 16px;border-radius:24px;
+  border:1px solid var(--border-strong);
+  display:flex;align-items:center;gap:8px;
+  box-shadow:0 4px 18px rgba(0,0,0,.16);
+  letter-spacing:.02em;
+  transition:all .15s;
+}
+#sc-toggle:hover{background:var(--navy);color:#fff;transform:translateY(-1px)}
+.sc-active-label{font-size:12px}
+.sc-current{
+  font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  background:var(--accent);color:#fff;
+  padding:3px 7px;border-radius:10px;margin-left:4px;
+}
+
+#sc-popup{
+  display:none;
+  position:fixed;bottom:80px;left:16px;z-index:9000;
+  background:#fff;border:1px solid var(--border);
+  border-radius:var(--rlg);box-shadow:0 16px 40px rgba(0,0,0,.2);
+  width:340px;max-width:calc(100vw - 32px);
+  max-height:70vh;overflow-y:auto;
+  padding:16px;
+}
+#sc-popup.open{display:block}
+.sc-popup-h{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--navy);margin-bottom:4px}
+.sc-popup-sub{font-size:11.5px;color:var(--gray);margin-bottom:14px;line-height:1.5}
+.sc-section-h{
+  font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gray-mid);margin:12px 0 6px;padding-left:2px;
+}
+.sc-section-h:first-child{margin-top:0}
+.sc-btns{display:flex;flex-direction:column;gap:5px}
+.sc-btn{
+  text-align:left;padding:10px 12px;
+  background:var(--gray-bg);border:1px solid var(--border);
+  border-radius:8px;font-size:12px;color:var(--ink-soft);
+  cursor:pointer;font-family:inherit;
+  transition:all .15s;
+  display:flex;flex-direction:column;gap:2px;
+}
+.sc-btn:hover{background:#fff;border-color:var(--accent-soft)}
+.sc-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.sc-btn-name{font-weight:600;font-size:12px}
+.sc-btn-meta{font-size:10px;color:var(--gray-mid);font-weight:400}
+.sc-btn.active .sc-btn-meta{color:rgba(255,255,255,.65)}
+
+/* ════════════════════════════════════════════════════
+   SCENARIO BADGE (top-right, only in design review)
+   ════════════════════════════════════════════════════ */
+.sc-badge{
+  display:none;
+  position:fixed;top:128px;right:16px;z-index:8000;
+  background:#18263B;color:#fff;
+  border:1px solid rgba(238,171,92,.45);
+  border-radius:8px;padding:9px 12px;
+  font-size:10.5px;line-height:1.4;
+  max-width:230px;
+}
+body.ron .sc-badge{display:block}
+.sc-badge-lbl{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+.sc-badge-val{color:rgba(255,255,255,.85)}
+
+/* ════════════════════════════════════════════════════
+   RESPONSIVE TWEAKS
+   ════════════════════════════════════════════════════ */
+@media(max-width:600px){
+  .hero .w{padding-top:40px;padding-bottom:48px}
+  .joint-card{padding:18px}
+  .stat-num{font-size:38px}
+  .feat-grid{grid-template-columns:1fr}
+  #sc-popup{bottom:70px;width:calc(100vw - 32px)}
+}
+
+/* Print suppression */
+@media print{
+  #rtoggle,#sc-toggle,#sc-popup,.sc-badge{display:none!important}
+  body.ron .ann{display:none!important}
+}
+
+/* ════════════════════════════════════════════════════
+   WEDDING MOMENTS BAND (between trust bar and stat strip)
+   A horizontal strip of 4 small editorial moments.
+   ════════════════════════════════════════════════════ */
+.moments-band{
+  background:var(--cream);
+  padding:32px clamp(16px,4vw,32px);
+  border-bottom:1px solid var(--border);
+}
+.moments-band-h{
+  text-align:center;
+  font-family:Georgia,'Times New Roman',serif;
+  font-style:italic;
+  font-size:clamp(15px,1.8vw,18px);
+  color:var(--navy);
+  margin-bottom:20px;letter-spacing:-.01em;
+  max-width:680px;margin-left:auto;margin-right:auto;line-height:1.5;
+}
+.moments-band-h em{
+  font-style:italic;color:var(--teal);
+  font-weight:600;
+}
+.moments-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:10px;
+  max-width:var(--wrap);margin:0 auto;
+}
+@media(min-width:680px){.moments-grid{grid-template-columns:repeat(4,1fr);gap:14px}}
+.moments-grid .img-spec{
+  aspect-ratio:1/1;padding:14px;
+  background:repeating-linear-gradient(-45deg,rgba(36,56,93,.03),rgba(36,56,93,.03) 8px,rgba(36,56,93,.06) 8px,rgba(36,56,93,.06) 16px);
+  border:1px dashed var(--border-strong);
+}
+.moments-grid .img-spec-title{font-size:11px;margin-top:18px;margin-bottom:4px;line-height:1.25}
+.moments-grid .img-spec-desc{font-size:10.5px;line-height:1.45;margin-bottom:6px}
+.moments-grid .img-spec-must{font-size:9.5px;padding-top:5px}
+.moments-grid .img-spec-must strong{font-size:8px}
+
+/* ════════════════════════════════════════════════════
+   PARTNER LOGO WALL
+   ════════════════════════════════════════════════════ */
+.logo-wall{
+  background:var(--gray-bg);
+  padding:28px clamp(16px,4vw,32px);
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.logo-wall-h{
+  text-align:center;
+  font-size:10.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gray);margin-bottom:18px;
+}
+.logo-wall-strip{
+  display:flex;align-items:center;justify-content:center;gap:clamp(24px,6vw,56px);
+  flex-wrap:wrap;max-width:var(--wrap);margin:0 auto;
+}
+.logo-wall-item{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  opacity:.85;transition:opacity .2s;
+}
+.logo-wall-item:hover{opacity:1}
+.logo-wall-mark{
+  font-family:Georgia,'Times New Roman',serif;font-style:italic;
+  font-size:clamp(18px,2.4vw,24px);color:var(--ink);
+  letter-spacing:-.01em;
+}
+.logo-wall-mark.bold{font-family:-apple-system,'Inter',sans-serif;font-style:normal;font-weight:800;letter-spacing:-.02em}
+.logo-wall-mark .ww-wire{font-style:normal;font-weight:600;letter-spacing:.1em;font-family:-apple-system,'Inter',sans-serif;font-size:.7em;vertical-align:1px;margin-left:1px}
+.logo-wall-meta{
+  font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--teal);
+}
+
+/* ════════════════════════════════════════════════════
+   HERO BACKGROUND IMAGE SPEC (atmospheric)
+   ════════════════════════════════════════════════════ */
+.hero-bg-spec{
+  position:absolute;inset:0;z-index:0;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  pointer-events:none;
+}
+.hero-bg-spec .img-spec{
+  width:100%;height:100%;
+  border:1px dashed rgba(255,255,255,.18);
+  background:repeating-linear-gradient(-45deg,rgba(255,255,255,.02),rgba(255,255,255,.02) 8px,rgba(255,255,255,.05) 8px,rgba(255,255,255,.05) 16px);
+  border-radius:0;padding:18px clamp(16px,4vw,40px);
+}
+.hero-bg-spec .img-spec-tag{background:rgba(238,171,92,.92)}
+.hero-bg-spec .img-spec-title{color:rgba(255,255,255,.92);font-size:13px;margin-top:36px}
+.hero-bg-spec .img-spec-desc{color:rgba(255,255,255,.6);font-size:11px}
+.hero-bg-spec .img-spec-must{color:rgba(255,255,255,.5);font-size:10px;border-top-color:rgba(255,255,255,.12)}
+.hero-bg-spec .img-spec-must strong{color:var(--accent)}
+
+/* Show hero bg spec only when in design review mode (preview the placement); otherwise hide so the LP renders clean even without an image. */
+.hero-bg-spec{display:none}
+body.ron .hero-bg-spec{display:flex}
+
+/* ════════════════════════════════════════════════════
+   "TWO MOMENTS. ONE PARTNER." WIDE EDITORIAL BAND
+   (between editorial trust strip and how-it-works)
+   ════════════════════════════════════════════════════ */
+.wide-band{
+  background:var(--navy-dk);position:relative;overflow:hidden;
+}
+.wide-band-inner{
+  display:grid;grid-template-columns:1fr;gap:0;
+  min-height:380px;
+}
+@media(min-width:760px){.wide-band-inner{grid-template-columns:1fr 1fr}}
+.wide-band-img{position:relative;min-height:300px}
+.wide-band-img .img-spec{
+  position:absolute;inset:0;border:none;border-radius:0;
+  background:repeating-linear-gradient(-45deg,rgba(255,255,255,.02),rgba(255,255,255,.02) 8px,rgba(255,255,255,.05) 8px,rgba(255,255,255,.05) 16px);
+}
+.wide-band-img .img-spec-title{color:rgba(255,255,255,.92)}
+.wide-band-img .img-spec-desc{color:rgba(255,255,255,.62)}
+.wide-band-img .img-spec-must{color:rgba(255,255,255,.5);border-top-color:rgba(255,255,255,.12)}
+.wide-band-content{
+  padding:clamp(36px,5vw,64px) clamp(20px,4vw,48px);
+  display:flex;flex-direction:column;justify-content:center;
+  color:#fff;position:relative;z-index:1;
+}
+.wide-band-eyebrow{
+  font-size:10.5px;font-weight:600;letter-spacing:.18em;
+  color:var(--accent);text-transform:uppercase;margin-bottom:16px;
+}
+.wide-band h3{
+  font-size:clamp(26px,3.4vw,38px);font-weight:700;
+  line-height:1.12;letter-spacing:-.02em;color:#fff;margin-bottom:16px;
+}
+.wide-band h3 em{font-style:normal;color:var(--accent)}
+.wide-band p{
+  font-size:clamp(13px,1.5vw,15px);
+  color:rgba(255,255,255,.74);line-height:1.7;
+  margin-bottom:12px;max-width:520px;
+}
+.wide-band p strong{color:#fff;font-weight:600}
+
+</style>
+</head>
+<body>
+
+
+<!-- ════════════════════════════════════════════════════
+     ANNOUNCEMENT BAR (returning, incomplete, existing)
+     ════════════════════════════════════════════════════ -->
+<div class="announce" id="announce">
+  <span id="announce-msg"><strong>Welcome back.</strong> Your application is saved. Pick up where you left off.</span>
+  <a href="#apply" class="ann-cta" id="announce-cta">Continue →</a>
+  <button class="ann-close" onclick="document.getElementById('announce').classList.remove('active')" aria-label="Close">×</button>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     AXOS HEADER (faithful to live axosbank.com structure)
+     ════════════════════════════════════════════════════ -->
+<div class="fdic-bar">
+  <span class="fdic-badge">FDIC</span>
+  <span class="fdic-txt">Bank deposits insured to at least $250,000 per depositor — $500,000 on joint accounts.</span>
+</div>
+
+<nav class="main-nav">
+  <a href="https://www.axosbank.com" class="logo-wrap" aria-label="Axos Bank — home">
+    <!-- Official Axos Bank wordmark SVG. Colors per brand spec: navy #24385D, orange #EEAB5C. -->
+    <svg class="axos-logo" viewBox="0 0 137 30" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Axos Bank">
+      <title>Axos Bank</title>
+      <path class="axos-x" d="M40.9059 0.655984C40.3905 0.140561 39.594 0.140561 39.0785 0.655984L38.3288 1.40569C37.8134 1.92112 37.8134 2.71768 38.3288 3.2331L50.1836 15.1347L38.3288 27.0363C37.8134 27.5517 37.8134 28.3483 38.3288 28.8637L39.0785 29.6134C39.594 30.1289 40.3905 30.1289 40.9059 29.6134L55.3378 15.1347L40.9059 0.655984Z"/>
+      <path class="axos-r" d="M131.058 2.71769C131.058 1.17142 132.23 0 133.776 0C135.322 0 136.494 1.17142 136.494 2.71769C136.494 4.26396 135.322 5.43538 133.776 5.43538C132.23 5.43538 131.058 4.26396 131.058 2.71769ZM136.166 2.71769C136.166 1.31199 135.182 0.327997 133.776 0.327997C132.37 0.327997 131.386 1.35884 131.386 2.71769C131.386 4.12339 132.37 5.10738 133.776 5.10738C135.135 5.15424 136.166 4.07653 136.166 2.71769ZM133.307 4.07653H132.932V1.26513C133.12 1.21827 133.354 1.21827 133.588 1.21827C134.291 1.21827 134.713 1.54627 134.713 2.15541C134.713 2.62398 134.385 2.90512 134.057 2.99883L134.994 4.12339H134.572L133.729 3.09254H133.354L133.307 4.07653ZM133.307 2.76455H133.635C134.01 2.76455 134.338 2.57712 134.338 2.15541C134.338 1.78055 134.057 1.59313 133.588 1.59313C133.495 1.59313 133.354 1.59313 133.26 1.59313L133.307 2.76455Z"/>
+      <path class="axos-letter" d="M120.281 13.4479C120.281 13.4479 118.922 13.1199 118.173 12.8387C115.783 11.9953 113.581 10.7302 113.581 8.4342C113.581 5.76337 115.877 3.93595 119.344 3.93595C121.64 3.93595 123.421 4.59195 124.686 5.85708L125.107 6.27879C125.623 6.79421 126.419 6.79421 126.935 6.27879L127.685 5.52908C128.2 5.01366 128.2 4.21709 127.685 3.70167C127.497 3.46739 127.263 3.27996 127.263 3.27996C125.248 1.35883 122.483 0.327987 119.344 0.327987C116.486 0.327987 114.19 1.07769 112.269 2.67082C110.441 4.21709 109.551 6.13822 109.551 8.48105C109.551 14.1976 114.893 15.6033 119.578 16.8684L119.719 16.9153C123.842 17.8993 125.904 19.5392 125.904 21.7884C125.904 24.6466 123.514 26.3335 119.578 26.3335C117.095 26.3335 114.893 25.49 113.393 23.9906L112.972 23.5689C112.456 23.0535 111.66 23.0535 111.144 23.5689L110.254 24.4592C109.738 24.9746 109.738 25.7712 110.254 26.2866L110.676 26.7083C112.831 28.8169 115.924 29.9883 119.578 29.9883C122.624 29.9883 125.107 29.2386 127.075 27.6923C128.997 26.2397 129.934 24.2249 129.934 21.7415C130.027 16.4467 125.435 14.6193 120.281 13.4479Z"/>
+      <path class="axos-letter" d="M86.9661 0.281143C78.7661 0.281143 72.1593 6.9348 72.1593 15.1347C72.1593 23.3347 78.7661 29.9883 86.9661 29.9883C95.166 29.9883 101.773 23.3347 101.773 15.1347C101.773 6.9348 95.1191 0.281143 86.9661 0.281143ZM86.9661 3.93597C93.1511 3.93597 98.1648 8.94964 98.1648 15.1347C98.1648 21.3198 93.1511 26.3335 86.9661 26.3335C80.781 26.3335 75.7673 21.3198 75.7673 15.1347C75.7673 8.94964 80.781 3.93597 86.9661 3.93597Z"/>
+      <path class="axos-letter" d="M67.1924 28.8637L66.4427 29.6134C65.9273 30.1289 65.1308 30.1289 64.6153 29.6134L54.5412 19.5392L57.1183 16.9621L67.1924 27.0363C67.7079 27.5049 67.7079 28.3483 67.1924 28.8637Z"/>
+      <path class="axos-letter" d="M67.1924 1.40569L66.4427 0.655984C65.9273 0.140561 65.1308 0.140561 64.6153 0.655984L54.5412 10.7302L57.1183 13.3073L67.1924 3.2331C67.7079 2.76454 67.7079 1.92112 67.1924 1.40569Z"/>
+      <path class="axos-letter" d="M26.0055 15.1816C25.9586 21.3198 20.9449 26.3335 14.8067 26.3335C8.62164 26.3335 3.60797 21.3198 3.60797 15.1347C3.60797 8.94964 8.66849 3.93597 14.8067 3.93597C20.9449 3.93597 25.9586 8.90278 26.0055 15.0879V15.1816ZM28.3483 0.281143H27.2706C26.5678 0.281143 25.9586 0.843424 25.9586 1.59313V5.38853C23.2878 2.24913 19.305 0.281143 14.8067 0.281143C6.6068 0.281143 0 6.9348 0 15.1347C0 23.3347 6.65365 29.9883 14.8067 29.9883C19.2581 29.9883 23.2878 28.0203 26.0055 24.8809V28.6763C26.0055 29.3792 26.5678 29.9883 27.3175 29.9883H28.3952C29.098 29.9883 29.7072 29.426 29.7072 28.6763V1.59313C29.6603 0.890281 29.098 0.281143 28.3483 0.281143Z"/>
+    </svg>
+  </a>
+
+  <div class="nav-tabs">
+    <a href="#" class="nav-tab active">Personal</a>
+    <a href="#" class="nav-tab">Business</a>
+    <a href="#" class="nav-tab">Partners</a>
+  </div>
+
+  <div class="nav-right">
+    <a href="#" class="nav-support">Support</a>
+    <a href="#" class="nav-login">Log in</a>
+  </div>
+</nav>
+
+<div class="sub-nav" aria-label="Personal banking">
+  <a href="#" class="sub-item active">Bank <span class="sub-arr">▾</span></a>
+  <a href="#" class="sub-item">Borrow <span class="sub-arr">▾</span></a>
+  <a href="#" class="sub-item">Invest <span class="sub-arr">▾</span></a>
+  <a href="#" class="sub-item">Plan <span class="sub-arr">▾</span></a>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     CO-BRAND BANNER
+     ════════════════════════════════════════════════════ -->
+<div class="cobrand-bar">
+  <span class="cobrand-eyebrow">Featured Partnership</span>
+  <span class="cobrand-text">
+    <strong>The Knot</strong>
+    <span class="cobrand-x">×</span>
+    <strong>Axos Bank</strong>
+    — built for the two of you.
+  </span>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SCENARIO BADGE (Design review mode only)
+     ════════════════════════════════════════════════════ -->
+<div class="sc-badge">
+  <div class="sc-badge-lbl">Active scenario</div>
+  <div class="sc-badge-val" id="sc-badge-val">Default — direct / unknown source</div>
+</div>
+
+<!-- REVIEW TOGGLE (floating bottom-right) -->
+<button id="rtoggle" onclick="toggleReview()">
+  <span class="rt-dot"></span>Design review
+</button>
+
+<!-- ════════════════════════════════════════════════════
+     ANNOTATION 0 — Strategic positioning
+     ════════════════════════════════════════════════════ -->
+<div class="ann" id="ann-strategy" style="margin-top:0">
+  <div class="ann-hd">
+    <span class="ann-name">◆ Strategic positioning &mdash; LP brief, audience, north star</span>
+    <div class="ann-badges">
+      <span class="ab ab-c">The Knot user data</span>
+      <span class="ab ab-w">Axos ONE Joint funnel</span>
+      <span class="ab ab-s">Pre-wedding-season launch</span>
+    </div>
+  </div>
+  <div class="ann-bd">
+    <div>
+      <div class="ann-col-h c">Project brief &amp; constraints</div>
+      <ul class="ann-ul c-li">
+        <li><strong>Live July 1 (start of FY27).</strong> Pre-wedding-season ramp; expected joint-account spike Sept&ndash;Dec as honeymoons end and combined finances begin.</li>
+        <li><strong>12-month evergreen deal with The Knot Worldwide</strong> &mdash; this LP is the first-touch site entry point for all Knot-sourced traffic across editorial articles, social, Pinterest, IE roundups, and Knot Worldwide influencer placements.</li>
+        <li><strong>High-visibility internal project.</strong> This concept needs to be defensible at the executive level, not just creative-team-pretty.</li>
+        <li>The product being sold is <strong>Axos ONE® Joint Checking + Savings</strong> &mdash; not a generic high-yield savings pitch. Every section reframes for "two of you, one account."</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h w">The single most important insight from the Knot media kit</div>
+      <ul class="ann-ul w-li">
+        <li><strong>Knot households are 39% more likely than gen pop to switch their bank during this life stage</strong> &mdash; index 139. This is the entire reason this partnership makes sense. We are not asking strangers; we are catching couples who are already actively shopping for a new bank.</li>
+        <li>The LP's job is not to convince a Knot user to consider switching banks. They are already considering it. The LP's job is to make Axos ONE feel like the obvious answer for two people who are about to combine their financial lives.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="ann-col-h s">Audience profile (Knot media kit, p.4&ndash;6)</div>
+      <ul class="ann-ul s-li">
+        <li><strong>Avg age 32. $138K HHI. 41% Gen Z, 51% Millennial.</strong> Higher-income, digital-native, comfortable with online banking.</li>
+        <li><strong>75% saving for honeymoon. 62% saving for first house.</strong> Multi-goal saving is the dominant mental model &mdash; not just one HYSA.</li>
+        <li>Multiple credit cards already (39% have 3+). They understand financial products. Don't dumb down the math.</li>
+        <li>Knot users skew toward the "plan mode" mindset &mdash; they're comparing vendors, reading reviews, building spreadsheets. Match that tone: specific numbers, clear comparisons, no marketing hand-waving.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h b">North star metric and supporting KPIs</div>
+      <ul class="ann-ul b-li">
+        <li><strong>Primary KPI:</strong> Joint Axos ONE accounts opened, attributable to The Knot UTM source. Target: cumulative spike Sept&ndash;Dec 2026.</li>
+        <li><strong>Secondary:</strong> Joint application start rate, calculator interaction rate, scroll depth past hero.</li>
+        <li><strong>Quality KPI:</strong> Avg. funded balance at 30 days &mdash; couples who deposit honeymoon/wedding-gift cash flow are the most valuable cohort for FY27 NIM contribution.</li>
+        <li><strong>Tertiary:</strong> Cross-sell to Axos Invest within 90 days (these households are also planning house and retirement &mdash; data-rich segment).</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     ANNOTATION 0.5 — Image strategy & licensing
+     ════════════════════════════════════════════════════ -->
+<div class="ann" id="ann-images">
+  <div class="ann-hd">
+    <span class="ann-name">&#x1F4F8; Image strategy &amp; logo licensing</span>
+    <div class="ann-badges">
+      <span class="ab ab-c">10 image specs on this page</span>
+      <span class="ab ab-w">Knot photography aesthetic</span>
+      <span class="ab ab-s">Logo licensing to confirm</span>
+    </div>
+  </div>
+  <div class="ann-bd">
+    <div>
+      <div class="ann-col-h c">Image inventory (10 total across the page)</div>
+      <ul class="ann-ul c-li">
+        <li><strong>IMAGE 00</strong> &mdash; Hero atmospheric background. Dark, blurred, blended into navy.</li>
+        <li><strong>IMAGE 01, 02, 03</strong> &mdash; Couple persona cards: engaged, newlyweds, expecting. Knot editorial aesthetic, photographed as a cohesive trio (same photographer/series ideally).</li>
+        <li><strong>IMAGE 04</strong> &mdash; Editorial portrait (cream section). Cinematic, the "moment of pause" feel from TKWW deck cover.</li>
+        <li><strong>IMAGE 05, 06, 07, 08</strong> &mdash; Milestone moments band, post-wedding: first home · first family · real vacation · the next chapter. Aligned 1:1 with the calculator's dream chips so the narrative is consistent across the page.</li>
+        <li><strong>IMAGE 09</strong> &mdash; Wide editorial moment for the "Two Moments. One Partner." band. Mirrors TKWW deck p.10 aesthetic.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h w">Sourcing recommendation</div>
+      <ul class="ann-ul w-li">
+        <li>Commission 1&ndash;2 photographers from The Knot's "Real Weddings" network to shoot the 10 images as a cohesive series. Cost is real but the visual cohesion across the LP is what differentiates this from stock-bank-marketing imagery.</li>
+        <li>Alternative: license from <strong>Stocksy</strong> or <strong>Adobe Stock Premium</strong> with strict art-direction notes matching each spec's "must include" list. Cheaper, faster, slightly more generic.</li>
+        <li>Negotiate with TKWW: their network photographers may license existing Real Wedding content for the partnership at a reduced rate, given they're already invested in the deal.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="ann-col-h s">Logo licensing status (per TKWW deck)</div>
+      <ul class="ann-ul s-li">
+        <li><strong>The Knot Partner badge &amp; The Bump Partner badge</strong> &mdash; explicitly licensed per deck p.14 ("With our Partner badge logos, Axos Bank can use them on your O&amp;O to tout our partnership"). Use confirmed.</li>
+        <li><strong>The Knot + The Bump main wordmarks</strong> &mdash; co-brand usage is the whole point of the deal (deck p.10 "Two Moments. One Partner."). Use confirmed pending contract execution.</li>
+        <li><strong>WeddingWire</strong> &mdash; referenced as channel in deck p.20 (Carousel Unit ad placement). Likely yes for co-brand identity, but confirm with TKWW partnership lead before use.</li>
+        <li><strong>Hitched, bodas.net, The Bash</strong> &mdash; NOT in scope based on current deck. Do not use without addendum.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h b">Required action items before production build</div>
+      <ul class="ann-ul b-li">
+        <li>Request the official Knot and Bump <strong>partner badge SVG assets</strong> + the main brand wordmarks in SVG with transparent backgrounds from TKWW.</li>
+        <li>Request <strong>brand-usage exhibit</strong> in the executed partnership agreement specifying which TKWW marks are licensed for Axos use, at what minimum size, and clearspace rules.</li>
+        <li>Decide on photo sourcing path: commission a custom shoot through TKWW's network, OR license existing Real Wedding content at partnership rate, OR fall back to high-quality stock. Budget impact varies $5K&ndash;$45K depending on path.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     ANNOTATION 1 — Hero rationale
+     ════════════════════════════════════════════════════ -->
+<div class="ann" id="ann-hero">
+  <div class="ann-hd">
+    <span class="ann-name">◆ Hero section</span>
+    <div class="ann-badges">
+      <span class="ab ab-c">Co-brand entry</span>
+      <span class="ab ab-s">Stolen from Wealthfront, Ally</span>
+      <span class="ab ab-b">We beat them</span>
+      <span class="ab ab-t">A/B tests defined</span>
+    </div>
+  </div>
+  <div class="ann-bd">
+    <div>
+      <div class="ann-col-h c">Why a narrative-flow calculator, not a static dashboard</div>
+      <ul class="ann-ul c-li">
+        <li>The card is structured as a story top-to-bottom: <strong>① you're making a smart move → ② here's what you'll deposit → ③ here's what you add together each month → ④ here's how long you'll let it grow → ⑤ here's what it becomes → ⑥ here are the dreams it funds.</strong> Each row has one job, and the punchline (the combined balance) lands at the visual climax.</li>
+        <li><strong>Three-slider model.</strong> Slider 1: lump-sum deposit ($1K-$150K). Slider 2: monthly joint contribution ($0-$2,000/mo, defaults to $0). Slider 3: time horizon (1-10 years). All three feed one big reveal — the combined balance. Cause-and-effect is immediately legible: drag anything right, the reveal grows.</li>
+        <li><strong>Monthly contribution defaults to $0 on purpose.</strong> The base case is honest: just compound the deposit. But the moment someone drags that slider — even to $200/month — the 10-year balance jumps dramatically. That's the "we keep adding to it together" moment. The chart of compounding power, with one finger.</li>
+        <li><strong>The 10-year time slider is intentional.</strong> Five years undersells compounding ($35K → $43K with no contributions). Combine 10 years + $300/month contributions and the same starting balance reaches $96K+. The slider is showing them <em>the value of staying and committing</em> — that's a feature, not a problem. Default lands at year 5.</li>
+        <li><strong>Visual concept: two interlocking gold rings.</strong> Wedding bands are both gold. Universal symbol for "joined" with zero ambiguity, perfectly on-brand for the Knot partnership. Both "You" and "Partner" labels in matching gold — equal partners.</li>
+        <li><strong>Dream chips are inspiration, not interaction.</strong> Below the reveal: Honeymoon · Down payment · First baby · A real vacation · Emergency cushion · The next chapter. These are the answer to "what does this balance become?" — the emotional payoff after the math.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h s">Stolen / inspired by</div>
+      <ul class="ann-ul s-li">
+        <li><strong>Wealthfront:</strong> right-side product preview as hero (vs. left-side text only). Their highest-converting layout.</li>
+        <li><strong>Ally Bank:</strong> embedded above-fold rate calculator with slider UI.</li>
+        <li><strong>Vanguard / Fidelity retirement calculators:</strong> the deposit + monthly + time slider trio. Familiar to anyone who's ever projected a retirement balance.</li>
+        <li><strong>Nerdwallet's compound interest tool:</strong> the single-number reveal with "you earned X" subhead pattern.</li>
+        <li><strong>SoFi:</strong> the "smart move" badge / confidence-building micro-positioning above the input.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="ann-col-h w">Why the math is honest and the framing is safe</div>
+      <ul class="ann-ul w-li">
+        <li><strong>Formula:</strong> monthly compounding loop — for each month over the period, balance = balance × (1 + APY/12) + monthly contribution. This matches Axos's actual compounding cadence on Savings products. Conservative on the contribution timing (end-of-month, not beginning-of-month). The number is defensible to any compliance reviewer.</li>
+        <li><strong>The hero number is the combined balance, not interest earned.</strong> Balance growth is what customers actually care about. "$43,015" beats "you'll earn $8,015 in interest" because it shows what their money <em>becomes</em>, not what's added to it. Interest earned is in the subhead — present but not the headline.</li>
+        <li><strong>The "earned" number is interest only, net of contributions.</strong> If they add $300/mo for 5 years, that $18,000 of contributions isn't counted as "earned" — only the actual interest the APY produces. Honest math, no inflated promise.</li>
+        <li><strong>"Save together, earn more together" is the headline copy</strong> — it implies a doubling effect without making a literal 2x claim. Compliance-clean. The math below proves it: $500K joint FDIC coverage (literally doubled), two paychecks both qualifying at 4.21%, combined balance compounding from a higher base, and now both partners contributing monthly.</li>
+        <li><strong>"More than at the average bank" pill</strong> below the reveal is the comparative kicker. Uses generic "average bank" framing (not named competitors) to avoid FCBA-style claim challenges.</li>
+      </ul>
+      <div class="ann-col-h b" style="margin-top:10px">Where this beats the rest of the category</div>
+      <ul class="ann-ul b-li">
+        <li>Chase, Wells Fargo, BofA: no joint-aware product framing on any LP. Joint accounts are buried in account-type FAQs.</li>
+        <li>Ally: rate-led but not couple-aware. Our angle is structurally unavailable to them without a campaign reskin.</li>
+        <li>Capital One 360: 4.20% on savings only, no checking. Our integrated product means deposits earn from day one.</li>
+        <li>Marcus by Goldman: single-slider calculator. We add both time and recurring-contribution dimensions, which is what makes compounding visceral and "saving together" feel real.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ab-box">
+        <div class="ab-box-title">◆ Recommended A/B tests</div>
+        <div class="ab-test">
+          <div class="ab-test-label">Test 1A &mdash; Headline framing (highest impact)</div>
+          <div class="ab-test-row">Control: <span>"One account. Both of you. 4.21% APY."</span></div>
+          <div class="ab-test-row">Variant A: <span>"The joint account that earns 100x your old bank."</span></div>
+          <div class="ab-test-row">Variant B: <span>"After 'I do,' do this together."</span> (life-stage emotional)</div>
+          <div class="ab-kpi">KPI: hero CTA click rate · scroll depth past hero</div>
+        </div>
+        <div class="ab-test">
+          <div class="ab-test-label">Test 1B &mdash; Hero right-side: card vs. video</div>
+          <div class="ab-test-row">Control: <span>Static joint-account preview card (above)</span></div>
+          <div class="ab-test-row">Variant A: <span>15s loop video of two phones syncing in real-time</span></div>
+          <div class="ab-kpi">KPI: hero engagement time · CTA click</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     HERO
+     ════════════════════════════════════════════════════ -->
+<section class="hero">
+  <!-- Hero background image spec — only renders in Design Review mode so the
+       LP works clean even before the photo is sourced. In production, replace
+       this block with an <img> or <picture> set to position:absolute;inset:0;
+       opacity:.20;mix-blend-mode:luminosity to sit behind the navy gradient. -->
+  <div class="hero-bg-spec">
+    <div class="img-spec">
+      <span class="img-spec-tag">IMAGE 00 · Hero atmospheric background</span>
+      <div class="img-spec-title">Subtle, dark, cinematic editorial image behind the hero gradient.</div>
+      <div class="img-spec-desc">Should add depth and emotional warmth without competing with the headline or the joint-account preview card on the right. Bridal-portrait blur, ballroom chandelier bokeh, a couple silhouetted in a doorway, or two hands close on a quiet moment. Treated with low opacity (~15-20%) and blended into the navy gradient.</div>
+      <div class="img-spec-must">
+        <strong>Must include</strong>
+        <ul>
+          <li>Predominantly dark image (will sit under .15-.20 opacity over navy) — must read at very low brightness</li>
+          <li>Suggestive, not literal — bokeh, silhouette, partial detail</li>
+          <li>Color story biased toward warm gold + deep blue (compatible with navy)</li>
+          <li>16:9 wide format, min 2400px wide</li>
+          <li>Photographer reference: any "real wedding" feature from The Knot photo network</li>
+          <li>Must not have a recognizable face or logo visible (privacy + brand neutrality)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="w">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-eyebrow rv" id="hero-eyebrow">For couples opening a joint account</div>
+        <h1 class="hero-h rv d1" id="hero-h1">One account.<br>Both of you.<br><em>4.21% APY.</em></h1>
+        <p class="hero-sub rv d2" id="hero-sub">
+          The Axos ONE® joint Checking + Savings account is built for the two of you. <strong>4.21% APY*</strong> on combined balances. No monthly fees. <strong>Early paydays</strong> on both your direct deposits. FDIC-insured to <strong>$500,000 jointly.</strong>
+        </p>
+        <div class="hero-rate-row rv d3">
+          <div class="rate-block">
+            <div class="rate-lbl">Joint Savings APY</div>
+            <div class="rate-big"><span class="pct">4.21<span style="font-size:.55em">%</span></span></div>
+          </div>
+          <div class="rate-divider"></div>
+          <div class="rate-block">
+            <div class="rate-lbl">Direct deposit access</div>
+            <div class="rate-big" style="font-size:clamp(28px,4vw,38px);font-weight:600">Up to <em style="font-style:normal;color:var(--accent)">2 days early</em><sup style="font-size:.4em;font-weight:400;color:rgba(255,255,255,.5)">1</sup></div>
+          </div>
+        </div>
+        <div class="hero-ctas rv d4">
+          <a href="#apply" class="btn btn-accent btn-lg" id="hero-cta-btn">Open our joint account</a>
+          <a href="#calculator" class="btn btn-ghost">See what we'd earn</a>
+        </div>
+        <div class="hero-microtrust rv d5">
+          <span>FDIC-insured to $500K joint</span>
+          <span>No monthly fees</span>
+          <span>Open in ~10 minutes</span>
+        </div>
+
+        <!-- Dream chips — inspirational, non-interactive. Moved to left column
+             to fill the vertical gap below the CTAs on desktop. On mobile they
+             stack naturally between the headline block and the calculator card. -->
+        <div class="dreams-block rv d6">
+          <div class="dreams-lbl">All the things this could become</div>
+          <div class="dream-chips">
+            <span class="dream-chip"><span class="dream-chip-dot"></span>Honeymoon</span>
+            <span class="dream-chip"><span class="dream-chip-dot"></span>Down payment</span>
+            <span class="dream-chip"><span class="dream-chip-dot"></span>First baby</span>
+            <span class="dream-chip"><span class="dream-chip-dot"></span>A real vacation</span>
+            <span class="dream-chip"><span class="dream-chip-dot"></span>Emergency cushion</span>
+            <span class="dream-chip"><span class="dream-chip-dot"></span>The next chapter</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right rv d3">
+        <div class="joint-card">
+
+          <!-- The "joint" visual concept: two interlocking gold rings.
+               Wedding bands are both gold. -->
+          <div class="rings-wrap" aria-hidden="true">
+            <svg class="rings-svg" viewBox="0 0 120 60">
+              <circle class="ring-you"     cx="42" cy="30" r="26"/>
+              <circle class="ring-partner" cx="78" cy="30" r="26"/>
+            </svg>
+            <div class="rings-labels">
+              <span class="rings-label you">You</span>
+              <span class="rings-label joint">Joint</span>
+              <span class="rings-label partner">Partner</span>
+            </div>
+          </div>
+
+          <!-- ① The smart move — confidence-building opener -->
+          <div class="smart-move">
+            <div class="smart-rate-badge">4.21% APY · FDIC up to $500K joint</div>
+            <div class="smart-move-h">Save together,<br><em>earn more together.</em></div>
+          </div>
+
+          <!-- ② Step 1 — what you fund the account with -->
+          <div class="slider-row">
+            <div class="slider-row-head">
+              <div class="step-lbl">
+                <span class="step-lbl-num">1</span>
+                <span>Your deposit</span>
+              </div>
+              <div class="slider-value">$<span id="hero-amt">35,000</span></div>
+            </div>
+            <input class="slider-track" id="hero-slider" type="range" min="1000" max="150000" step="500" value="35000" aria-label="Combined deposit amount">
+            <div class="slider-bounds"><span>$1K</span><span>$150K</span></div>
+          </div>
+
+          <!-- ③ Step 2 — what you add together each month -->
+          <div class="slider-row">
+            <div class="slider-row-head">
+              <div class="step-lbl">
+                <span class="step-lbl-num">2</span>
+                <span>Added monthly, together</span>
+              </div>
+              <div class="slider-value">$<span id="hero-monthly">0</span><span class="unit">/mo</span></div>
+            </div>
+            <input class="slider-track" id="hero-contrib" type="range" min="0" max="2000" step="25" value="0" aria-label="Monthly joint contribution">
+            <div class="slider-bounds"><span>$0</span><span>$2,000/mo</span></div>
+          </div>
+
+          <!-- ④ Step 3 — how long you'll let it grow -->
+          <div class="slider-row">
+            <div class="slider-row-head">
+              <div class="step-lbl">
+                <span class="step-lbl-num">3</span>
+                <span>Time horizon</span>
+              </div>
+              <div class="slider-value"><span id="hero-yrs">5</span><span class="unit">years</span></div>
+            </div>
+            <input class="slider-track" id="hero-time" type="range" min="1" max="10" step="1" value="5" aria-label="Time horizon in years">
+            <div class="slider-bounds"><span>1 yr</span><span>10 yrs</span></div>
+          </div>
+
+          <!-- ⑤ The reveal — combined balance + earnings -->
+          <div class="reveal-block">
+            <div class="reveal-lbl">Your combined balance</div>
+            <div class="reveal-val" id="hero-balance">$43,015</div>
+            <div class="reveal-vs">
+              That's <strong id="hero-earned">$8,015</strong> earned <span id="hero-earned-period">in 5 years</span>, just from saving smarter together.
+            </div>
+            <div class="reveal-pill"><span id="hero-vs-delta">$8,000+</span>&nbsp;more than at the average bank</div>
+          </div>
+
+          <button class="joint-card-cta" onclick="document.getElementById('apply').scrollIntoView({behavior:'smooth'})">Open our joint account →</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     TRUST BAR
+     ════════════════════════════════════════════════════ -->
+<div class="trust-bar">
+  <div class="w">
+    <div class="trust-grid">
+      <div class="trust-item">
+        <div class="trust-num"><em>$500K</em></div>
+        <div class="trust-lbl">FDIC insured (joint)</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num"><em>25</em> years</div>
+        <div class="trust-lbl">Born digital</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">$28.2<em>B</em></div>
+        <div class="trust-lbl">In assets</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num"><em>$0</em></div>
+        <div class="trust-lbl">Monthly maintenance fees</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-num">10 min</div>
+        <div class="trust-lbl">Avg. open time</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     WEDDING MOMENTS BAND
+     Editorial strip of 4 small image specs — between trust
+     bar and stat strip. Builds the Knot mood without
+     interrupting the rate-and-trust narrative.
+     ════════════════════════════════════════════════════ -->
+<div class="moments-band">
+  <div class="moments-band-h">Built for the milestones that come <em>after</em> "I do" — the first home, the first family, the first real vacation, the next chapter.</div>
+  <div class="moments-grid">
+
+    <div class="img-spec rv d1">
+      <span class="img-spec-tag">IMAGE 05 · The first home</span>
+      <div class="img-spec-title">House keys, a front porch, or two hands on a SOLD sign.</div>
+      <div class="img-spec-desc">The "we did it together" moment of closing on a first home. Editorial, candid, warm. Pairs with the down-payment dream chip and the house calculator goal. Should not look like a real-estate listing photo.</div>
+      <div class="img-spec-must">
+        <strong>Must include</strong>
+        <ul>
+          <li>One of: house keys exchanging hands · front-porch perspective from inside · couple's backs as they unlock a door · a SOLD rider on a yard sign</li>
+          <li>Modest, attainable home aesthetic — not aspirational mansion. Craftsman, townhouse, modern starter — believable for a $138K HHI couple.</li>
+          <li>Warm natural light, late-afternoon or morning golden hour</li>
+          <li>1:1 ratio min 1200px</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="img-spec rv d2">
+      <span class="img-spec-tag">IMAGE 06 · The first family</span>
+      <div class="img-spec-title">Baby on the way or just arrived — implication, not depiction.</div>
+      <div class="img-spec-desc">The pivot from Knot to Bump as the 12-month editorial flight continues. Quiet, intimate, no human faces required. Pairs with the baby-fund dream chip. Style cue: The Bump's brand photography.</div>
+      <div class="img-spec-must">
+        <strong>Must include</strong>
+        <ul>
+          <li>One of: nursery-prep moment (folding onesies, crib being assembled, sonogram on a fridge) · small shoes lined up by a doorway · two hands resting on a visible bump</li>
+          <li>Light, airy, soft natural daylight — same color story as image 05 for cohesion</li>
+          <li>No baby's face in frame — implication, not depiction (privacy + universality)</li>
+          <li>1:1 ratio min 1200px</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="img-spec rv d3">
+      <span class="img-spec-tag">IMAGE 07 · The real vacation</span>
+      <div class="img-spec-title">Travel-as-feeling — the trip they can finally take because the math works.</div>
+      <div class="img-spec-desc">Not a honeymoon — a vacation they planned and funded together as a married couple. Suggestive, not literal "beach couple selfie." Pairs with the vacation dream chip.</div>
+      <div class="img-spec-must">
+        <strong>Must include</strong>
+        <ul>
+          <li>Travel cue: passport open on a hotel bed, view from a window seat at altitude, infinity-pool edge, a hand on a rented-car steering wheel on a mountain road</li>
+          <li>Optional: two glasses on a table by a view, two pairs of shoes at the edge of a balcony</li>
+          <li>Warm/golden tones — sunset, soft window light — not harsh midday</li>
+          <li>1:1 ratio min 1200px</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="img-spec rv d4">
+      <span class="img-spec-tag">IMAGE 08 · The next chapter</span>
+      <div class="img-spec-title">A quiet domestic moment — the daily life their joint account is funding.</div>
+      <div class="img-spec-desc">The unglamorous, deeply earned payoff: a Sunday morning kitchen, mugs on a counter, a dog at the door, a couple on a sofa with a notebook. The "this is what we built together" feeling. Closes the milestone arc with a moment of settled-in calm.</div>
+      <div class="img-spec-must">
+        <strong>Must include</strong>
+        <ul>
+          <li>One of: two coffee mugs on a wooden counter at sunrise · couple's hands holding a planner or a calendar at a kitchen island · feet on an ottoman with a shared blanket · keys-and-wedding-bands resting on an entryway tray</li>
+          <li>Lived-in home aesthetic — actual home, not staged real estate. Imperfect, real, warm.</li>
+          <li>Color palette compatible with the cream section background</li>
+          <li>1:1 ratio min 1200px</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     PARTNER LOGO WALL — establishes co-brand credibility
+     ════════════════════════════════════════════════════ -->
+<div class="logo-wall">
+  <div class="logo-wall-h">The Knot Worldwide partnership · FY2027 evergreen</div>
+  <div class="logo-wall-strip">
+    <div class="logo-wall-item">
+      <span class="logo-wall-mark">the knot</span>
+      <span class="logo-wall-meta">Featured Bank Partner</span>
+    </div>
+    <div class="logo-wall-item">
+      <span class="logo-wall-mark bold">the<span style="font-weight:300">BUMP</span></span>
+      <span class="logo-wall-meta">Featured Bank Partner</span>
+    </div>
+    <div class="logo-wall-item">
+      <span class="logo-wall-mark bold" style="font-size:.85em">WEDDING<span class="ww-wire">WIRE</span></span>
+      <span class="logo-wall-meta">Real Couples Series</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     ANNOTATION 2 — Stat strip rationale
+     ════════════════════════════════════════════════════ -->
+<div class="ann" id="ann-stats">
+  <div class="ann-hd">
+    <span class="ann-name">◆ "Why Knot couples switch" stat strip</span>
+    <div class="ann-badges">
+      <span class="ab ab-c">Knot proprietary data</span>
+      <span class="ab ab-w">The 39% insight, weaponized</span>
+      <span class="ab ab-s">Proves Axos belongs in this conversation</span>
+    </div>
+  </div>
+  <div class="ann-bd">
+    <div>
+      <div class="ann-col-h c">Why these three stats and not others</div>
+      <ul class="ann-ul c-li">
+        <li><strong>39%</strong> &mdash; the bank-switching propensity index. This is THE number from the Knot media kit. We make it the LP's single most important data point.</li>
+        <li><strong>75%</strong> &mdash; honeymoon savers. Concrete: lets us tell the visitor "you and 3 of every 4 couples on this site are doing the same thing." Permission-granting.</li>
+        <li><strong>62%</strong> &mdash; first-house savers. Anchors the second use-case for the joint Savings (after honeymoon: house downpayment).</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h w">Source-citation strategy</div>
+      <ul class="ann-ul w-li">
+        <li>Each stat cites its actual source (Knot Real Weddings Study, Knot Couples Finance Study) in microcopy below the card. Knot users are data-literate; they will check.</li>
+        <li>Citing The Knot's own research <em>back to a Knot user</em> is rhetorically powerful &mdash; it's their data telling them why they're here.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="ann-col-h s">Stolen / inspired by</div>
+      <ul class="ann-ul s-li">
+        <li><strong>Robinhood early LP work:</strong> giant-number stat cards as social proof, with attribution.</li>
+        <li><strong>Wise (TransferWise) homepage:</strong> three-card stat layout with hover-state shadow lift.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ab-box">
+        <div class="ab-box-title">◆ Recommended A/B tests</div>
+        <div class="ab-test">
+          <div class="ab-test-label">Test 2A &mdash; Stat-card framing</div>
+          <div class="ab-test-row">Control: <span>Three Knot data points (above)</span></div>
+          <div class="ab-test-row">Variant A: <span>Replace third card with Axos-side stat: "$28.2B in deposits, 25 years digital, FDIC #35546"</span></div>
+          <div class="ab-kpi">KPI: scroll past stat strip · CTA click rate downstream</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 1 — Why Knot couples are switching
+     ════════════════════════════════════════════════════ -->
+<section>
+  <div class="w">
+    <div class="sec-eye rv">The data</div>
+    <h2 class="sh rv d1">Couples on The Knot are<br>switching banks. <em>So why not now?</em></h2>
+    <p class="ssub rv d2">The wedding planning window is the single biggest financial-decision moment of most couples' lives. Combining accounts, choosing where to keep wedding gifts, opening the honeymoon fund, starting the house savings &mdash; it all happens here. The data is on your side.</p>
+
+    <div class="stat-strip">
+      <div class="stat-card rv d1">
+        <div class="stat-num"><em>39%</em></div>
+        <div class="stat-lbl">more likely than the general population to switch their bank during this life stage.</div>
+        <div class="stat-src">Source: Comscore / MRI-Simmons Fusion, The Knot users (Feb–Dec 2025)</div>
+      </div>
+      <div class="stat-card rv d2">
+        <div class="stat-num"><em>75%</em></div>
+        <div class="stat-lbl">of Knot couples are saving for their honeymoon at the start of wedding planning.</div>
+        <div class="stat-src">Source: The Knot 2024 Couples Finance & Budgeting Study</div>
+      </div>
+      <div class="stat-card rv d3">
+        <div class="stat-num"><em>62%</em></div>
+        <div class="stat-lbl">are saving for their first house at the same time. Most need a high-yield home for the cash, fast.</div>
+        <div class="stat-src">Source: The Knot 2024 Couples Finance & Budgeting Study</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     ANNOTATION 3 — Couple personas
+     ════════════════════════════════════════════════════ -->
+<div class="ann" id="ann-personas">
+  <div class="ann-hd">
+    <span class="ann-name">◆ "Three couples" persona section</span>
+    <div class="ann-badges">
+      <span class="ab ab-c">Editorial Knot DNA</span>
+      <span class="ab ab-w">Self-identification mechanic</span>
+      <span class="ab ab-s">Bridges Knot → Bump audiences</span>
+      <span class="ab ab-t">Persona highlight via UTM</span>
+    </div>
+  </div>
+  <div class="ann-bd">
+    <div>
+      <div class="ann-col-h c">Why this is the section that does the most work</div>
+      <ul class="ann-ul c-li">
+        <li>Knot users span three life-stages: <strong>engaged · just married · expecting first child</strong>. The deck explicitly positions Knot+Bump as "Two Moments. One Partner." We mirror that here so the LP serves the entire 12-month evergreen funnel.</li>
+        <li>Each card lets a visitor self-identify in &lt;3 seconds. Self-identification is the highest-conversion mechanic on a multi-segment LP because the visitor pre-qualifies themselves.</li>
+        <li>Each card ends with a <strong>specific Axos product fit</strong> (joint savings goal, joint checking for shared bills, savings transfers for baby). The persona is the entry point, the product is the exit.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h w">Image direction (editorial Knot, not stock-couple)</div>
+      <ul class="ann-ul w-li">
+        <li>The Knot's photography style is <strong>editorial, candid, slightly cinematic</strong> &mdash; warm light, real venues, real intimacy. Not "smiling at laptop" stock.</li>
+        <li>Our image specs (visible inline) describe <em>exactly</em> what each photo must contain: the couple's life-stage cue, lighting, mood, mandatory props. This is what we'd hand to a Knot photo editor or a stock-licensing brief.</li>
+        <li>The third image (expecting couple) is the bridge to The Bump. A subtle but important signal that this LP is the entry to a 12-month relationship, not a one-shot wedding pitch.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="ann-col-h s">Persona highlight via UTM (dynamic)</div>
+      <ul class="ann-ul s-li">
+        <li><strong>Knot editorial article</strong> sources highlight the engaged-couple card.</li>
+        <li><strong>The Bump article / Real Parent Crew</strong> sources highlight the expecting-couple card and rewrite the hero.</li>
+        <li><strong>Default / unknown source:</strong> all three shown equally. Visitor self-selects.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h b">Where this beats the rest of the category</div>
+      <ul class="ann-ul b-li">
+        <li>No bank LP segments by life-stage this way. Most show one persona ("the saver") or none. We show the actual journey, in order.</li>
+        <li>SoFi and Marcus use lifestyle labels ("the dreamer", "the planner"). We use <strong>life events</strong> &mdash; concrete, time-anchored, action-triggering.</li>
+      </ul>
+      <div class="ab-box" style="margin-top:11px">
+        <div class="ab-box-title">◆ Recommended A/B tests</div>
+        <div class="ab-test">
+          <div class="ab-test-label">Test 3A &mdash; Card count</div>
+          <div class="ab-test-row">Control: <span>3 cards (engaged, married, expecting)</span></div>
+          <div class="ab-test-row">Variant A: <span>4 cards (add "house-shopping" between married and expecting)</span></div>
+          <div class="ab-kpi">KPI: scroll engagement · downstream form-start rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 2 — Couples
+     ════════════════════════════════════════════════════ -->
+<section class="cream">
+  <div class="w">
+    <div class="sec-eye rv">For wherever you are</div>
+    <h2 class="sh rv d1">Built for the couples we meet on <em>The Knot</em></h2>
+    <p class="ssub rv d2">Engaged. Just married. Expecting. Wherever the two of you are right now, your money should be working at least as hard as you are.</p>
+
+    <div class="couple-grid">
+
+      <!-- Couple 1: Engaged -->
+      <div class="couple-card rvl d1" id="couple-1">
+        <div class="couple-img-wrap">
+          <span class="couple-stage">The engagement</span>
+          <div class="img-spec ratio-4-3">
+            <span class="img-spec-tag">IMAGE 01 · Engaged couple</span>
+            <div class="img-spec-title">Mid-twenties to early-thirties couple, recently engaged, candid editorial moment.</div>
+            <div class="img-spec-desc">Style cue: The Knot editorial photography &mdash; warm natural light, slight film grain, candid intimacy (not "smiling at camera"). Setting suggests planning mode: kitchen table with laptop and notepad, or sofa with magazines, or backyard with phone showing a venue.</div>
+            <div class="img-spec-must">
+              <strong>Mandatory elements</strong>
+              <ul>
+                <li>Engagement ring visibly on left hand (close enough to recognize, not the focal point)</li>
+                <li>One body in soft focus, one sharper &mdash; intimate, two-person frame</li>
+                <li>Warm color grade, golden-hour or window-light look</li>
+                <li>Real-couple energy, not posed stock-photo poses</li>
+                <li>Diversity of representation across the three couple cards collectively</li>
+                <li>Aspect ratio 4:3, min 1600px wide for crisp retina rendering</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="couple-body">
+          <div class="couple-name">Sarah & Marcus</div>
+          <div class="couple-meta">Engaged · Saving for the wedding + honeymoon</div>
+          <p class="couple-quote">We have wedding deposits coming out of three accounts. We need one place where everything we save for the wedding actually earns something.</p>
+          <div class="couple-needs">
+            <div class="couple-need-row"><strong>Joint Savings</strong> for the honeymoon fund</div>
+            <div class="couple-need-row"><strong>Joint Checking</strong> for vendor deposits</div>
+            <div class="couple-need-row"><strong>4.21% APY</strong> turning the wait into yield</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Couple 2: Just married -->
+      <div class="couple-card rv d2" id="couple-2">
+        <div class="couple-img-wrap">
+          <span class="couple-stage">Just married</span>
+          <div class="img-spec ratio-4-3">
+            <span class="img-spec-tag">IMAGE 02 · Newlyweds</span>
+            <div class="img-spec-title">Couple in the first 90 days post-wedding, combining lives logistically.</div>
+            <div class="img-spec-desc">Style cue: A "Sunday morning, sorting it all out" energy. Coffee on the counter, mail and a small stack of wedding cards/checks, laptop open. Not literal &mdash; suggestive. Lifestyle editorial, not transactional.</div>
+            <div class="img-spec-must">
+              <strong>Mandatory elements</strong>
+              <ul>
+                <li>Wedding bands visible on both ring fingers</li>
+                <li>One subtle "we just got married" cue: a thank-you card, a wedding cake topper on a shelf, a framed photo just placed on the counter</li>
+                <li>Both partners present in frame, side-by-side or one behind the other</li>
+                <li>Modern home interior, not staged-real-estate &mdash; lived in</li>
+                <li>Should pair visually with image 01 (similar light temperature, same photographer ideally)</li>
+                <li>Aspect ratio 4:3, min 1600px wide</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="couple-body">
+          <div class="couple-name">Priya & Daniel</div>
+          <div class="couple-meta">Newlyweds · Combining accounts · House downpayment fund</div>
+          <p class="couple-quote">We came back from Italy with $14,000 in wedding gifts and no good place to put it. Our old bank pays 0.01%. That's literally a rounding error.</p>
+          <div class="couple-needs">
+            <div class="couple-need-row"><strong>Joint Checking</strong> for shared bills, rent, utilities</div>
+            <div class="couple-need-row"><strong>House fund</strong> in Joint Savings at 4.21%</div>
+            <div class="couple-need-row">Wedding gift cash <strong>earning from day one</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Couple 3: Expecting -->
+      <div class="couple-card rvr d3" id="couple-3">
+        <div class="couple-img-wrap">
+          <span class="couple-stage">Expecting</span>
+          <div class="img-spec ratio-4-3">
+            <span class="img-spec-tag">IMAGE 03 · Expecting couple (Bump bridge)</span>
+            <div class="img-spec-title">Couple in second/third trimester. The "now we're three" moment.</div>
+            <div class="img-spec-desc">Style cue: The Bump's brand photography (see media kit p.7&ndash;9). Warm, intimate, slightly editorial. One partner with visible bump, the other partner present and engaged &mdash; a hand on the bump, or both looking at a tablet with a budget app, or organizing a nursery. Not medical, not commercial &mdash; quiet domestic moment.</div>
+            <div class="img-spec-must">
+              <strong>Mandatory elements</strong>
+              <ul>
+                <li>Visible pregnancy bump (mid-second trimester or later, clear silhouette)</li>
+                <li>Both partners in frame, one close to or touching the bump</li>
+                <li>One subtle "saving for the future" cue: nursery prep in background, a calculator, a notebook with budget categories</li>
+                <li>Same color/light treatment as images 01 and 02 to keep the trio cohesive</li>
+                <li>Diversity of representation: the three couples should not all look the same demographic</li>
+                <li>Aspect ratio 4:3, min 1600px wide</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="couple-body">
+          <div class="couple-name">Maya & Jordan</div>
+          <div class="couple-meta">Expecting first baby · College fund opener · Already on Axos for 18 months</div>
+          <p class="couple-quote">Adding the savings sub-account took us four minutes. We named it "Baby F." It's already growing while we're still picking out a crib.</p>
+          <div class="couple-needs">
+            <div class="couple-need-row">Add a <strong>named savings goal</strong> for baby</div>
+            <div class="couple-need-row"><strong>4.21% APY</strong> from day one of pregnancy</div>
+            <div class="couple-need-row">Open a <strong>529 College Savings</strong> via Axos Invest</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     ANNOTATION 4 — Feature grid rationale
+     ════════════════════════════════════════════════════ -->
+<div class="ann" id="ann-features">
+  <div class="ann-hd">
+    <span class="ann-name">◆ "Built for two" feature grid &mdash; the Axos ONE pitch</span>
+    <div class="ann-badges">
+      <span class="ab ab-c">All four are couple-relevant</span>
+      <span class="ab ab-w">Each fights a specific objection</span>
+      <span class="ab ab-s">Reframed from solo HYSA marketing</span>
+    </div>
+  </div>
+  <div class="ann-bd">
+    <div>
+      <div class="ann-col-h c">Why these four features (and not, say, "biometric login")</div>
+      <ul class="ann-ul c-li">
+        <li>Every Axos ONE feature on the live site is reframed for two people. The product hasn't changed &mdash; the framing has.</li>
+        <li><strong>4.21% APY</strong> &mdash; the headline number. Stays first because it's what they're comparing.</li>
+        <li><strong>Early paydays for both</strong> &mdash; this is uniquely Axos and uniquely valuable to dual-income couples. Two paychecks, both early. No competitor matches.</li>
+        <li><strong>FDIC up to $500K joint</strong> &mdash; addresses the "wedding gift influx" objection ("can my $50K cash gifts even fit safely?"). Yes. Doubled coverage on joint accounts is a real bank-product advantage that couples don't know about.</li>
+        <li><strong>$0 monthly fees</strong> &mdash; standard table-stakes but worth saying explicitly. Big-bank checking accounts charge $12&ndash;$25/mo, often waived only by direct deposit minimums that one partner alone can't trigger.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h w">Why card 1 is "featured" (dark navy treatment)</div>
+      <ul class="ann-ul w-li">
+        <li>The 4.21% APY card gets the dark/promoted treatment because it's the rate the visitor is comparing against the competitor tab they have open.</li>
+        <li>Visual hierarchy: dark > light. The visitor's eye lands on the rate first, then takes in the supporting features.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="ann-col-h s">Stolen / inspired by</div>
+      <ul class="ann-ul s-li">
+        <li><strong>Apple's product-page feature grid:</strong> equal-weight cards with one "hero" card visually elevated.</li>
+        <li><strong>Stripe homepage:</strong> tight feature grid with iconography that doesn't try too hard &mdash; geometric, not illustrative.</li>
+        <li><strong>Wealthfront cash account page:</strong> "what matters about a cash account" framing &mdash; we adapted to "what matters about a joint account."</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ab-box">
+        <div class="ab-box-title">◆ Recommended A/B tests</div>
+        <div class="ab-test">
+          <div class="ab-test-label">Test 4A &mdash; Featured-card content</div>
+          <div class="ab-test-row">Control: <span>4.21% APY card is featured (dark)</span></div>
+          <div class="ab-test-row">Variant A: <span>Early paydays card is featured (it's the rarer, stickier benefit)</span></div>
+          <div class="ab-test-row">Variant B: <span>FDIC $500K joint card is featured (trust-led)</span></div>
+          <div class="ab-kpi">KPI: hero CTA click rate · application start rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 3 — Built for two (feature grid)
+     ════════════════════════════════════════════════════ -->
+<section>
+  <div class="w">
+    <div class="sec-eye rv">Built for two</div>
+    <h2 class="sh rv d1">Why a joint Axos ONE® works for couples like <em>both of you.</em></h2>
+    <p class="ssub rv d2">Most banks treat joint accounts like an afterthought. Axos ONE was built for the way two people actually share money — combined balances, dual direct deposits, doubled FDIC protection, zero monthly fees.</p>
+
+    <div class="feat-grid">
+
+      <div class="feat-card featured rv d1">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <div class="feat-num"><em>4.21%</em> APY*</div>
+        <div class="feat-h">On combined Savings balances</div>
+        <p class="feat-desc">Axos ONE® Savings pays 4.21% APY* on the first $249,999.99 with qualifying deposits. With both your direct deposits, it's easier to qualify and stay qualified than with a solo account.</p>
+        <a href="#calculator" class="feat-link">See your earnings</a>
+      </div>
+
+      <div class="feat-card rv d2">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+        </div>
+        <div class="feat-num">Up to <em>2 days</em></div>
+        <div class="feat-h">Both paydays. Earlier.<sup style="font-size:.5em;font-weight:400">1</sup></div>
+        <p class="feat-desc">Axos ONE® gets your direct deposits to you up to two days earlier than traditional banking. Two paychecks. Both early. No coordination required.</p>
+        <a href="#how" class="feat-link">How it works</a>
+      </div>
+
+      <div class="feat-card rv d3">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="feat-num"><em>$500K</em></div>
+        <div class="feat-h">FDIC insured (joint)</div>
+        <p class="feat-desc">Joint accounts get double the FDIC coverage of single accounts &mdash; up to $500,000 protected. Need more? InsureGuard+ covers up to $265M through IntraFi® Network Deposits℠.</p>
+        <a href="#" class="feat-link">Learn about InsureGuard+</a>
+      </div>
+
+      <div class="feat-card rv d4">
+        <div class="feat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </div>
+        <div class="feat-num"><em>$0</em></div>
+        <div class="feat-h">Monthly maintenance fees</div>
+        <p class="feat-desc">No monthly fees. No minimum balance. No "must have direct deposit of $X" gotcha. The kind of math that should be table stakes &mdash; and somehow isn't, at most banks.</p>
+        <a href="#" class="feat-link">Compare to your bank</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     ANNOTATION 5 — Goal calculator
+     ════════════════════════════════════════════════════ -->
+<div class="ann" id="ann-calc">
+  <div class="ann-hd">
+    <span class="ann-name">◆ Joint goal calculator &mdash; the "make it real" moment</span>
+    <div class="ann-badges">
+      <span class="ab ab-c">Self-authored numbers</span>
+      <span class="ab ab-w">Three goal modes (honeymoon, house, baby)</span>
+      <span class="ab ab-s">Compare against three banks</span>
+      <span class="ab ab-t">Pre-fill via UTM/CDP</span>
+    </div>
+  </div>
+  <div class="ann-bd">
+    <div>
+      <div class="ann-col-h c">Why a goal-aware calculator beats a generic APY calculator</div>
+      <ul class="ann-ul c-li">
+        <li>Generic HYSA calculators ask "how much money do you have?" That's a wealth check, which feels presumptuous. Knot users have <em>goals</em>, not balances.</li>
+        <li>The three tabs &mdash; <strong>Honeymoon · House · Baby</strong> &mdash; map exactly to the Knot+Bump audience financial goals (75% / 62% / 38% from the media kit).</li>
+        <li>Each tab pre-fills a sensible default ($25K honeymoon, $60K downpayment, $20K baby fund) and lets the visitor adjust. Defaults anchor; sliders engage.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h w">Why competitor comparison stays explicit</div>
+      <ul class="ann-ul w-li">
+        <li>Showing four banks' annual yield side-by-side lets the visitor's brain do the work. <strong>"$1,053 vs. $2.50"</strong> is more persuasive than "high APY."</li>
+        <li>Comparison rates listed are public and reasonably current (Q2 2026). Compliance review needed before live to confirm the methodology is FCBA-safe (no specific competitor APY claims that could be challenged).</li>
+        <li>If compliance is uncomfortable with named competitors, fallback: "Big Bank average," "Online bank average," with a footnote citing the source. Less vivid but defensible.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="ann-col-h s">Pre-fill behavior by visitor scenario</div>
+      <ul class="ann-ul s-li">
+        <li><strong>Knot editorial article:</strong> Honeymoon tab active, $25,000 default.</li>
+        <li><strong>Bump source:</strong> Baby tab active, $20,000 default.</li>
+        <li><strong>High-balance prospect (CDP):</strong> House tab active, $100,000 default.</li>
+        <li><strong>Default:</strong> Honeymoon tab active, $25,000 default (matches Knot 2024 study median).</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ab-box">
+        <div class="ab-box-title">◆ Recommended A/B tests</div>
+        <div class="ab-test">
+          <div class="ab-test-label">Test 5A &mdash; Comparison vs. visualization</div>
+          <div class="ab-test-row">Control: <span>4-bank yield comparison table (above)</span></div>
+          <div class="ab-test-row">Variant A: <span>Animated growth chart over 1, 3, 5 years</span></div>
+          <div class="ab-test-row">Variant B: <span>Both side-by-side</span></div>
+          <div class="ab-kpi">KPI: calculator interaction time · downstream CTA click</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 4 — Goal calculator
+     ════════════════════════════════════════════════════ -->
+<section class="gray" id="calculator">
+  <div class="w">
+    <div class="sec-eye rv">Make it real</div>
+    <h2 class="sh rv d1">What would the two of you <em>actually earn?</em></h2>
+    <p class="ssub rv d2">Pick what you're saving for. Tell us how much. Watch the difference between Axos ONE and your current bank in real time.</p>
+
+    <div class="goal-calc-wrap rv d3">
+      <div class="gc-left">
+        <div class="gc-eyebrow">What we're saving for</div>
+        <h3 class="gc-h">Pick your goal — we'll show you what it earns.</h3>
+        <p class="gc-sub">Most couples on The Knot are juggling all three. Switch tabs to compare.</p>
+
+        <div class="gc-tabs">
+          <button class="gc-tab active" onclick="setGoal('honeymoon', this)" data-amt="25000">Honeymoon fund</button>
+          <button class="gc-tab" onclick="setGoal('house', this)" data-amt="60000">House downpayment</button>
+          <button class="gc-tab" onclick="setGoal('baby', this)" data-amt="20000">Baby fund</button>
+        </div>
+
+        <div class="gc-input-block">
+          <div class="gc-input-lbl">Combined savings amount</div>
+          <div class="gc-input-wrap">
+            <span class="gc-pre">$</span>
+            <input class="gc-input" id="gc-amt" type="number" value="25000" min="0" max="500000" step="1000" inputmode="numeric" aria-label="Savings amount">
+          </div>
+          <div class="gc-slider-wrap">
+            <input class="gc-slider" id="gc-slider" type="range" min="0" max="250000" step="1000" value="25000" aria-label="Adjust amount">
+            <div class="gc-slider-vals">
+              <span>$0</span>
+              <span>$50K</span>
+              <span>$100K</span>
+              <span>$150K</span>
+              <span>$200K</span>
+              <span>$250K</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="gc-right">
+        <div class="gc-result-eyebrow">Your annual earnings</div>
+        <div class="gc-result-h">A joint <strong>Axos ONE® Savings</strong> account at 4.21% APY would earn:</div>
+        <div class="gc-result-num" id="gc-result-num">$1,053</div>
+        <div class="gc-result-sub" id="gc-result-sub">per year, on $25,000 in your <strong>honeymoon fund</strong>. Compared to:</div>
+
+        <div class="gc-compare">
+          <div class="gc-compare-h">vs. typical alternatives</div>
+          <div class="gc-compare-row">
+            <span class="gc-compare-bank">Chase Savings <span class="gc-compare-rate">0.01% APY</span></span>
+            <span class="gc-compare-earn" id="gc-chase">$2.50</span>
+          </div>
+          <div class="gc-compare-row">
+            <span class="gc-compare-bank">Bank of America Advantage Savings <span class="gc-compare-rate">0.01% APY</span></span>
+            <span class="gc-compare-earn" id="gc-boa">$2.50</span>
+          </div>
+          <div class="gc-compare-row">
+            <span class="gc-compare-bank">Capital One 360 Performance Savings <span class="gc-compare-rate">3.50% APY</span></span>
+            <span class="gc-compare-earn" id="gc-cap1">$875</span>
+          </div>
+          <div class="gc-compare-row us">
+            <span class="gc-compare-bank us">Axos ONE® Savings <span class="gc-compare-rate" style="color:rgba(238,171,92,.7)">4.21% APY*</span></span>
+            <span class="gc-compare-earn" id="gc-us">$1,053</span>
+          </div>
+        </div>
+
+        <div class="gc-cta-row">
+          <a href="#apply" class="btn btn-accent">Open our joint Savings →</a>
+          <a href="#" class="btn btn-ghost" style="color:var(--navy);border-color:var(--border-strong)">See full APY terms</a>
+        </div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:var(--gray-mid);margin-top:14px;line-height:1.5;max-width:820px">
+      * APY accurate as of 5/9/2026. Comparison rates: Chase Savings standard rate, Bank of America Advantage Savings standard rate, Capital One 360 Performance Savings (Q2 2026). Rates for non-Axos accounts shown are standard published rates and may not reflect promotional or relationship-based pricing. APY is variable and may change.
+    </p>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     ANNOTATION 6 — Editorial / "as featured" strip
+     ════════════════════════════════════════════════════ -->
+<div class="ann" id="ann-editorial">
+  <div class="ann-hd">
+    <span class="ann-name">◆ Editorial trust strip &mdash; reinforce the Knot partnership</span>
+    <div class="ann-badges">
+      <span class="ab ab-c">Mid-page trust beat</span>
+      <span class="ab ab-w">Knot-style typography only here</span>
+      <span class="ab ab-s">Sets up partner-content link strategy</span>
+    </div>
+  </div>
+  <div class="ann-bd">
+    <div>
+      <div class="ann-col-h c">Why this section exists</div>
+      <ul class="ann-ul c-li">
+        <li>The visitor is now ~60% through the page. They've seen Axos branding, rate, features, comparison. The mid-page risk: <strong>"is this just an ad?"</strong></li>
+        <li>This section's job: re-establish the editorial authority of <em>The Knot</em>. The voice, typography (Georgia italic, Knot-style), and color (cream + Knot green) shift to feel like Knot editorial content, not bank marketing.</li>
+        <li>It also seeds the year-long content flight from the Knot media kit (p.12&ndash;19): articles, sponsored Pinterest, sponsored TikTok, Real Parent Crew videos. This is where they all come back to. Each piece can deep-link to a custom UTM scenario on this page.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h w">The Knot vs. Axos voice trade-off</div>
+      <ul class="ann-ul w-li">
+        <li>Above this section: Axos voice (direct, confident, plainspoken). Below: Axos voice resumes.</li>
+        <li>This is the one section where the Knot voice borrows the mic &mdash; serif italic, editorial sentence structure, lifestyle warmth. Then we hand it back.</li>
+        <li>This contrast is intentional. The page should feel like a partnership, not a co-branded mush.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="ann-col-h s">Stolen from</div>
+      <ul class="ann-ul s-li">
+        <li><strong>Vanguard's "How we think about money":</strong> a typography shift mid-page that signals "this part is editorial, not selling."</li>
+        <li><strong>The Knot's actual sponsored content units:</strong> "Sponsored by [Brand]" header pattern (see deck p.12).</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h b">Where this beats just a logo wall</div>
+      <ul class="ann-ul b-li">
+        <li>Most LPs put a logo wall ("As seen in: NYT · WSJ · Forbes"). That's third-party. We're <strong>first-party</strong> with The Knot &mdash; the credibility is structural, not borrowed.</li>
+        <li>The publication strip below ties Axos to the actual editorial outlets (Knot, Bump, WeddingWire, Hitched) that the visitor knows. Direct.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 5 — Editorial trust strip
+     ════════════════════════════════════════════════════ -->
+<section class="cream">
+  <div class="w">
+    <div class="editorial-strip">
+      <div class="es-image rv d1">
+        <div class="img-spec ratio-2-3">
+          <span class="img-spec-tag">IMAGE 04 · Editorial moment</span>
+          <div class="img-spec-title">Hero editorial portrait — newlyweds, the morning after</div>
+          <div class="img-spec-desc">Style cue: pulled directly from The Knot's editorial photography aesthetic (see TKWW deck p.1, p.11). Dark, cinematic, slightly moody. Couple in elevated formalwear (groom in tux, bride in slip dress or robe), candid intimate moment. This is the image that does the most work — it's the only photo on the page treated like an editorial spread, not a product shot.</div>
+          <div class="img-spec-must">
+            <strong>Mandatory elements</strong>
+            <ul>
+              <li>Cinematic lighting — dramatic, not flat. Velvet/silk textures benefit.</li>
+              <li>Couple in candid intimacy — gaze, touch, laughter — not posed</li>
+              <li>Color palette dominated by deep blue, gold, cream — pulls toward the cream section background</li>
+              <li>Aspect ratio 2:3 (portrait), min 1600px tall</li>
+              <li>Photographer reference: any of the photographers in The Knot's "Real Weddings" feature pool</li>
+              <li>Critical: same emotional register as TKWW deck p.1 cover image</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="es-content rv d2">
+        <h3>"Built for the moments that change everything else."</h3>
+        <p>From the engagement, through the wedding, and into the first house and the first child — the partnership between Axos Bank and The Knot is built around the financial moments that matter most. Smart joint accounts that keep up with two people's lives. High-yield savings that turn the wait between milestones into actual money. And digital tools that let you both see everything, decide everything, together.</p>
+        <p style="color:var(--gray);font-size:13px">The 12-month editorial flight covers honeymoon savings, post-wedding finance combination, first-home downpayments, and the transition from couple to family — across The Knot, The Bump, WeddingWire, and Hitched.</p>
+        <div class="es-pubs">
+          <div class="es-pub"><strong>The Knot</strong>Featured Bank Partner</div>
+          <div class="es-pub"><strong>The Bump</strong>Featured Bank Partner</div>
+          <div class="es-pub"><strong>WeddingWire</strong>Real Couples Series</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     "TWO MOMENTS. ONE PARTNER." WIDE EDITORIAL BAND
+     Mirrors TKWW deck p.10. Cinematic split between Knot
+     wedding moment and Bump expecting moment. Creates a
+     visual breath between editorial trust and the
+     pragmatic "how it works" section.
+     ════════════════════════════════════════════════════ -->
+<section class="wide-band" style="border-bottom:none;padding:0">
+  <div class="wide-band-inner">
+
+    <div class="wide-band-img">
+      <div class="img-spec">
+        <span class="img-spec-tag">IMAGE 09 · Editorial wide moment</span>
+        <div class="img-spec-title">Cinematic wide-shot: a couple in a quiet post-celebration moment.</div>
+        <div class="img-spec-desc">Direct visual echo of TKWW deck page 10 ("Two Moments. One Partner."). Editorial wedding photography aesthetic — moody, intimate, expensive-looking. The couple in formalwear, a quiet pause from the wedding day, soft venue light. Should evoke the start of a long story, not the end of a day.</div>
+        <div class="img-spec-must">
+          <strong>Must include</strong>
+          <ul>
+            <li>Couple in elevated formalwear — silk, velvet, tux — premium textures</li>
+            <li>Candid intimate moment: gaze, embrace, laughter mid-conversation</li>
+            <li>Cinematic lighting (warm key + cooler ambient or velvet drape backdrop)</li>
+            <li>Color palette: deep blue, cream, gold — must complement the navy section it's placed in</li>
+            <li>Aspect ratio 1:1 or 4:5, min 1800px on long edge</li>
+            <li>Same photographer/series as IMAGE 04 (editorial portrait) ideally — visual cohesion across the page</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="wide-band-content">
+      <div class="wide-band-eyebrow">Two moments. One partner.</div>
+      <h3>The wedding. <em>And everything after it.</em></h3>
+      <p>The wedding is the moment that makes this account make sense. But it isn't the only one. The first joint paycheck. The Italy honeymoon balance hitting the account before you've unpacked. The house downpayment fund crossing $50,000 sometime around your first anniversary. <strong>The second savings goal you'll name after a person who doesn't exist yet.</strong></p>
+      <p>Axos ONE® is built for all of it. One joint account. Both of you. Every milestone earning <strong>4.21% APY*</strong> from day one — through The Knot, through The Bump, through whatever comes next.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+        <a href="#apply" class="btn btn-accent">Start our joint application →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     ANNOTATION 7 — How it works
+     ════════════════════════════════════════════════════ -->
+<div class="ann" id="ann-how">
+  <div class="ann-hd">
+    <span class="ann-name">◆ "How it works" — application path</span>
+    <div class="ann-badges">
+      <span class="ab ab-c">Removes the joint-application objection</span>
+      <span class="ab ab-w">Shows it's faster than they fear</span>
+      <span class="ab ab-s">Names the specific time investment</span>
+    </div>
+  </div>
+  <div class="ann-bd">
+    <div>
+      <div class="ann-col-h c">Why this section is short and concrete</div>
+      <ul class="ann-ul c-li">
+        <li>The single biggest objection to opening a joint account is "this seems complicated and we'd both have to do something." We solve that here, in 3 cards.</li>
+        <li>Time-to-complete is named in each step. <strong>"~10 minutes total"</strong> is the headline number that goes everywhere on the page.</li>
+        <li>Step 2 (the partner invitation) is the unique unlock. One person can start the application; the partner finishes their portion via secure link. This is a real Axos product capability worth making visible.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="ann-col-h w">Why we don't do "1, 2, 3, ... 7" steps</div>
+      <ul class="ann-ul w-li">
+        <li>Three steps is the cognitive sweet spot. Banks routinely break joint application into 6&ndash;9 sub-steps in their "how it works" section, which makes it look harder. Ours is genuinely 3 phases: <code>start</code> → <code>invite partner</code> → <code>fund</code>.</li>
+        <li>Each step's microcopy is honest about what's required. No "in seconds" dishonesty — but we name the realistic time because it's actually short.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ab-box">
+        <div class="ab-box-title">◆ Recommended A/B tests</div>
+        <div class="ab-test">
+          <div class="ab-test-label">Test 7A &mdash; Single CTA vs. step-level CTAs</div>
+          <div class="ab-test-row">Control: <span>Single CTA below the 3-step block</span></div>
+          <div class="ab-test-row">Variant A: <span>"Start step 1" CTA on the first card itself</span></div>
+          <div class="ab-kpi">KPI: how-it-works section CTA click rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 6 — How it works
+     ════════════════════════════════════════════════════ -->
+<section id="how">
+  <div class="w">
+    <div class="sec-eye rv">How it works</div>
+    <h2 class="sh rv d1">Open it together. <em>In about 10 minutes.</em></h2>
+    <p class="ssub rv d2">One of you starts. The other finishes their portion via secure link. The whole thing is faster than picking a wedding venue.</p>
+
+    <div class="step-grid">
+      <div class="step-card rv d1">
+        <div class="step-num">1</div>
+        <div class="step-h">One of you starts</div>
+        <p class="step-desc">Whichever of you is reading this. Enter your basic info, email, and the joint-account holder's email. We save your progress automatically.</p>
+        <div class="step-time">~3 minutes</div>
+      </div>
+      <div class="step-card rv d2">
+        <div class="step-num">2</div>
+        <div class="step-h">Your partner gets a secure link</div>
+        <p class="step-desc">They enter their info on their own device. No coordination required. We verify both identities and run the joint suitability check in the background.</p>
+        <div class="step-time">~5 minutes for them</div>
+      </div>
+      <div class="step-card rv d3">
+        <div class="step-num">3</div>
+        <div class="step-h">You both fund and you're in</div>
+        <p class="step-desc">Open with as little as $0 (no minimum). Link your existing accounts to fund. Direct deposit triggers your 4.21% APY qualification automatically.</p>
+        <div class="step-time">Under 2 minutes</div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:36px" class="rv d4">
+      <a href="#apply" class="btn btn-accent btn-lg">Start our application together →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 7 — Awards (light)
+     ════════════════════════════════════════════════════ -->
+<section class="gray">
+  <div class="w">
+    <div class="sec-eye rv" style="text-align:center;display:block;margin-bottom:14px">Independently rated</div>
+    <h2 class="sh rv d1" style="text-align:center;max-width:780px;margin:0 auto 36px">The bank that <em>actually wins the comparisons</em> couples are doing on the next tab.</h2>
+
+    <div class="awards-band">
+      <div class="award-item rv d1">
+        <div class="award-stars">★★★★★</div>
+        <div class="award-title">Best Checking Account Overall</div>
+        <div class="award-pub">— The Ascent</div>
+      </div>
+      <div class="award-item rv d2">
+        <div class="award-stars">★★★★★</div>
+        <div class="award-title">America's Best Online Bank</div>
+        <div class="award-pub">— MyBankTracker</div>
+      </div>
+      <div class="award-item rv d3">
+        <div class="award-stars">★★★★★</div>
+        <div class="award-title">Best Online Bank for Savings & Checking</div>
+        <div class="award-pub">— Millennial Money</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     ANNOTATION 8 — FAQ
+     ════════════════════════════════════════════════════ -->
+<div class="ann" id="ann-faq">
+  <div class="ann-hd">
+    <span class="ann-name">◆ FAQ — answer the questions Knot couples actually ask</span>
+    <div class="ann-badges">
+      <span class="ab ab-c">Researched from Reddit, Knot forums</span>
+      <span class="ab ab-w">SEO + AI-search ready</span>
+      <span class="ab ab-s">Targets the bottom-funnel objections</span>
+    </div>
+  </div>
+  <div class="ann-bd">
+    <div>
+      <div class="ann-col-h c">Question selection methodology</div>
+      <ul class="ann-ul c-li">
+        <li>Researched: r/personalfinance "joint account" threads, r/weddingplanning "merging finances" threads, Knot forum posts tagged "money," and Google's "People Also Ask" for "joint checking account" + "joint savings high yield."</li>
+        <li>Each question is one a real couple actually asks &mdash; not bank-marketing FAQs ("What is APY?"). The Knot audience is finance-literate.</li>
+        <li>Schema.org FAQPage markup ready for SEO and AI-search citation. The Knot media kit (p.12) explicitly calls out AI-search optimization &mdash; this is where we deliver.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h w">Why these specific six questions</div>
+      <ul class="ann-ul w-li">
+        <li>Q1 (joint vs. separate): the foundational question. Resolves the "but what if we break up" anxiety honestly.</li>
+        <li>Q2 (FDIC on joint): the trust question.</li>
+        <li>Q3 (the 4.21% qualification): the "is this rate real or a teaser" question.</li>
+        <li>Q4 (closing existing accounts): the practical-friction question. Important because it's actually easy.</li>
+        <li>Q5 (taxes): the specific Knot-couple question (joint tax filing year-end, 1099 question).</li>
+        <li>Q6 (what about Axos Invest): the cross-sell question for the Bump audience and the house-saving cohort.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="ann-col-h s">Schema markup strategy (technical)</div>
+      <ul class="ann-ul s-li">
+        <li>Each <code>.faq-item</code> renders with FAQPage schema (Question / acceptedAnswer). Live page should include schema in JSON-LD in the head.</li>
+        <li>This is the section most likely to surface in AI-search and Google's AI overviews. Investment vs. effort is enormous.</li>
+        <li>Open-by-default state for the first FAQ on landing reduces the click required to read &mdash; small UX win.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h b">Where this beats competitors</div>
+      <ul class="ann-ul b-li">
+        <li>Capital One 360, Marcus, Ally: their FAQs answer product-functionality questions ("how do I deposit a check"). Ours answer life-decision questions. That's where the real conversion happens.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 8 — FAQ
+     ════════════════════════════════════════════════════ -->
+<section>
+  <div class="w-narrow">
+    <div class="sec-eye rv" style="text-align:center;display:block;margin-bottom:14px">Real questions</div>
+    <h2 class="sh rv d1" style="text-align:center;margin-bottom:36px">Questions couples on The Knot <em>actually ask us.</em></h2>
+
+    <div class="faq-wrap">
+
+      <div class="faq-item open rv d1">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Should we get a joint account, or keep things separate?
+        </button>
+        <div class="faq-a">
+          That's a personal decision and there's no right answer for every couple. What we hear most often: a <strong>joint account for shared expenses</strong> (rent, utilities, groceries, vacations, the wedding fund, the house fund) plus <strong>individual accounts each partner keeps</strong> for personal spending. That's actually how Axos ONE® is built &mdash; you can each keep separate Axos accounts <em>and</em> open the joint one. Same login, same app, both visible. No need to pick one model.
+        </div>
+      </div>
+
+      <div class="faq-item rv d2">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          How does FDIC insurance work on a joint account?
+        </button>
+        <div class="faq-a">
+          Joint accounts get <strong>doubled FDIC coverage</strong> &mdash; up to $500,000 per joint account ($250,000 per joint owner). If your wedding-gift cash plus your savings adds up to more than that, our <strong>InsureGuard+ Savings</strong> product extends coverage to up to $265 million through IntraFi® Network Deposits℠. (Yes, that's real. No, it's not just for institutions.)
+        </div>
+      </div>
+
+      <div class="faq-item rv d3">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Is the 4.21% APY a teaser rate? What's the catch?
+        </button>
+        <div class="faq-a">
+          No teaser. The 4.21% APY is the <strong>promotional rate on Axos ONE® Savings</strong>, available every statement cycle the joint Checking account meets one of two qualification options: (1) at least $1,500 in monthly direct deposits and a $1,500 average daily Checking balance, or (2) at least $5,000 in monthly qualifying deposits and a $5,000 average daily Checking balance. Most dual-income couples qualify on Option 1 with one partner's direct deposit alone. The base rate is up to 1.00% APY; the promotional rate applies on the first $249,999.99 in Savings. Full terms are linked in the disclosures below.
+        </div>
+      </div>
+
+      <div class="faq-item rv d4">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Do we have to close our current bank accounts to open this?
+        </button>
+        <div class="faq-a">
+          No. Open the joint Axos ONE® alongside whatever you've got &mdash; you can switch over slowly. Most couples we hear from start by routing one direct deposit and a couple of recurring bills, then move more over the first 60 days as they get comfortable. We give you a checklist in the Welcome email. (We also won't email you 47 times asking "are you sure you want to use us yet?" That's not the brand.)
+        </div>
+      </div>
+
+      <div class="faq-item rv d5">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          What about taxes — do we both get a 1099?
+        </button>
+        <div class="faq-a">
+          The interest earned on a joint Axos ONE® Savings account is reported on a single 1099-INT under the primary account holder's SSN. If you file jointly, that's tidy. If you file separately, you'll need to allocate the interest income between you per IRS rules &mdash; we recommend a CPA or your tax software's joint-account workflow. We don't give tax advice, but we do give you clean year-end statements that any tax pro will recognize on sight.
+        </div>
+      </div>
+
+      <div class="faq-item rv d6">
+        <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          We're also planning for a baby and a house. Can Axos help with that too?
+        </button>
+        <div class="faq-a">
+          Yes &mdash; that's actually the point of Axos ONE® being inside the bigger Axos platform. After you open the joint account, you can add: a separate <strong>named savings sub-account</strong> for the house downpayment (still 4.21% APY); a <strong>529 College Savings plan</strong> through Axos Invest for future-baby; a <strong>mortgage</strong> when you're ready to buy. Same app, same login, all visible together. Built for the way the next 5 years actually unfold.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     ANNOTATION 9 — Application starter
+     ════════════════════════════════════════════════════ -->
+<div class="ann" id="ann-apply">
+  <div class="ann-hd">
+    <span class="ann-name">◆ Application starter — the lowest-friction first step</span>
+    <div class="ann-badges">
+      <span class="ab ab-c">3 fields, not 30</span>
+      <span class="ab ab-w">Save-progress mechanic</span>
+      <span class="ab ab-s">Partner-invitation pattern</span>
+    </div>
+  </div>
+  <div class="ann-bd">
+    <div>
+      <div class="ann-col-h c">Why three fields and a button (not the full app form)</div>
+      <ul class="ann-ul c-li">
+        <li>The full Axos ONE joint application requires SSN, address, employer, etc., for both partners. Putting that on the LP would crater conversion.</li>
+        <li>Three fields here &mdash; <strong>your name, your email, partner's email</strong> &mdash; is the absolute minimum to (a) save the application, (b) email the magic link to finish, (c) email the partner their portion.</li>
+        <li>Save-progress is the most-cited "wish I'd done this earlier" feature in HYSA UX research. Banks typically force a single-session completion. We don't.</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ann-col-h w">Why this section is intentionally restrained</div>
+      <ul class="ann-ul w-li">
+        <li>By the time the visitor scrolls here, they've seen all the persuasion. This section's job is <em>only</em> to make starting trivially easy. No more selling.</li>
+        <li>Form layout is one column, mobile-friendly, with consent + Reg-Z disclosure inline. Form-validation is gentle (real-time email format check, partner-email-must-differ-from-yours, etc.).</li>
+      </ul>
+    </div>
+    <div>
+      <div class="ann-col-h s">Production-build notes for engineering</div>
+      <ul class="ann-ul s-li">
+        <li>Form post target: existing Axos ONE joint-application backend (we're <em>starting</em> the application, not the full API submission).</li>
+        <li>Save-progress token: signed JWT with 14-day expiration emailed as magic-link to both addresses.</li>
+        <li>Consent text aligns with TCPA (telephone) and CAN-SPAM (email) requirements. Legal review needed before live.</li>
+        <li>This panel becomes hidden when scenario = <code>existing</code> (existing Axos customer, different flow) or <code>incomplete</code> (resume application directly, skip start).</li>
+      </ul>
+      <div class="ann-divider"></div>
+      <div class="ab-box">
+        <div class="ab-box-title">◆ Recommended A/B tests</div>
+        <div class="ab-test">
+          <div class="ab-test-label">Test 9A &mdash; Field count</div>
+          <div class="ab-test-row">Control: <span>3 fields (your name, your email, partner email)</span></div>
+          <div class="ab-test-row">Variant A: <span>2 fields (drop partner email — collected later)</span></div>
+          <div class="ab-test-row">Variant B: <span>4 fields (add ZIP for state-availability check)</span></div>
+          <div class="ab-kpi">KPI: form completion rate · downstream full-application completion rate</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════
+     SECTION 9 — Application starter
+     ════════════════════════════════════════════════════ -->
+<section class="gray" id="apply">
+  <div class="w-narrow">
+    <div style="text-align:center;margin-bottom:36px">
+      <div class="sec-eye rv" style="display:inline-flex">Start it together</div>
+      <h2 class="sh rv d1" style="margin-bottom:14px">Three fields. <em>Then we send it to your partner.</em></h2>
+      <p class="ssub rv d2" style="margin:0 auto;text-align:left;max-width:520px">Just enough to save your spot. We email you both a secure link to finish the joint application on your own time — separately, on your own devices, today or this weekend.</p>
+    </div>
+
+    <div class="rv d3" style="background:#fff;border:1px solid var(--border);border-radius:var(--rxl);padding:clamp(24px,4vw,40px);box-shadow:var(--shadow-sm)">
+      <div style="display:grid;grid-template-columns:1fr;gap:16px">
+
+        <div>
+          <label style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;display:block;font-weight:600">Your full name</label>
+          <input type="text" placeholder="e.g. Sarah Johnson" style="width:100%;padding:13px 14px;border:1px solid var(--border-strong);border-radius:8px;font-size:15px;font-family:inherit;color:var(--ink);background:#fff;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border-strong)'">
+        </div>
+
+        <div>
+          <label style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;display:block;font-weight:600">Your email</label>
+          <input type="email" placeholder="you@example.com" style="width:100%;padding:13px 14px;border:1px solid var(--border-strong);border-radius:8px;font-size:15px;font-family:inherit;color:var(--ink);background:#fff;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border-strong)'">
+        </div>
+
+        <div>
+          <label style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:6px;display:block;font-weight:600">Your partner's email</label>
+          <input type="email" placeholder="partner@example.com" style="width:100%;padding:13px 14px;border:1px solid var(--border-strong);border-radius:8px;font-size:15px;font-family:inherit;color:var(--ink);background:#fff;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border-strong)'">
+          <p style="font-size:11.5px;color:var(--gray);margin-top:5px;line-height:1.5">We'll email them their secure portion of the joint application — they finish on their own device, no coordination needed.</p>
+        </div>
+
+        <button type="button" class="btn btn-accent btn-lg" style="margin-top:8px;width:100%">Save our spots and email us both →</button>
+
+        <p style="font-size:11px;color:var(--gray);line-height:1.6;margin-top:6px">By tapping Save, you agree to receive a secure-link email from Axos Bank to continue the joint application. We won't email marketing material; standard message and data rates may apply. Your information is encrypted in transit and at rest. <a href="#" style="color:var(--navy);text-decoration:underline">Privacy notice</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════
+     FINAL CTA
+     ════════════════════════════════════════════════════ -->
+<section>
+  <div class="w">
+    <div class="final-cta rv">
+      <div class="final-cta-content">
+        <h2>Ready to bank<br>like the <em>two of you?</em></h2>
+        <p>Open a joint Axos ONE® Checking + Savings account in about 10 minutes. 4.21% APY*. Up to 2 days early paydays for both of you. FDIC-insured to $500,000 jointly. No monthly fees, no minimum balance, no asterisks the size of the rate.</p>
+        <div class="hero-ctas">
+          <a href="#apply" class="btn btn-accent btn-lg">Open our joint account →</a>
+          <a href="#calculator" class="btn btn-ghost">See the math one more time</a>
+        </div>
+        <div class="final-cta-trust">
+          <span>FDIC-insured · 25 years digital</span>
+          <span>NMLS# 524995 · FDIC Cert. 35546</span>
+          <span>Member FDIC · Equal Housing Lender</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     FOOTER
+     ════════════════════════════════════════════════════ -->
+<footer class="site-foot">
+  <div class="w">
+    <div class="foot-grid">
+      <div class="foot-col">
+        <h4>Personal</h4>
+        <ul>
+          <li><a href="#">Axos ONE® Checking + Savings</a></li>
+          <li><a href="#">Rewards Checking</a></li>
+          <li><a href="#">Essential Checking</a></li>
+          <li><a href="#">High Yield Savings</a></li>
+          <li><a href="#">CDs</a></li>
+          <li><a href="#">Mortgages</a></li>
+          <li><a href="#">Personal Loans</a></li>
+          <li><a href="#">Auto Loans</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Business</h4>
+        <ul>
+          <li><a href="#">Business Banking</a></li>
+          <li><a href="#">Treasury Management</a></li>
+          <li><a href="#">Commercial Lending</a></li>
+          <li><a href="#">SBA Loans</a></li>
+          <li><a href="#">Specialty Lending</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Partners</h4>
+        <ul>
+          <li><a href="#">Axos Advisor Services</a></li>
+          <li><a href="#">Axos Clearing</a></li>
+          <li><a href="#">Axos Invest</a></li>
+          <li><a href="#">Wholesale Lending</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>About &amp; Support</h4>
+        <ul>
+          <li><a href="#">About Axos Bank</a></li>
+          <li><a href="#">25 Years of Banking Evolved</a></li>
+          <li><a href="#">Press &amp; News</a></li>
+          <li><a href="#">Security Center</a></li>
+          <li><a href="#">Accessibility</a></li>
+          <li><a href="#">Customer Service</a></li>
+          <li><a href="#">Locations</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-disclaimer">
+      <p><strong>1.</strong> Axos ONE® Checking and Savings makes funds available up to 2 days earlier than traditional banks for ACH direct deposits. Timing depends on when the originating bank submits the deposit; not all deposits will arrive 2 days early.</p>
+
+      <p><strong>* Axos ONE® Savings APY disclosure.</strong> The 0.51% APY (Annual Percentage Yield) on Axos ONE® Checking and the 4.21% APY on Axos ONE® Savings (on first $249,999.99; 3.50% APY on balances above) are promotional rates available to qualifying account holders. To qualify each statement cycle, you must meet one of two options: (1) make at least $1,500 in monthly direct deposits AND maintain at least $1,500 average daily Checking balance; OR (2) make at least $5,000 in monthly qualifying deposits AND maintain at least $5,000 average daily Checking balance. Without qualification, base rates apply: up to 0.00% APY on Checking and up to 1.00% APY on Savings. APYs are variable and may change. Rates accurate as of 5/9/2026. See full <a href="#">Truth in Savings disclosure</a> for terms.</p>
+
+      <p>Bank products and services are offered by Axos Bank®. All deposit accounts through Axos Bank brands are deposits of Axos Bank, <strong>Member FDIC</strong>. Axos Bank deposits are insured by the FDIC up to $250,000 per depositor, per account ownership category. Joint accounts are insured up to $500,000 ($250,000 per joint owner). InsureGuard+ Savings provides extended FDIC coverage up to $265 million through IntraFi® Network Deposits℠ — a separate program subject to its own terms and conditions.</p>
+
+      <p>Securities, investment advisory, commodity futures, and other non-deposit investment products and services are NOT deposits, NOT FDIC insured, NOT insured by any federal government agency, are NOT guaranteed by Axos Bank, and MAY lose value. Axos Invest LLC, Axos Invest, Inc., and Axos Bank are separate but affiliated companies.</p>
+
+      <p>Axos Bank is an Equal Housing Lender. <strong>NMLS# 524995. FDIC Cert. 35546.</strong> Loans subject to credit and underwriting approval. Not all applicants will qualify. Terms and conditions apply.</p>
+
+      <p>The Knot®, The Bump®, WeddingWire®, and Hitched are registered trademarks of The Knot Worldwide and are used here under partnership license. The Knot is not a bank, not a deposit institution, not affiliated with FDIC, and is not a party to any banking agreement between you and Axos Bank.</p>
+
+      <p style="opacity:.6;margin-top:18px">© 2026 Axos Bank. All rights reserved. Concept landing page · For partnership review and design reference.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ════════════════════════════════════════════════════
+     VISITOR SCENARIOS — toggle button + popup
+     ════════════════════════════════════════════════════ -->
+<button id="sc-toggle" onclick="toggleScenarioPopup()" aria-label="Switch visitor scenario">
+  <span style="font-size:14px">⇄</span>
+  <span class="sc-active-label">Visitor scenario</span>
+  <span class="sc-current" id="sc-current">Default</span>
+</button>
+
+<div id="sc-popup" role="dialog" aria-label="Visitor scenarios">
+  <div class="sc-popup-h">Switch visitor scenario</div>
+  <div class="sc-popup-sub">Preview how this LP changes for different traffic sources, return visitors, and CDP-segmented audiences.</div>
+
+  <div class="sc-section-h">UTM-based variants</div>
+  <div class="sc-btns">
+    <button class="sc-btn active" onclick="setScenario('default', this)">
+      <span class="sc-btn-name">Default — direct / unknown</span>
+      <span class="sc-btn-meta">No UTMs detected. Generic engaged-couple framing.</span>
+    </button>
+    <button class="sc-btn" onclick="setScenario('knot-article', this)">
+      <span class="sc-btn-name">The Knot — editorial article</span>
+      <span class="sc-btn-meta">utm_source=theknot &amp; utm_medium=article. High intent.</span>
+    </button>
+    <button class="sc-btn" onclick="setScenario('knot-pinterest', this)">
+      <span class="sc-btn-name">The Knot — Pinterest pin</span>
+      <span class="sc-btn-meta">utm_source=theknot &amp; utm_medium=pinterest. Visual discovery.</span>
+    </button>
+    <button class="sc-btn" onclick="setScenario('knot-instagram', this)">
+      <span class="sc-btn-name">The Knot — Instagram / TikTok</span>
+      <span class="sc-btn-meta">utm_medium=ig OR tiktok. Casual, short attention.</span>
+    </button>
+    <button class="sc-btn" onclick="setScenario('bump', this)">
+      <span class="sc-btn-name">The Bump — expecting parents</span>
+      <span class="sc-btn-meta">utm_source=thebump. Pivots hero to baby-fund frame.</span>
+    </button>
+  </div>
+
+  <div class="sc-section-h">Tealium CDP-based variants</div>
+  <div class="sc-btns">
+    <button class="sc-btn" onclick="setScenario('returning', this)">
+      <span class="sc-btn-name">Returning visitor (no app)</span>
+      <span class="sc-btn-meta">Visited before. Warmer welcome banner.</span>
+    </button>
+    <button class="sc-btn" onclick="setScenario('incomplete', this)">
+      <span class="sc-btn-name">Incomplete application</span>
+      <span class="sc-btn-meta">Started, didn't finish. Resume-banner + simplified hero.</span>
+    </button>
+    <button class="sc-btn" onclick="setScenario('existing', this)">
+      <span class="sc-btn-name">Existing Axos customer</span>
+      <span class="sc-btn-meta">Add joint to existing relationship — pre-fill, fast-path.</span>
+    </button>
+    <button class="sc-btn" onclick="setScenario('highbal', this)">
+      <span class="sc-btn-name">High-balance (wedding gifts)</span>
+      <span class="sc-btn-meta">$50K+ inflows. Lead with InsureGuard+ + house frame.</span>
+    </button>
+    <button class="sc-btn" onclick="setScenario('post-honeymoon', this)">
+      <span class="sc-btn-name">Post-honeymoon (Sept–Dec)</span>
+      <span class="sc-btn-meta">Recently married. The combined-finances moment.</span>
+    </button>
+  </div>
+</div>
+
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════════════
+   DESIGN REVIEW TOGGLE
+   ═══════════════════════════════════════════════════════════════════════════ */
+function toggleReview(){
+  var btn = document.getElementById('rtoggle');
+  document.body.classList.toggle('ron');
+  btn.classList.toggle('on');
+  // re-fire intersection observer for newly-revealed annotation blocks
+  document.querySelectorAll('.ann.rv,.ann .rv').forEach(function(el){el.classList.add('in')});
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCROLL REVEAL — IntersectionObserver
+   ═══════════════════════════════════════════════════════════════════════════ */
+(function(){
+  var els = document.querySelectorAll('.rv,.rvl,.rvr');
+  if(!('IntersectionObserver' in window)){
+    els.forEach(function(el){el.classList.add('in')});
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{rootMargin:'0px 0px -50px 0px',threshold:0.1});
+  els.forEach(function(el){io.observe(el)});
+
+  // Hero elements should reveal immediately on load
+  setTimeout(function(){
+    document.querySelectorAll('.hero .rv,.hero .rvl,.hero .rvr').forEach(function(el){el.classList.add('in')});
+  },50);
+})();
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO CALCULATOR
+   ═══════════════════════════════════════════════════════════════════════════ */
+function fmt(n){
+  if(isNaN(n)) return '$0';
+  return '$' + Math.round(n).toLocaleString('en-US');
+}
+function fmtCents(n){
+  if(isNaN(n)) return '$0.00';
+  if(n < 10) return '$' + n.toFixed(2);
+  return '$' + Math.round(n).toLocaleString('en-US');
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   HERO CALCULATOR — narrative flow (3 inputs → balance reveal)
+   Story: 1) You fund with $X. 2) You add $Y/month together. 3) For Z years.
+          4) Here's what your combined balance becomes.
+   Math: monthly compounding (matches Axos's actual compounding cadence).
+     r_monthly = APY / 12
+     For each month: balance = balance * (1 + r_monthly) + contribution
+   Dream chips below are inspirational only — not interactive.
+   ═══════════════════════════════════════════════════════════════════════════ */
+var HERO_APY    = 0.0421;  // Axos ONE Savings promo rate
+var BIGBANK_APY = 0.0001;  // Big-bank average
+
+function projectBalance(principal, monthlyContrib, years, apy){
+  var rMonthly = apy / 12;
+  var months   = years * 12;
+  var balance  = principal;
+  for(var m = 0; m < months; m++){
+    balance = balance * (1 + rMonthly) + monthlyContrib;
+  }
+  return balance;
+}
+
+function uHero(){
+  var slider  = document.getElementById('hero-slider');
+  var contrib = document.getElementById('hero-contrib');
+  var time    = document.getElementById('hero-time');
+  if(!slider || !contrib || !time) return;
+
+  var P    = parseFloat(slider.value)  || 0;
+  var PMT  = parseFloat(contrib.value) || 0;
+  var t    = parseInt(time.value)      || 1;
+
+  // Total contributions over the period
+  var totalContributed = PMT * 12 * t;
+  var totalIn          = P + totalContributed;
+
+  // Combined balance at Axos APY (monthly compounding)
+  var bal     = projectBalance(P, PMT, t, HERO_APY);
+  var earned  = bal - totalIn;  // pure interest earned, net of contributions
+
+  // Counterfactual: same money + contributions at the average big bank
+  var bigBal     = projectBalance(P, PMT, t, BIGBANK_APY);
+  var delta      = bal - bigBal;
+
+  // Update DOM
+  var amtEl     = document.getElementById('hero-amt');
+  var monthEl   = document.getElementById('hero-monthly');
+  var yrsEl     = document.getElementById('hero-yrs');
+  var balEl     = document.getElementById('hero-balance');
+  var earnedEl  = document.getElementById('hero-earned');
+  var periodEl  = document.getElementById('hero-earned-period');
+  var deltaEl   = document.getElementById('hero-vs-delta');
+
+  if(amtEl)    amtEl.textContent    = Math.round(P).toLocaleString('en-US');
+  if(monthEl)  monthEl.textContent  = Math.round(PMT).toLocaleString('en-US');
+  if(yrsEl)    yrsEl.textContent    = t;
+  if(balEl)    balEl.textContent    = fmt(bal);
+  if(earnedEl) earnedEl.textContent = fmt(earned);
+  if(periodEl) periodEl.textContent = 'in ' + t + ' year' + (t === 1 ? '' : 's');
+  if(deltaEl)  deltaEl.textContent  = fmt(delta) + ' more';
+}
+
+// Wire up all three sliders
+['hero-slider','hero-contrib','hero-time'].forEach(function(id){
+  var el = document.getElementById(id);
+  if(el) el.addEventListener('input', uHero);
+});
+
+// Run once on load
+uHero();
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   GOAL CALCULATOR
+   ═══════════════════════════════════════════════════════════════════════════ */
+var GOAL_LABELS = {
+  honeymoon: 'honeymoon fund',
+  house:     'house downpayment',
+  baby:      'baby fund'
+};
+var currentGoal = 'honeymoon';
+
+function setGoal(type, btn){
+  currentGoal = type;
+  // Update tab states
+  document.querySelectorAll('.gc-tab').forEach(function(t){t.classList.remove('active')});
+  if(btn) btn.classList.add('active');
+  // Set default amount per goal
+  var defaults = {honeymoon:25000, house:60000, baby:20000};
+  var amt = defaults[type] || 25000;
+  document.getElementById('gc-amt').value    = amt;
+  document.getElementById('gc-slider').value = amt;
+  uGC();
+}
+
+function uGC(){
+  var v = parseFloat(document.getElementById('gc-amt').value) || 0;
+  // Sync slider to input (capped at slider max)
+  var slider = document.getElementById('gc-slider');
+  if(v <= parseInt(slider.max)) slider.value = v;
+
+  var chase = v * 0.0001;
+  var boa   = v * 0.0001;
+  var cap1  = v * 0.0350;
+  var us    = v * 0.0421;
+
+  document.getElementById('gc-chase').textContent = fmtCents(chase);
+  document.getElementById('gc-boa').textContent   = fmtCents(boa);
+  document.getElementById('gc-cap1').textContent  = fmtCents(cap1);
+  document.getElementById('gc-us').textContent    = fmtCents(us);
+
+  document.getElementById('gc-result-num').textContent = fmtCents(us);
+  document.getElementById('gc-result-sub').innerHTML   =
+    'per year, on ' + fmt(v) + ' in your <strong>' + GOAL_LABELS[currentGoal] + '</strong>. Compared to:';
+}
+
+document.getElementById('gc-amt').addEventListener('input', uGC);
+document.getElementById('gc-slider').addEventListener('input', function(){
+  document.getElementById('gc-amt').value = this.value;
+  uGC();
+});
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PERSONALIZATION ENGINE — UTM + Tealium CDP + scenario switcher
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+// ── UTM reader ────────────────────────────────────────────────────────────
+function getUTM(){
+  var p = new URLSearchParams(window.location.search);
+  return {
+    source:   (p.get('utm_source')   || '').toLowerCase(),
+    medium:   (p.get('utm_medium')   || '').toLowerCase(),
+    campaign: (p.get('utm_campaign') || '').toLowerCase(),
+    content:  (p.get('utm_content')  || '').toLowerCase()
+  };
+}
+
+// ── Variant content map ───────────────────────────────────────────────────
+// Each variant defines: eyebrow, headline, subhead, ctaText, joint names,
+// calc balance/goal, couple-card highlight, source badge, banner mode.
+var VARIANTS = {
+
+  'default': {
+    eyebrow:   'For couples opening a joint account',
+    headline:  'One account.<br>Both of you.<br><em>4.21% APY.</em>',
+    subhead:   'The Axos ONE® joint Checking + Savings account is built for the two of you. <strong>4.21% APY*</strong> on combined balances. No monthly fees. <strong>Early paydays</strong> on both your direct deposits. FDIC-insured to <strong>$500,000 jointly.</strong>',
+    ctaText:   'Open our joint account',
+    jointN1:   'Sarah J.',
+    jointN2:   'Marcus J.',
+    calcBalance: 25000,
+    calcGoal:    'honeymoon',
+    highlightCouple: null,
+    sourceBadge: 'Default — direct / unknown source',
+    bannerMode:  null
+  },
+
+  'knot-article': {
+    eyebrow:   'Featured in The Knot',
+    headline:  'You read the article.<br>Now <em>open the account.</em>',
+    subhead:   'The joint account The Knot recommends for couples saving for their honeymoon and first house. <strong>4.21% APY*</strong> on combined Savings. No monthly fees. <strong>Both your paydays, up to 2 days early.</strong>',
+    ctaText:   'Start our joint application',
+    jointN1:   'Sarah J.',
+    jointN2:   'Marcus J.',
+    calcBalance: 25000,
+    calcGoal:    'honeymoon',
+    highlightCouple: 1,
+    sourceBadge: 'The Knot — editorial article (utm_source=theknot, utm_medium=article)',
+    bannerMode:  null
+  },
+
+  'knot-pinterest': {
+    eyebrow:   'From The Knot — saved for later',
+    headline:  'The joint account<br>worth <em>actually</em> opening.',
+    subhead:   'You pinned it. Now meet the bank that pays <strong>4.21% APY*</strong> on your honeymoon fund and your house savings. Built for two people. FDIC-insured to $500K jointly.',
+    ctaText:   'See what we\'d earn',
+    jointN1:   'Sarah J.',
+    jointN2:   'Marcus J.',
+    calcBalance: 25000,
+    calcGoal:    'honeymoon',
+    highlightCouple: 1,
+    sourceBadge: 'The Knot — Pinterest (utm_source=theknot, utm_medium=pinterest)',
+    bannerMode:  null
+  },
+
+  'knot-instagram': {
+    eyebrow:   'Saw us on The Knot',
+    headline:  'The joint account<br>that <em>actually</em> earns money.',
+    subhead:   '4.21% APY*. Both your paydays, up to 2 days early. $500K joint FDIC. Built for couples on The Knot — open in about 10 minutes.',
+    ctaText:   'See our earnings',
+    jointN1:   'Sarah J.',
+    jointN2:   'Marcus J.',
+    calcBalance: 15000,
+    calcGoal:    'honeymoon',
+    highlightCouple: 1,
+    sourceBadge: 'The Knot — IG / TikTok carousel (utm_medium=ig|tiktok)',
+    bannerMode:  null
+  },
+
+  'bump': {
+    eyebrow:   'For expecting + new parents',
+    headline:  'A joint account<br>that <em>grows with the family.</em>',
+    subhead:   'Open a joint Axos ONE® savings sub-account for the baby today. <strong>4.21% APY*</strong> from day one. Add a 529 College Savings plan when you\'re ready. Same login, both partners visible, all goals in one place.',
+    ctaText:   'Open our baby fund',
+    jointN1:   'Maya F.',
+    jointN2:   'Jordan F.',
+    calcBalance: 20000,
+    calcGoal:    'baby',
+    highlightCouple: 3,
+    sourceBadge: 'The Bump — expecting / new parent (utm_source=thebump)',
+    bannerMode:  null
+  },
+
+  'returning': {
+    eyebrow:   'Welcome back',
+    headline:  'Still thinking it over?<br>The rate\'s <em>still 4.21%.</em>',
+    subhead:   'You\'ve seen the math. The joint Axos ONE® account pays <strong>4.21% APY*</strong> on combined Savings, with both your paydays up to 2 days early. Every month you wait is real money on the table.',
+    ctaText:   'Open our joint account today',
+    jointN1:   'Sarah J.',
+    jointN2:   'Marcus J.',
+    calcBalance: 25000,
+    calcGoal:    'honeymoon',
+    highlightCouple: null,
+    sourceBadge: 'Tealium CDP — return visitor (no application)',
+    bannerMode:  'returning'
+  },
+
+  'incomplete': {
+    eyebrow:   'Your application is saved',
+    headline:  'You\'re one step away<br>from <em>4.21% APY together.</em>',
+    subhead:   'Your joint Axos ONE® application is saved. Pick up where you left off — takes about 4 minutes. Your partner\'s portion is still a tap away.',
+    ctaText:   'Continue our application',
+    jointN1:   'Sarah J.',
+    jointN2:   'Marcus J.',
+    calcBalance: 25000,
+    calcGoal:    'honeymoon',
+    highlightCouple: null,
+    sourceBadge: 'Tealium CDP — incomplete application',
+    bannerMode:  'incomplete'
+  },
+
+  'existing': {
+    eyebrow:   'Exclusively for Axos customers',
+    headline:  'You\'re already with Axos.<br>Add the <em>joint account</em> together.',
+    subhead:   'Add a joint Axos ONE® Checking + Savings to your existing account in seconds — your info is on file. Invite your partner via secure link. <strong>4.21% APY*</strong>. No monthly fees.',
+    ctaText:   'Add joint account in 60 seconds',
+    jointN1:   'Sarah J.',
+    jointN2:   'Marcus J.',
+    calcBalance: 25000,
+    calcGoal:    'honeymoon',
+    highlightCouple: null,
+    sourceBadge: 'Tealium CDP — existing Axos customer',
+    bannerMode:  'existing'
+  },
+
+  'highbal': {
+    eyebrow:   'For balances over $50,000',
+    headline:  'Wedding gifts deposited.<br>Now <em>protect them right.</em>',
+    subhead:   '<strong>4.21% APY*</strong> on the first $249,999.99 in joint Savings. <strong>$500K joint FDIC coverage</strong> — and InsureGuard+ extends protection up to $265M through IntraFi® Network Deposits℠ for couples with larger balances. The only joint HYSA built this way.',
+    ctaText:   'Open with full protection',
+    jointN1:   'Priya J.',
+    jointN2:   'Daniel J.',
+    calcBalance: 75000,
+    calcGoal:    'house',
+    highlightCouple: 2,
+    sourceBadge: 'Tealium CDP — high-balance prospect ($50K+ inflows)',
+    bannerMode:  null
+  },
+
+  'post-honeymoon': {
+    eyebrow:   'Just back from the honeymoon',
+    headline:  'Now do the part that<br><em>actually changes everything.</em>',
+    subhead:   'Combine accounts the way you combined names. Joint Checking + Savings, both paydays early, <strong>4.21% APY*</strong>, FDIC-insured to $500K. The single financial decision that makes year one easier.',
+    ctaText:   'Open our joint account',
+    jointN1:   'Priya J.',
+    jointN2:   'Daniel J.',
+    calcBalance: 35000,
+    calcGoal:    'house',
+    highlightCouple: 2,
+    sourceBadge: 'Post-honeymoon segment (Sept–Dec 2026 target)',
+    bannerMode:  null
+  }
+
+};
+
+// ── Apply a variant ──────────────────────────────────────────────────────
+var currentScenario = 'default';
+
+function applyVariant(key){
+  var v = VARIANTS[key] || VARIANTS['default'];
+  currentScenario = key;
+
+  // Hero text
+  var ey = document.getElementById('hero-eyebrow');
+  var h1 = document.getElementById('hero-h1');
+  var hs = document.getElementById('hero-sub');
+  var cb = document.getElementById('hero-cta-btn');
+  if(ey) ey.textContent = v.eyebrow;
+  if(h1) h1.innerHTML  = v.headline;
+  if(hs) hs.innerHTML  = v.subhead;
+  if(cb) cb.textContent = v.ctaText;
+
+  // Hero card: set deposit slider value for this variant.
+  // The redesigned hero card has no interactive chips — only the two sliders.
+  // Variant's calcBalance maps directly to the deposit slider.
+  var hsl = document.getElementById('hero-slider');
+  if(hsl && v.calcBalance != null && v.calcBalance <= parseInt(hsl.max)){
+    hsl.value = Math.max(parseInt(hsl.min), v.calcBalance);
+  }
+  if(typeof uHero === 'function') uHero();
+
+  // Section calculator (the bigger one further down the page) still uses the
+  // gc-amt input + gc-slider range.
+  var gca = document.getElementById('gc-amt');
+  var gcs = document.getElementById('gc-slider');
+  if(gca && v.calcBalance != null){ gca.value = v.calcBalance; }
+  if(gcs && v.calcBalance != null && v.calcBalance <= parseInt(gcs.max)){ gcs.value = v.calcBalance; }
+
+  // Goal tab
+  if(v.calcGoal){
+    var goalBtn = document.querySelector('.gc-tab[data-amt]');
+    document.querySelectorAll('.gc-tab').forEach(function(t,i){
+      t.classList.remove('active');
+      var tabGoal = t.textContent.toLowerCase();
+      if((v.calcGoal === 'honeymoon' && tabGoal.indexOf('honeymoon') >= 0) ||
+         (v.calcGoal === 'house'     && tabGoal.indexOf('house') >= 0) ||
+         (v.calcGoal === 'baby'      && tabGoal.indexOf('baby') >= 0)){
+        t.classList.add('active');
+        currentGoal = v.calcGoal;
+      }
+    });
+  }
+  uGC();
+
+  // Couple card highlight (1, 2, or 3)
+  for(var i = 1; i <= 3; i++){
+    var card = document.getElementById('couple-' + i);
+    if(card){
+      if(v.highlightCouple === i) card.classList.add('highlighted');
+      else                        card.classList.remove('highlighted');
+    }
+  }
+
+  // Source badge (visible in design review mode)
+  var sb = document.getElementById('sc-badge-val');
+  if(sb) sb.textContent = v.sourceBadge;
+
+  // Current scenario chip on toggle button
+  var cur = document.getElementById('sc-current');
+  if(cur){
+    var labels = {
+      'default':'Default','knot-article':'Knot Article','knot-pinterest':'Knot Pin',
+      'knot-instagram':'Knot IG','bump':'The Bump','returning':'Returning',
+      'incomplete':'Incomplete','existing':'Existing','highbal':'High Bal',
+      'post-honeymoon':'Post-HM'
+    };
+    cur.textContent = labels[key] || key;
+  }
+
+  // Announcement bar
+  showAnnouncementBar(v.bannerMode);
+}
+
+function setScenario(key, btn){
+  applyVariant(key);
+  // Update active state in popup
+  document.querySelectorAll('.sc-btn').forEach(function(b){b.classList.remove('active')});
+  if(btn) btn.classList.add('active');
+}
+
+// ── Announcement bar ─────────────────────────────────────────────────────
+function showAnnouncementBar(mode){
+  var bar  = document.getElementById('announce');
+  var msg  = document.getElementById('announce-msg');
+  var cta  = document.getElementById('announce-cta');
+  if(!bar) return;
+  bar.classList.remove('active');
+  if(!mode) return;
+  if(mode === 'returning'){
+    msg.innerHTML = '<strong>Welcome back.</strong> The rate is still 4.21% APY*. Pick up your joint application below.';
+    cta.textContent = 'Continue →';
+    bar.classList.add('active');
+  } else if(mode === 'incomplete'){
+    msg.innerHTML = '<strong>Your joint application is saved.</strong> Finish in about 4 minutes — your partner\'s portion is still a tap away.';
+    cta.textContent = 'Resume now →';
+    bar.classList.add('active');
+  } else if(mode === 'existing'){
+    msg.innerHTML = '<strong>You\'re already with Axos.</strong> Add the joint account in 60 seconds — your info is on file.';
+    cta.textContent = 'Add joint account →';
+    bar.classList.add('active');
+  }
+}
+
+// ── Scenario popup toggle ────────────────────────────────────────────────
+function toggleScenarioPopup(){
+  var p = document.getElementById('sc-popup');
+  p.classList.toggle('open');
+}
+// Close on outside click
+document.addEventListener('click', function(e){
+  var p = document.getElementById('sc-popup');
+  var t = document.getElementById('sc-toggle');
+  if(p.classList.contains('open') && !p.contains(e.target) && !t.contains(e.target)){
+    p.classList.remove('open');
+  }
+});
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ROUTE UTM → SCENARIO ON LOAD
+   ═══════════════════════════════════════════════════════════════════════════ */
+(function(){
+  var u = getUTM();
+  var key = 'default';
+
+  // Tealium CDP override (if utag_data populated by Tealium tag before this script)
+  if(typeof window.utag_data === 'object' && window.utag_data){
+    var d = window.utag_data;
+    if(d.application_status === 'incomplete')      key = 'incomplete';
+    else if(d.customer_type    === 'existing')     key = 'existing';
+    else if(d.balance_tier     === 'high')         key = 'highbal';
+    else if(d.visit_count > 1 && d.application_status === 'none') key = 'returning';
+  }
+
+  // UTM-based override (if no CDP signal)
+  if(key === 'default'){
+    if(u.source === 'thebump' || u.campaign.indexOf('bump') >= 0){
+      key = 'bump';
+    } else if(u.source === 'theknot'){
+      if(u.medium === 'pinterest' || u.medium === 'pin')       key = 'knot-pinterest';
+      else if(u.medium === 'ig' || u.medium === 'instagram'
+           || u.medium === 'tiktok')                            key = 'knot-instagram';
+      else if(u.medium === 'article' || u.medium === 'editorial'
+           || u.medium === 'organic')                           key = 'knot-article';
+      else                                                      key = 'knot-article';
+    } else if(u.campaign.indexOf('post-honeymoon') >= 0
+           || u.campaign.indexOf('newlywed') >= 0){
+      key = 'post-honeymoon';
+    }
+  }
+
+  applyVariant(key);
+
+  // Sync popup active state to whatever scenario was applied
+  document.querySelectorAll('.sc-btn').forEach(function(b){
+    var oc = b.getAttribute('onclick') || '';
+    if(oc.indexOf("'" + key + "'") >= 0) b.classList.add('active');
+    else                                  b.classList.remove('active');
+  });
+})();
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   TEALIUM INTEGRATION SPEC (commented for engineering reference)
+   ═══════════════════════════════════════════════════════════════════════════
+   Production build expects window.utag_data populated BEFORE this <script>
+   block executes. Tealium AudienceStream should resolve audiences and write:
+
+     window.utag_data = {
+       customer_type:       'new' | 'existing',
+       application_status:  'none' | 'incomplete' | 'complete',
+       visit_count:         Number,
+       balance_tier:        'standard' | 'high',  // 'high' = $50K+ inflows
+       knot_referrer:       Boolean,
+       bump_referrer:       Boolean
+     };
+
+   Audiences to create in AudienceStream:
+     1. Knot_Article_Reader        — visited TheKnot.com article tagged finance/joint
+     2. Bump_ExpectingParent       — visited TheBump.com pregnancy content
+     3. Incomplete_AxosONE_Joint   — started joint app, didn't complete
+     4. Existing_Axos_NoJoint      — has Axos account, no joint product
+     5. HighBalance_Prospect       — referrer or behavior signals $50K+ inflow
+
+   Each audience maps to one of the VARIANTS keys above via applyVariant().
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+</script>
+
+</body>
+</html>
