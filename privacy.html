@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy · DGTL Sunrise</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<meta name="description" content="Privacy policy for DGTL Sunrise and the dgtl-marketing Grok plugin, including Google user data.">
+<link rel="canonical" href="https://www.dgtlsunrise.com/privacy">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #07070f; --text: #eeeef8; --text-dim: #8888a8; --text-faint: #3a3a58;
+  --border: rgba(255,255,255,0.08); --amber: #e8920a; --teal: #00c8b8;
+  --sans: 'IBM Plex Sans', system-ui, sans-serif; --display: 'Syne', sans-serif; --mono: 'IBM Plex Mono', monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+a { color: var(--amber); text-decoration: none; }
+a:hover { text-decoration: underline; }
+nav {
+  border-bottom: 1px solid var(--border); padding: 0 32px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; background: rgba(7,7,15,0.92); backdrop-filter: blur(16px);
+}
+.lockup { display: flex; align-items: center; gap: 12px; color: var(--text); text-decoration: none; font-family: var(--display); font-weight: 700; }
+.lockup img { height: 36px; }
+.lockup span { color: var(--amber); }
+.nav-links { display: flex; gap: 20px; font-size: 13px; }
+.nav-links a { color: var(--text-dim); text-decoration: none; }
+.nav-links a:hover { color: var(--text); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 72px 28px 96px; }
+.kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--amber); margin-bottom: 16px; }
+h1 { font-family: var(--display); font-size: clamp(32px, 5vw, 48px); line-height: 1.1; margin-bottom: 12px; }
+.meta { color: var(--text-dim); font-size: 14px; margin-bottom: 40px; }
+h2 { font-family: var(--display); font-size: 22px; margin: 36px 0 12px; }
+p, li { color: var(--text-dim); margin-bottom: 12px; }
+ul { padding-left: 20px; margin-bottom: 16px; }
+li { margin-bottom: 8px; }
+strong { color: var(--text); font-weight: 500; }
+.box { border: 1px solid var(--border); padding: 18px 20px; margin: 24px 0; background: #0a0a18; }
+footer { border-top: 1px solid var(--border); padding: 28px; color: var(--text-faint); font-size: 13px; text-align: center; }
+</style>
+</head>
+<body>
+<nav>
+  <a class="lockup" href="/"><img src="logo.webp" alt="DGTL Sunrise">DGTL <span>Sunrise</span></a>
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/terms">Terms</a>
+    <a href="mailto:noel@dgtlsunrise.com">Contact</a>
+  </div>
+</nav>
+<article class="wrap">
+  <div class="kicker">Legal</div>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Effective September 2, 2026 · Sunrise Consulting LLC, doing business as DGTL Sunrise · 2152 W Lima Pl, Coeur d'Alene, ID 83814 · <a href="mailto:noel@dgtlsunrise.com">noel@dgtlsunrise.com</a> · 858.354.3666</p>
+
+  <p>This policy covers dgtlsunrise.com, the Grok plugin named <strong>dgtl-marketing</strong>, and related consulting work. It is written for people and for Google's OAuth verification of the plugin.</p>
+
+  <h2>What the plugin is</h2>
+  <p>dgtl-marketing runs locally on the user's Grok Bot computer. You connect Google accounts you already own so Grok can read marketing data and answer questions in that session. v1 is read-only. The plugin does not create, update, or delete campaigns, tags, properties, or listings.</p>
+
+  <h2>Google user data we access</h2>
+  <p>When you complete Google OAuth, the plugin requests access only to the APIs you enable:</p>
+  <ul>
+    <li><strong>Google Analytics (GA4)</strong> : read property, report, and configuration data you can already see in Analytics.</li>
+    <li><strong>Google Search Console</strong> : read site and query performance for properties you verify.</li>
+    <li><strong>Google Tag Manager</strong> : read container and tag configuration. No publishes in v1.</li>
+    <li><strong>Google Business Profile</strong> : optional and feature-flagged. Read listing information you already administer, only if that flag is on.</li>
+    <li><strong>Google Ads</strong> : not in the free plugin. Planned as a paid DGTL subscription, read only, through the gateway described below.</li>
+  </ul>
+  <p>We request the minimum read scopes needed for those features. We do not request Gmail, Drive, Calendar, or Contacts.</p>
+
+  <div class="box">
+    <p><strong>Limited Use.</strong> DGTL Sunrise's use of information received from Google APIs will adhere to the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements. Google user data is used only to provide and improve the user-facing features of dgtl-marketing. We do not sell it. We do not use it for advertising. We do not transfer it to third parties except as needed to run a request you initiated or as required by law.</p>
+  </div>
+
+  <h2>Where that data lives</h2>
+  <p><strong>Free plugin (GA4, Search Console, GTM, and flagged GBP).</strong> OAuth tokens stay on your computer. Report bytes are fetched into the local Grok session so the model can answer you. Sunrise Consulting LLC does not receive those report bytes and does not store them on DGTL servers.</p>
+  <p><strong>Paid Google Ads and Meta Ads reads (future DGTL subscription).</strong> Those calls will go through an allowlisted DGTL gateway. The gateway attaches the credentials needed to complete the request and returns the vendor response to your session. The gateway does not store the report bytes. Meta is not a Google API; it is listed here because the same product will use it later under a paid plan.</p>
+  <p>If we ever need to keep a credential so a paid connector can keep working, we will say so in this policy before that ships, and it will still be used only to serve your request.</p>
+
+  <h2>What we collect on the website</h2>
+  <p>The marketing site is static. If you email or call us, we keep that correspondence to reply and, if you hire us, to do the work. We do not run a public account system on this domain. Server logs from our host (Cloudflare) may include IP address, user agent, and the URL requested, for security and uptime.</p>
+
+  <h2>Consulting engagements</h2>
+  <p>If you hire Sunrise Consulting LLC, we process whatever you send us to do the job: briefs, access you grant, drafts, invoices. That material is held under the engagement, not mixed into the plugin's Google data. We do not use client consulting files to train public models.</p>
+
+  <h2>Sharing</h2>
+  <p>We do not sell personal information. We share data only with processors who host this site or, for paid Ads/Meta, the allowlisted gateway that completes your request; with Google or Meta when you authorize an API call; or if the law requires it.</p>
+
+  <h2>Retention and your choices</h2>
+  <p>Local plugin data lasts as long as you keep the local session and tokens. Revoke access any time at <a href="https://myaccount.google.com/permissions" rel="noopener">Google Account permissions</a>. Delete the local Grok / plugin data on your machine the same way you delete other local app data. Email <a href="mailto:noel@dgtlsunrise.com">noel@dgtlsunrise.com</a> to ask what, if anything, we hold from a consulting engagement or a paid subscription, and we will delete it unless we are required to keep it.</p>
+
+  <h2>Children</h2>
+  <p>The plugin and this site are for business users. We do not knowingly collect data from children under 13.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes in a material way, we will update this page and the effective date. The current version lives at <a href="https://www.dgtlsunrise.com/privacy">https://www.dgtlsunrise.com/privacy</a>.</p>
+
+  <h2>Contact</h2>
+  <p>Sunrise Consulting LLC (DGTL Sunrise)<br>
+  2152 W Lima Pl, Coeur d'Alene, ID 83814<br>
+  <a href="mailto:noel@dgtlsunrise.com">noel@dgtlsunrise.com</a><br>
+  858.354.3666</p>
+</article>
+<footer>© 2026 Sunrise Consulting LLC · <a href="/">Home</a> · <a href="/terms">Terms</a></footer>
+</body>
+</html>
