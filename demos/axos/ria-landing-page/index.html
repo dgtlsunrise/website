@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>Axos Custodian Landing Page Redesign Review | DGTL Sunrise</title>
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --color-navy: #1E3860;
+      --color-navy-dark: #102340;
+      --color-navy-light: #2A4D7E;
+      --color-orange: #FAA74A;
+      --color-orange-hover: #e39134;
+      --color-bg-light: #F8FAFC;
+      --color-white: #FFFFFF;
+      --color-text-dark: #0F172A;
+      --color-text-muted: #475569;
+      --color-border: #E2E8F0;
+      --color-accent-blue: #3B82F6;
+      --color-accent-bg: #EFF6FF;
+      
+      --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text-dark);
+      background-color: var(--color-bg-light);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Header Co-Branding */
+    .header {
+      background-color: var(--color-white);
+      border-bottom: 2px solid var(--color-orange);
+      padding: 0.75rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+    }
+    
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .brand-dgtl {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+    
+    .brand-logo-img {
+      height: 48px;
+      width: auto;
+      display: block;
+      object-fit: contain;
+    }
+    
+    .brand-separator {
+      height: 24px;
+      width: 1px;
+      background-color: var(--color-border);
+      margin: 0 1.5rem;
+    }
+    
+    .brand-axos {
+      display: flex;
+      align-items: center;
+    }
+    
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--color-navy-dark) 0%, var(--color-navy) 100%);
+      color: var(--color-white);
+      padding: 4rem 2rem 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-bg-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.05;
+      pointer-events: none;
+    }
+    
+    .hero-container {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-badge {
+      display: inline-block;
+      background-color: rgba(250, 167, 74, 0.15);
+      border: 1px solid var(--color-orange);
+      color: var(--color-orange);
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+    
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 2.75rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.875rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+    }
+    
+    .btn-orange {
+      background-color: var(--color-orange);
+      color: var(--color-navy-dark);
+      border: none;
+    }
+    
+    .btn-orange:hover {
+      background-color: var(--color-orange-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(250, 167, 74, 0.3);
+    }
+    
+    /* Main Content */
+    .content-container {
+      max-width: 1200px;
+      margin: -2.5rem auto 4rem auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Summary Grid & Cards */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    
+    @media (min-width: 900px) {
+      .summary-grid {
+        grid-template-columns: 1fr 1.5fr;
+      }
+    }
+
+    .summary-card {
+      background-color: var(--color-white);
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--color-border);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    
+    .summary-title {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--color-navy-dark);
+    }
+    
+    .summary-text {
+      color: var(--color-text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 0;
+    }
+    
+    /* Detailed Improvements Grid */
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: var(--color-navy-dark);
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .card {
+      background-color: var(--color-white);
+      border-radius: 8px;
+      border: 1px solid var(--color-border);
+      padding: 2rem;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .card:hover {
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+      transform: translateY(-2px);
+    }
+    
+    .card-header-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .card-num {
+      background-color: rgba(250, 167, 74, 0.12);
+      color: var(--color-orange);
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+    
+    .card-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-navy-dark);
+    }
+    
+    .comparison {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .comp-box {
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+    }
+    
+    .comp-before {
+      background-color: #FEF2F2;
+      border-left: 3px solid #EF4444;
+      color: #991B1B;
+    }
+    
+    .comp-after {
+      background-color: #F0FDF4;
+      border-left: 3px solid #22C55E;
+      color: #166534;
+    }
+    
+    .comp-label {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+    
+    .rationale {
+      border-top: 1px solid var(--color-border);
+      padding-top: 1rem;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+    
+    .rationale-title {
+      font-weight: 700;
+      color: var(--color-navy-dark);
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    /* Footer */
+    .footer {
+      background-color: var(--color-navy-dark);
+      color: rgba(255, 255, 255, 0.6);
+      padding: 3rem 2rem;
+      text-align: center;
+      font-size: 0.9rem;
+      border-top: 2px solid var(--color-orange);
+    }
+    
+    .footer-brand {
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: center;
+    }
+    
+    .footer-text {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div style="display: flex; align-items: center;">
+        <!-- DGTL Sunrise Logo -->
+        <a href="#" class="brand-dgtl" aria-label="DGTL Sunrise Homepage">
+          <img src="./dgtl-sunrise-logo.jpg" alt="DGTL Sunrise Logo" class="brand-logo-img" style="height: 40px;" />
+        </a>
+        <div class="brand-separator"></div>
+        <!-- Axos Advisor Services Vector Logo -->
+        <div class="brand-axos">
+          <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 66" height="28" width="90">
+            <path d="M60.328.616c-.752-.753-1.983-.753-2.667 0L56.566 1.71c-.752.752-.752 1.984 0 2.668l17.51 17.51-17.578 17.578c-.752.753-.752 1.984 0 2.668l1.094 1.094c.753.753 1.984.753 2.668 0l21.272-21.272L60.328.616Z" fill="#FAA74A"></path>
+            <path d="M99.18 1.71 98.084.616c-.752-.753-1.984-.753-2.668 0l-14.91 14.842 3.83 3.83L99.179 4.447c.753-.82.753-1.984 0-2.736ZM177.428 19.425s-1.984-.478-3.146-.889c-3.489-1.163-6.704-3.078-6.704-6.566 0-3.967 3.42-6.635 8.482-6.635 3.352 0 6.019.958 7.866 2.873l.616.615c.752.753 1.983.753 2.667 0l1.094-1.094c.753-.752.753-1.983 0-2.667l-.615-.616c-2.941-2.804-7.045-4.31-11.696-4.31-4.241 0-7.593 1.095-10.397 3.42-2.668 2.258-3.967 5.13-3.967 8.62 0 8.412 7.866 10.464 14.774 12.311l.205.068c6.088 1.437 9.166 3.83 9.166 7.182 0 4.173-3.489 6.703-9.371 6.703-3.694 0-6.908-1.23-9.097-3.42l-.684-.684c-.753-.752-1.984-.752-2.668 0l-1.368 1.369c-.752.752-.752 1.983 0 2.667l.684.684c3.147 3.146 7.729 4.788 13.133 4.788 4.514 0 8.14-1.094 11.081-3.352 2.804-2.188 4.24-5.13 4.24-8.755.137-7.866-6.703-10.602-14.295-12.312ZM99.18 42.134l-1.095 1.094c-.752.753-1.984.753-2.668 0l-14.91-14.91 3.83-3.831L99.179 39.33c.753.82.753 1.983 0 2.804ZM128.249 5.404c9.097 0 16.484 7.387 16.484 16.484 0 9.097-7.387 16.484-16.484 16.484-9.097 0-16.484-7.387-16.484-16.484 0-9.097 7.455-16.484 16.484-16.484Zm0-5.404c-12.038 0-21.888 9.781-21.888 21.888 0 12.038 9.781 21.888 21.888 21.888 12.038 0 21.888-9.782 21.888-21.888C150.137 9.85 140.356 0 128.249 0ZM41.86 0h-1.573c-1.026 0-1.915.82-1.915 1.915v5.609A21.831 21.831 0 0 0 21.888 0C9.85 0 0 9.781 0 21.888c0 12.038 9.781 21.888 21.888 21.888a21.83 21.83 0 0 0 16.484-7.524v5.608c0 1.026.82 1.916 1.915 1.916h1.573c1.026 0 1.916-.821 1.916-1.916V1.915C43.776.89 42.955 0 41.86 0Zm-3.488 22.025c-.068 9.097-7.387 16.416-16.484 16.416-9.097 0-16.484-7.388-16.484-16.485S12.79 5.472 21.888 5.472c9.097 0 16.416 7.319 16.484 16.416v.137ZM195.349 2.394c0-1.368 1.026-2.394 2.325-2.394C199.042 0 200 1.026 200 2.394s-1.026 2.394-2.326 2.394c-1.368-.068-2.325-1.094-2.325-2.394Zm4.377 0c0-1.231-.82-2.12-2.052-2.12-1.231 0-2.052.889-2.052 2.12s.821 2.12 2.052 2.12c1.232 0 2.052-.889 2.052-2.12Zm-2.394 1.231h-.273V1.163c.205-.069.41-.069.547-.069.616 0 .958.274.958.821 0 .41-.274.616-.548.753l.821.957h-.41l-.753-.889h-.342v.89Zm0-1.231h.274c.342 0 .616-.137.616-.547 0-.342-.274-.479-.616-.479h-.274v1.026ZM58.071 63.133l-.752 2.052h-1.574l3.42-8.824h1.847l3.42 8.824h-1.641l-.753-2.052h-3.967Zm1.984-5.336-1.505 4.104h3.01l-1.505-4.104ZM67.1 56.43a25.025 25.025 0 0 1 2.326-.137c3.488 0 5.198 1.846 5.198 4.377 0 2.805-1.71 4.72-5.13 4.72-.89 0-1.71-.069-2.394-.137V56.43Zm1.505 7.523c.342.069.684.069 1.026.069 2.052 0 3.42-1.095 3.42-3.352 0-1.915-1.231-3.01-3.557-3.01-.274 0-.616 0-.89.07v6.224ZM79.822 65.253l-3.352-8.824h1.642l2.668 7.32 2.599-7.32h1.641l-3.351 8.824h-1.847ZM89.193 65.253h-1.505v-8.824h1.505v8.824ZM92.408 63.201c.683.547 1.368.89 2.325.89.89 0 1.642-.343 1.642-1.232 0-.82-.616-1.094-1.642-1.436-1.71-.547-2.462-1.232-2.462-2.668 0-1.573 1.3-2.462 2.804-2.462.958 0 1.642.273 2.257.684v1.505c-.684-.548-1.368-.89-2.188-.89-.821 0-1.369.48-1.369 1.163 0 .684.48 1.026 1.642 1.368 1.71.547 2.462 1.231 2.462 2.736 0 1.779-1.368 2.6-3.078 2.6-.957 0-1.778-.274-2.325-.685v-1.573h-.068ZM104.993 56.224c2.531 0 4.583 1.847 4.583 4.583s-2.052 4.583-4.583 4.583-4.583-1.847-4.583-4.583c0-2.668 2.052-4.583 4.583-4.583Zm0 1.368c-1.71 0-3.01 1.232-3.01 3.215 0 1.915 1.3 3.215 3.01 3.215 1.71 0 3.01-1.231 3.01-3.215 0-1.915-1.3-3.215-3.01-3.215ZM114.227 65.253h-1.505V56.43a20.847 20.847 0 0 1 2.189-.137c2.325 0 3.557 1.026 3.557 2.873 0 1.3-.753 2.257-1.779 2.599l2.668 3.488h-1.847l-2.326-3.146h-1.025v3.146h.068Zm0-4.377h.752c1.231 0 1.984-.548 1.984-1.642 0-1.026-.684-1.573-2.052-1.573h-.684v3.215ZM125.787 63.201c.684.547 1.368.89 2.325.89.889 0 1.642-.343 1.642-1.232 0-.82-.616-1.094-1.642-1.436-1.71-.547-2.462-1.232-2.462-2.668 0-1.573 1.299-2.462 2.804-2.462.958 0 1.642.273 2.257.684v1.505c-.684-.548-1.368-.89-2.188-.89-.821 0-1.368.48-1.368 1.163 0 .684.478 1.026 1.641 1.368 1.71.547 2.463 1.231 2.463 2.736 0 1.779-1.368 2.6-3.078 2.6-.958 0-1.779-.274-2.326-.685v-1.573h-.068ZM139.808 63.885v1.368h-5.472v-8.824h5.404v1.368h-3.899v2.395h3.625v1.3h-3.625v2.462h3.967v-.069ZM144.665 65.253h-1.505V56.43a20.847 20.847 0 0 1 2.189-.137c2.325 0 3.556 1.026 3.556 2.873 0 1.3-.752 2.257-1.778 2.599l2.668 3.488h-1.847l-2.326-3.146h-1.026v3.146h.069Zm0-4.377h.752c1.231 0 1.984-.548 1.984-1.642 0-1.026-.684-1.573-2.052-1.573h-.684v3.215ZM154.583 65.253l-3.352-8.824h1.642l2.667 7.32 2.6-7.32h1.641l-3.351 8.824h-1.847ZM163.885 65.253h-1.505v-8.824h1.505v8.824ZM174.077 58.55c-.616-.547-1.437-.89-2.463-.89-1.71 0-3.009 1.3-3.009 3.215 0 1.916 1.299 3.215 3.009 3.215 1.026 0 1.779-.273 2.463-.889v1.642c-.753.478-1.642.684-2.531.684-2.736 0-4.514-1.847-4.514-4.583s1.915-4.583 4.514-4.583c.889 0 1.71.205 2.462.616v1.573h.069ZM182.832 63.885v1.368h-5.472v-8.824h5.403v1.368h-3.899v2.395h3.626v1.3h-3.626v2.462h3.968v-.069ZM185.704 63.201c.684.547 1.368.89 2.326.89.889 0 1.641-.343 1.641-1.232 0-.82-.615-1.094-1.641-1.436-1.71-.547-2.462-1.232-2.462-2.668 0-1.573 1.299-2.462 2.804-2.462.957 0 1.641.273 2.257.684v1.505c-.684-.548-1.368-.89-2.189-.89s-1.368.48-1.368 1.163c0 .684.479 1.026 1.642 1.368 1.71.547 2.462 1.231 2.462 2.736 0 1.779-1.368 2.6-3.078 2.6-.957 0-1.778-.274-2.325-.685v-1.573h-.069Z" fill="#1E3860"></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <h1 class="hero-title">Axos Advisor Services Redesign</h1>
+      <p class="hero-subtitle">
+        Prepared for Axos Bank by DGTL Sunrise. A best-in-class conversion rate optimization (CRO) redesign focusing on improving Google & Meta ad traffic conversion rate performance.
+      </p>
+      
+      <a href="./ria-landing-page.html" class="btn btn-orange">
+        Launch RIA Landing Page
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="margin-left: 0.75rem;">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="content-container">
+    
+    <!-- Summary Card -->
+    <div class="summary-card">
+      <h2 class="summary-title">Executive Summary</h2>
+      <p class="summary-text" style="margin-bottom: 0; font-size: 1.1rem; font-weight: 500; color: var(--color-navy);">
+        This redesign transforms the Axos landing page into a high-converting, mobile-optimized acquisition funnel. By addressing cognitive load, form positioning, and mobile friction, these optimizations are structured to maximize qualified advisor leads.
+      </p>
+    </div>
+
+    <!-- Detailed Improvements -->
+    <h2 class="section-title">Redesign Key Improvements & UX Rationale</h2>
+    
+    <div class="grid">
+      
+      <!-- Card 1: Copywriting & Framing -->
+      <div class="card">
+        <div class="card-header-box">
+          <div class="card-num">01</div>
+          <h3 class="card-title">Empathy-Driven Copywriting & Framing</h3>
+        </div>
+        <div class="comparison">
+          <div class="comp-box comp-before">
+            <span class="comp-label">Original Layout</span>
+            Sparse, generic text blocks that focused purely on a download list rather than speaking to the advisor's core obstacles.
+          </div>
+          <div class="comp-box comp-after">
+            <span class="comp-label">Optimized Redesign</span>
+            Direct copy addressing "the transition excuse" and aligning value benefits with paid search/social intent.
+          </div>
+        </div>
+        <div class="rationale">
+          <div class="rationale-title">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+            Conversion Rate Impact: Highest (Primary Persuasion Driver)
+          </div>
+          Addressing the advisor's fear of transition builds instant affinity. Framing the switch as structured and simple builds credibility, lowering barriers to download the guide.
+        </div>
+      </div>
+
+      <!-- Card 2: Above the Fold Layout -->
+      <div class="card">
+        <div class="card-header-box">
+          <div class="card-num">02</div>
+          <h3 class="card-title">Above-the-Fold Form Integration</h3>
+        </div>
+        <div class="comparison">
+          <div class="comp-box comp-before">
+            <span class="comp-label">Original Layout</span>
+            Form was located at the very bottom of the page, requiring extensive scrolling or anchor navigation.
+          </div>
+          <div class="comp-box comp-after">
+            <span class="comp-label">Optimized Redesign</span>
+            Split-screen desktop hero containing the lead capture card directly visible upon page load.
+          </div>
+        </div>
+        <div class="rationale">
+          <div class="rationale-title">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+            Conversion Rate Impact: Highest (Primary Structural Driver)
+          </div>
+          Paid ad traffic has extremely brief attention spans. Presenting the lead form immediately alongside the value proposition eliminates scrolling friction and captures high-intent leads instantly.
+        </div>
+      </div>
+
+      <!-- Card 3: Mobile-First Layout -->
+      <div class="card">
+        <div class="card-header-box">
+          <div class="card-num">03</div>
+          <h3 class="card-title">Mobile-First Layout & Floating CTA</h3>
+        </div>
+        <div class="comparison">
+          <div class="comp-box comp-before">
+            <span class="comp-label">Original Layout</span>
+            Cramped layouts on mobile device sizes with crowded headers and buried CTA buttons.
+          </div>
+          <div class="comp-box comp-after">
+            <span class="comp-label">Optimized Redesign</span>
+            Responsive stacked single-column layout, mobile header styling, and floating scroll-driven CTA button.
+          </div>
+        </div>
+        <div class="rationale">
+          <div class="rationale-title">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+            Conversion Rate Impact: High
+          </div>
+          A significant portion of paid traffic is mobile. A clean stacked layout with a floating CTA ensures easy form access at any scroll depth.
+        </div>
+      </div>
+      
+      <!-- Card 4: High-Visibility Direct Contact Access -->
+      <div class="card">
+        <div class="card-header-box">
+          <div class="card-num">04</div>
+          <h3 class="card-title">High-Visibility Direct Contact Access</h3>
+        </div>
+        <div class="comparison">
+          <div class="comp-box comp-before">
+            <span class="comp-label">Original Layout</span>
+            No direct phone number or contact information was present in the header of the original page (only buried in the footer).
+          </div>
+          <div class="comp-box comp-after">
+            <span class="comp-label">Optimized Redesign</span>
+            Prominent header phone link with advisor consultation hours on desktop and a tap-to-call mobile shortcut pill.
+          </div>
+        </div>
+        <div class="rationale">
+          <div class="rationale-title">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+            Conversion Rate Impact: High / Trust Builder
+          </div>
+          Many high-value advisors prefer immediate direct communication. Providing a clear phone channel builds credibility and captures inbound hot-leads who skip the lead form. <strong>Call-Tracking Recommendation:</strong> Implement Dynamic Number Insertion (DNI) via a call-tracking partner (e.g. CallRail) to capture calls as conversion events in Google Ads and Meta Pixels, ensuring accurate CPA attribution and campaign optimization.
+        </div>
+      </div>
+
+      <!-- Card 5: Interactive Red Flags -->
+      <div class="card">
+        <div class="card-header-box">
+          <div class="card-num">05</div>
+          <h3 class="card-title">Interactive Red Flags & Curiosity Loop</h3>
+        </div>
+        <div class="comparison">
+          <div class="comp-box comp-before">
+            <span class="comp-label">Original Layout</span>
+            The 5 warning signs were completely absent from the landing page body, providing zero preview of the guide's content.
+          </div>
+          <div class="comp-box comp-after">
+            <span class="comp-label">Optimized Redesign</span>
+            Interactive desktop tab switcher (accordion on mobile) presenting warning signs dynamically with core stats.
+          </div>
+        </div>
+        <div class="rationale">
+          <div class="rationale-title">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+            Conversion Rate Impact: High
+          </div>
+          An interactive tab/accordion increases dwell time. Teasing the warning signs with data (e.g. 92% switching because of tech) builds strong curiosity and establishes the guide's value.
+        </div>
+      </div>
+
+      <!-- Card 6: Trust Signals -->
+      <div class="card">
+        <div class="card-header-box">
+          <div class="card-num">06</div>
+          <h3 class="card-title">Trust Signals & Credibility Ribbon</h3>
+        </div>
+        <div class="comparison">
+          <div class="comp-box comp-before">
+            <span class="comp-label">Original Layout</span>
+            No regulatory membership badges (FINRA/SIPC) or institutional trust markers presented in the page body (only standard legal footer disclaimers existed).
+          </div>
+          <div class="comp-box comp-after">
+            <span class="comp-label">Optimized Redesign</span>
+            Dedicated trust bar positioned immediately below the hero highlighting credentials and integrated banking benefits.
+          </div>
+        </div>
+        <div class="rationale">
+          <div class="rationale-title">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+            Brand Perception Impact: Highest
+          </div>
+          Financial advisors are highly risk-averse when sharing credentials. Displaying regulatory memberships (FINRA/SIPC) and custody backing immediately establishes authority and safety.
+        </div>
+      </div>
+      
+      <!-- Card 7: Lead Capture Form Visual Redesign -->
+      <div class="card">
+        <div class="card-header-box">
+          <div class="card-num">07</div>
+          <h3 class="card-title">Lead Capture Form Visual Redesign & UX Polish</h3>
+        </div>
+        <div class="comparison">
+          <div class="comp-box comp-before">
+            <span class="comp-label">Original Layout</span>
+            A plain, basic form hidden at the bottom of the page, lacking visual structure, autofill attributes, or mobile keyboard helper settings.
+          </div>
+          <div class="comp-box comp-after">
+            <span class="comp-label">Optimized Redesign</span>
+            A modern, high-contrast form card floating above the fold on a navy background, featuring inline validation, standard autofills, and auto-opening mobile dialpads.
+          </div>
+        </div>
+        <div class="rationale">
+          <div class="rationale-title">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+            Conversion Rate Impact: High
+          </div>
+          A form must look premium and trustworthy to convert. Combining a distinct visual card with mobile dialpads (which automatically open the number pad for the phone field) significantly reduces friction and raises conversion rates.
+        </div>
+      </div>
+    </div>
+    
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-brand">
+      <!-- DGTL Sunrise Branded Logo Box -->
+      <div style="background-color: var(--color-white); padding: 0.5rem 1.25rem; border-radius: 6px; display: inline-flex; align-items: center; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);">
+        <img src="./dgtl-sunrise-logo.jpg" alt="DGTL Sunrise Logo" style="height: 38px; width: auto; display: block;" />
+      </div>
+    </div>
+    <div class="footer-text">
+      <p>© 2026 DGTL Sunrise. All Rights Reserved. Prepared exclusively for review by Axos Advisor Services and Axos Bank. Unauthorized reproduction or sharing is prohibited.</p>
+    </div>
+  </footer>
+
+</body>
+</html>

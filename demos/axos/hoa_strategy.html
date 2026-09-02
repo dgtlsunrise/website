@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Axos HOA — Digital Growth Strategy · DGTL Sunrise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F2F5F9;
+  --card:#ffffff;
+  --navy:#18355f;
+  --navy-soft:#2a4a73;
+  --muted:#5a6b82;
+  --amber:#f5a227;
+  --amber-soft:#fff4e0;
+  --line:#e3e8f0;
+  --shadow:0 2px 12px rgba(24,53,95,.07);
+  --shadow-lg:0 6px 24px rgba(24,53,95,.10);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);
+  color:var(--navy);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.55;
+}
+h1,h2,h3{font-family:"DM Serif Display",Georgia,serif;font-weight:400;color:var(--navy);margin:0 0 .4em}
+h1{font-size:clamp(2.2rem,4.5vw,3.4rem);line-height:1.08;letter-spacing:-.01em}
+h2{font-size:clamp(1.6rem,2.8vw,2.2rem);line-height:1.15;margin-top:.1em}
+h3{font-size:1.35rem;line-height:1.25}
+h4{font-size:1.05rem;font-weight:600;margin:0 0 .4em;color:var(--navy)}
+p{color:var(--navy-soft);font-size:1rem;line-height:1.65;margin:0 0 1em}
+a{color:var(--navy)}
+ul{margin:0 0 1em;padding-left:1.1em;color:var(--navy-soft)}
+li{margin-bottom:.4em;line-height:1.55}
+strong{color:var(--navy)}
+
+/* Header / footer */
+header.site,footer.site{background:#fff;border-bottom:1px solid var(--line)}
+header.site{position:sticky;top:0;z-index:50}
+footer.site{border-top:1px solid var(--line);border-bottom:0;margin-top:40px}
+.header-inner,.footer-inner{
+  max-width:1180px;margin:0 auto;padding:18px 32px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+}
+.footer-inner{padding:22px 32px;font-size:.88rem;color:var(--muted)}
+.back-link{
+  color:var(--navy);text-decoration:none;font-size:.88rem;font-weight:600;
+  border-bottom:1px solid transparent;transition:border-color .15s;
+}
+.back-link:hover{border-bottom-color:var(--amber)}
+.header-badge{font-size:.78rem;color:var(--muted);letter-spacing:.02em}
+
+/* Main */
+main{max-width:1180px;margin:0 auto;padding:56px 32px 80px}
+
+/* Intro hero */
+.intro{
+  display:grid;grid-template-columns:1.6fr 1fr;gap:40px;align-items:start;
+  margin-bottom:36px;
+}
+.eyebrow{
+  display:inline-block;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--amber);font-weight:700;margin-bottom:14px;
+}
+.lede{font-size:1.18rem;color:var(--navy-soft);max-width:640px;line-height:1.55}
+.pov-card{
+  background:#fff;border:1px solid var(--line);border-left:4px solid var(--amber);
+  border-radius:12px;padding:26px 28px;box-shadow:var(--shadow);
+}
+.pov-card h4{font-size:.72rem;text-transform:uppercase;letter-spacing:.14em;color:var(--amber);margin-bottom:10px}
+.pov-card p{font-size:.98rem;margin:0;color:var(--navy)}
+
+/* Section block */
+section.block{
+  background:var(--card);
+  border-radius:14px;
+  padding:44px;
+  margin-bottom:28px;
+  box-shadow:var(--shadow);
+}
+.section-eyebrow{
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--amber);font-weight:700;margin-bottom:10px;
+}
+.section-sub{max-width:760px;color:var(--muted);font-size:1.02rem;margin-bottom:28px}
+
+/* Punch list */
+.punch{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.punch-item{
+  display:flex;gap:16px;align-items:flex-start;
+  background:#fbfcfe;border:1px solid var(--line);border-radius:10px;
+  padding:22px 24px;
+}
+.punch-item.top{background:var(--amber-soft);border-color:var(--amber)}
+.punch-num{
+  font-family:"DM Serif Display",serif;font-size:1.8rem;line-height:1;
+  color:var(--amber);min-width:34px;
+}
+.punch-body h4{margin-bottom:4px;font-size:1rem}
+.punch-body p{margin:0;font-size:.92rem;color:var(--muted);line-height:1.5}
+
+/* Channels / generic 2-col cards */
+.channels{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.channels.three{grid-template-columns:1fr 1fr 1fr}
+.channel{
+  border:1px solid var(--line);border-radius:10px;padding:26px;background:#fbfcfe;
+}
+.channel.priority{border-color:var(--amber);background:var(--amber-soft)}
+.channel h4{font-size:1.05rem;margin-bottom:8px}
+.channel p{font-size:.92rem;margin-bottom:.7em}
+.channel p:last-child{margin-bottom:0}
+.channel .example{
+  background:#fff;border:1px solid var(--line);border-radius:8px;
+  padding:12px 14px;margin-top:12px;
+}
+.channel .example .lab{
+  font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--muted);font-weight:700;display:block;margin-bottom:4px;
+}
+.channel .example .val{font-size:.92rem;color:var(--navy);font-weight:600;line-height:1.35}
+.channel .example .sub{font-size:.85rem;color:var(--navy-soft);margin-top:4px;display:block;line-height:1.4}
+
+/* Tags */
+.channel-tag{
+  font-size:.66rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700;
+  padding:4px 9px;border-radius:4px;margin-bottom:12px;display:inline-block;
+}
+.tag-priority{background:#18355f;color:#fff}
+.tag-new{background:#f5a227;color:#fff}
+.tag-fix{background:#e8eef7;color:#18355f}
+.tag-phase2{background:#e0f2f0;color:#00695c}
+
+/* Process / arch steps */
+.arch{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.arch.four{grid-template-columns:repeat(4,1fr)}
+.arch-step{
+  background:#f7f9fc;border:1px solid var(--line);border-radius:10px;padding:20px;
+}
+.arch-step .num{
+  font-family:"DM Serif Display",serif;font-size:1.6rem;color:var(--amber);
+  display:block;margin-bottom:6px;line-height:1;
+}
+.arch-step h4{font-size:.98rem;margin-bottom:6px}
+.arch-step p{font-size:.88rem;margin:0;color:var(--muted);line-height:1.5}
+
+/* Tables */
+.table-wrap{overflow-x:auto;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:.92rem}
+th{
+  background:#f7f9fc;padding:12px 14px;text-align:left;
+  font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--navy);border-bottom:1px solid var(--line);font-weight:700;
+}
+td{padding:13px 14px;border-bottom:1px solid var(--line);color:var(--navy-soft);vertical-align:top}
+tbody tr:last-child td{border-bottom:0}
+td strong{display:block;margin-bottom:2px;color:var(--navy)}
+td code{
+  font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;
+  background:#f2f5f9;padding:2px 6px;border-radius:4px;font-size:.85em;
+}
+
+/* KPI cards */
+.kpis{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.kpi{border:1px solid var(--line);border-radius:10px;padding:22px;background:#fbfcfe}
+.kpi.primary{background:var(--amber-soft);border-color:var(--amber)}
+.kpi .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--amber);font-weight:700}
+.kpi h4{font-family:"DM Serif Display",serif;font-size:1.35rem;font-weight:400;margin:6px 0 8px}
+.kpi p{font-size:.92rem;margin:0;color:var(--navy-soft);line-height:1.5}
+
+/* Pillars */
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:8px}
+.pillar{
+  border:1px solid var(--line);border-radius:10px;padding:22px 24px;background:#fbfcfe;
+  border-left:4px solid var(--amber);
+}
+.pillar .p-num{
+  font-family:"DM Serif Display",serif;color:var(--amber);font-size:1.1rem;
+  display:block;margin-bottom:2px;
+}
+.pillar h4{font-size:1rem;margin-bottom:8px}
+.pillar .ai-q{
+  font-size:.82rem;color:var(--muted);margin-top:10px;padding-top:10px;
+  border-top:1px dashed var(--line);line-height:1.45;
+}
+.pillar .ai-q strong{color:var(--navy);font-weight:600}
+
+/* Callout rows */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:8px}
+.split .col h4{margin-top:0}
+.split .col p{font-size:.94rem}
+
+/* Closed-loop flow */
+.loop{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:8px;
+}
+.loop-step{
+  background:#f7f9fc;border:1px solid var(--line);border-radius:10px;
+  padding:18px;position:relative;
+}
+.loop-step .step-num{
+  font-size:.66rem;text-transform:uppercase;letter-spacing:.12em;
+  color:var(--amber);font-weight:700;display:block;margin-bottom:6px;
+}
+.loop-step h4{font-size:.95rem;margin-bottom:4px}
+.loop-step p{font-size:.84rem;color:var(--muted);margin:0;line-height:1.45}
+
+/* Responsive */
+@media (max-width:880px){
+  main{padding:36px 20px 60px}
+  section.block{padding:28px 22px}
+  .intro{grid-template-columns:1fr;gap:24px}
+  .punch,.channels,.channels.three,.arch,.arch.four,.kpis,.pillars,.loop,.split{grid-template-columns:1fr}
+  .header-inner,.footer-inner{padding:16px 20px}
+  .footer-inner{flex-direction:column;align-items:flex-start;gap:8px}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="header-inner">
+    <img src="data:image/png;base64,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" alt="Axos Bank" style="height:26px;width:auto;display:block">
+    <a href="./index.html" class="back-link">← Back to overview</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <div>
+      <span class="eyebrow">HOA Business Unit · Digital Growth Strategy</span>
+      <h1>From one landing page to a full-funnel acquisition engine.</h1>
+      <p class="lede">A plan to evolve the Axos HOA digital presence into a sophisticated, multi-channel funnel — built on source-aligned creative, first-party data activation, and Tealium-powered qualification across inbound and outbound.</p>
+    </div>
+    <aside class="pov-card">
+      <h4>Point of view</h4>
+      <p>The fastest gains come from matching message to source, activating data Axos already owns, and letting Tealium decide where every marketing dollar goes next.</p>
+    </aside>
+  </div>
+
+  <!-- PUNCH LIST -->
+  <section class="block">
+    <div class="section-eyebrow">Immediate Action Items</div>
+    <h2>The punch list</h2>
+    <p class="section-sub">Seven moves to run in parallel. The first four compound on each other — source-aligned pages feed better data into Tealium, which sharpens the paid channels that drive traffic back to those same pages.</p>
+
+    <div class="punch">
+      <div class="punch-item top">
+        <div class="punch-num">01</div>
+        <div class="punch-body">
+          <h4>Customize landing pages by source</h4>
+          <p>Separate pages for Google, LinkedIn, and Meta already exist — update the content on each to match how that user arrived and what they need to hear.</p>
+        </div>
+      </div>
+      <div class="punch-item top">
+        <div class="punch-num">02</div>
+        <div class="punch-body">
+          <h4>Launch inbound paid search</h4>
+          <p>Prioritize budget against Tealium-badged warm audiences actively searching for solutions.</p>
+        </div>
+      </div>
+      <div class="punch-item top">
+        <div class="punch-num">03</div>
+        <div class="punch-body">
+          <h4>Deploy ZoomInfo prospecting</h4>
+          <p>Feed high-intent decision-maker lists into LinkedIn and Meta to provide air cover for outbound sales.</p>
+        </div>
+      </div>
+      <div class="punch-item top">
+        <div class="punch-num">04</div>
+        <div class="punch-body">
+          <h4>Activate Meta remarketing</h4>
+          <p>Nurture qualified visitors through segmented social retargeting keyed to product interest.</p>
+        </div>
+      </div>
+      <div class="punch-item">
+        <div class="punch-num">05</div>
+        <div class="punch-body">
+          <h4>Expand site navigation with thought-leadership</h4>
+          <p>Deploy FAQ schema and pillar content to capture organic SEO and AI/LLM search traffic.</p>
+        </div>
+      </div>
+      <div class="punch-item">
+        <div class="punch-num">06</div>
+        <div class="punch-body">
+          <h4>Re-engage stale prospects</h4>
+          <p>Upload hashed email lists of past prospects to resurrect dormant leads via Search and Social.</p>
+        </div>
+      </div>
+      <div class="punch-item">
+        <div class="punch-num">07</div>
+        <div class="punch-body">
+          <h4>Build lookalike audiences</h4>
+          <p>Seed Meta and Google with high-LTV HOA client lists to prospect 1%–2% Lookalike / Similar Audiences.</p>
+        </div>
+      </div>
+      <div class="punch-item" style="background:#fff;border-style:dashed">
+        <div class="punch-num" style="color:var(--navy-soft)">→</div>
+        <div class="punch-body">
+          <h4>Full detail below</h4>
+          <p>Each item is expanded in the sections that follow, with architecture, campaign structure, and measurement notes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANDING PAGES -->
+  <section class="block">
+    <div class="section-eyebrow">01 · Landing Page Strategy</div>
+    <h2>Match the page to the source, not the product.</h2>
+    <p class="section-sub">Axos already maintains separate landing pages for Google, LinkedIn, and Meta traffic — the infrastructure is in place. The opportunity is in the content: today, all three pages share the same H1 ("Smarter banking for your community is finally here") and the same "Submit" CTA. A Google searcher looking for "HOA loans" is in a completely different state than a property manager scrolling LinkedIn — each page should speak to how that visitor arrived.</p>
+
+    <div class="channels three">
+      <div class="channel priority">
+        <span class="channel-tag tag-new">Google · High Intent</span>
+        <h4>Direct, keyword-rich, authoritative</h4>
+        <p>User is actively searching for a solution. Match the query, show the product, shorten the path to contact.</p>
+        <div class="example">
+          <span class="lab">Example H1</span>
+          <span class="val">Comprehensive HOA Banking, Lending &amp; Treasury Management Solutions</span>
+          <span class="sub">Tailored lending and automated treasury solutions designed for the unique financial needs of community associations.</span>
+        </div>
+      </div>
+
+      <div class="channel priority">
+        <span class="channel-tag tag-new">LinkedIn · Professional B2B</span>
+        <h4>Scalability, efficiency, partnership</h4>
+        <p>User is in professional research mode — benchmarking vendors, evaluating partners, thinking in terms of their portfolio.</p>
+        <div class="example">
+          <span class="lab">Example H1</span>
+          <span class="val">Scale Your Property Management Portfolio with Integrated Banking Services</span>
+          <span class="sub">Streamline operations and drive efficiency with a banking partner that understands your portfolio's growth requirements.</span>
+        </div>
+      </div>
+
+      <div class="channel priority">
+        <span class="channel-tag tag-new">Meta · Interruptive</span>
+        <h4>Pattern interrupt on a daily frustration</h4>
+        <p>User is scrolling passively. Lead with a concrete pain point they feel every week, not a brand statement.</p>
+        <div class="example">
+          <span class="lab">Example H1</span>
+          <span class="val">Stop Manual Reconciliation — Automate Your Community's Receivables</span>
+          <span class="sub">Integrate your management software with Axos Bank to eliminate manual data entry and free up staff for higher-value work.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROSPECTING ENGINE -->
+  <section class="block">
+    <div class="section-eyebrow">02 · Prospecting Engine</div>
+    <h2>ZoomInfo into social, then sales.</h2>
+    <p class="section-sub">Build a synchronized pipeline so that by the time a Relationship Manager reaches out, the prospect has already seen Axos three to five times in their LinkedIn and Meta feeds. Outbound stops being cold.</p>
+
+    <div class="arch">
+      <div class="arch-step">
+        <span class="num">01</span>
+        <h4>Identify</h4>
+        <p>ZoomInfo firmographic filtering on HOA management companies by units managed, region, and C-suite/board titles, combined with intent monitoring on "HOA banking" and "ECR yield" research spikes. Output: a daily-synced pipeline surfacing prospects at peak research.</p>
+      </div>
+      <div class="arch-step">
+        <span class="num">02</span>
+        <h4>Ingest</h4>
+        <p>Direct API sync from ZoomInfo MarketingOS into LinkedIn Matched Audiences and Meta Custom Audiences. Export both work and personal identifiers to close the business vs. personal email gap and lift match rates meaningfully above the Meta industry average.</p>
+      </div>
+      <div class="arch-step">
+        <span class="num">03</span>
+        <h4>Warm</h4>
+        <p>Non-interruptive air cover on Axos differentiators — Vantaca and CINC integrations, ECR benefits. Sales outreach is delayed until the prospect has spent 7–10 days in the warming pool. The "Who is Axos?" hurdle is already gone when the RM calls.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:28px;background:#f7f9fc;border:1px solid var(--line);border-radius:10px;padding:22px 26px">
+      <h4 style="margin-bottom:8px">Salesforce routing</h4>
+      <p style="margin:0;font-size:.94rem">Leads from Meta and LinkedIn flow instantly into Salesforce, where assignment rules route them to the correct Regional Relationship Manager by territory. For audiences that fall below platform minimums, expand from single intent-trigger contacts to the full ZoomInfo buying committee to meet threshold.</p>
+    </div>
+  </section>
+
+  <!-- INBOUND + TEALIUM -->
+  <section class="block">
+    <div class="section-eyebrow">03 · Inbound Search &amp; Tealium Activation</div>
+    <h2>Capture intent. Qualify with behavior. Convert with precision.</h2>
+    <p class="section-sub">Google Search captures active demand; Tealium identifies who is actually qualified based on how they engage with the site; RLSA and Meta retargeting concentrate spend on the visitors most likely to close.</p>
+
+    <div class="arch">
+      <div class="arch-step">
+        <span class="num">01</span>
+        <h4>Capture</h4>
+        <p>Paid search dominates top-of-page results for high-value HOA banking queries — treasury management, lockbox, lines of credit, assessment and capital improvement loans.</p>
+      </div>
+      <div class="arch-step">
+        <span class="num">02</span>
+        <h4>Qualify</h4>
+        <p>Tealium badges visitors based on behavior — three visits to the Lending page, a guide download, a pricing scroll. Anonymous traffic becomes structured audience data.</p>
+      </div>
+      <div class="arch-step">
+        <span class="num">03</span>
+        <h4>Convert</h4>
+        <p>Badges fuel RLSA bid boosts on Google and specific product-CTA retargeting on Meta. Spend concentrates on known, qualified prospects instead of repeat cold traffic.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:36px;margin-bottom:14px">Three-campaign architecture</h3>
+    <div class="channels three">
+      <div class="channel">
+        <span class="channel-tag tag-new">Campaign 1</span>
+        <h4>Active prospecting</h4>
+        <p><strong>Audience:</strong> Cold traffic only. Exclude Tealium-badged visitors, ZoomInfo lists, and existing customers.</p>
+        <p><strong>Themes:</strong> High-intent pain-point keywords — HOA lockbox, assessment loans, treasury management.</p>
+        <p><strong>Message:</strong> "The specialized bank for community associations" — expertise and HOA-specific features.</p>
+      </div>
+      <div class="channel priority">
+        <span class="channel-tag tag-priority">Campaign 2 · Priority</span>
+        <h4>High-intent retargeting</h4>
+        <p><strong>Audience:</strong> Tealium-badged visitors, stale lead hashed lists, ZoomInfo intent lists.</p>
+        <p><strong>Strategy:</strong> Aggressive bidding when known prospects re-enter the search market. Defend on competitor brand searches.</p>
+        <p><strong>Message:</strong> "Finish your application" or "See why 35,000+ associations trust Axos" — trust, social proof, ease of switching.</p>
+      </div>
+      <div class="channel">
+        <span class="channel-tag tag-new">Campaign 3</span>
+        <h4>Competitor conquesting</h4>
+        <p><strong>Audience:</strong> Cold traffic searching for direct competitors.</p>
+        <p><strong>Strategy:</strong> Appear above competitor organic listings on branded searches.</p>
+        <p><strong>Message:</strong> "Switching made simple" — lead with Vantaca and CINC integrations and the dedicated Relationship Manager model.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:36px;margin-bottom:8px">Closed-loop lead flow</h3>
+    <p class="section-sub" style="margin-bottom:18px">Meta Lead Ads capture low-friction intent; Salesforce routes and enriches; Tealium suppresses converted leads from future spend automatically.</p>
+    <div class="loop">
+      <div class="loop-step">
+        <span class="step-num">Capture</span>
+        <h4>Meta Lead Ads</h4>
+        <p>Pre-filled fields capture high-intent prospects with minimal friction on mobile.</p>
+      </div>
+      <div class="loop-step">
+        <span class="step-num">Route</span>
+        <h4>Salesforce</h4>
+        <p>Native API connector delivers the lead; assignment rules route to the correct Regional RM by territory.</p>
+      </div>
+      <div class="loop-step">
+        <span class="step-num">Sync</span>
+        <h4>Tealium pipeline</h4>
+        <p>Salesforce updates flow back to Tealium, enriching the prospect profile in near real time.</p>
+      </div>
+      <div class="loop-step">
+        <span class="step-num">Optimize</span>
+        <h4>Suppress &amp; learn</h4>
+        <p>Converted leads are auto-badged and suppressed from future campaigns, freeing budget for net-new reach.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:26px;background:var(--amber-soft);border:1px solid var(--amber);border-radius:10px;padding:22px 26px">
+      <h4 style="margin-bottom:6px">Lead-capture enhancement</h4>
+      <p style="margin:0;font-size:.94rem">The only current CTA is "Schedule a Call" — high effort for early-stage researchers. Add a mid-funnel offer such as "Download the 2026 HOA Financial Automation Guide." Anonymous visitors become identified contacts in Tealium, which unlocks the full retargeting and nurture sequence above.</p>
+    </div>
+  </section>
+
+  <!-- SEO & LLM -->
+  <section class="block">
+    <div class="section-eyebrow">04 · SEO &amp; AI / LLM Readiness</div>
+    <h2>Be the source AI models cite.</h2>
+    <p class="section-sub">Traditional SEO rewards the site that answers the question. AI search rewards the site that is structured, verified, and most talked about. Both point to the same technical and content work — done once, it compounds across Google, ChatGPT, Perplexity, and AI Overviews.</p>
+
+    <div class="split">
+      <div class="col">
+        <h4>Technical architecture</h4>
+        <ul>
+          <li><strong>Structured data.</strong> Deploy <code>FinancialService</code> and <code>FAQPage</code> schema so LLMs can identify Axos rates, integrations, and service areas without guessing from page copy.</li>
+          <li><strong>AI-extractable formatting.</strong> Convert ECR tiers and loan requirements into clean HTML tables and bulleted lists — the formats AI models preferentially extract for answers.</li>
+          <li><strong>Entity association.</strong> Earn citations on high-authority industry sites with links back to pillar content. AI recommends what is most frequently referenced.</li>
+          <li><strong>Named authorship.</strong> Attach Relationship Manager bylines and LinkedIn profiles to thought leadership. "Expert-verified" content is ranked higher than anonymous corporate copy.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>A visible gap to close first</h4>
+        <p>The current "Integrated Software Partners" section relies on logos alone. AI crawlers cannot read image files to confirm compatibility, so Axos is effectively invisible on queries like "Which banks integrate with Vantaca?"</p>
+        <p>Add a text description for each partner: "Axos integrates with Vantaca to provide real-time, API-driven account reconciliation." Same logos, same design — but now the claim is machine-readable.</p>
+        <p>Pair this with a natural-language FAQ section targeting queries like "How does an ECR offset HOA banking fees?" and "What are the benefits of a specialized HOA lockbox?" to capture "People Also Ask" placements and feed direct answers to LLM synthesis.</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:32px;margin-bottom:6px">Four authority pillars</h3>
+    <p class="section-sub" style="margin-bottom:18px">Each pillar is built to rank traditionally and to be the answer AI models surface when the underlying question is asked.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <span class="p-num">Pillar 01</span>
+        <h4>Yield &amp; efficiency — the ECR model</h4>
+        <p style="font-size:.92rem;margin:0">Definitive guide to ECR optimization for associations. Positions Axos as the authoritative source on offsetting monthly bank fees.</p>
+        <div class="ai-q"><strong>AI target:</strong> "How can my HOA offset monthly bank fees?"</div>
+      </div>
+      <div class="pillar">
+        <span class="p-num">Pillar 02</span>
+        <h4>Modern receivables &amp; integration</h4>
+        <p style="font-size:.92rem;margin:0">The ROI of API-driven banking with Vantaca, CINC, and eUnify. Ties Axos directly to the software decision-makers already use.</p>
+        <div class="ai-q"><strong>AI target:</strong> "Which bank has the best Vantaca or CINC integration?"</div>
+      </div>
+      <div class="pillar">
+        <span class="p-num">Pillar 03</span>
+        <h4>Capital growth &amp; lending</h4>
+        <p style="font-size:.92rem;margin:0">Navigating special assessments and infrastructure loans — owns the "how do we pay for this?" moment for boards and managers.</p>
+        <div class="ai-q"><strong>AI target:</strong> "Can an HOA get a commercial loan for a new roof or siding?"</div>
+      </div>
+      <div class="pillar">
+        <span class="p-num">Pillar 04</span>
+        <h4>Fiduciary security &amp; governance</h4>
+        <p style="font-size:.92rem;margin:0">Reserve fund management and fraud prevention frameworks — positions Axos as the safe default for boards with fiduciary obligations.</p>
+        <div class="ai-q"><strong>AI target:</strong> "What are best practices for HOA reserve fund security?"</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATA ACTIVATION -->
+  <section class="block">
+    <div class="section-eyebrow">05 · First-Party Data Activation</div>
+    <h2>Use the data Axos already owns.</h2>
+    <p class="section-sub">Two first-party assets are underutilized today: stale prospect lists from prior campaigns and the active, high-LTV HOA client base. Both can be activated across Meta and Google through hashed email matching.</p>
+
+    <div class="channels">
+      <div class="channel">
+        <span class="channel-tag tag-fix">Existing Asset</span>
+        <h4>Stale prospect re-engagement</h4>
+        <p>Upload hashed email lists of past prospects to Google and Meta. Messaging leads with "Welcome back" or "What's new" — e.g., "Our Vantaca integration is now live."</p>
+        <p>Meta Lead Ads with pre-filled fields make re-capture low friction. On Google, bid aggressively when stale prospects search for competitors. This converts spend already incurred into net-new pipeline.</p>
+      </div>
+      <div class="channel">
+        <span class="channel-tag tag-new">Net-New Prospecting</span>
+        <h4>Lookalike &amp; similar audiences</h4>
+        <p>Seed with hashed email lists of the highest-LTV active HOA clients. Model 1%–2% Lookalike on Meta and Similar Audiences on Google.</p>
+        <p>Lead with educational, thought-leadership creative to build trust before the prospect enters an active search phase. Budget concentrates on audiences with the highest statistical probability of conversion.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- META CONVERSION -->
+  <section class="block">
+    <div class="section-eyebrow">06 · Meta Conversion Optimization</div>
+    <h2>A safety net for mobile bounce.</h2>
+    <p class="section-sub">High-intent prospects drop off on mobile when forms demand manual entry. Meta Lead Ads act as a secondary capture path for the qualified visitor who doesn't complete "Submit" on the site form.</p>
+
+    <div class="split">
+      <div class="col">
+        <h4>Why it works</h4>
+        <ul>
+          <li>Pre-filled fields (name, business email, phone) reduce errors and improve CRM data quality from day one.</li>
+          <li>Native Meta → Salesforce API connector delivers leads in real time — no CSV uploads, no delay between capture and RM follow-up.</li>
+          <li>Automated Salesforce routing assigns each lead to the correct Regional Relationship Manager by territory or firmographics.</li>
+        </ul>
+      </div>
+      <div class="col">
+        <h4>Where it fits in the funnel</h4>
+        <p>Lead Ads are not a replacement for the source-aligned landing pages. They are the fallback layer that captures the high-intent mobile user who clicked through, started engaging, and stalled at the form. Paired with Tealium suppression, they add volume without cannibalizing existing conversions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPIs -->
+  <section class="block">
+    <div class="section-eyebrow">07 · Measurement Framework</div>
+    <h2>What to watch, and what to avoid publishing too early.</h2>
+    <p class="section-sub">Each workstream has a primary metric and a directional goal. Specific CPA and conversion-rate targets should be held until a clean baseline exists — publishing a target before baseline sets the program up to be judged against a guess.</p>
+
+    <div class="kpis">
+      <div class="kpi primary">
+        <span class="label">Primary · Inbound</span>
+        <h4>CPA: badged vs. cold</h4>
+        <p>Compare cost-per-acquisition for Tealium-badged audiences against unqualified cold traffic. Badged audiences should show meaningfully lower CPA. Establish baseline before committing to a target number.</p>
+      </div>
+      <div class="kpi primary">
+        <span class="label">Primary · Landing Pages</span>
+        <h4>Conversion &amp; bounce by source</h4>
+        <p>Track conversion rate and bounce rate separately for Google, LinkedIn, and Meta. Source-aligned pages should outperform the uniform experience on both metrics for their respective channels.</p>
+      </div>
+      <div class="kpi">
+        <span class="label">Prospecting Engine</span>
+        <h4>Sales responsiveness</h4>
+        <p>Measurable lift in sales response rates and matched-audience engagement after prospects pass through the 7–10 day LinkedIn and Meta warming sequence.</p>
+      </div>
+      <div class="kpi">
+        <span class="label">Data Activation</span>
+        <h4>Stale &amp; lookalike recovery</h4>
+        <p>Re-engagement rate on stale lists and conversion rate of lookalike audiences vs. generic cold prospecting — both should outperform unmatched audiences.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="footer-inner">
+    <span>Prepared by <strong>DGTL Sunrise</strong> for Axos Bank — Confidential — March 2026</span>
+    <a href="./index.html" class="back-link">← Back to overview</a>
+  </div>
+</footer>
+
+</body>
+</html>
