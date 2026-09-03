@@ -1,5 +1,8 @@
-node_modules/
-.wrangler/
+# Local publish scratch (do not commit)
+*.tar.gz
 .DS_Store
 ._*
-*.tar.gz
+.wrangler/
+.xdg-config/
+deploy-dist/
+node_modules/

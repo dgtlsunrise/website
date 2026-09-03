@@ -1,0 +1,410 @@
+/*
+  DGTL Sunrise — shared system stylesheet.
+  Contract: see /BRAND-GUIDE.md and /DESIGN.md at the repo root.
+  Pure #000000 / #FFFFFF. System type only (no webfonts). Zero radius. Zero glow.
+*/
+
+/* ---------------------------------------------------------------------- */
+/* 1. Reset                                                                */
+/* ---------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body, h1, h2, h3, p, ul, li, figure { margin: 0; }
+ul { padding: 0; list-style: none; }
+img { display: block; max-width: 100%; }
+
+/* ---------------------------------------------------------------------- */
+/* 2. Tokens                                                                */
+/* ---------------------------------------------------------------------- */
+:root {
+  /* color — locked */
+  --black: #000000;
+  --white: #ffffff;
+  --line: rgba(255, 255, 255, 0.24);   /* structural hairline — never used for text */
+  --line-strong: #ffffff;               /* emphasis rule */
+
+  /* type — legal system stack (see BRAND-GUIDE.md §2) */
+  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* grid — 12 columns, breakpoint-driven margin + gutter (see BRAND-GUIDE.md §3) */
+  --margin: 20px;
+  --gutter: 12px;
+  --max: 1760px;
+
+  /* motion */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --fast: 140ms;
+}
+
+@media (min-width: 480px)  { :root { --margin: 24px; --gutter: 16px; } }
+@media (min-width: 768px)  { :root { --margin: 32px; --gutter: 20px; } }
+@media (min-width: 1024px) { :root { --margin: 48px; --gutter: 30px; } }
+@media (min-width: 1440px) { :root { --margin: 64px; --gutter: 30px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.001ms !important; animation-duration: 0.001ms !important; }
+}
+
+/* ---------------------------------------------------------------------- */
+/* 3. Base                                                                  */
+/* ---------------------------------------------------------------------- */
+html { background: var(--black); }
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; text-decoration: none; }
+strong { font-weight: 700; }
+::selection { background: var(--white); color: var(--black); }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 4px;
+}
+
+/* ---------------------------------------------------------------------- */
+/* 4. Grid                                                                  */
+/* ---------------------------------------------------------------------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--gutter);
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--margin);
+}
+
+/* ---------------------------------------------------------------------- */
+/* 5. Type scale (see BRAND-GUIDE.md §4 for the full table)                */
+/* ---------------------------------------------------------------------- */
+.label-mono {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* ---------------------------------------------------------------------- */
+/* 6. Rule                                                                  */
+/* ---------------------------------------------------------------------- */
+.rule {
+  border: 0;
+  border-top: 1px solid var(--line-strong);
+  height: 0;
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------------- */
+/* 7. CTA link — text + reveal underline, no pills, no fills               */
+/* ---------------------------------------------------------------------- */
+.cta {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-bottom: 0.3em;
+}
+.cta::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform var(--fast) var(--ease);
+}
+.cta:hover::after,
+.cta:focus-visible::after { transform: scaleX(0.35); }
+
+/* ---------------------------------------------------------------------- */
+/* 8. Header — Corner Lockup recipe                                        */
+/* ---------------------------------------------------------------------- */
+.site-header {
+  grid-template-rows: 1fr;
+  align-items: center;
+  padding-block: clamp(1.25rem, 3vw, 1.75rem);
+}
+.lockup {
+  grid-column: 1 / 7;
+  grid-row: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  width: fit-content;
+}
+.lockup__mark { height: clamp(26px, 3.4vw, 38px); width: auto; }
+.lockup__word {
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+.header-link,
+.header-path {
+  grid-column: 9 / -1;
+  grid-row: 1;
+  justify-self: end;
+  align-self: center;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  white-space: nowrap;
+}
+.header-path { opacity: 0.55; }
+
+/* ---------------------------------------------------------------------- */
+/* 9. Footer — Sparse Strip recipe                                         */
+/* ---------------------------------------------------------------------- */
+.site-footer {
+  grid-template-rows: 1fr;
+  align-items: center;
+  padding-block: clamp(1.5rem, 4vw, 2rem);
+  border-top: 1px solid var(--line);
+}
+.footer-links {
+  grid-column: 1 / 5;
+  grid-row: 1;
+  display: flex;
+  gap: 1.5rem;
+}
+.footer-links a { font-size: 0.75rem; }
+.footer-links a:hover { text-decoration: underline; }
+.footer-meta {
+  grid-column: 6 / -1;
+  grid-row: 1;
+  justify-self: end;
+  text-align: right;
+  font-size: 0.75rem;
+}
+.footer-meta a:hover { text-decoration: underline; }
+
+@media (max-width: 767px) {
+  .site-footer { row-gap: 0.75rem; }
+  .footer-links { grid-column: 1 / -1; grid-row: 1; }
+  .footer-meta { grid-column: 1 / -1; grid-row: 2; justify-self: start; text-align: left; }
+}
+
+/* ======================================================================
+   PAGE: home (index.html)
+   ====================================================================== */
+
+/* Hero — Wide/Narrow Diagonal recipe, viewport module */
+.hero {
+  grid-template-rows: 1fr;
+  min-height: 68svh;
+  padding-block: clamp(1.5rem, 5vw, 3rem);
+}
+.hero__title {
+  grid-column: 1 / 9;
+  grid-row: 1;
+  align-self: start;
+  font-size: clamp(3.25rem, 11vw, 9rem);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+}
+.hero__lede {
+  grid-column: 9 / 13;
+  grid-row: 1;
+  align-self: end;
+  justify-self: end;
+  max-width: 30ch;
+  font-size: clamp(1.05rem, 1.5vw, 1.375rem);
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+  text-align: left;
+}
+
+/* Step One — Rule-Break Heading recipe */
+.step {
+  grid-template-rows: auto auto;
+  row-gap: clamp(1.25rem, 3vw, 2rem);
+  padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+.step__rule {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  align-self: center;
+}
+.step__label {
+  grid-column: 2 / 6;
+  grid-row: 1;
+  align-self: center;
+  background: var(--black);
+  width: fit-content;
+  padding-right: 1.25rem;
+}
+.step__body {
+  grid-column: 2 / 12;
+  grid-row: 2;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  line-height: 1.5;
+  max-width: 46ch;
+}
+.step__cta-line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.step__note {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.01em;
+  opacity: 0.55;
+}
+
+/* Free / Paid Upgrade — Unequal Twin recipe */
+.offers {
+  grid-template-rows: 1fr;
+  min-height: 18vh;
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+}
+.offer--free {
+  grid-column: 2 / 7;
+  grid-row: 1;
+  align-self: start;
+}
+.offer--paid {
+  grid-column: 7 / 13;
+  grid-row: 1;
+  align-self: end;
+}
+.offer__label { margin-bottom: 0.75rem; display: block; }
+.offer__body {
+  font-size: clamp(1.1rem, 1.6vw, 1.375rem);
+  line-height: 1.5;
+  max-width: 34ch;
+}
+
+@media (max-width: 767px) {
+  .hero { min-height: auto; grid-template-rows: auto auto; row-gap: 2.5rem; padding-block: 3rem 2rem; }
+  .hero__title { grid-column: 1 / -1; grid-row: 1; }
+  .hero__lede { grid-column: 1 / -1; grid-row: 2; justify-self: start; align-self: start; max-width: 36ch; }
+
+  .step__rule { grid-row: 1; }
+  .step__label { grid-column: 1 / -1; grid-row: 1; padding-right: 0; }
+  .step__body { grid-column: 1 / -1; grid-row: 2; max-width: 100%; }
+
+  .offers { min-height: auto; row-gap: 2.5rem; }
+  .offer--free { grid-column: 1 / -1; grid-row: 1; align-self: auto; }
+  .offer--paid { grid-column: 1 / -1; grid-row: 2; align-self: auto; }
+}
+
+/* ======================================================================
+   PAGE: plugin (plugin.html)
+   ====================================================================== */
+
+.plugin-title {
+  padding-block: clamp(2rem, 6vw, 3.5rem) clamp(1rem, 3vw, 1.5rem);
+}
+.plugin-title h1 {
+  grid-column: 1 / 9;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+/* Status — Full-Bleed Statement recipe */
+.status {
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+  border-top: 1px solid var(--line);
+}
+.status__line {
+  grid-column: 1 / -1;
+  font-size: clamp(1.5rem, 4.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+.status__sub {
+  grid-column: 1 / -1;
+  margin-top: 1rem;
+  max-width: 46ch;
+  font-size: 1.0625rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 767px) {
+  .plugin-title h1 { grid-column: 1 / -1; }
+}
+
+/* ======================================================================
+   PAGE: legal (privacy.html, terms.html)
+   ====================================================================== */
+
+.legal-nav {
+  border-bottom: 1px solid var(--line);
+  padding-inline: var(--margin);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background: var(--black);
+  z-index: 10;
+}
+.legal-nav .lockup { grid-column: auto; }
+.legal-nav-links { display: flex; gap: 1.5rem; font-size: 0.8125rem; }
+.legal-nav-links a:hover { text-decoration: underline; }
+
+.legal-wrap {
+  max-width: 72ch;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 6vw, 4.5rem) var(--margin) 6rem;
+}
+.legal-wrap h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.legal-meta {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 2rem;
+}
+.legal-wrap h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 2.5rem 0 0.75rem;
+}
+.legal-wrap p,
+.legal-wrap li { line-height: 1.65; margin-bottom: 0.875rem; }
+.legal-wrap ul { padding-left: 1.25rem; margin-bottom: 1rem; }
+.legal-wrap ul li { list-style: disc; margin-bottom: 0.5rem; }
+.legal-wrap a { border-bottom: 1px solid var(--line); }
+.legal-wrap a:hover { border-bottom-color: var(--white); }
+.legal-box {
+  border: 1px solid var(--line-strong);
+  padding: 1.25rem 1.5rem;
+  margin: 1.75rem 0;
+}
+.legal-box p:last-child { margin-bottom: 0; }
+
+.legal-footer {
+  border-top: 1px solid var(--line);
+  padding: 2rem var(--margin);
+  font-size: 0.8125rem;
+  text-align: center;
+}
+.legal-footer a:hover { text-decoration: underline; }
