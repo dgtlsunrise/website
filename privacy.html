@@ -30,7 +30,7 @@
 </header>
 <article class="legal-wrap" id="legal">
   <h1>Privacy Policy</h1>
-  <p class="legal-meta">Effective September 2, 2026 · Sunrise Consulting LLC, doing business as DGTL Sunrise · 2152 W Lima Pl, Coeur d'Alene, ID 83814 · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · 858.354.3666</p>
+  <p class="legal-meta">Effective September 6, 2026 · Sunrise Consulting LLC, doing business as DGTL Sunrise · 2152 W Lima Pl, Coeur d'Alene, ID 83814 · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · 858.354.3666</p>
 
   <p>This policy covers dgtlsunrise.com, the Grok Bot plugin, and related consulting work. It is written for people and for Google's OAuth verification of the plugin.</p>
 
@@ -56,6 +56,19 @@
   <p><strong>Free plugin (GA4, Search Console, GTM, and flagged GBP).</strong> OAuth tokens stay on your computer. Report bytes are fetched into the local Grok session so the model can answer you. Sunrise Consulting LLC does not receive those report bytes and does not store them on DGTL servers.</p>
   <p><strong>Paid Google Ads and Meta Ads reads (future DGTL subscription).</strong> Those calls will go through an allowlisted DGTL gateway. The gateway attaches the credentials needed to complete the request and returns the vendor response to your session. The gateway does not store the report bytes. Meta is not a Google API; it is listed here because the same product will use it later under a paid plan.</p>
   <p>If we ever need to keep a credential so a paid connector can keep working, we will say so in this policy before that ships, and it will still be used only to serve your request.</p>
+
+  <h2>How we protect Google user data</h2>
+  <p>This section states how Google user data is protected on the free plugin path and, when it ships, on the paid gateway path.</p>
+  <ul>
+    <li><strong>Least privilege.</strong> The free plugin requests only read-only scopes for the Google products you connect. We do not request Gmail, Drive, Calendar, or Contacts.</li>
+    <li><strong>Local token custody (free path).</strong> OAuth tokens stay on your Grok Bot computer. Sunrise Consulting LLC does not receive those tokens and does not store them on DGTL servers.</li>
+    <li><strong>Transit.</strong> Google API calls and this marketing site use HTTPS/TLS.</li>
+    <li><strong>Access control.</strong> Only the signed-in Grok Bot session on that machine can use the tokens. There is no shared multi-tenant DGTL store for free-plugin Google tokens.</li>
+    <li><strong>No DGTL persistence of free-path report bytes.</strong> Report bytes stay in the local session. They are not stored on DGTL servers.</li>
+    <li><strong>Paid gateway (when shipped).</strong> Paid Ads/Meta reads will go through an allowlisted DGTL gateway that does not archive report bytes. If we ever store a credential so a paid connector can keep working, we will disclose that here before it ships.</li>
+    <li><strong>Revocation.</strong> Revoke access at <a href="https://myaccount.google.com/permissions" rel="noopener">Google Account permissions</a>, delete the local plugin data on your machine, and email <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> if you need us to check what, if anything, we hold from a consulting engagement or paid subscription.</li>
+    <li><strong>Limited Use.</strong> Use of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements, as stated above.</li>
+  </ul>
 
   <h2>What we collect on the website</h2>
   <p>The marketing site is static. If you email or call us, we keep that correspondence to reply and, if you hire us, to do the work. We do not run a public account system on this domain. Server logs from our host (Cloudflare) may include IP address, user agent, and the URL requested, for security and uptime.</p>
