@@ -1,45 +1,56 @@
 # Design — implementation contract
 
-Full rationale, sources, and rules live in **[BRAND-GUIDE.md](./BRAND-GUIDE.md)**. This file is
-the short version Impeccable and future edits should check against before anything ships.
+Full rationale lives in **[BRAND-GUIDE.md](./BRAND-GUIDE.md)**. Check both files
+before shipping a visual change.
 
 ## The lock
 
-- `#000000` background, `#FFFFFF` text. Everywhere. No near-black, no near-white, no gray-as-text.
-  This is intentional and documented — see BRAND-GUIDE §5, §10, §12. It is not a contrast bug.
-- Logo: `/logo.webp` (transparent) + the literal words "DGTL Sunrise." (with the period) next to it.
-  No other logo file is linked from these pages.
-- Type: `--font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif` for everything except mono
-  labels, which use `--font-mono: ui-monospace, SFMono-Regular, Menlo, monospace`. No webfonts, no
-  Google Fonts. Licensed swap path (Helvetica Now Display + Elios, or Alliance No.2 + No.1) is
-  documented in BRAND-GUIDE §2 and gated on an actual license — do not add it speculatively.
-- Grid: 12 columns always; margin/gutter scale by breakpoint per BRAND-GUIDE §3.
-- Radius: `0`. No pills, no rounded cards.
-- Motion: `transform`/`opacity` only, `140ms` ease-out, hover/focus states only, respects
-  `prefers-reduced-motion`. Pages are CSS-only except `/assets/copy.js` on `/connector` and
-  `/engagements` — clipboard for the paste blocks, nothing else.
-- Copy: the dual-door IA brief is the entire text budget. No invented offering prose, no case
-  studies, no "about," no headcount, no "one operator," no RainbowOPTX, no fake terminals.
-- Company home is `/`. dgtl-connector is one offering at `/connector`, not the company name.
-  Hire / build is `/engagements`. Do not put a Free/Paid grid or "Step One" / "In development"
-  on the homepage.
-- Pro is $19/mo flat. Point it at `/connector` and `https://www.dgtlsunrise.com/connector`.
-  Do not invent Polar checkout URLs.
-- Legal pages (`privacy.html`, `terms.html`) keep their reviewed body copy. Privacy stays at
-  `/privacy`. Footer on every page: © 2026 Sunrise Consulting LLC, `contact@dgtlsunrise.com`,
-  `support@dgtlsunrise.com`. `/plugin` redirects to `/connector`.
+- Surfaces: `#000000` dark and `#f3f3f0` light. Type is `#ffffff` on dark and
+  `#111111` on light. Muted tokens are documented in the brand guide. Accent
+  `#4aa3ff` is for labels, chrome links, and status only.
+- Logo: `/logo.webp` + the words “DGTL Sunrise.” (with the period).
+- Type: Helvetica Neue / Helvetica / Arial. Mono for labels and commands. No
+  webfonts. No Google Fonts.
+- CTAs: sharp rectangles. Primary Install → `/connector`. Talk →
+  `/engagements` or `mailto:contact@dgtlsunrise.com`.
+- Cards and chrome may use a 10px radius. Buttons stay radius 0.
+- Motion: CSS keyframes, IO reveals, staged demo JS. Respect
+  `prefers-reduced-motion`. Pages stay static HTML + `/assets/style.css` +
+  `/assets/site.js` (no bundler).
+- Copy: dual-door IA. No headcount, no “one operator,” no RainbowOPTX, no fake
+  logos, no SOC2/ISO, no “1,500 apps.”
+- Company home is `/`. dgtl-connector lives at `/connector`. Hire is
+  `/engagements`. Pro is $19/mo flat. Point it at `/connector` and
+  `https://www.dgtlsunrise.com/connector`. Do not invent Polar checkout URLs.
+- Footer on every page: © 2026 Sunrise Consulting LLC,
+  `contact@dgtlsunrise.com`, `support@dgtlsunrise.com`, Privacy, Terms.
+- `/plugin` 301s to `/connector`. Legal pages keep reviewed body copy.
 
 ## Method
 
-1. Every new block gets an explicit `grid-column` + `align-self`/`justify-self`. If you didn't set
-   both, you defaulted to centered — go back and pick an edge (BRAND-GUIDE §7).
-2. Reuse one of the named recipes in BRAND-GUIDE §6 before inventing a new layout pattern.
-3. One shared stylesheet: `/assets/style.css`. Don't fork per-page inline `<style>` blocks again.
-4. Recheck this file and BRAND-GUIDE.md stay true after any edit — if a page needs something
-   neither doc allows, update the docs first, then the page.
+1. Reuse nav, footer, card, chrome, and paste-box patterns before inventing a
+   new module.
+2. One stylesheet: `/assets/style.css`. One behavior file: `/assets/site.js`.
+3. If a page needs something neither doc allows, update the docs first.
 
-## Ban list (unchanged intent, restated for the black/white system)
+## Local preview (do not deploy)
 
-Gradients, glow, blurred orbs, fake terminals, compile.sh theater, pulsing status dots on static
-content, rounded card grids, pill hero chips, decorative motion, gray/near-black/near-white text
-or backgrounds, Google Fonts, invented metrics or copy beyond the brief.
+This repo is Cloudflare Pages-static (`wrangler.jsonc` `assets.directory` is
+`./`). Preview only:
+
+```bash
+npx wrangler pages dev . --port 8787
+```
+
+A plain static server can render the HTML; `_redirects` (`/plugin` →
+`/connector` 301) is honored by Pages / `wrangler pages dev`, not by a raw
+file server.
+
+Do not run `wrangler pages deploy` or publish to production from this work.
+
+## Ban list
+
+Scraped Composio graphics, Lottie, Three, fake terminals that pretend to
+compile the brand, fake customers, invented Polar URLs, Google Fonts,
+gradients-as-decoration, extra brand colors, unlock/leverage/empower/delve,
+em dashes on marketing copy.

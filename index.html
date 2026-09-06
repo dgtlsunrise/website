@@ -3,57 +3,272 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DGTL Sunrise — Marketing engineering</title>
-<meta name="description" content="DGTL Sunrise. Marketing engineering. Agentic systems on your marketing data. Install the connector, or hire us to build the system.">
+<title>DGTL Sunrise · Marketing engineering</title>
+<meta name="description" content="DGTL Sunrise. Marketing engineering. Agents that act on your marketing data. Install the connector, or hire us to build the system.">
 <link rel="canonical" href="https://www.dgtlsunrise.com/">
 <link rel="icon" type="image/png" href="/favicon.png">
 <meta name="theme-color" content="#000000">
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body class="page-home">
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="site-header grid">
-  <a class="lockup" href="/">
-    <img class="lockup__mark" src="/logo.webp" alt="">
-    <span class="lockup__word">DGTL Sunrise.</span>
-  </a>
-  <a class="header-link" href="mailto:contact@dgtlsunrise.com">Contact</a>
+<header class="site-nav">
+  <div class="wrap nav-inner">
+    <a class="lockup" href="/">
+      <img class="lockup__mark" src="/logo.webp" alt="">
+      <span class="lockup__word">DGTL Sunrise.</span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="/connector">Connector</a>
+      <a href="/engagements">Engagements</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn--ghost" href="/engagements">Talk</a>
+      <a class="btn btn--solid" href="/connector">Install</a>
+    </div>
+  </div>
 </header>
 
-<main>
+<main id="main">
 
-  <section class="hero grid" aria-label="Introduction">
-    <h1 class="hero__title">Marketing<br>engineering.</h1>
-    <p class="hero__lede">Agentic systems on your marketing data. Install the connector, or hire us to build the system.</p>
+  <section class="hero-dark" aria-label="Introduction">
+    <div class="scanfield" aria-hidden="true">
+      <i style="--h:22;--d:0.1"></i><i style="--h:48;--d:0.4"></i><i style="--h:31;--d:0.2"></i>
+      <i style="--h:64;--d:0.7"></i><i style="--h:28;--d:0.15"></i><i style="--h:72;--d:0.55"></i>
+      <i style="--h:40;--d:0.3"></i><i style="--h:86;--d:0.8"></i><i style="--h:36;--d:0.05"></i>
+      <i style="--h:58;--d:0.45"></i><i style="--h:24;--d:0.25"></i><i style="--h:70;--d:0.6"></i>
+      <i style="--h:44;--d:0.35"></i><i style="--h:90;--d:0.9"></i><i style="--h:33;--d:0.2"></i>
+      <i style="--h:62;--d:0.5"></i><i style="--h:26;--d:0.1"></i><i style="--h:78;--d:0.75"></i>
+      <i style="--h:38;--d:0.18"></i><i style="--h:54;--d:0.42"></i><i style="--h:29;--d:0.28"></i>
+      <i style="--h:66;--d:0.65"></i><i style="--h:41;--d:0.32"></i><i style="--h:82;--d:0.85"></i>
+      <i style="--h:35;--d:0.12"></i><i style="--h:59;--d:0.48"></i><i style="--h:27;--d:0.22"></i>
+      <i style="--h:74;--d:0.7"></i><i style="--h:46;--d:0.38"></i><i style="--h:63;--d:0.52"></i>
+      <i style="--h:30;--d:0.16"></i><i style="--h:51;--d:0.4"></i>
+    </div>
+    <div class="wrap">
+      <p class="eyebrow">Marketing engineering</p>
+      <h1>Agents that act on your marketing data.</h1>
+      <p class="lede">Live reads from GA4, Search Console, and Tag Manager on the machine you install. Ads and Meta on Pro. Or hire us to leave a system that stays on.</p>
+      <div class="hero-ctas">
+        <a class="btn btn--solid" href="/connector">Install</a>
+        <a class="btn btn--line" href="/engagements">Talk</a>
+      </div>
+      <p class="hero-note">Free for GA4, Search Console, and Tag Manager. No card required.</p>
+    </div>
   </section>
 
-  <section class="doors grid" aria-label="Doors">
-    <a class="door door--a" href="/connector">
-      <h2 class="label-mono door__label">dgtl-connector</h2>
-      <p class="door__body">Local, read-only GA4, Search Console, and Tag Manager. Pro adds Ads and Meta.</p>
-      <span class="cta">Connector →</span>
-    </a>
-    <a class="door door--b" href="/engagements">
-      <h2 class="label-mono door__label">Engagements</h2>
-      <p class="door__body">Hire us to install a running growth system.</p>
-      <span class="cta">Hire / build →</span>
-    </a>
+  <section class="proof" aria-label="Works with">
+    <div class="wrap proof-inner">
+      <p class="proof-k">Works with</p>
+      <ul class="proof-list">
+        <li>Grok Bot</li>
+        <li>Cursor</li>
+        <li>Google Analytics</li>
+        <li>Google Ads</li>
+        <li>Meta</li>
+      </ul>
+    </div>
   </section>
 
-  <section class="install grid" aria-label="Install">
-    <p class="install__cmd"><code>grok plugin install dgtlsunrise/dgtl-connector</code></p>
-    <p class="install__note">After install, open <a href="/connector">Connector</a> for the agent prompt.</p>
+  <section class="demo-band" aria-labelledby="demo-title">
+    <div class="wrap">
+      <div class="demo-head">
+        <p class="eyebrow">Live preview</p>
+        <h2 id="demo-title">Watch it work</h2>
+        <p>A staged Grok Bot session. Example numbers, not a customer story.</p>
+      </div>
+
+      <div class="demo-stage" data-demo>
+        <article class="chrome">
+          <header class="chrome__bar">
+            <span class="chrome__title">DGTL_SEARCH_TOOLS</span>
+          </header>
+          <div class="chrome__body">
+            <div class="chrome-search">sessions</div>
+            <ul class="tool-list">
+              <li class="tool-chip" data-demo-show="1">
+                <code>GA4_RUN_REPORT</code>
+                <span class="tag-match">MATCH</span>
+              </li>
+              <li class="tool-chip" data-demo-show="1">
+                <code>GA4_GET_METADATA</code>
+                <span class="tag-match">MATCH</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="chrome chrome--lift">
+          <header class="chrome__bar">
+            <span class="chrome__title">Grok Bot</span>
+            <span class="chrome__meta" data-demo-counter>01 / 05</span>
+          </header>
+          <div class="chrome__body chat-log" aria-live="polite">
+            <div class="bubble bubble--user" data-demo-show="0">
+              <span class="bubble-k">You</span>
+              Sessions in GA4 for the last 7 days?
+            </div>
+            <div class="bubble" data-demo-show="1">
+              <span class="bubble-k">Tool</span>
+              <span class="mono">GA4_RUN_REPORT</span> · last_7_days · sessions
+            </div>
+            <div class="bubble bubble--bot" data-demo-show="2">
+              <span class="bubble-k">Result · example</span>
+              <p class="stat-line">12,480 sessions</p>
+              <p class="mono">properties/123456789 · last 7 days</p>
+            </div>
+            <div class="bubble bubble--user" data-demo-show="3">
+              <span class="bubble-k">You</span>
+              Ads spend for the same window?
+            </div>
+            <div class="bubble bubble--bot" data-demo-show="4">
+              <span class="bubble-k">Pro / hire</span>
+              Ads and Meta need Pro ($19/mo flat). Start at <a href="/connector">/connector</a>. For a full growth system, write us.
+            </div>
+          </div>
+        </article>
+
+        <article class="chrome">
+          <header class="chrome__bar">
+            <span class="chrome__title">DGTL_CONNECTIONS</span>
+          </header>
+          <div class="chrome__body">
+            <ul class="conn-list">
+              <li class="conn">
+                <span>Google Analytics</span>
+                <span class="conn-status conn-status--on">Connected</span>
+              </li>
+              <li class="conn">
+                <span>Search Console</span>
+                <span class="conn-status conn-status--on">Connected</span>
+              </li>
+              <li class="conn">
+                <span>Tag Manager</span>
+                <span class="conn-status conn-status--on">Connected</span>
+              </li>
+              <li class="conn" data-demo-show="4">
+                <span>Google Ads</span>
+                <span class="conn-status conn-status--off">Pro</span>
+              </li>
+              <li class="conn" data-demo-show="4">
+                <span>Meta</span>
+                <span class="conn-status conn-status--off">Pro</span>
+              </li>
+            </ul>
+          </div>
+        </article>
+      <div class="demo-controls">
+        <button type="button" class="btn btn--line-ink" data-demo-replay>Replay</button>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="surface-light section" aria-labelledby="why-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">What you get</p>
+        <h2 id="why-title">Four parts of the system</h2>
+      </div>
+      <div class="card-grid card-grid--4">
+        <article class="card reveal">
+          <p class="label-mono">01 · Connectors</p>
+          <h3>Live connectors</h3>
+          <p>GA4, Search Console, and Tag Manager run locally. Auth and report bytes stay on that computer.</p>
+        </article>
+        <article class="card reveal">
+          <p class="label-mono">02 · Agents</p>
+          <h3>Job specs and gates</h3>
+          <p>The agent drafts. You approve. Nothing sends until you say so.</p>
+        </article>
+        <article class="card reveal">
+          <p class="label-mono">03 · Memory</p>
+          <h3>Growth OS</h3>
+          <p>A repo that holds customer truth, tests, content, and agent specs so next week starts from this week.</p>
+        </article>
+        <article class="card reveal">
+          <p class="label-mono">04 · Pro</p>
+          <h3>Ads and Meta gateway</h3>
+          <p>$19/mo flat through the hosted gateway. Start at <a href="/connector">/connector</a>. No invented checkout link.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="surface-light section section--tight" aria-labelledby="doors-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">Two doors</p>
+        <h2 id="doors-title">Install it, or hire us</h2>
+      </div>
+      <div class="card-grid card-grid--2">
+        <a class="card door-card reveal" href="/connector">
+          <p class="label-mono">dgtl-connector</p>
+          <h3>The product</h3>
+          <p>One offering, not the company. Read-only marketing data in the chat you already use.</p>
+          <span class="btn btn--solid-ink">Learn more</span>
+        </a>
+        <a class="card door-card reveal" href="/engagements">
+          <p class="label-mono">Engagements</p>
+          <h3>Hire / build</h3>
+          <p>Hire us to install a running growth system: connectors, gated agents, and shared memory.</p>
+          <span class="btn btn--line-ink">Learn more</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="surface-light section section--tight" aria-labelledby="safety-title">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="eyebrow">How access works</p>
+        <h2 id="safety-title">Quiet on purpose</h2>
+      </div>
+      <div class="safety-list">
+        <article class="card reveal">
+          <p class="label-mono">OAuth</p>
+          <h3>Accounts you already own</h3>
+          <p>You connect Google accounts you administer. We do not invent a second login wall.</p>
+        </article>
+        <article class="card reveal">
+          <p class="label-mono">Secrets</p>
+          <h3>Out of the chat</h3>
+          <p>Tokens, refresh tokens, and license JWTs stay on the machine. Do not paste them into chat or email.</p>
+        </article>
+        <article class="card reveal">
+          <p class="label-mono">Feedback</p>
+          <h3>Approve before send</h3>
+          <p>If something looks like a plugin bug, the agent can draft a note. It sends only after you approve.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="close-dark" aria-labelledby="close-title">
+    <div class="wrap">
+      <p class="eyebrow">Next</p>
+      <h2 id="close-title">Install the connector, or write us.</h2>
+      <p class="lede">Start local and free, or hire the engagement. Same company either way.</p>
+      <div class="hero-ctas">
+        <a class="btn btn--solid" href="/connector">Install</a>
+        <a class="btn btn--line" href="mailto:contact@dgtlsunrise.com">Talk</a>
+      </div>
+    </div>
   </section>
 
 </main>
 
-<footer class="site-footer grid">
-  <nav class="footer-links" aria-label="Legal">
-    <a href="/privacy">Privacy</a>
-    <a href="/terms">Terms</a>
-  </nav>
-  <p class="footer-meta">© 2026 Sunrise Consulting LLC · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · <a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a></p>
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p class="footer-meta">© 2026 Sunrise Consulting LLC · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · <a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a></p>
+    <nav class="footer-links" aria-label="Legal">
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </nav>
+  </div>
 </footer>
 
+<script src="/assets/site.js" defer></script>
 </body>
 </html>
