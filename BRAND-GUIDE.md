@@ -4,9 +4,10 @@ Pure black canvas, pure white type, an engineered 12-column grid, and text place
 instead of centered by default. This document is the single source of truth. `DESIGN.md` is the
 short contract that points back here; if the two ever disagree, this file wins.
 
-Scope: the public marketing shell — `index.html`, `plugin.html`, `privacy.html`, `terms.html` —
-and anything built on the same system later. This is a **system**, not a one-off page skin: every
-number below is a token, not a guess made once and forgotten.
+Scope: the public marketing shell — `index.html`, `connector.html`, `engagements.html`,
+`privacy.html`, `terms.html` — and anything built on the same system later. `/plugin` redirects
+to `/connector`. This is a **system**, not a one-off page skin: every number below is a token,
+not a guess made once and forgotten.
 
 ---
 
@@ -126,14 +127,14 @@ value each clamp settles at. Tracking is `letter-spacing`, leading is `line-heig
 | Step | Name | Desktop size | Tracking | Leading | Where |
 |---|---|---|---|---|---|
 | 0 | micro-mono | 11px (0.6875rem) | 0.16em, uppercase | 1.0 | Header path label, footer meta |
-| 1 | label-mono | 12px (0.75rem) | 0.14em, uppercase | 1.2 | "Step One", "Free", "Paid Upgrade", CTA text |
+| 1 | label-mono | 12px (0.75rem) | 0.14em, uppercase | 1.2 | Door labels, Free/Pro, section labels, CTA text |
 | 2 | body-s | 15px | 0 | 1.5 | (reserved — legal list items sit close to this) |
 | 3 | body | 17px | −0.005em | 1.55 | Base `<body>` |
 | 4 | body-wide | 20–22px | −0.01em | 1.45–1.5 | Hero lede, step body, offer body |
 | 5 | h2 | 32–56px | −0.015 to −0.02em | 1.02–1.1 | Plugin page title |
 | 6 | h1 | 56–80px | −0.02em | 1.1 | Legal page `<h1>` |
 | 7 | display | 52–144px (`clamp(3.25rem, 11vw, 9rem)`) | −0.03em | 0.94 | "Marketing Engineering" hero |
-| 8 | statement | 24–48px (`clamp(1.5rem, 4.5vw, 3rem)`) | −0.015em | 1.05 | Plugin "In development" full-bleed line |
+| 8 | statement | 24–48px (`clamp(1.5rem, 4.5vw, 3rem)`) | −0.015em | 1.05 | Reserved full-bleed line (unused on current pages) |
 
 Rule of thumb: **tracking tightens as size grows, and loosens (goes positive, uppercase) as size
 shrinks to mono labels.** There is no step where body-length paragraph text gets tracked tighter
@@ -164,7 +165,7 @@ legibility for no visual gain.
 
 **On the "pure white text" lock:** `--line` is the one token that is white-at-reduced-opacity, and
 it is never applied to a glyph — only to `border-*` on structural rules (the header/footer
-dividers, the legal callout box, the hairline the "Step One" label sits on). Every character on
+dividers, the legal callout box, the hairline a section label sits on). Every character on
 this site renders at `#ffffff`, full stop; hierarchy between a headline and a footnote comes from
 the type scale in §4 and from placement in §6, not from dimming the ink. This is the one
 deliberate, documented exception to reading the lock as "no opacity anywhere," and it exists so a
@@ -178,11 +179,12 @@ Eight named, reusable compositions. Each has a column/row rule and a mobile fall
 built by choosing recipes, not by opening a blank canvas — that is what keeps "intentional
 non-standard placement" from drifting into "different every time."
 
-1. **Corner Lockup** — the mark + "DGTL Sunrise" wordmark sits at the grid's top-left corner
+1. **Corner Lockup** — the mark + "DGTL Sunrise." wordmark sits at the grid's top-left corner
    (cols 1–6), paired with exactly one functional item pinned to the top-right corner (cols 9–12):
-   a real link (home → `/plugin`) or a real location label (plugin → `/plugin`, not a link). No
-   center-aligned nav bar, no hamburger, no rule under the header. *Used: header on every page.*
-   Mobile: unchanged — both corners still fit at 320px because there is nothing else in the row.
+   a real link (home → `mailto:contact@dgtlsunrise.com`) or a real location label (`/connector`,
+   `/engagements`). No center-aligned nav bar, no hamburger, no rule under the header.
+   *Used: header on every marketing page.* Mobile: unchanged — both corners still fit at 320px
+   because there is nothing else in the row.
 
 2. **Wide/Narrow Diagonal Hero** — one `svh`-tall row; the headline spans a wide, non-centered
    range (cols 1–8) and self-aligns to the *start* of the row, while the supporting sentence spans
@@ -195,24 +197,25 @@ non-standard placement" from drifting into "different every time."
    of a two-row section; a small mono label shares that same row 1, given an opaque `background:
    var(--black)` so it visually interrupts the rule instead of floating above or below it; the
    body copy for that section sits in row 2, left-aligned to the same column the label started
-   from. *Used: "Step One" on index and plugin.* Mobile: rule stays full-bleed; label moves back to
-   its own line above the body copy (still row 1, full width) since there is no spare column to
-   "break into" at narrow widths.
+   from. *Used: Install / How / Google app on interior pages.* Mobile: rule stays full-bleed;
+   label moves back to its own line above the body copy (still row 1, full width) since there is
+   no spare column to "break into" at narrow widths.
 
 4. **Unequal Twin** — two related blocks in one `svh`-ish-tall row, given different column spans
    (5 cols vs. 6 cols, not a 6/6 card pair) and opposite `align-self` (`start` / `end`), so they
-   don't read as a symmetric two-card grid despite being "the same kind of thing." *Used: Free /
-   Paid Upgrade.* Mobile: stacked, Free above Paid Upgrade, both full width, no alignment trick.
+   don't read as a symmetric two-card grid despite being "the same kind of thing." *Used: homepage
+   doors (`/connector` vs `/engagements`); connector What it is / is not and Free / Pro.* Mobile:
+   stacked, both full width, no alignment trick.
 
 5. **Edge Caption** — a small mono label or path string pinned to one edge of the grid (far right
    of the header, in this system) that reports real state (the current route) rather than
-   decorating the corner. *Used: `/plugin` path label in the plugin header.*
+   decorating the corner. *Used: `/connector` and `/engagements` path labels.*
 
 6. **Full-Bleed Statement** — a single line of display-scale type spans all 12 columns edge to
    edge, used **at most once per page**, reserved for one emphatic, true beat — never a slogan
-   invented to fill space. *Used: "Not listed yet. In development." on the plugin page.* Not used
-   on the homepage in this pass — documented here so a future page doesn't invent a ninth pattern
-   when this one already covers "one big true sentence, full width."
+   invented to fill space. Not used on the current marketing pages — documented here so a future
+   page doesn't invent a ninth pattern when this one already covers "one big true sentence, full
+   width."
 
 7. **Sparse Footer Strip** — the footer is two unequal clusters (legal links left, entity +
    contact right) separated by empty grid space, not an evenly-distributed flexbox row of four
@@ -245,8 +248,8 @@ hurt the one thing that document has to do, which is be read calmly and quoted a
   brief rules out. Recipe 4 (Unequal Twin) exists specifically to enforce this for Free/Paid
   Upgrade.
 - **A rule is a boundary, not a decoration.** Every `<hr class="rule">` on the marketing pages
-  marks a real content boundary (start of Step One, top of the Status statement) — never a
-  spacer inserted because a section "felt empty."
+  marks a real content boundary (start of a labeled interior section) — never a spacer inserted
+  because a section "felt empty."
 - **Nothing is centered by default.** `text-align: center` does not appear anywhere in the system
   stylesheet outside the legal-page shell (§6a) and the `.legal-box` callout, both of which are
   reading documents, not compositions.
@@ -262,10 +265,11 @@ hurt the one thing that document has to do, which is be read calmly and quoted a
   This is a hard rule specifically because it's the fastest way to slide back toward the banned
   "rounded card grid" softness.
 - **Buttons do not exist as filled/pill controls in this system.** Every call to action —
-  "Plugin details →", the footer links, the legal nav — is text plus a `.cta`/hover underline
-  (`transform: scaleX()` reveal on the existing underline, not a color change, not a background
-  fill). This matches the reference sites: Palantir/Anduril's primary marketing CTAs are text
-  links with a hover state, not SaaS-gradient pill buttons.
+  door links, "Copy" on the paste block, footer links, the legal nav — is text plus a `.cta`/hover
+  underline (`transform: scaleX()` reveal on the existing underline, not a color change, not a
+  background fill). This matches the reference sites: Palantir/Anduril's primary marketing CTAs
+  are text links with a hover state, not SaaS-gradient pill buttons. The Copy control is a
+  `<button>` reset to this same text style.
 - **One CTA style, reused everywhere.** `.cta` is mono, uppercase, small, with the underline
   animation in `--fast` (140ms) `ease`. There is no second "secondary button" variant to keep
   track of.
@@ -275,9 +279,9 @@ hurt the one thing that document has to do, which is be read calmly and quoted a
 ## 9. Motion
 
 Reference behavior: Anduril's own site is explicitly "restrained" — motion exists, but it never
-announces itself. This system goes further and ships **zero JavaScript**: everything below is a
-CSS `:hover`/`:focus-visible` transition, nothing scroll-triggered, nothing that plays on page
-load.
+announces itself. Marketing motion is CSS `:hover`/`:focus-visible` only — nothing
+scroll-triggered, nothing that plays on page load. The only JavaScript is `/assets/copy.js` on
+the two paste blocks.
 
 - Only `transform` and `opacity`/`border-color` transition — never `height`, `width`, or other
   layout-triggering properties.
@@ -302,14 +306,14 @@ load.
   Note that `outline-color: #fff` needs the `4px` offset specifically because several of our CTAs
   sit directly against the black background: an unoffset white outline touching white text at
   21:1 contrast can look like it's touching the glyph itself, so the offset gives it clear air.
-- **Structure:** exactly one `<h1>` per page ("Marketing Engineering" / "Grok Bot plugin" /
-  "Privacy Policy" / "Terms of Use"), a real heading (`<h2>`/`<h3>`) for "Step One," "Free," and
-  "Paid Upgrade" even though they're styled as small mono labels — visual size and semantic level
-  are allowed to disagree; that is normal and expected, not a bug.
+- **Structure:** exactly one `<h1>` per page ("Marketing engineering." / "dgtl-connector" /
+  "A running growth system." / "Privacy Policy" / "Terms of Use"), a real heading (`<h2>`) for
+  door labels, Free/Pro, and section labels even though they're styled as small mono labels —
+  visual size and semantic level are allowed to disagree; that is normal and expected, not a bug.
 - **Images:** the logo mark's `alt` is `""` (empty) on every page, because the adjacent visible
   text "DGTL Sunrise" already says the same thing — a screen reader would otherwise announce the
   name twice back to back.
-- **Links:** every link's visible text describes its destination on its own ("Plugin details,"
+- **Links:** every link's visible text describes its destination on its own ("Connector,"
   "Privacy," "Terms") — no bare "click here" / "learn more."
 - **Landmarks:** `<header>`, `<main>`, `<footer>`, and a `<nav aria-label="Legal">` for the footer
   link pair, so assistive tech can jump straight to them.
@@ -360,8 +364,8 @@ anyone could re-derive from a ruler and a type book?* The first is off-limits; t
 - Reuse the eight recipes in §6 before inventing a ninth.
 - Keep every CTA a text link with the shared `.cta` underline treatment.
 - Ship zero webfonts until a license for the display face in §2 is actually purchased.
-- Route the plugin CTA to `/plugin` and label it honestly ("Plugin details," "In development") —
-  never "Install" or "Get the plugin" while it isn't publicly installable.
+- Keep the company home as two doors (`/connector`, `/engagements`). Put Free/Pro and the agent
+  paste block on `/connector` only. Never invent a Polar checkout URL.
 
 **Don't**
 - Don't add gradients, glows, blurred orbs, or drop shadows anywhere.
@@ -379,10 +383,11 @@ anyone could re-derive from a ruler and a type book?* The first is off-limits; t
 
 ## 13. File map
 
-- `/assets/style.css` — the entire system: tokens, grid, recipes, and all four pages' component
-  styles, namespaced by page (`page-home`, `page-plugin`, `page-legal` conventions in the comments).
-- `/index.html`, `/plugin.html` — built from the recipes in §6.
+- `/assets/style.css` — the entire system: tokens, grid, recipes, and page component styles.
+- `/assets/copy.js` — clipboard only, used by the paste blocks on `/connector` and `/engagements`.
+- `/index.html`, `/connector.html`, `/engagements.html` — built from the recipes in §6.
+- `/plugin.html` + `/_redirects` — `/plugin` → `/connector`.
 - `/privacy.html`, `/terms.html` — legal shell restyled per §6a; body copy untouched except the
-  contact email.
+  footer emails.
 - `/logo.webp` — the only logo asset referenced. `logo-mark.png`/`logo.png` remain in the repo for
-  other historical uses but are not linked from these four pages.
+  other historical uses but are not linked from these pages.

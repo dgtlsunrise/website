@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>dgtl-connector · DGTL Sunrise</title>
+<meta name="description" content="dgtl-connector. Read-only GA4, Search Console, and Tag Manager on your machine. Pro is $19/mo flat for Ads and Meta.">
+<link rel="canonical" href="https://www.dgtlsunrise.com/connector">
+<link rel="icon" type="image/png" href="/favicon.png">
+<meta name="theme-color" content="#000000">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body class="page-connector">
+
+<header class="site-header grid">
+  <a class="lockup" href="/">
+    <img class="lockup__mark" src="/logo.webp" alt="">
+    <span class="lockup__word">DGTL Sunrise.</span>
+  </a>
+  <span class="header-path">/connector</span>
+</header>
+
+<main>
+
+  <section class="page-title grid">
+    <h1>dgtl-connector</h1>
+    <p class="page-title__lede">A Grok plugin. One offering — not the company.</p>
+  </section>
+
+  <section class="split grid" aria-label="What it is and is not">
+    <div class="split__a">
+      <h2 class="label-mono">What it is</h2>
+      <p>Read-only GA4, Search Console, and Tag Manager on the machine where you installed it. Auth and report bytes stay there.</p>
+    </div>
+    <div class="split__b">
+      <h2 class="label-mono">What it is not</h2>
+      <p>Not a dashboard. Not a write-back tool. Not a hosted analytics suite.</p>
+    </div>
+  </section>
+
+  <section class="split grid" aria-label="Plans">
+    <div class="split__a">
+      <h2 class="label-mono">Free</h2>
+      <p>GA4, Google Search Console, and Google Tag Manager. Local only.</p>
+    </div>
+    <div class="split__b">
+      <h2 class="label-mono">Pro · $19/mo flat</h2>
+      <p>Google Ads and Meta through the hosted gateway. Start at <a href="/connector">/connector</a> or <a href="https://www.dgtlsunrise.com/connector">https://www.dgtlsunrise.com/connector</a>.</p>
+    </div>
+  </section>
+
+  <section class="block grid" aria-labelledby="install-label">
+    <hr class="rule block__rule">
+    <h2 class="label-mono block__label" id="install-label">Install</h2>
+    <div class="block__body">
+      <p class="install__cmd"><code>grok plugin install dgtlsunrise/dgtl-connector</code></p>
+      <p>Then paste the prompt below to your agent.</p>
+    </div>
+  </section>
+
+  <section class="prompt grid" aria-labelledby="paste-label">
+    <div class="prompt__box">
+      <div class="prompt__bar">
+        <h2 class="label-mono" id="paste-label">Paste this to your agent</h2>
+        <button type="button" class="cta copy-btn" data-copy="#agent-prompt">Copy</button>
+      </div>
+      <pre id="agent-prompt">You have dgtl-connector on this machine.
+
+Use it for read-only GA4, Search Console, and Tag Manager. Auth and report bytes stay on this computer — never paste tokens, refresh tokens, or license JWTs into chat or email.
+
+When I ask for numbers:
+1. Run google_whoami and say which Google account is connected.
+2. If more than one property/site/container is visible, list them and ask which one. Never pick the first silently.
+3. Cite the resource ID on every number. Empty rows are not an auth failure.
+4. Ads/Meta tools need DGTL Pro ($19/mo flat) plus the hosted gateway. If you get LICENSE_REQUIRED, say so and point at https://www.dgtlsunrise.com/connector — do not invent Ads or Meta rows.
+
+If something looks like a plugin bug after you diagnose it, offer feedback_prepare to support@dgtlsunrise.com with my reply email, show the draft, and only feedback_send after I approve.</pre>
+    </div>
+  </section>
+
+  <section class="block grid" aria-labelledby="google-label">
+    <hr class="rule block__rule">
+    <h2 class="label-mono block__label" id="google-label">Google app</h2>
+    <div class="block__body">
+      <p>The Google Cloud project is not verified yet. Google will show an unverified-app warning the first time you connect. That is expected. Review the scopes. Continue only if you trust this computer.</p>
+      <p><a class="cta" href="/privacy">Privacy →</a></p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer grid">
+  <nav class="footer-links" aria-label="Legal">
+    <a href="/privacy">Privacy</a>
+    <a href="/terms">Terms</a>
+  </nav>
+  <p class="footer-meta">© 2026 Sunrise Consulting LLC · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · <a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a></p>
+</footer>
+
+<script src="/assets/copy.js" defer></script>
+</body>
+</html>

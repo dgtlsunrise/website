@@ -162,7 +162,7 @@ button:focus-visible {
   color: var(--white);
   white-space: nowrap;
 }
-.header-path { opacity: 0.55; }
+.header-path { letter-spacing: 0.14em; }
 
 /* ---------------------------------------------------------------------- */
 /* 9. Footer — Sparse Strip recipe                                         */
@@ -182,28 +182,183 @@ button:focus-visible {
 .footer-links a { font-size: 0.75rem; }
 .footer-links a:hover { text-decoration: underline; }
 .footer-meta {
-  grid-column: 6 / -1;
+  grid-column: 5 / -1;
   grid-row: 1;
   justify-self: end;
   text-align: right;
   font-size: 0.75rem;
+  white-space: nowrap;
 }
 .footer-meta a:hover { text-decoration: underline; }
 
-@media (max-width: 767px) {
+@media (max-width: 1023px) {
   .site-footer { row-gap: 0.75rem; }
   .footer-links { grid-column: 1 / -1; grid-row: 1; }
-  .footer-meta { grid-column: 1 / -1; grid-row: 2; justify-self: start; text-align: left; }
+  .footer-meta {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: start;
+    text-align: left;
+    white-space: normal;
+  }
 }
+
+/* ======================================================================
+   Shared interior title (connector, engagements)
+   ====================================================================== */
+
+.page-title {
+  padding-block: clamp(2rem, 6vw, 3.5rem) clamp(1rem, 3vw, 1.5rem);
+}
+.page-title h1 {
+  grid-column: 1 / 9;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+.page-title__lede {
+  grid-column: 9 / 13;
+  align-self: end;
+  justify-self: end;
+  max-width: 24ch;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  line-height: 1.45;
+  letter-spacing: -0.005em;
+}
+
+/* Rule-break section */
+.block {
+  grid-template-rows: auto auto;
+  row-gap: clamp(1.25rem, 3vw, 2rem);
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+}
+.block__rule {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  align-self: center;
+}
+.block__label {
+  grid-column: 2 / 6;
+  grid-row: 1;
+  align-self: center;
+  background: var(--black);
+  width: fit-content;
+  padding-right: 1.25rem;
+}
+.block__body {
+  grid-column: 2 / 12;
+  grid-row: 2;
+  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
+  line-height: 1.5;
+  max-width: 46ch;
+}
+.block__body p + p { margin-top: 1rem; }
+.block__body .cta { margin-top: 1.5rem; }
+
+/* Unequal Twin — doors, is/is-not, Free/Pro */
+.split,
+.doors {
+  grid-template-rows: 1fr;
+  min-height: 22vh;
+  padding-block: clamp(2rem, 5vw, 3.5rem);
+  row-gap: 2.5rem;
+}
+.split__a,
+.door--a {
+  grid-column: 2 / 7;
+  grid-row: 1;
+  align-self: start;
+}
+.split__b,
+.door--b {
+  grid-column: 7 / 13;
+  grid-row: 1;
+  align-self: end;
+}
+.split h2,
+.door__label { margin-bottom: 0.75rem; display: block; }
+.split p,
+.door__body {
+  font-size: clamp(1.1rem, 1.6vw, 1.375rem);
+  line-height: 1.5;
+  max-width: 34ch;
+}
+.split a { border-bottom: 1px solid var(--line); }
+.split a:hover { border-bottom-color: var(--white); }
+
+.door { display: block; width: fit-content; max-width: 34ch; }
+.door .cta { margin-top: 1.25rem; }
+
+/* Thin install line — not a terminal */
+.install {
+  padding-block: clamp(1.5rem, 4vw, 2.5rem) clamp(2.5rem, 6vw, 4rem);
+  row-gap: 0.75rem;
+  border-top: 1px solid var(--line);
+}
+.install__cmd {
+  grid-column: 1 / -1;
+}
+.install__cmd code,
+.block__body .install__cmd code {
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  letter-spacing: 0;
+  line-height: 1.4;
+  word-break: break-word;
+}
+.install__note {
+  grid-column: 1 / -1;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  max-width: 46ch;
+}
+.install__note a { border-bottom: 1px solid var(--line); }
+.install__note a:hover { border-bottom-color: var(--white); }
+
+/* Polar-style paste block */
+.prompt {
+  padding-block: clamp(1.5rem, 4vw, 3rem);
+}
+.prompt__box {
+  grid-column: 1 / -1;
+  border: 1px solid var(--line-strong);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+}
+.prompt__bar {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+}
+.copy-btn {
+  background: none;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  padding: 0 0 0.3em;
+}
+.prompt pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  line-height: 1.55;
+  letter-spacing: 0;
+  max-width: 72ch;
+}
+
+.how-list p { max-width: 36ch; }
 
 /* ======================================================================
    PAGE: home (index.html)
    ====================================================================== */
 
-/* Hero — Wide/Narrow Diagonal recipe, viewport module */
 .hero {
   grid-template-rows: 1fr;
-  min-height: 68svh;
+  min-height: 56svh;
   padding-block: clamp(1.5rem, 5vw, 3rem);
 }
 .hero__title {
@@ -227,120 +382,25 @@ button:focus-visible {
   text-align: left;
 }
 
-/* Step One — Rule-Break Heading recipe */
-.step {
-  grid-template-rows: auto auto;
-  row-gap: clamp(1.25rem, 3vw, 2rem);
-  padding-block: clamp(2.5rem, 6vw, 4.5rem);
-}
-.step__rule {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  align-self: center;
-}
-.step__label {
-  grid-column: 2 / 6;
-  grid-row: 1;
-  align-self: center;
-  background: var(--black);
-  width: fit-content;
-  padding-right: 1.25rem;
-}
-.step__body {
-  grid-column: 2 / 12;
-  grid-row: 2;
-  font-size: clamp(1.1rem, 1.8vw, 1.5rem);
-  line-height: 1.5;
-  max-width: 46ch;
-}
-.step__cta-line {
-  display: flex;
-  align-items: baseline;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-}
-.step__note {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.01em;
-  opacity: 0.55;
-}
-
-/* Free / Paid Upgrade — Unequal Twin recipe */
-.offers {
-  grid-template-rows: 1fr;
-  min-height: 18vh;
-  padding-block: clamp(2rem, 5vw, 3.5rem);
-}
-.offer--free {
-  grid-column: 2 / 7;
-  grid-row: 1;
-  align-self: start;
-}
-.offer--paid {
-  grid-column: 7 / 13;
-  grid-row: 1;
-  align-self: end;
-}
-.offer__label { margin-bottom: 0.75rem; display: block; }
-.offer__body {
-  font-size: clamp(1.1rem, 1.6vw, 1.375rem);
-  line-height: 1.5;
-  max-width: 34ch;
-}
-
 @media (max-width: 767px) {
   .hero { min-height: auto; grid-template-rows: auto auto; row-gap: 2.5rem; padding-block: 3rem 2rem; }
   .hero__title { grid-column: 1 / -1; grid-row: 1; }
   .hero__lede { grid-column: 1 / -1; grid-row: 2; justify-self: start; align-self: start; max-width: 36ch; }
 
-  .step__rule { grid-row: 1; }
-  .step__label { grid-column: 1 / -1; grid-row: 1; padding-right: 0; }
-  .step__body { grid-column: 1 / -1; grid-row: 2; max-width: 100%; }
+  .page-title h1,
+  .page-title__lede { grid-column: 1 / -1; }
+  .page-title__lede { justify-self: start; margin-top: 1.25rem; max-width: 36ch; }
 
-  .offers { min-height: auto; row-gap: 2.5rem; }
-  .offer--free { grid-column: 1 / -1; grid-row: 1; align-self: auto; }
-  .offer--paid { grid-column: 1 / -1; grid-row: 2; align-self: auto; }
-}
+  .block__rule { grid-row: 1; }
+  .block__label { grid-column: 1 / -1; grid-row: 1; padding-right: 0; }
+  .block__body { grid-column: 1 / -1; grid-row: 2; max-width: 100%; }
 
-/* ======================================================================
-   PAGE: plugin (plugin.html)
-   ====================================================================== */
-
-.plugin-title {
-  padding-block: clamp(2rem, 6vw, 3.5rem) clamp(1rem, 3vw, 1.5rem);
-}
-.plugin-title h1 {
-  grid-column: 1 / 9;
-  font-size: clamp(2rem, 6vw, 3.5rem);
-  font-weight: 700;
-  line-height: 1.02;
-  letter-spacing: -0.02em;
-}
-
-/* Status — Full-Bleed Statement recipe */
-.status {
-  padding-block: clamp(3rem, 7vw, 5.5rem);
-  border-top: 1px solid var(--line);
-}
-.status__line {
-  grid-column: 1 / -1;
-  font-size: clamp(1.5rem, 4.5vw, 3rem);
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: -0.015em;
-}
-.status__sub {
-  grid-column: 1 / -1;
-  margin-top: 1rem;
-  max-width: 46ch;
-  font-size: 1.0625rem;
-  line-height: 1.5;
-}
-
-@media (max-width: 767px) {
-  .plugin-title h1 { grid-column: 1 / -1; }
+  .split,
+  .doors { min-height: auto; }
+  .split__a,
+  .door--a { grid-column: 1 / -1; grid-row: 1; align-self: auto; }
+  .split__b,
+  .door--b { grid-column: 1 / -1; grid-row: 2; align-self: auto; }
 }
 
 /* ======================================================================

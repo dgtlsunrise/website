@@ -21,7 +21,7 @@ Growth OS is the repo that holds the memory: customer truth, content, outbound, 
 
 1. Embed and install one system.
 2. Productize a repeating wedge.
-3. Software: dgtl-marketing is the connector into Grok (free local GA4/GSC/GTM; Ads/Meta later via a Cloudflare Worker). Services first, then productize what repeats.
+3. Software: dgtl-connector is one offering (not the company). Free = local GA4/GSC/GTM. Pro = $19/mo flat Ads/Meta via the hosted gateway. Point Pro at /connector — do not invent Polar checkout URLs.
 
 ## How work starts
 
