@@ -20,6 +20,7 @@ The marketing shell is a high-density dual-door site. Visual rules live in
 |---|---|
 | `/` | Company. Marketing engineering. Two doors. Staged connector preview. |
 | `/connector` | dgtl-connector only. Free vs Pro. Install + agent paste. |
+| `/google-ads` | Google Ads Reporting product page for API compliance. |
 | `/engagements` | Hire. Outcome = a running growth system. |
 | `/privacy`, `/terms` | Legal claims. Shell may restyle; body does not. |
 | `/plugin` | 301 to `/connector`. |

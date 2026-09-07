@@ -5,8 +5,9 @@ dark and light surfaces. This file is the source of truth. `DESIGN.md` is the
 short contract; if the two disagree, this file wins.
 
 Scope: the public marketing shell — `index.html`, `connector.html`,
-`engagements.html`, `privacy.html`, `terms.html` — and anything built on the
-same system later. `/plugin` redirects to `/connector`.
+`engagements.html`, `google-ads.html`, `privacy.html`, `terms.html` — and
+anything built on the same system later. `/plugin` redirects to `/connector`.
+`/google-ads.html` redirects to `/google-ads`.
 
 ---
 
@@ -34,8 +35,8 @@ Lottie. Scanlines, chips, and demo frames in this repo are original CSS/HTML.
 - Install: `grok plugin install dgtlsunrise/dgtl-connector`.
 - Footer on every page: © 2026 Sunrise Consulting LLC ·
   contact@dgtlsunrise.com · support@dgtlsunrise.com · Privacy · Terms.
-- `/plugin` → `/connector` 301. Privacy/terms: restyle the shell only; keep
-  substantive legal claims.
+- `/plugin` → `/connector` 301. `/google-ads.html` → `/google-ads` 301.
+  Privacy/terms: restyle the shell only; keep substantive legal claims.
 - No fake customer logos. No SOC2/ISO claims. No “1,500 apps.” No role megagrid.
 - Public copy: human, concrete, no AI tells, no em dashes, sentence-case
   headings. Ban unlock / leverage / empower / delve and the usual filler.
@@ -180,6 +181,8 @@ do not add it.
 - `/assets/site.js` — Copy, demo sequencer, IO reveals.
 - `/assets/copy.js` — leftover clipboard helper; pages load `site.js`.
 - `/index.html`, `/connector.html`, `/engagements.html`.
-- `/plugin.html` + `/_redirects` — `/plugin` → `/connector` 301.
+- `/google-ads.html` — Google Ads Reporting product page. Clean URL `/google-ads`.
+- `/plugin.html` + `/_redirects` — `/plugin` → `/connector` 301;
+  `/google-ads.html` → `/google-ads` 301.
 - `/privacy.html`, `/terms.html` — new shell, same legal claims.
 - `/logo.webp` — lockup mark. Do not swap in other logo files on these pages.

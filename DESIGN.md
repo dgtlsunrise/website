@@ -24,7 +24,8 @@ before shipping a visual change.
   `https://www.dgtlsunrise.com/connector`. Do not invent Polar checkout URLs.
 - Footer on every page: © 2026 Sunrise Consulting LLC,
   `contact@dgtlsunrise.com`, `support@dgtlsunrise.com`, Privacy, Terms.
-- `/plugin` 301s to `/connector`. Legal pages keep reviewed body copy.
+- `/plugin` 301s to `/connector`. `/google-ads.html` 301s to `/google-ads`.
+  Legal pages keep reviewed body copy.
 
 ## Method
 
