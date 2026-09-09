@@ -1,1 +1,11 @@
-{"name":"dgtl-sunrise-website","private":true,"devDependencies":{"wrangler":"^4.0.0"}}
+{
+  "name": "dgtl-sunrise-website",
+  "private": true,
+  "scripts": {
+    "preview": "wrangler pages dev . --port 8787",
+    "check": "node scripts/check-site.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

@@ -1,9 +1,4 @@
 (() => {
-  const root = document.documentElement;
-  root.classList.add("js");
-
-  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
   const copyViaExec = (text) => {
     const ta = document.createElement("textarea");
     ta.value = text;
@@ -59,74 +54,4 @@
       done(copyViaExec(text) ? "Copied" : "Selected");
     });
   });
-
-  const reveal = () => {
-    const nodes = document.querySelectorAll(".reveal");
-    if (!nodes.length) return;
-    if (reduce || !("IntersectionObserver" in window)) {
-      nodes.forEach((n) => n.classList.add("is-in"));
-      return;
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-in");
-            io.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
-    );
-    nodes.forEach((n) => io.observe(n));
-  };
-  reveal();
-
-  const bootDemo = (stage) => {
-    const bits = [...stage.querySelectorAll("[data-demo-show]")];
-    const counter = stage.querySelector("[data-demo-counter]");
-    const replay = stage.querySelector("[data-demo-replay]");
-    if (!bits.length) return;
-
-    const max = bits.reduce((n, el) => Math.max(n, Number(el.getAttribute("data-demo-show")) || 0), 0);
-    let timer = 0;
-    let step = 0;
-
-    const render = (n) => {
-      bits.forEach((el) => {
-        const s = Number(el.getAttribute("data-demo-show")) || 0;
-        el.classList.toggle("is-in", reduce || s <= n);
-      });
-      if (counter) {
-        const cur = String(Math.min(n + 1, max + 1)).padStart(2, "0");
-        const tot = String(max + 1).padStart(2, "0");
-        counter.textContent = `${cur} / ${tot}`;
-      }
-    };
-
-    const play = () => {
-      window.clearInterval(timer);
-      step = 0;
-      render(0);
-      if (reduce) {
-        render(max);
-        return;
-      }
-      timer = window.setInterval(() => {
-        step += 1;
-        if (step > max) {
-          window.clearInterval(timer);
-          return;
-        }
-        render(step);
-      }, 1350);
-    };
-
-    play();
-    if (replay) {
-      replay.addEventListener("click", play);
-    }
-  };
-
-  document.querySelectorAll("[data-demo]").forEach(bootDemo);
 })();
