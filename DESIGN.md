@@ -34,7 +34,7 @@ npx wrangler pages dev . --port 8787
 
 A plain static server can render the HTML. `_redirects` (`/plugin` → `/connector` 301) is honored by Pages and `wrangler pages dev`, not by a raw file server.
 
-`wrangler.jsonc` sets `not_found_handling` to `none`, so unknown paths 404 in Pages preview.
+`wrangler.jsonc` sets `not_found_handling` to `404-page`, so unknown paths serve `404.html` with status 404.
 
 Do not run `wrangler pages deploy` or publish to production from this work.
 

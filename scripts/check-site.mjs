@@ -15,7 +15,7 @@ const check = (ok, name, detail) => {
 };
 
 const html = (file) => readFileSync(resolve(root, file), "utf8");
-const served = ["index.html", "connector.html", "engagements.html", "google-ads.html", "privacy.html", "terms.html", "plugin.html"];
+const served = ["index.html", "connector.html", "engagements.html", "google-ads.html", "privacy.html", "terms.html", "plugin.html", "404.html"];
 const allServed = served.map(html).join("\n");
 
 const index = html("index.html");

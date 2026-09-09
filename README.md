@@ -13,7 +13,7 @@ npx wrangler pages dev . --port 8787
 
 Open `http://127.0.0.1:8787/`. The install command on `/` is in the HTML. It does not need JavaScript.
 
-`wrangler.jsonc` sets `not_found_handling` to `none`, so unknown paths 404. `_redirects` sends `/plugin` to `/connector` with a 301. A raw file server will not honor `_redirects`.
+`wrangler.jsonc` sets `not_found_handling` to `404-page`, so unknown paths serve `404.html` with status 404. `_redirects` sends `/plugin` to `/connector` with a 301. A raw file server will not honor `_redirects`.
 
 ## Check locks
 

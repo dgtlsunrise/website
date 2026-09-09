@@ -150,5 +150,6 @@ Never: Composio (or anyone else's) logos, screenshots, Lottie, Three scenes, cop
 - `/google-ads.html`. Google Ads Reporting product page. Clean URL `/google-ads`.
 - `/plugin.html` + `/_redirects`. `/plugin` to `/connector` 301. `/google-ads.html` to `/google-ads` 301.
 - `/privacy.html`, `/terms.html`. New shell, same legal claims.
+- `/404.html`. Unknown paths. `not_found_handling` is `404-page`.
 - `/logo.webp`. Small lockup mark. Re-export if the file is huge.
 - `/scripts/check-site.mjs`. Rerunnable lock checks against files and Pages preview.
