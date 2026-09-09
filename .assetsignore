@@ -4,3 +4,14 @@ node_modules
 .xdg-config
 deploy-dist
 *.tar.gz
+plan/
+demos/
+cloudflare-live/
+scripts/
+logo.png
+logo-mark.png
+noel.png
+PRODUCT.md
+DESIGN.md
+BRAND-GUIDE.md
+README.md
