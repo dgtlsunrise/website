@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Google Ads reporting · DGTL Sunrise</title>
-<meta name="description" content="Google Ads reporting in your agent. Reporting only, v1. Consent C OAuth. Cloudflare Worker plus MCC developer token. Separate from free local GA4.">
+<title>Google Ads · DGTL Sunrise</title>
+<meta name="description" content="DGTL Sunrise Pro connects Google Ads to your agent for reporting. Confirm-gated campaign pause/enable is built and gated off until Google Ads API management access is approved. No create. No autopilot. Developer token stays on our gateway.">
 <link rel="canonical" href="https://www.dgtlsunrise.com/google-ads">
 <link rel="icon" type="image/png" href="/favicon.png">
 <meta name="theme-color" content="#08060F">
@@ -31,9 +31,9 @@
 
   <section class="section section--first" aria-label="Introduction">
     <div class="wrap">
-      <p class="kicker">Google Ads · Reporting</p>
-      <h1>Google Ads reporting in your agent.</h1>
-      <p class="lede">Reporting only, v1. Marketing operators ask for campaign and account performance in the same chat. No campaign writes.</p>
+      <p class="kicker">Google Ads · Reporting (+ management pending)</p>
+      <h1>Google Ads in your agent.</h1>
+      <p class="lede">Reporting is live. Confirm-gated campaign pause/enable is built and gated off until Google Ads API permissible use for management is approved. Not create. Not autopilot.</p>
       <p class="row mt-lg">
         <a class="btn btn--solid" href="/connector">Open /connector</a>
         <a class="btn" href="/privacy">Privacy</a>
@@ -44,13 +44,19 @@
   <section class="section" aria-labelledby="tool-title">
     <div class="wrap prose">
       <p class="kicker">The tool</p>
-      <h2 id="tool-title">Reads performance. Does not mutate.</h2>
+      <h2 id="tool-title">Reads performance. Mutates flagged off until API access allows.</h2>
       <p>Sunrise Consulting LLC, doing business as DGTL Sunrise, builds dgtl-connector: a Grok Bot plugin plus a hosted gateway. This page is the Google Ads API product page for that gateway.</p>
-      <p>v1 is Reporting only. The agent can read account and campaign performance for Search, Display, Performance Max, Shopping, Video, and Demand Gen. It does not create, update, pause, or delete campaigns, ads, or bids. It does not use App Conversion Tracking or the Remarketing API.</p>
+      <p>v1 shipping today is Reporting. The agent can read account and campaign performance for Search, Display, Performance Max, Shopping, Video, and Demand Gen. Management tools exist in code behind a production flag. They stay off until Google clears Ads API permissible use for management. The first slice is narrow: pause or enable existing campaigns after the user confirms. Budget later.</p>
+      <p>It does not create campaigns, ads, or keywords. It does not use App Conversion Tracking or the Remarketing API. Not autopilot.</p>
       <p>Intended audience: marketing operators, internal and external, who already administer the Google Ads accounts they connect.</p>
       <p class="facts mt">
         <span>Capability</span>
-        <span>Reporting only</span>
+        <span>Reporting · management pending review</span>
+      </p>
+      <p class="facts mt">
+        <span>Account spend for the last 7 days</span>
+        <span>Campaign clicks and impressions</span>
+        <span>Writes gated off until API approval.</span>
       </p>
     </div>
   </section>
@@ -83,7 +89,7 @@
         <article class="panel">
           <p class="kicker">Gateway</p>
           <h3>Cloudflare Worker</h3>
-          <p>An allowlisted Worker proxies Google Ads API calls. It attaches the Sunrise Consulting LLC MCC developer token and returns the vendor response. It does not archive report bytes.</p>
+          <p>An allowlisted Worker proxies Google Ads API calls. It attaches the Sunrise Consulting LLC MCC developer token on allowlisted calls (reporting today; mutate later when flagged on) and returns the vendor response. It does not archive report bytes.</p>
         </article>
       </div>
     </div>
@@ -112,7 +118,7 @@
         <article class="panel">
           <p class="kicker">MCC</p>
           <h3>684-442-5544</h3>
-          <p>Manager account that holds the developer token the Worker attaches on allowlisted reporting calls.</p>
+          <p>Manager account that holds the developer token the Worker attaches on allowlisted calls (reporting today; mutate later when flagged on).</p>
         </article>
         <article class="panel">
           <p class="kicker">Company</p>
@@ -137,11 +143,16 @@
     <div class="wrap">
       <p class="kicker">v1 locks</p>
       <h2 id="rules-title">What this token is for</h2>
-      <div class="stack stack--3">
+      <div class="stack stack--2">
         <article class="panel">
           <p class="kicker">Reporting</p>
-          <h3>Read only</h3>
-          <p>Performance in the agent. No mutations in v1.</p>
+          <h3>Performance in the agent</h3>
+          <p>Live.</p>
+        </article>
+        <article class="panel">
+          <p class="kicker">Management</p>
+          <h3>Pause/enable built</h3>
+          <p>Flagged off pending Google Tool Change.</p>
         </article>
         <article class="panel">
           <p class="kicker">OAuth</p>

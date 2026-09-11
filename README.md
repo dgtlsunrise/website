@@ -27,7 +27,7 @@ With a preview already running:
 node scripts/check-site.mjs --base http://127.0.0.1:8787
 ```
 
-The script fails if the install command is missing, if the free-path or Pro sentences drift, if Ryze or a Polar checkout URL appears, if dual-door copy returns, or if `/google-ads` drops Consent C, project 960111255083, MCC 684-442-5544, or reporting only.
+The script fails if the install command is missing, if the free-path or Pro sentences drift, if Ryze or a Polar checkout URL appears, if dual-door copy returns, or if `/google-ads` drops Consent C, project 960111255083, MCC 684-442-5544, or the interim flagged-off management stance.
 
 ## Docs
 

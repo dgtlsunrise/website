@@ -41,7 +41,7 @@ check(!/https?:\/\/[^\s"'<>]*polar[^\s"'<>]*/i.test(allServed), "no Polar URL");
 check(!/dual-?door|Two doors|Install it, or hire us/i.test(allServed), "no dual-door copy");
 check(!/scanfield|tag-match|data-demo|Watch it work/i.test(allServed), "no MATCH/demo theater");
 check(!/Talk<\/a>/.test(allServed) && !primaryNav(index).includes("Engagements"), "no Talk or Engagements in primary nav");
-check(ads.includes("Consent C") && ads.includes("960111255083") && ads.includes("684-442-5544") && /reporting only/i.test(ads), "google-ads compliance locks");
+check(ads.includes("Consent C") && ads.includes("960111255083") && ads.includes("684-442-5544") && /flagged off/i.test(ads) && /does not create/i.test(ads) && !/writes are live|live writes/i.test(ads), "google-ads compliance locks");
 check(privacy.includes("Limited Use") && privacy.includes("Google API Services User Data Policy"), "privacy Limited Use");
 check(terms.includes("Idaho law governs these terms"), "terms Idaho venue");
 
