@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Google Ads · DGTL Sunrise</title>
-<meta name="description" content="DGTL Sunrise Pro connects Google Ads to your agent for reporting. Confirm-gated campaign pause/enable is live on the gateway. No create. No autopilot. No create. No autopilot. Developer token stays on our gateway.">
+<meta name="description" content="DGTL Sunrise Pro connects Google Ads to your agent. Confirm-gated read, manage, and create are live on the gateway. Creates default PAUSED. No autopilot. Developer token stays on our Worker.">
 <link rel="canonical" href="https://www.dgtlsunrise.com/google-ads">
 <link rel="icon" type="image/png" href="/favicon.png">
 <meta name="theme-color" content="#08060F">
@@ -33,7 +33,7 @@
     <div class="wrap">
       <p class="kicker">Google Ads · Reporting + confirm-gated management</p>
       <h1>Google Ads in your agent.</h1>
-      <p class="lede">Reporting is live. Confirm-gated management is enabled on the gateway: pause/enable, budgets, and create for campaigns, ads, and keywords after you confirm. Not autopilot.</p>
+      <p class="lede">Reporting is live. Confirm-gated manage and create are live on the gateway. Every write needs your confirm with the customer id. New campaigns and ads default PAUSED. Not autopilot.</p>
       <p class="row mt-lg">
         <a class="btn btn--solid" href="/connector">Open /connector</a>
         <a class="btn" href="/privacy">Privacy</a>
@@ -44,33 +44,36 @@
   <section class="section" aria-labelledby="tool-title">
     <div class="wrap prose">
       <p class="kicker">The tool</p>
-      <h2 id="tool-title">Reads performance. Confirm-gated management is live.</h2>
+      <h2 id="tool-title">Reads performance. Confirm-gated manage and create are live.</h2>
       <p>Sunrise Consulting LLC, doing business as DGTL Sunrise, builds dgtl-connector: a Grok Bot plugin plus a hosted gateway. This page is the Google Ads API product page for that gateway.</p>
-      <p>The agent can read account and campaign performance for Search, Display, Performance Max, Shopping, Video, and Demand Gen. Management tools are on: pause/enable, budget updates, and create campaigns/ads/keywords with closed server-built ops. Google Ads API Basic Access already includes campaign management. Every write still needs your confirm with the customer id.</p>
-      <p>It does not use App Conversion Tracking or the Remarketing API. Not autopilot. Creates only what you confirm in chat.</p>
-      <p>Intended audience: marketing operators, internal and external, who already administer the Google Ads accounts they connect.</p>
+      <p>Pro customers connect their own Google Ads accounts with Consent C OAuth. The developer token stays on the Worker — never on the user’s machine. The agent reads performance through closed recipes (no raw GAQL from the client).</p>
+      <p>With your confirm in that chat turn (digits-only customer id in the confirm phrase), the agent can pause or enable campaigns, ad groups, keywords, and ads; update daily budget within product spend caps; and create with dry-run propose-first. Creates default PAUSED so spend does not start without a separate enable. The Worker builds closed mutate ops only — clients cannot supply raw mutateOperations.</p>
+      <p>Create surface (all confirm-gated, PAUSED defaults): Search campaign bundles and RSA; Search keywords; Display plus Responsive Display Ads; IMAGE asset upload; Performance Max with uploaded or existing assets; Shopping when merchant_center_id is known, plus listing groups; Video, Demand Gen, App, and Hotel named campaign creates. Local create is not offered (Google sunset — use PMax). Smart create is not advertised. No App Conversion Tracking or Remarketing API. No autopilot.</p>
+      <p>Intended audience: marketing operators who already administer the Google Ads accounts they connect.</p>
       <p class="facts mt">
         <span>Capability</span>
-        <span>Reporting · confirm-gated management</span>
+        <span>Reporting · confirm-gated manage · confirm-gated create</span>
       </p>
       <p class="facts mt">
         <span>Account spend for the last 7 days</span>
         <span>Campaign clicks and impressions</span>
-        <span>Pause, budget, or create after your confirm.</span>
+        <span>Pause, budget, or create after your confirm · PAUSED defaults</span>
       </p>
     </div>
   </section>
 
   <section class="section" aria-label="Campaign types">
     <div class="wrap">
-      <p class="kicker">Campaign types it can report</p>
+      <p class="kicker">Campaign types — report and create</p>
       <p class="facts">
         <span>Search</span>
-        <span>Display</span>
+        <span>Display + RDA</span>
         <span>Performance Max</span>
-        <span>Shopping</span>
+        <span>Shopping + listing groups</span>
         <span>Video</span>
         <span>Demand Gen</span>
+        <span>App</span>
+        <span>Hotel</span>
       </p>
     </div>
   </section>
@@ -89,7 +92,7 @@
         <article class="panel">
           <p class="kicker">Gateway</p>
           <h3>Cloudflare Worker</h3>
-          <p>An allowlisted Worker proxies Google Ads API calls. It attaches the Sunrise Consulting LLC MCC developer token on allowlisted calls (reporting today; mutate later when flagged on) and returns the vendor response. It does not archive report bytes.</p>
+          <p>An allowlisted Worker proxies Google Ads API calls. It attaches the Sunrise Consulting LLC MCC developer token on allowlisted read and confirm-gated mutate calls and returns the vendor response. Mutate is on for Ads. The token never leaves the Worker. It does not archive report bytes.</p>
         </article>
       </div>
     </div>
@@ -118,7 +121,7 @@
         <article class="panel">
           <p class="kicker">MCC</p>
           <h3>684-442-5544</h3>
-          <p>Manager account that holds the developer token the Worker attaches on allowlisted calls (reporting today; mutate later when flagged on).</p>
+          <p>Manager account that holds the developer token the Worker attaches on allowlisted read and confirm-gated mutate calls.</p>
         </article>
         <article class="panel">
           <p class="kicker">Company</p>
@@ -151,8 +154,8 @@
         </article>
         <article class="panel">
           <p class="kicker">Management</p>
-          <h3>Pause/enable built</h3>
-          <p>Pause, budget, and create after your confirm.</p>
+          <h3>Confirm-gated writes live</h3>
+          <p>Pause, budget, and create after your confirm. Creates default PAUSED.</p>
         </article>
         <article class="panel">
           <p class="kicker">OAuth</p>
