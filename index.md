@@ -1,8 +1,8 @@
-# dgtl-connector for Grok Bot
+# DGTL Connector
 
-A Grok Bot plugin that connects your agent to your marketing accounts. Install it, connect Google (and Meta, Shopify, Klaviyo, or TikTok when you need them), then ask in chat.
+A plugin that connects your agent to the marketing APIs for Google, Meta, Shopify, Klaviyo, and TikTok. These connections let your agent set up and manage accounts, pull reports, recommend changes, and push approved changes live after you review them. Built for Grok Bot first. It also works with other MCP hosts such as Cursor and Claude Desktop.
 
-Free Google Analytics, Search Console, and Tag Manager run on your machine (read and manage). Report bytes do not go through DGTL.
+Your data stays yours. Free tools talk to the platform directly from your agent’s computer. Pro advertising calls go through our allowlisted gateway so we can attach the platform credentials that cannot live in the plugin, complete the request you started, and return the response to your agent. We do not keep those report bytes.
 
 ## Install
 
@@ -12,7 +12,7 @@ In Grok Bot, run:
 grok plugin install dgtlsunrise/dgtl-connector
 ```
 
-You do not need a DGTL Sunrise account to get started. Connect the account that owns the property when the plugin asks. Also works in Grok Build and Cursor.
+You do not need a DGTL Sunrise account to get started. Connect the account that owns the property when the plugin asks. Package id `dgtl-connector`. Also works in Grok Build, Cursor, and other MCP hosts such as Claude Desktop.
 
 ## How to use it
 

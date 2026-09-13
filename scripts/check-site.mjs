@@ -59,7 +59,11 @@ const primaryNav = (page) => {
 check(index.includes("grok plugin install dgtlsunrise/dgtl-connector"), "home has install command");
 check(/<pre><code>grok plugin install dgtlsunrise\/dgtl-connector<\/code><\/pre>/.test(index), "install command is in HTML, not JS");
 check(index.includes("run on your machine (read and manage)"), "home free path is read and manage");
-check(index.includes("Report bytes do not go through DGTL"), "home report-bytes sentence");
+check(index.includes("Your data stays yours."), "home data-stays-yours");
+check(index.includes("Free tools talk to the platform directly"), "home free direct path");
+check(index.includes("Pro advertising calls go through our allowlisted gateway"), "home pro gateway sentence");
+check(index.includes("We do not keep those report bytes."), "home no-keep report bytes");
+check(/<h1>DGTL Connector<\/h1>/.test(index), "home title DGTL Connector");
 check(index.includes("Manage property settings the tools support"), "home GA4 edit");
 check(index.includes("Submit or delete sitemaps after you confirm"), "home GSC edit");
 check(index.includes("create or update tags, triggers, and variables"), "home GTM manage");
