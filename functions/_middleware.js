@@ -1,9 +1,12 @@
 /**
+ * Homepage ?mode=agent → agent.json (machine-readable).
  * Content negotiation: serve companion .md when Accept prefers markdown.
  * HTML and bare Accept star/star continue to static assets via next().
+ * mode=agent on the homepage wins before HTML/markdown negotiation.
  */
 
 const MD_TYPE = "text/markdown; charset=utf-8";
+const JSON_TYPE = "application/json; charset=utf-8";
 const VARY = "Accept, Accept-Encoding";
 
 /** Map request pathname → static .md asset path (site root). */
@@ -107,6 +110,17 @@ function markdownResponse(body, status = 200) {
   });
 }
 
+function jsonResponse(body, status = 200) {
+  return new Response(body, {
+    status,
+    headers: {
+      "Content-Type": JSON_TYPE,
+      Vary: VARY,
+      "Cache-Control": "public, max-age=300",
+    },
+  });
+}
+
 const FALLBACK_404_MD = `# Not found
 
 That path is not on dgtlsunrise.com.
@@ -124,20 +138,37 @@ async function fetchAsset(env, origin, assetPath) {
   return env.ASSETS.fetch(new Request(url.toString()));
 }
 
+function isHomepage(path) {
+  return path === "/" || path === "/index" || path === "/index.html";
+}
+
 export async function onRequest(context) {
   const { request, next, env } = context;
+  const url = new URL(request.url);
+  const path = normalizePath(url.pathname);
+
+  // Structured agent view on homepage: wins before HTML and markdown negotiation.
+  if (isHomepage(path) && url.searchParams.get("mode") === "agent") {
+    try {
+      const asset = await fetchAsset(env, url.origin, "/agent.json");
+      if (asset.ok) {
+        const body = await asset.text();
+        return jsonResponse(body, 200);
+      }
+    } catch {
+      // fall through to normal negotiation / next()
+    }
+  }
+
   const accept = request.headers.get("Accept") || "";
 
   if (!prefersMarkdown(accept)) {
     return next();
   }
 
-  const url = new URL(request.url);
-  const path = normalizePath(url.pathname);
-
   // Let real static non-page assets pass (css, images, robots, sitemap, llms, raw .md)
   if (
-    /\.(css|js|png|jpe?g|webp|gif|ico|svg|woff2?|xml|txt|map)$/i.test(path) &&
+    /\.(css|js|png|jpe?g|webp|gif|ico|svg|woff2?|xml|txt|map|json)$/i.test(path) &&
     !PATH_TO_MD[path]
   ) {
     return next();

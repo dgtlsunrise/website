@@ -1,0 +1,178 @@
+{
+  "@context": "https://www.dgtlsunrise.com/agent.json",
+  "name": "DGTL Sunrise",
+  "product": "dgtl-connector",
+  "url": "https://www.dgtlsunrise.com/",
+  "mode": "agent",
+  "description": "dgtl-connector is a Grok Bot plugin that connects agents to marketing accounts the human already administers. Free local reads stay on the user machine. Pro adds a hosted Ads and Meta gateway.",
+  "install": {
+    "command": "grok plugin install dgtlsunrise/dgtl-connector",
+    "hosts": ["Grok Bot", "Grok Build", "Cursor"],
+    "notes": "Connect the account that owns the property when the plugin asks. Never paste access tokens, refresh tokens, or license keys into chat."
+  },
+  "authentication": {
+    "free": "Google OAuth on the user’s machine for GA4, Search Console, and Tag Manager. Report bytes do not go through DGTL.",
+    "pro": "Polar license redeemed at the stamp host yields a license JWT. Google Ads and Meta calls use that JWT plus the user’s OAuth. The Google Ads developer token and Meta app secret stay on the Worker.",
+    "rules": [
+      "Never paste access tokens, refresh tokens, or license keys into chat.",
+      "Never invent metrics, rows, or insights the APIs did not return.",
+      "Live writes are confirm-gated where enabled; approve before a live edit or publish.",
+      "Do not treat plugin output as legal, compliance, or financial advice."
+    ]
+  },
+  "apis": {
+    "stamp_base": "https://stamp.dgtlsunrise.com",
+    "endpoints": [
+      {
+        "method": "GET",
+        "path": "/v1/health",
+        "purpose": "Stamp health check",
+        "auth": "none"
+      },
+      {
+        "method": "GET",
+        "path": "/checkout",
+        "purpose": "Pro checkout entry (Polar). Do not invent alternate checkout URLs.",
+        "auth": "none"
+      },
+      {
+        "method": "POST",
+        "path": "/v1/license",
+        "purpose": "Redeem a Polar purchase into a license JWT",
+        "auth": "Polar redeem credentials as documented by the plugin"
+      },
+      {
+        "method": "POST",
+        "path": "/v1/gads/*",
+        "purpose": "Hosted Google Ads gateway (reads and confirm-gated writes)",
+        "auth": "license JWT + user Google OAuth"
+      },
+      {
+        "method": "POST",
+        "path": "/v1/meta/*",
+        "purpose": "Hosted Meta Ads gateway (reads and confirm-gated writes)",
+        "auth": "license JWT + user Meta OAuth"
+      },
+      {
+        "method": "GET",
+        "path": "/meta/login",
+        "purpose": "Start Meta OAuth",
+        "auth": "browser OAuth start"
+      },
+      {
+        "method": "GET",
+        "path": "/meta/callback",
+        "purpose": "Meta OAuth callback",
+        "auth": "OAuth callback"
+      },
+      {
+        "method": "POST",
+        "path": "/v1/meta/exchange",
+        "purpose": "Exchange Meta OAuth code for tokens used with the gateway",
+        "auth": "OAuth exchange as documented by the plugin"
+      },
+      {
+        "method": "POST",
+        "path": "/v1/feedback",
+        "purpose": "Product feedback ingest",
+        "auth": "as documented by the plugin"
+      },
+      {
+        "method": "POST",
+        "path": "/v1/sgtm/ingest",
+        "purpose": "Optional hosted sGTM ingest route (keys). Not a v1 product promise on the marketing site.",
+        "auth": "keys as configured for that route"
+      }
+    ],
+    "notes": [
+      "TikTok stamp hop exists when Polar feature tiktok is minted.",
+      "Merchant Center, Google Business Profile, and Shopify are plugin-direct to Google or Shopify, not stamp.",
+      "Free GA4, Search Console, and Tag Manager traffic does not use stamp for report bytes."
+    ]
+  },
+  "capabilities": [
+    {
+      "platform": "Google Analytics 4",
+      "tier": "free",
+      "read": true,
+      "write": false,
+      "notes": "Local on the user machine. List accounts and properties; property details, data streams, key events; run reports. Property setup and admin changes are not in this version."
+    },
+    {
+      "platform": "Google Search Console",
+      "tier": "free",
+      "read": true,
+      "write": false,
+      "notes": "Local. List sites; query search performance; inspect a URL; list and open sitemaps. Submitting or changing sitemaps through the plugin is not available yet."
+    },
+    {
+      "platform": "Google Tag Manager",
+      "tier": "free",
+      "read": true,
+      "write": "confirm-gated when writes are enabled",
+      "notes": "Read is free and local. Create or update tags, triggers, and variables, and publish, only when writes are enabled plus confirmation."
+    },
+    {
+      "platform": "Google Ads",
+      "tier": "pro",
+      "read": true,
+      "write": "confirm-gated",
+      "notes": "Hosted via stamp. Pro $19/mo. Developer token stays on the Worker. Details: /google-ads."
+    },
+    {
+      "platform": "Meta Ads",
+      "tier": "pro",
+      "read": true,
+      "write": "confirm-gated when Meta access allows",
+      "notes": "Hosted via stamp. Pro $19/mo. Meta app secret stays on the Worker."
+    },
+    {
+      "platform": "TikTok Ads",
+      "tier": "pro (feature tiktok)",
+      "read": true,
+      "write": "campaign status when access and entitlement allow",
+      "notes": "Stamp hop when Polar feature tiktok is minted."
+    },
+    {
+      "platform": "Merchant Center",
+      "tier": "plugin-direct",
+      "read": true,
+      "write": false,
+      "notes": "Plugin-direct Google. Not stamp. Edit is not in this version."
+    },
+    {
+      "platform": "Google Business Profile",
+      "tier": "plugin-direct",
+      "read": true,
+      "write": false,
+      "notes": "Plugin-direct Google. Not stamp. Some calls need Google’s Business Profile API access. Edit is not in this version."
+    },
+    {
+      "platform": "Shopify",
+      "tier": "plugin-direct",
+      "read": true,
+      "write": "inventory adjust when that write path is enabled",
+      "notes": "Plugin-direct Shopify. Not stamp. Live changes need confirmation."
+    }
+  ],
+  "agent_discovery": {
+    "llms_txt": "https://www.dgtlsunrise.com/llms.txt",
+    "llms_full": "https://www.dgtlsunrise.com/llms-full.txt",
+    "docs_llms": "https://www.dgtlsunrise.com/docs/llms.txt",
+    "api_llms": "https://www.dgtlsunrise.com/api/llms.txt",
+    "markdown_accept": "Send Accept: text/markdown (preferring text/markdown over text/html) for companion .md pages.",
+    "mode_agent_url": "https://www.dgtlsunrise.com/?mode=agent",
+    "agent_json": "https://www.dgtlsunrise.com/agent.json",
+    "sitemap": "https://www.dgtlsunrise.com/sitemap.xml",
+    "robots": "https://www.dgtlsunrise.com/robots.txt"
+  },
+  "contact": {
+    "company": "Sunrise Consulting LLC (DGTL Sunrise)",
+    "support_email": "support@dgtlsunrise.com",
+    "contact_email": "contact@dgtlsunrise.com",
+    "about": "https://www.dgtlsunrise.com/about",
+    "contact_page": "https://www.dgtlsunrise.com/contact",
+    "privacy": "https://www.dgtlsunrise.com/privacy",
+    "terms": "https://www.dgtlsunrise.com/terms"
+  }
+}

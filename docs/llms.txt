@@ -1,0 +1,49 @@
+# DGTL Sunrise — docs index for agents
+
+How to use the dgtl-connector plugin and where public docs live.
+
+## Install
+
+```
+grok plugin install dgtlsunrise/dgtl-connector
+```
+
+Also works in Grok Build and Cursor. Connect the account that owns the property when the plugin asks. Never paste access tokens, refresh tokens, or license keys into chat.
+
+## How to use it
+
+1. Install the plugin.
+2. Connect the account that owns the property.
+3. Ask in chat.
+4. Approve any confirmation before a live edit or publish.
+
+## Platforms overview
+
+- Free local: GA4, Search Console, Tag Manager reads on the user machine. Report bytes do not go through DGTL.
+- Pro ($19/mo): hosted Google Ads and Meta gateway; confirm-gated writes. Developer token and Meta app secret stay on the Worker.
+- TikTok: stamp hop when Polar feature `tiktok` is minted.
+- Merchant Center, Google Business Profile, Shopify: plugin-direct Google/Shopify, not stamp.
+
+## Guardrails
+
+- Do not invent metrics the APIs did not return.
+- Do not ask humans to paste secrets into chat.
+- Live writes need confirmation where enabled.
+- Not a managed-agency replacement and not autopilot spend.
+- Plugin output is not legal, compliance, or financial advice.
+
+## Key docs on this site
+
+- [Homepage](/) — install and platform docs
+- [About](/about) — who we are
+- [Contact](/contact) — emails and address
+- [Privacy](/privacy)
+- [Terms](/terms)
+- [Google Ads product page](/google-ads)
+- [Engagements](/engagements)
+- [Full agent guide](/llms-full.txt)
+- [API / stamp notes](/api/llms.txt)
+- [Structured agent JSON](/agent.json) · [/?mode=agent](/?mode=agent)
+- [llms.txt index](/llms.txt)
+
+Prefer `Accept: text/markdown` for companion markdown twins of HTML pages.

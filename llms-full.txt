@@ -1,0 +1,84 @@
+# DGTL Sunrise — full agent guide
+
+Site: https://www.dgtlsunrise.com/
+Company: Sunrise Consulting LLC (DGTL Sunrise)
+Product: dgtl-connector
+Emails: support@dgtlsunrise.com · contact@dgtlsunrise.com
+
+## When to use this
+
+Use this site and the dgtl-connector plugin when an agent needs to connect to marketing accounts the human already administers:
+
+- Free, local: GA4, Search Console, and Tag Manager reads on the user’s machine. Report bytes do not go through DGTL.
+- Pro ($19/mo): Google Ads and Meta through the hosted stamp gateway; live edits need confirmation. Developer token and Meta app secret stay on the Worker.
+- Install: `grok plugin install dgtlsunrise/dgtl-connector` (also Grok Build and Cursor).
+- Prefer markdown with `Accept: text/markdown`. Prefer structured JSON with `/?mode=agent` or `/agent.json`.
+
+## Do not use this for
+
+- Replacing a managed marketing agency or promising autopilot spend.
+- Inventing metrics, rows, or insights the APIs did not return.
+- Asking anyone to paste access tokens, refresh tokens, or license keys into chat.
+- Treating plugin output as legal, compliance, or financial advice.
+- Inventing Polar checkout URLs beyond the documented stamp checkout path.
+
+## Install and loop
+
+1. Install the plugin in Grok Bot (or Grok Build / Cursor).
+2. Connect the account that owns the property.
+3. Ask in chat.
+4. Approve any confirmation before a live edit or publish.
+
+Never paste access tokens, refresh tokens, or license keys into chat.
+
+## Platforms
+
+### Google Analytics 4 (free, local)
+
+List accounts and properties. Open property details, data streams, and key events. Run reports for the date ranges and metrics you ask for. Property setup and admin changes are not in this version.
+
+### Google Search Console (free, local)
+
+List sites. Query search performance. Inspect a URL. List and open sitemaps. Submitting or changing sitemaps through the plugin is not available yet.
+
+### Google Tag Manager (free read; writes when enabled)
+
+Inspect containers. When writes are enabled on your install, create or update tags, triggers, and variables, and publish after you approve.
+
+### Google Ads (Pro, stamp)
+
+Account reporting and confirm-gated changes (pause or enable, budgets, keywords, ads, and new campaigns where enabled). Every live change needs confirmation. Details: /google-ads.
+
+### Meta Ads (Pro, stamp)
+
+Ad account insights and, when Meta access allows, create or update campaigns, ad sets, ads, and audiences. Live changes need confirmation.
+
+### TikTok Ads
+
+List advertisers and campaigns. Insights. Campaign status updates when TikTok access and Pro entitlement allow them. Stamp hop exists when Polar feature `tiktok` is minted.
+
+### Merchant Center, Google Business Profile, Shopify
+
+Plugin-direct to Google or Shopify, not stamp. Merchant Center and GBP: read in this version; edit is not. Shopify: shop details, products, orders, locations, inventory; inventory adjust when that write path is enabled.
+
+## Stamp API (public surface)
+
+Base: https://stamp.dgtlsunrise.com
+
+Documented routes: GET /v1/health; GET /checkout; POST /v1/license (Polar redeem); POST /v1/gads/* and POST /v1/meta/* (license JWT + user OAuth); GET /meta/login, GET /meta/callback, POST /v1/meta/exchange; POST /v1/feedback; POST /v1/sgtm/ingest (keys; optional hosted route, not a v1 marketing-site product promise).
+
+Machine-readable detail: /agent.json and /?mode=agent. API notes: /api/llms.txt.
+
+## Agent discovery on this site
+
+- /llms.txt — short navigation index
+- /llms-full.txt — this file
+- /docs/llms.txt — docs-oriented summary
+- /api/llms.txt — stamp and auth surface
+- /agent.json and /?mode=agent — structured JSON
+- Companion .md via Accept: text/markdown
+- /sitemap.xml, /robots.txt, /about, /contact, /privacy, /terms
+
+## Company
+
+DGTL Sunrise is an AI-first marketing engineer agency. Sunrise Consulting LLC ships dgtl-connector. Based in Coeur d’Alene, Idaho. We are not a managed-agency replacement. The plugin pulls, analyzes, and recommends. A human still publishes.

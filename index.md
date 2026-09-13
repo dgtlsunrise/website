@@ -70,6 +70,9 @@ DGTL Sunrise (Sunrise Consulting LLC). Site: https://www.dgtlsunrise.com/
 - [Privacy](/privacy)
 - [Terms](/terms)
 - [llms.txt](/llms.txt)
+- [llms-full.txt](/llms-full.txt)
+- [agent.json](/agent.json)
+- [Agent mode (JSON)](/?mode=agent)
 - [sitemap.xml](/sitemap.xml)
 
 support@dgtlsunrise.com · contact@dgtlsunrise.com
