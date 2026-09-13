@@ -1,18 +1,23 @@
 {
   "@context": "https://www.dgtlsunrise.com/agent.json",
   "name": "DGTL Sunrise",
-  "product": "dgtl-connector",
+  "product": "DGTL Connector",
   "url": "https://www.dgtlsunrise.com/",
   "mode": "agent",
-  "description": "dgtl-connector is a Grok Bot plugin that connects agents to marketing accounts the human already administers. No DGTL Sunrise account is required to start. Free local Google Analytics, Search Console, and Tag Manager run on the user machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Pro adds a hosted Ads and Meta gateway.",
+  "description": "DGTL Connector by DGTL Sunrise is a Grok Bot plugin that connects agents to marketing accounts the human already administers. No DGTL Sunrise account is required to start. Free local Google Analytics, Search Console, and Tag Manager run on the user machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Pro adds a hosted Ads, Meta, and TikTok gateway.",
   "install": {
     "command": "grok plugin install dgtlsunrise/dgtl-connector",
-    "hosts": ["Grok Bot", "Grok Build", "Cursor"],
-    "notes": "No DGTL Sunrise account is required to start. Connect the account that owns the property when the plugin asks. Never paste access tokens, refresh tokens, or license keys into chat."
+    "hosts": [
+      "Grok Bot",
+      "Grok Build",
+      "Cursor",
+      "Claude Desktop"
+    ],
+    "notes": "No DGTL Sunrise account is required to start. Never paste access tokens, refresh tokens, or license keys into chat. See /developers for MCP manifests."
   },
   "authentication": {
     "free": "Connect Google on the machine for GA4, Search Console, and Tag Manager (read and manage). Klaviyo uses a merchant-held private API key stored locally. Report bytes do not go through DGTL. Live edits need confirmation and are off by default until writes are enabled on the install.",
-    "pro": "Polar license redeemed at the stamp host yields a license JWT. Google Ads and Meta calls use that JWT plus the user’s OAuth. The Google Ads developer token and Meta app secret stay on the Worker.",
+    "pro": "Polar license redeemed at the stamp host yields a license JWT. Google Ads and Meta calls use that JWT plus the user\u2019s OAuth. The Google Ads developer token and Meta app secret stay on the Worker.",
     "rules": [
       "Never paste access tokens, refresh tokens, or license keys into chat.",
       "Never invent metrics, rows, or insights the APIs did not return.",
@@ -146,7 +151,7 @@
       "tier": "plugin-direct",
       "read": true,
       "write": false,
-      "notes": "Plugin-direct Google. Not stamp. Some calls need Google’s Business Profile API access. Edit is not in this version."
+      "notes": "Plugin-direct Google. Not stamp. Some calls need Google\u2019s Business Profile API access. Edit is not in this version."
     },
     {
       "platform": "Shopify",
@@ -172,7 +177,11 @@
     "mode_agent_url": "https://www.dgtlsunrise.com/?mode=agent",
     "agent_json": "https://www.dgtlsunrise.com/agent.json",
     "sitemap": "https://www.dgtlsunrise.com/sitemap.xml",
-    "robots": "https://www.dgtlsunrise.com/robots.txt"
+    "robots": "https://www.dgtlsunrise.com/robots.txt",
+    "developers": "https://www.dgtlsunrise.com/developers",
+    "server_json": "https://www.dgtlsunrise.com/server.json",
+    "mcp_server_card": "https://www.dgtlsunrise.com/.well-known/mcp/server-card.json",
+    "github": "https://github.com/dgtlsunrise/dgtl-connector"
   },
   "contact": {
     "company": "Sunrise Consulting LLC (DGTL Sunrise)",

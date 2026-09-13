@@ -26,6 +26,8 @@ const PATH_TO_MD = {
   "/google-ads.html": "/google-ads.md",
   "/engagements": "/engagements.md",
   "/engagements.html": "/engagements.md",
+  "/developers": "/developers.md",
+  "/developers.html": "/developers.md",
   "/404": "/404.md",
   "/404.html": "/404.md",
 };

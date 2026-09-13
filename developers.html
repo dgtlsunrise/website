@@ -3,22 +3,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact · DGTL Sunrise</title>
-  <meta name="description" content="Contact DGTL Sunrise (Sunrise Consulting LLC): support@ and contact@ emails, Coeur d’Alene Idaho address." />
-  <link rel="canonical" href="https://www.dgtlsunrise.com/contact" />
+  <title>DGTL Connector developer resources · DGTL Sunrise</title>
+  <meta name="description" content="Developer resources for DGTL Connector by DGTL Sunrise. We ship dgtl-connector, a Grok Bot plugin that connects agents to marketing accounts." />
+  <link rel="canonical" href="https://www.dgtlsunrise.com/developers" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="DGTL Sunrise" />
-  <meta property="og:title" content="Contact · DGTL Sunrise" />
-  <meta property="og:description" content="Contact DGTL Sunrise (Sunrise Consulting LLC): support@ and contact@ emails, Coeur d’Alene Idaho address." />
-  <meta property="og:url" content="https://www.dgtlsunrise.com/contact" />
+  <meta property="og:title" content="DGTL Connector developer resources · DGTL Sunrise" />
+  <meta property="og:description" content="Developer resources for DGTL Connector by DGTL Sunrise. We ship dgtl-connector, a Grok Bot plugin that connects agents to marketing accounts." />
+  <meta property="og:url" content="https://www.dgtlsunrise.com/developers" />
   <meta property="og:image" content="https://www.dgtlsunrise.com/og-share.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="dgtl-connector for Grok Bot. Connect your agent to marketing accounts." />
+  <meta property="og:image:alt" content="DGTL Connector by DGTL Sunrise developer resources." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Contact · DGTL Sunrise" />
-  <meta name="twitter:description" content="Contact DGTL Sunrise (Sunrise Consulting LLC): support@ and contact@ emails, Coeur d’Alene Idaho address." />
+  <meta name="twitter:title" content="DGTL Connector developer resources · DGTL Sunrise" />
+  <meta name="twitter:description" content="Developer resources for DGTL Connector by DGTL Sunrise. We ship dgtl-connector, a Grok Bot plugin that connects agents to marketing accounts." />
   <meta name="twitter:image" content="https://www.dgtlsunrise.com/og-share.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -211,22 +211,32 @@
   </header>
 
   <main>
-    <h1>Contact</h1>
-    <p class="lede">Reach Sunrise Consulting LLC (DGTL Sunrise) by email. We keep this page short so agents and people can find the right address fast.</p>
-    <h2>Email</h2>
+    <h1>DGTL Connector developer resources</h1>
+    <p class="lede">DGTL Connector by DGTL Sunrise is a local stdio MCP plugin. Agents use it to connect to Google, Meta, Shopify, Klaviyo, and TikTok marketing APIs. This page is the public map for install, machine-readable docs, and the MCP server manifest.</p>
+
+    <h2>Product</h2>
     <ul>
-      <li><a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a> — plugin and product support</li>
-      <li><a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> — general questions and engagements</li>
+      <li><a href="/">DGTL Connector docs homepage</a></li>
+      <li><a href="/#install">Install commands</a> (Grok Bot, Cursor, Grok Build, Claude Desktop)</li>
+      <li><a href="/#free-and-pro">Free and Pro</a></li>
+      <li><a href="/google-ads">Google Ads product page</a></li>
+      <li><a href="https://github.com/dgtlsunrise/dgtl-connector">GitHub source (dgtlsunrise/dgtl-connector)</a></li>
     </ul>
-    <h2>Address</h2>
-    <p>Sunrise Consulting LLC<br />
-    2152 W Lima Pl<br />
-    Coeur d’Alene, ID 83814<br />
-    United States</p>
-    <h2>Before you write</h2>
-    <p>Install and platform docs live on the <a href="/">homepage</a>. Agent-oriented context is in <a href="/llms.txt">llms.txt</a>. Privacy policy: <a href="/privacy">/privacy</a>. Terms: <a href="/terms">/terms</a>.</p>
-    <p>Do not paste access tokens, refresh tokens, or license keys into email or chat. Connect accounts through the plugin’s normal OAuth flow instead.</p>
-    <p class="muted">Company site: <a href="https://www.dgtlsunrise.com/">www.dgtlsunrise.com</a>.</p>
+
+    <h2>Machine-readable</h2>
+    <ul>
+      <li><a href="/agent.json">agent.json</a> · also <a href="/?mode=agent">/?mode=agent</a></li>
+      <li><a href="/llms.txt">llms.txt</a> · <a href="/llms-full.txt">llms-full.txt</a> · <a href="/docs/llms.txt">docs/llms.txt</a> · <a href="/api/llms.txt">api/llms.txt</a></li>
+      <li><a href="/server.json">MCP server.json</a> (local stdio manifest)</li>
+      <li><a href="/.well-known/mcp/server-card.json">.well-known/mcp/server-card.json</a></li>
+      <li><a href="/sitemap.xml">sitemap.xml</a></li>
+    </ul>
+
+    <h2>MCP transport</h2>
+    <p>DGTL Connector ships as a <strong>local stdio</strong> MCP server (<code class="mono">bin/dgtl-connector-mcp</code>). Clone the GitHub repo, build it, and point your host at that binary. There is no hosted Streamable HTTP MCP for ad-account tools in v1; Pro Ads/Meta/TikTok API hops use the allowlisted stamp gateway after local plugin auth, not a remote MCP URL.</p>
+
+    <h2>Support</h2>
+    <p><a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a> · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · Sunrise Consulting LLC</p>
   </main>
 
   <footer class="site-footer">

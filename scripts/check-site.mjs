@@ -72,7 +72,9 @@ check(index.includes("Your data stays yours."), "home data-stays-yours");
 check(index.includes("Free tools talk to the platform directly"), "home free direct path");
 check(index.includes("Pro advertising calls go through our allowlisted gateway"), "home pro gateway sentence");
 check(index.includes("We do not keep those report bytes."), "home no-keep report bytes");
-check(/<h1>DGTL Connector<\/h1>/.test(index), "home title DGTL Connector");
+check(/<h1>DGTL Connector by DGTL Sunrise<\/h1>/.test(index), "home title DGTL Connector by DGTL Sunrise");
+check(!/href="#install"/.test(index.match(/<header[\s\S]*?<\/header>/)?.[0] || ""), "home header has no Install link");
+check(/\.brand img \{[\s\S]*?width:\s*auto/.test(index), "home logo uses width auto");
 check(index.includes("Manage property settings the tools support"), "home GA4 edit");
 check(index.includes("Submit or delete sitemaps after you confirm"), "home GSC edit");
 check(index.includes("create or update tags, triggers, and variables"), "home GTM manage");
@@ -189,6 +191,13 @@ for (const file of ["llms.txt", "llms-full.txt", "docs/llms.txt"]) {
 check(!/Ryze/i.test(allServed), "no Ryze in served HTML");
 check(!/https?:\/\/[^\s"'<>]*polar[^\s"'<>]*/i.test(allServed), "no Polar URL");
 check(!/dual-?door|Two doors|Install it, or hire us/i.test(allServed), "no dual-door copy");
+check(text("developers.html").includes("DGTL Connector developer resources"), "developers page exists");
+check(text("developers.md").includes("DGTL Connector developer resources"), "developers.md exists");
+check(text("server.json").includes("com.dgtlsunrise/dgtl-connector"), "server.json MCP manifest");
+check(text(".well-known/mcp/server-card.json").includes("com.dgtlsunrise/dgtl-connector"), "mcp server-card");
+check(text("llms.txt").includes("DGTL Connector by DGTL Sunrise"), "llms.txt names DGTL Connector");
+check(text("llms.txt").includes("/developers"), "llms.txt links developers");
+
 check(!/scanfield|tag-match|data-demo|Watch it work/i.test(allServed), "no MATCH/demo theater");
 check(!/Talk<\/a>/.test(allServed) && !primaryNav(index).includes("Engagements"), "no Talk or Engagements in primary nav");
 

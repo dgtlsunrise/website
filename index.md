@@ -1,4 +1,4 @@
-# DGTL Connector
+# DGTL Connector by DGTL Sunrise
 
 A plugin that connects your agent to the marketing APIs for Google, Meta, Shopify, Klaviyo, and TikTok. These connections let your agent set up and manage accounts, pull reports, recommend changes, and push approved changes live after you review them. Built for Grok Bot first. It also works with other MCP hosts such as Cursor and Claude Desktop.
 

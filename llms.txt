@@ -1,29 +1,35 @@
-# DGTL Sunrise
+# DGTL Connector by DGTL Sunrise
 
-dgtl-connector is a Grok Bot plugin that connects agents to marketing accounts you already administer. No DGTL Sunrise account is required to start. Free GA4, Search Console, and Tag Manager run on your machine (read and manage). Klaviyo is local on the same machine with a key you hold. Pro ($19/mo) adds a hosted Google Ads and Meta gateway with confirm-gated writes. Install: `grok plugin install dgtlsunrise/dgtl-connector` (also Grok Build and Cursor).
+DGTL Connector is a Grok Bot plugin (also Cursor, Grok Build, and other MCP hosts) that connects agents to marketing accounts you already administer. No DGTL Sunrise account is required to start. Free GA4, Search Console, and Tag Manager run on your machine (read and manage). Klaviyo is local on the same machine with a key you hold. Pro ($19/mo) adds a hosted Google Ads, Meta, and TikTok gateway with confirm-gated writes. Install: `grok plugin install dgtlsunrise/dgtl-connector`. Source: https://github.com/dgtlsunrise/dgtl-connector
 
 ## When to use this
 
-Use this index when an agent needs a short map of public docs, APIs, and install facts. Prefer the structured agent document for machine-readable endpoints and capabilities. Prefer the full text when you need platforms, guardrails, and company detail in one place.
+Use this index when an agent needs a short map of public docs, APIs, and install facts for DGTL Connector by DGTL Sunrise. Prefer the structured agent document for machine-readable endpoints and capabilities. Prefer the full text when you need platforms, guardrails, and company detail in one place. Prefer the developer resources page for MCP manifests and GitHub.
 
 ## Navigation
 
+- [DGTL Connector developer resources](/developers)
 - [Full agent guide (llms-full.txt)](/llms-full.txt)
 - [Docs-oriented llms.txt](/docs/llms.txt)
 - [API / stamp surface (api/llms.txt)](/api/llms.txt)
 - [Structured agent JSON](/agent.json)
 - [Homepage agent mode](/?mode=agent)
+- [MCP server.json](/server.json)
+- [MCP server card](/.well-known/mcp/server-card.json)
+- [AI catalog](/.well-known/ai-catalog.json)
 - [Sitemap](/sitemap.xml)
 - [Homepage](/)
+- [Install](/#install)
 - [About](/about)
 - [Contact](/contact)
 - [Privacy](/privacy)
 - [Terms](/terms)
 - [Google Ads product page](/google-ads)
 - [Engagements](/engagements)
+- [GitHub dgtlsunrise/dgtl-connector](https://github.com/dgtlsunrise/dgtl-connector)
 
 ## Agent notes
 
-Send `Accept: text/markdown` (preferring text/markdown over text/html) for companion markdown twins of HTML pages. Homepage `/?mode=agent` returns application/json from `agent.json` and wins over HTML and markdown negotiation for that query.
+Send `Accept: text/markdown` (preferring text/markdown over text/html) for companion markdown twins of HTML pages. Homepage `/?mode=agent` returns application/json from `agent.json` and wins over HTML and markdown negotiation for that query. MCP is local stdio (`bin/dgtl-connector-mcp`); see `/developers` and `/server.json`.
 
 support@dgtlsunrise.com · contact@dgtlsunrise.com · Sunrise Consulting LLC

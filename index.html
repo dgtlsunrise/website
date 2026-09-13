@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DGTL Connector · DGTL Sunrise</title>
-  <meta name="description" content="DGTL Connector for Grok Bot and other MCP hosts. Connect your agent to Google, Meta, Shopify, Klaviyo, TikTok, and more." />
+  <title>DGTL Connector by DGTL Sunrise</title>
+  <meta name="description" content="DGTL Connector by DGTL Sunrise. Connect your agent to Google, Meta, Shopify, Klaviyo, TikTok, and more." />
   <link rel="canonical" href="https://www.dgtlsunrise.com/" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="alternate" type="application/json" href="/?mode=agent" title="Agent mode JSON" />
@@ -12,16 +12,16 @@
   <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="DGTL Sunrise" />
-  <meta property="og:title" content="DGTL Connector · DGTL Sunrise" />
-  <meta property="og:description" content="DGTL Connector for Grok Bot and other MCP hosts. Connect your agent to Google, Meta, Shopify, Klaviyo, TikTok, and more." />
+  <meta property="og:title" content="DGTL Connector by DGTL Sunrise" />
+  <meta property="og:description" content="DGTL Connector by DGTL Sunrise. Connect your agent to Google, Meta, Shopify, Klaviyo, TikTok, and more." />
   <meta property="og:url" content="https://www.dgtlsunrise.com/" />
   <meta property="og:image" content="https://www.dgtlsunrise.com/og-share.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="DGTL Connector. Connect your agent to marketing accounts." />
+  <meta property="og:image:alt" content="DGTL Connector by DGTL Sunrise. Connect your agent to marketing accounts." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="DGTL Connector · DGTL Sunrise" />
-  <meta name="twitter:description" content="DGTL Connector for Grok Bot and other MCP hosts. Connect your agent to Google, Meta, Shopify, Klaviyo, TikTok, and more." />
+  <meta name="twitter:title" content="DGTL Connector by DGTL Sunrise" />
+  <meta name="twitter:description" content="DGTL Connector by DGTL Sunrise. Connect your agent to Google, Meta, Shopify, Klaviyo, TikTok, and more." />
   <meta name="twitter:image" content="https://www.dgtlsunrise.com/og-share.png" />
 <script type="application/ld+json">
   {
@@ -155,9 +155,11 @@
     .brand:hover { color: var(--text); }
 
     .brand img {
-      width: 28px;
       height: 28px;
+      width: auto;
+      max-height: 28px;
       display: block;
+      object-fit: contain;
     }
 
     .header-nav a {
@@ -396,18 +398,15 @@
   <header class="site-header">
     <div class="site-header-inner">
       <a class="brand" href="/">
-        <img src="/logo.webp" width="28" height="28" alt="" />
+        <img src="/logo.webp" width="46" height="28" alt="" />
         <span>DGTL Sunrise</span>
       </a>
-      <nav class="header-nav">
-        <a href="#install">Install</a>
-      </nav>
     </div>
     <div class="logo-hairline" aria-hidden="true"></div>
   </header>
 
   <main>
-    <h1>DGTL Connector</h1>
+    <h1>DGTL Connector by DGTL Sunrise</h1>
     <p class="lede">A plugin that connects your agent to the marketing APIs for Google, Meta, Shopify, Klaviyo, and TikTok. These connections let your agent set up and manage accounts, pull reports, recommend changes, and push approved changes live after you review them. Built for Grok Bot first. It also works with other MCP hosts such as Cursor and Claude Desktop.</p>
     <p>Your data stays yours. Free tools talk to the platform directly from your agent’s computer. Pro advertising calls go through our allowlisted gateway so we can attach the platform credentials that cannot live in the plugin, complete the request you started, and return the response to your agent. We do not keep those report bytes.</p>
 
@@ -708,7 +707,7 @@ npm run build</code></pre>
   </main>
 
   <footer class="site-footer">
-    <p><a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a> · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/google-ads">Google Ads</a> · <a href="/llms.txt">llms.txt</a> · <a href="/?mode=agent">Agent JSON</a></p>
+    <p><a href="/developers">Developers</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a> · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/google-ads">Google Ads</a> · <a href="/llms.txt">llms.txt</a> · <a href="/?mode=agent">Agent JSON</a></p>
     <p>© 2026 Sunrise Consulting LLC</p>
   </footer>
   <script src="/assets/site.js" defer></script>
