@@ -57,7 +57,16 @@ const primaryNav = (page) => {
 };
 
 check(index.includes("grok plugin install dgtlsunrise/dgtl-connector"), "home has install command");
-check(/<pre><code>grok plugin install dgtlsunrise\/dgtl-connector<\/code><\/pre>/.test(index), "install command is in HTML, not JS");
+check(/id="install-grok"[^>]*>grok plugin install dgtlsunrise\/dgtl-connector<\/code>/.test(index), "install command is in HTML, not JS");
+check(index.includes('data-copy="#install-grok"'), "home Grok install has copy button");
+check(index.includes('data-copy="#install-cursor"'), "home Cursor install has copy button");
+check(index.includes('data-copy="#install-claude"'), "home Claude install has copy button");
+check(index.includes("git clone https://github.com/dgtlsunrise/dgtl-connector.git"), "home Cursor clone command");
+check(index.includes("Claude Desktop"), "home Claude Desktop install");
+check(index.includes("/assets/site.js"), "home loads site.js for copy");
+check(!/Package id/.test(index), "home dropped package id line");
+check(!/Connect the account that owns the property when the plugin asks/.test(index), "home dropped connect-when-asks line");
+
 check(index.includes("run on your machine (read and manage)"), "home free path is read and manage");
 check(index.includes("Your data stays yours."), "home data-stays-yours");
 check(index.includes("Free tools talk to the platform directly"), "home free direct path");

@@ -267,6 +267,59 @@
       padding: 0;
     }
 
+    .code-panel {
+      margin: 0.5rem 0 1.15rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--code-bg);
+      overflow: hidden;
+    }
+
+    .code-panel-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.45rem 0.65rem 0.45rem 0.9rem;
+      border-bottom: 1px solid var(--border);
+      background: #FFFFFF;
+    }
+
+    .code-panel-bar span {
+      font-size: 0.8125rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .copy-btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: #FFFFFF;
+      color: var(--text);
+      font: inherit;
+      font-size: 0.8125rem;
+      line-height: 1;
+      padding: 0.4rem 0.65rem;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .copy-btn:hover {
+      border-color: var(--text);
+    }
+
+    .copy-btn:focus-visible {
+      outline: 2px solid var(--text);
+      outline-offset: 2px;
+    }
+
+    .code-panel pre {
+      margin: 0;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+    }
+
     p code {
       background: var(--code-bg);
       padding: 0.1em 0.35em;
@@ -359,13 +412,54 @@
     <p>Your data stays yours. Free tools talk to the platform directly from your agent’s computer. Pro advertising calls go through our allowlisted gateway so we can attach the platform credentials that cannot live in the plugin, complete the request you started, and return the response to your agent. We do not keep those report bytes.</p>
 
     <h2 id="install">Install</h2>
-    <p class="section-body">In Grok Bot, run:</p>
-    <pre><code>grok plugin install dgtlsunrise/dgtl-connector</code></pre>
-    <p class="section-body">You do not need a DGTL Sunrise account to get started. Connect the account that owns the property when the plugin asks. Package id <code class="mono">dgtl-connector</code>. Also works in Grok Build, Cursor, and other MCP hosts such as Claude Desktop.</p>
+    <p class="section-body">You do not need a DGTL Sunrise account to get started. Pick your agent host.</p>
+
+    <p class="section-label">Grok Bot</p>
+    <div class="code-panel">
+      <div class="code-panel-bar">
+        <span>Install command</span>
+        <button type="button" class="copy-btn" data-copy="#install-grok">Copy</button>
+      </div>
+      <pre><code id="install-grok">grok plugin install dgtlsunrise/dgtl-connector</code></pre>
+    </div>
+
+    <p class="section-label">Cursor and Grok Build</p>
+    <p class="section-body">Clone the public repo, build it, then load that folder as a local Agent Plugin (Cursor uses <code class="mono">mcp.json</code>; Grok Build uses <code class="mono">.mcp.json</code>).</p>
+    <div class="code-panel">
+      <div class="code-panel-bar">
+        <span>Clone and build</span>
+        <button type="button" class="copy-btn" data-copy="#install-cursor">Copy</button>
+      </div>
+      <pre><code id="install-cursor">git clone https://github.com/dgtlsunrise/dgtl-connector.git
+cd dgtl-connector
+npm install
+npm run build</code></pre>
+    </div>
+
+    <p class="section-label">Claude Desktop</p>
+    <p class="section-body">Build the repo with the Cursor steps above, then add this stdio server in Claude Desktop MCP settings. Replace the paths with the absolute paths on your machine.</p>
+    <div class="code-panel">
+      <div class="code-panel-bar">
+        <span>MCP server config</span>
+        <button type="button" class="copy-btn" data-copy="#install-claude">Copy</button>
+      </div>
+      <pre><code id="install-claude">{
+  "mcpServers": {
+    "dgtl-connector": {
+      "command": "/path/to/dgtl-connector/bin/dgtl-connector-mcp",
+      "env": {
+        "PLUGIN_DATA": "/path/to/dgtl-connector-data"
+      }
+    }
+  }
+}</code></pre>
+    </div>
+
+    <p class="note">ChatGPT and other hosts that can run a local stdio MCP server use the same <code class="mono">bin/dgtl-connector-mcp</code> command after you build the repo. One-click marketplace install is Grok Bot first.</p>
 
     <h2 id="how-to-use">How to use it</h2>
     <ol>
-      <li>Install the plugin in Grok Bot.</li>
+      <li>Install the plugin in your agent host.</li>
       <li>Connect the account that owns the property.</li>
       <li>Ask in chat.</li>
       <li>Review and approve before anything is published or changed on your accounts.</li>
@@ -617,5 +711,6 @@
     <p><a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a> · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/google-ads">Google Ads</a> · <a href="/llms.txt">llms.txt</a> · <a href="/?mode=agent">Agent JSON</a></p>
     <p>© 2026 Sunrise Consulting LLC</p>
   </footer>
+  <script src="/assets/site.js" defer></script>
 </body>
 </html>

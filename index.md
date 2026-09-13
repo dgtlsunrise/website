@@ -6,17 +6,47 @@ Your data stays yours. Free tools talk to the platform directly from your agentâ
 
 ## Install
 
-In Grok Bot, run:
+You do not need a DGTL Sunrise account to get started. Pick your agent host.
+
+### Grok Bot
 
 ```
 grok plugin install dgtlsunrise/dgtl-connector
 ```
 
-You do not need a DGTL Sunrise account to get started. Connect the account that owns the property when the plugin asks. Package id `dgtl-connector`. Also works in Grok Build, Cursor, and other MCP hosts such as Claude Desktop.
+### Cursor and Grok Build
+
+Clone the public repo, build it, then load that folder as a local Agent Plugin (Cursor uses `mcp.json`; Grok Build uses `.mcp.json`).
+
+```
+git clone https://github.com/dgtlsunrise/dgtl-connector.git
+cd dgtl-connector
+npm install
+npm run build
+```
+
+### Claude Desktop
+
+Build the repo with the Cursor steps above, then add this stdio server in Claude Desktop MCP settings. Replace the paths with the absolute paths on your machine.
+
+```
+{
+  "mcpServers": {
+    "dgtl-connector": {
+      "command": "/path/to/dgtl-connector/bin/dgtl-connector-mcp",
+      "env": {
+        "PLUGIN_DATA": "/path/to/dgtl-connector-data"
+      }
+    }
+  }
+}
+```
+
+ChatGPT and other hosts that can run a local stdio MCP server use the same `bin/dgtl-connector-mcp` command after you build the repo. One-click marketplace install is Grok Bot first.
 
 ## How to use it
 
-1. Install the plugin in Grok Bot.
+1. Install the plugin in your agent host.
 2. Connect the account that owns the property.
 3. Ask in chat.
 4. Review and approve before anything is published or changed on your accounts.
