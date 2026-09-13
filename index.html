@@ -1,97 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DGTL Sunrise · dgtl-connector</title>
-<meta name="description" content="Free local Grok plugin. Install, auth, pull, analyze, recommend. You publish. Tokens and report bytes never go through DGTL on the free path.">
-<link rel="canonical" href="https://www.dgtlsunrise.com/">
-<link rel="icon" type="image/png" href="/favicon.png">
-<meta name="theme-color" content="#08060F">
-<link rel="stylesheet" href="/assets/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>dgtl-connector for Grok Bot · DGTL Sunrise</title>
+  <meta name="description" content="dgtl-connector for Grok Bot. Connect your agent to GA4, Search Console, Tag Manager, Google Ads, Meta, and more." />
+  <link rel="canonical" href="https://www.dgtlsunrise.com/" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FAFAF8;
+      --text: #141414;
+      --muted: #5A5A56;
+      --border: #E4E4E0;
+      --code-bg: #F0F0EC;
+      --link: #1C97F7;
+      --link-hover: #0D7AD4;
+      --max: 42rem;
+      --logo-y: #FDC204;
+      --logo-o: #F09020;
+      --logo-g: #25D874;
+      --logo-b: #1C97F7;
+      --logo-m: #C2186A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+    }
+    a:hover { color: var(--link-hover); }
+
+    code, .mono {
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.9em;
+    }
+
+    /* Header */
+    .site-header {
+      border-bottom: 1px solid var(--border);
+      background: #FFFFFF;
+    }
+
+    .site-header-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9375rem;
+      letter-spacing: -0.01em;
+    }
+    .brand:hover { color: var(--text); }
+
+    .brand img {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
+    .header-nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+    .header-nav a:hover { color: var(--text); }
+
+    .logo-hairline {
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(
+        90deg,
+        var(--logo-y) 0%,
+        var(--logo-o) 25%,
+        var(--logo-g) 50%,
+        var(--logo-b) 75%,
+        var(--logo-m) 100%
+      );
+    }
+
+    /* Article column */
+    main {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 4rem;
+    }
+
+    h1 {
+      margin: 0 0 0.75rem;
+      font-size: 1.875rem;
+      line-height: 1.25;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+
+    .lede {
+      margin: 0 0 1.25rem;
+      color: var(--text);
+      font-size: 1.125rem;
+      line-height: 1.6;
+    }
+
+    .lede + p {
+      margin: 0 0 2rem;
+      color: var(--muted);
+      font-size: 0.9875rem;
+    }
+
+    h2 {
+      margin: 2.75rem 0 1rem;
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+      font-size: 1.375rem;
+      line-height: 1.3;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      color: var(--text);
+      scroll-margin-top: 1rem;
+    }
+
+    h2:first-of-type { /* Install is first h2 after contents — keep spacing */ }
+
+    .section-label {
+      margin: 1.1rem 0 0.35rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .section-body {
+      margin: 0 0 0.25rem;
+      color: var(--text);
+    }
+
+    ul, ol {
+      margin: 0.35rem 0 0.75rem;
+      padding-left: 1.35rem;
+    }
+
+    li { margin: 0.3rem 0; }
+
+    li::marker { color: var(--muted); }
+
+    /* Install block */
+    pre {
+      margin: 0.75rem 0 1rem;
+      padding: 0.9rem 1rem;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow-x: auto;
+      font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: var(--text);
+    }
+
+    pre code {
+      font-size: inherit;
+      background: none;
+      padding: 0;
+    }
+
+    p code {
+      background: var(--code-bg);
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+      font-size: 0.875em;
+      color: var(--text);
+    }
+
+    .note {
+      margin: 1rem 0 0;
+      color: var(--muted);
+      font-size: 0.9375rem;
+    }
+
+    /* Contents */
+    .contents {
+      margin: 0 0 2rem;
+      padding: 1rem 1.15rem;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    .contents-title {
+      margin: 0 0 0.5rem;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .contents ol {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    .contents a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .contents a:hover {
+      color: var(--link);
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .site-footer {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.25rem 3rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+    }
+
+    .site-footer p {
+      margin: 0 0 0.5rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .site-footer a { color: var(--muted); }
+    .site-footer a:hover { color: var(--text); }
+
+    @media (max-width: 520px) {
+      h1 { font-size: 1.625rem; }
+      .lede { font-size: 1.05rem; }
+      main { padding-top: 1.75rem; }
+    }
+  </style>
 </head>
 <body>
-<div class="sunband" aria-hidden="true"></div>
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="site-nav">
-  <div class="wrap wrap--wide nav-inner">
-    <a class="lockup" href="/">
-      <img class="lockup__mark" src="/logo.webp" alt="">
-      <span class="lockup__word">DGTL Sunrise.</span>
-    </a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="/connector">Connector</a>
-    </nav>
-    <a class="btn btn--solid" href="/connector#install">Install</a>
-  </div>
-</header>
-
-<main id="main">
-
-  <section class="section section--first" aria-label="Install">
-    <div class="wrap">
-      <p class="kicker">dgtl-connector</p>
-      <h1>Install it. Read your own accounts.</h1>
-      <p class="lede">A free local Grok plugin. You connect, pull, analyze, and recommend. A human publishes. The plugin reads back.</p>
-      <div class="command">
-        <pre id="install-cmd"><code>grok plugin install dgtlsunrise/dgtl-connector</code></pre>
-        <button type="button" class="btn" data-copy="#install-cmd">Copy</button>
-      </div>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="/">
+        <img src="/logo.webp" width="28" height="28" alt="" />
+        <span>DGTL Sunrise</span>
+      </a>
+      <nav class="header-nav">
+        <a href="#install">Install</a>
+      </nav>
     </div>
-  </section>
+    <div class="logo-hairline" aria-hidden="true"></div>
+  </header>
 
-  <section class="section" aria-labelledby="loop-title">
-    <div class="wrap wrap--wide">
-      <p class="kicker">The loop</p>
-      <h2 id="loop-title">Six steps. You publish.</h2>
-      <ol class="steps">
-        <li><strong>Install</strong><span>Put the plugin on the machine you work on.</span></li>
-        <li><strong>Auth</strong><span>Connect Google accounts you already administer.</span></li>
-        <li><strong>Pull</strong><span>Read GA4, Search Console, and Tag Manager on that machine.</span></li>
-        <li><strong>Analyze</strong><span>Ask the agent. Cite the property, site, or container on every number.</span></li>
-        <li><strong>Recommend</strong><span>The agent drafts. Nothing sends until you say so.</span></li>
-        <li><strong>Publish</strong><span>A human publishes. The plugin reads the live result back.</span></li>
+  <main>
+    <h1><code class="mono">dgtl-connector</code> for Grok Bot</h1>
+    <p class="lede">A Grok Bot plugin that connects your agent to your marketing accounts. Install it, connect Google (and Meta, Shopify, or TikTok when you need them), then ask in chat.</p>
+    <p>Free Google Analytics, Search Console, and Tag Manager reads run on your machine. Those report bytes do not go through DGTL.</p>
+
+    <h2 id="install">Install</h2>
+    <p class="section-body">In Grok Bot, run:</p>
+    <pre><code>grok plugin install dgtlsunrise/dgtl-connector</code></pre>
+    <p class="section-body">Connect the account that owns the property when the plugin asks. Also works in Grok Build and Cursor.</p>
+
+    <h2 id="how-to-use">How to use it</h2>
+    <ol>
+      <li>Install the plugin in Grok Bot.</li>
+      <li>Connect the account that owns the property.</li>
+      <li>Ask in chat.</li>
+      <li>Approve any confirmation before a live edit or publish.</li>
+    </ol>
+    <p class="note">Never paste access tokens, refresh tokens, or license keys into chat.</p>
+
+    <nav class="contents" aria-label="Contents">
+      <p class="contents-title">Contents</p>
+      <ol>
+        <li><a href="#google-analytics-4">Google Analytics 4</a></li>
+        <li><a href="#google-search-console">Google Search Console</a></li>
+        <li><a href="#google-tag-manager">Google Tag Manager</a></li>
+        <li><a href="#google-ads">Google Ads</a></li>
+        <li><a href="#meta-ads">Meta Ads</a></li>
+        <li><a href="#merchant-center">Merchant Center</a></li>
+        <li><a href="#google-business-profile">Google Business Profile</a></li>
+        <li><a href="#shopify">Shopify</a></li>
+        <li><a href="#tiktok-ads">TikTok Ads</a></li>
       </ol>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="free-title">
-    <div class="wrap">
-      <p class="kicker">Free path</p>
-      <h2 id="free-title">Bytes stay off DGTL.</h2>
-      <div class="panel prose">
-        <p>On the free path, tokens and report bytes never go through DGTL. The platform talks to the agent on the machine you installed.</p>
-        <p>Free is self-hosted. GA4, Search Console, and Tag Manager. No card. Server-side GTM is not in this version.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-labelledby="pro-title">
-    <div class="wrap">
-      <p class="kicker">Pro</p>
-      <h2 id="pro-title">Ads and Meta, hosted.</h2>
-      <div class="panel prose">
-        <p>Pro is $19/mo for the hosted Ads and Meta gateway only. One Polar customer. The same human may use more than one host. No employee seats. Unlimited ad accounts under that human's OAuth.</p>
-        <p>Google Ads is reporting only. Start at <a href="/connector#pro">/connector#pro</a>. Product page: <a href="/google-ads">/google-ads</a>.</p>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer class="site-footer">
-  <div class="wrap wrap--wide footer-inner">
-    <p class="footer-meta">© 2026 Sunrise Consulting LLC · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · <a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a></p>
-    <nav class="footer-links" aria-label="Secondary">
-      <a href="/engagements">Engagements</a>
-      <a href="mailto:contact@dgtlsunrise.com">Write us</a>
-      <a href="/privacy">Privacy</a>
-      <a href="/terms">Terms</a>
     </nav>
-  </div>
-</footer>
 
-<script src="/assets/site.js" defer></script>
+    <!-- Google Analytics 4 -->
+    <h2 id="google-analytics-4">Google Analytics 4</h2>
+    <p class="section-label">Overview</p>
+    <p class="section-body">Ask your agent for GA4 properties and reports.</p>
+    <p class="section-label">Read</p>
+    <p class="section-body">List accounts and properties. Open property details, data streams, and key events. Run reports for the date ranges and metrics you ask for.</p>
+    <p class="section-label">Edit</p>
+    <p class="section-body">Not in this version. Property setup and admin changes are not available through the plugin yet.</p>
+    <p class="section-label">Requirements</p>
+    <p class="section-body">Free. Connect Google.</p>
+    <p class="section-label">Example asks</p>
+    <ul>
+      <li>List my GA4 properties.</li>
+      <li>Sessions and conversions for this property over the last 28 days.</li>
+      <li>Which data streams are on this property?</li>
+    </ul>
+    <p class="section-label">Guardrails</p>
+    <p class="section-body">If you have more than one property, the agent asks which one to use instead of guessing. It cites the property ID on numbers so you can see where a figure came from. It does not invent metrics the API did not return.</p>
+
+    <!-- Google Search Console -->
+    <h2 id="google-search-console">Google Search Console</h2>
+    <p class="section-label">Overview</p>
+    <p class="section-body">Ask your agent about verified sites, queries, and URL indexing status.</p>
+    <p class="section-label">Read</p>
+    <p class="section-body">List sites. Query search performance. Inspect a URL. List and open sitemaps.</p>
+    <p class="section-label">Edit</p>
+    <p class="section-body">Not in this version. Submitting or changing sitemaps through the plugin is not available yet.</p>
+    <p class="section-label">Requirements</p>
+    <p class="section-body">Free. Connect Google. The site must already appear in Search Console for that account.</p>
+    <p class="section-label">Example asks</p>
+    <ul>
+      <li>Which Search Console sites can I access?</li>
+      <li>Top queries for example.com over the last 28 days.</li>
+      <li>Inspect https://example.com/page for indexing issues.</li>
+    </ul>
+    <p class="section-label">Guardrails</p>
+    <p class="section-body">The agent asks which site to use when several are available. Search Console figures stay labeled as Search Console (they are not the same as GA4 sessions).</p>
+
+    <!-- Google Tag Manager -->
+    <h2 id="google-tag-manager">Google Tag Manager</h2>
+    <p class="section-label">Overview</p>
+    <p class="section-body">Ask your agent to inspect containers. When writes are enabled on your install, it can create or update tags, triggers, and variables, and publish after you approve.</p>
+    <p class="section-label">Read</p>
+    <p class="section-body">List accounts, containers, workspaces, tags, triggers, and variables. Open a container. Show the live container version.</p>
+    <p class="section-label">Edit</p>
+    <p class="section-body">Create and update tags, triggers, and variables. Publish a container. Live changes need your confirmation. Writes are off by default until you enable them on the install.</p>
+    <p class="section-label">Requirements</p>
+    <p class="section-body">Read: free, connect Google. Edit and publish: writes enabled on your install, plus confirmation.</p>
+    <p class="section-label">Example asks</p>
+    <ul>
+      <li>List my GTM containers.</li>
+      <li>What tags are in GTM-XXXX?</li>
+      <li>Propose a new tag, then publish only after I approve.</li>
+    </ul>
+    <p class="section-label">Guardrails</p>
+    <p class="section-body">Draft or dry-run work stays separate from the live container until you approve publish. The agent will not publish without that confirmation.</p>
+
+    <!-- Google Ads -->
+    <h2 id="google-ads">Google Ads</h2>
+    <p class="section-label">Overview</p>
+    <p class="section-body">With Pro, ask your agent for account reporting and confirm-gated changes (pause or enable, budgets, keywords, ads, and new campaigns where enabled).</p>
+    <p class="section-label">Read</p>
+    <p class="section-body">List accessible accounts. Account and campaign reporting. Search performance style queries. Merchant Center link status.</p>
+    <p class="section-label">Edit</p>
+    <p class="section-body">Pause or enable campaigns, ad groups, keywords, and ads. Update budgets. Add keywords and negatives. Create responsive search and display ads. Create Search, Display, Performance Max, Shopping, Video, Demand Gen, App, Hotel, and Local campaigns. Upload assets. Set geo, language, demographics, schedules, and bidding. Create conversion actions and experiments. Link or unlink Merchant Center. Every live change needs confirmation.</p>
+    <p class="section-label">Requirements</p>
+    <p class="section-body">Pro ($19 / month). Connect Google Ads under your own login. Details: <a href="/google-ads">/google-ads</a>.</p>
+    <p class="section-label">Example asks</p>
+    <ul>
+      <li>List my Google Ads accounts.</li>
+      <li>Campaign performance for the last 14 days.</li>
+      <li>Pause this campaign after I confirm.</li>
+      <li>Create a paused Search campaign with these keywords.</li>
+    </ul>
+    <p class="section-label">Guardrails</p>
+    <p class="section-body">Creates and status changes wait for your confirmation. Prefer paused drafts when you are testing. Without Pro, Ads tools do not invent results.</p>
+
+    <!-- Meta Ads -->
+    <h2 id="meta-ads">Meta Ads</h2>
+    <p class="section-label">Overview</p>
+    <p class="section-body">With Pro, ask your agent for ad account insights and, when Meta access allows, create or update campaigns, ad sets, ads, and audiences.</p>
+    <p class="section-label">Read</p>
+    <p class="section-body">List ad accounts, campaigns, ad sets, and ads. Pull insights and creative details.</p>
+    <p class="section-label">Edit</p>
+    <p class="section-body">Create and update campaigns, ad sets, and ads. Upload image or video. Create creatives. Update targeting. Create custom and lookalike audiences and attach them. Live changes need confirmation.</p>
+    <p class="section-label">Requirements</p>
+    <p class="section-body">Pro. Meta must grant the needed app access for your account. Some write actions stay blocked until Meta finishes that review.</p>
+    <p class="section-label">Example asks</p>
+    <ul>
+      <li>List my Meta ad accounts.</li>
+      <li>Insights for this campaign over the last 7 days.</li>
+      <li>Create a paused campaign after I confirm.</li>
+    </ul>
+    <p class="section-label">Guardrails</p>
+    <p class="section-body">The agent confirms before live changes. If Meta denies access, it reports that instead of inventing insights or edits.</p>
+
+    <!-- Merchant Center -->
+    <h2 id="merchant-center">Merchant Center</h2>
+    <p class="section-label">Overview</p>
+    <p class="section-body">Ask your agent about Merchant Center accounts, products, and account issues.</p>
+    <p class="section-label">Read</p>
+    <p class="section-body">List accounts. List and open products. Product statuses. Account issues. Data sources.</p>
+    <p class="section-label">Edit</p>
+    <p class="section-body">Not in this version.</p>
+    <p class="section-label">Requirements</p>
+    <p class="section-body">Connect the Google account that owns Merchant Center.</p>
+    <p class="section-label">Example asks</p>
+    <ul>
+      <li>List Merchant Center accounts I can access.</li>
+      <li>Which products have issues?</li>
+      <li>Show account issues.</li>
+    </ul>
+    <p class="section-label">Guardrails</p>
+    <p class="section-body">The agent asks which account to use when more than one is available. It does not invent product or issue rows.</p>
+
+    <!-- Google Business Profile -->
+    <h2 id="google-business-profile">Google Business Profile</h2>
+    <p class="section-label">Overview</p>
+    <p class="section-body">Ask your agent about Business Profile locations, performance, and search keywords.</p>
+    <p class="section-label">Read</p>
+    <p class="section-body">List accounts and locations. Open a location. Performance. Search keywords.</p>
+    <p class="section-label">Edit</p>
+    <p class="section-body">Not in this version.</p>
+    <p class="section-label">Requirements</p>
+    <p class="section-body">Connect Google. Some calls need Google’s Business Profile API access for your profile before they work.</p>
+    <p class="section-label">Example asks</p>
+    <ul>
+      <li>List my Business Profile locations.</li>
+      <li>Performance for this location over the last 28 days.</li>
+      <li>Search keywords for this location.</li>
+    </ul>
+    <p class="section-label">Guardrails</p>
+    <p class="section-body">The agent asks which location to use when several exist. If Google has not granted API access yet, it says so instead of inventing performance data.</p>
+
+    <!-- Shopify -->
+    <h2 id="shopify">Shopify</h2>
+    <p class="section-label">Overview</p>
+    <p class="section-body">Ask your agent about your shop, catalog, orders, and inventory. Inventory can be adjusted when that write path is enabled on your install.</p>
+    <p class="section-label">Read</p>
+    <p class="section-body">Shop details. Products. Orders. Locations. Inventory levels.</p>
+    <p class="section-label">Edit</p>
+    <p class="section-body">Adjust inventory. Live changes need confirmation. That write path is off until you enable it on the install.</p>
+    <p class="section-label">Requirements</p>
+    <p class="section-body">Connect Shopify on the install.</p>
+    <p class="section-label">Example asks</p>
+    <ul>
+      <li>What is my shop name and domain?</li>
+      <li>List products.</li>
+      <li>Adjust inventory for this variant after I confirm.</li>
+    </ul>
+    <p class="section-label">Guardrails</p>
+    <p class="section-body">Inventory changes wait for your confirmation. The agent does not invent order or stock numbers.</p>
+
+    <!-- TikTok Ads -->
+    <h2 id="tiktok-ads">TikTok Ads</h2>
+    <p class="section-label">Overview</p>
+    <p class="section-body">Ask your agent for advertisers, campaigns, and insights. Campaign on/off updates are available when TikTok access and your Pro entitlement allow them.</p>
+    <p class="section-label">Read</p>
+    <p class="section-body">List advertisers and campaigns. Insights.</p>
+    <p class="section-label">Edit</p>
+    <p class="section-body">Update campaign status (for example pause or enable) after confirmation.</p>
+    <p class="section-label">Requirements</p>
+    <p class="section-body">Pro entitlement when the license requires it. Your TikTok ads app access must be approved. Approval may still be pending.</p>
+    <p class="section-label">Example asks</p>
+    <ul>
+      <li>List TikTok advertisers I can access.</li>
+      <li>Campaign insights for the last 7 days.</li>
+      <li>Pause this campaign after I confirm.</li>
+    </ul>
+    <p class="section-label">Guardrails</p>
+    <p class="section-body">Status changes wait for your confirmation. If TikTok access or entitlement is missing, the agent reports that instead of inventing insights.</p>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a> · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/google-ads">Google Ads</a></p>
+    <p>© 2026 Sunrise Consulting LLC</p>
+  </footer>
 </body>
 </html>
