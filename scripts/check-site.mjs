@@ -83,11 +83,11 @@ check(
     /Meta Ads insights/.test(freeAndPro) &&
     /TikTok Ads advertisers/.test(freeAndPro) &&
     /Nothing is published or changed on your ad accounts until you review and approve it first/.test(freeAndPro) &&
-    /TikTok Ads is included in Pro/.test(freeAndPro) &&
+    /Meta Ads and TikTok Ads are included in Pro/.test(freeAndPro) &&
     !/Live changes need confirmation/.test(freeAndPro) &&
     !/Pro entitlement/.test(freeAndPro) &&
     /Nothing is published or changed on your ad accounts until you review and approve it first/.test(freeAndPro) &&
-    /TikTok Ads is included in Pro/.test(freeAndPro),
+    /Meta Ads and TikTok Ads are included in Pro/.test(freeAndPro),
   "home Free vs Pro section"
 );
 
@@ -149,7 +149,7 @@ check(
     /\*\*What is free\.\*\*/.test(freeProMd) &&
     /\*\*What is paid\.\*\*/.test(freeProMd) &&
     /Nothing is published or changed on your ad accounts until you review and approve it first/.test(freeProMd) &&
-    /TikTok Ads is included in Pro/.test(freeProMd) &&
+    /Meta Ads and TikTok Ads are included in Pro/.test(freeProMd) &&
     !/Live changes need confirmation/.test(freeProMd) &&
     !/Pro entitlement/.test(freeProMd),
   "index.md has Free and Pro section"

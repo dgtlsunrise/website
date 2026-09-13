@@ -36,12 +36,12 @@ Never paste access tokens, refresh tokens, or license keys into chat.
 **What is paid.** Pro is $19 / month. It unlocks the hosted gateway for advertising platforms:
 
 - Google Ads reporting, plus manage and create (campaigns, budgets, keywords, ads, and more). Details: [/google-ads](/google-ads).
-- Meta Ads insights, campaigns, ad sets, ads, audiences, catalogs, and Conversions API events (when Meta has granted the needed app access).
+- Meta Ads insights, campaigns, ad sets, ads, audiences, catalogs, and Conversions API events.*
 - TikTok Ads advertisers, campaigns, insights, catalogs, and Events API tracking.*
 
 Nothing is published or changed on your ad accounts until you review and approve it first.
 
-\*TikTok Ads is included in Pro. We expect TikTok to finish approving our app access soon; until then some TikTok calls may wait on that approval.
+\*Meta Ads and TikTok Ads are included in Pro. We expect Meta and TikTok to finish approving our app access soon; until then some Meta or TikTok calls may wait on that approval.
 
 ## Platforms
 
@@ -93,7 +93,7 @@ Shop details, products, orders, locations, inventory, publications, catalogs, an
 
 ### TikTok Ads
 
-List advertisers, campaigns, insights, and catalogs. With Pro: campaign status updates, catalog create/upload/bind, and Events API tracking. TikTok Ads is included in Pro. We expect TikTok to finish approving our app access soon; until then some TikTok calls may wait on that approval. Nothing goes live until you approve it.
+List advertisers, campaigns, insights, and catalogs. With Pro: campaign status updates, catalog create/upload/bind, and Events API tracking. Meta Ads and TikTok Ads are included in Pro. We expect Meta and TikTok to finish approving our app access soon; until then some Meta or TikTok calls may wait on that approval. Nothing goes live until you approve it.
 
 ## Company
 
