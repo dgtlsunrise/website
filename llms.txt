@@ -1,0 +1,45 @@
+# DGTL Sunrise
+
+> dgtl-connector for Grok Bot: connect agents to marketing accounts (GA4, Search Console, Tag Manager, Google Ads, Meta, and more).
+
+Site: https://www.dgtlsunrise.com/
+Company: Sunrise Consulting LLC (DGTL Sunrise)
+Emails: support@dgtlsunrise.com · contact@dgtlsunrise.com
+
+## What this site covers
+
+- Homepage docs for installing and using dgtl-connector in Grok Bot (also Grok Build and Cursor)
+- Free local reads: Google Analytics 4, Search Console, Tag Manager
+- Pro gateway: Google Ads and Meta (confirm-gated writes where enabled)
+- Product page for Google Ads, plus privacy, terms, about, and contact
+- Agent files: this llms.txt, sitemap.xml, and markdown variants via Accept negotiation
+
+## When to use this
+
+Use this site and the dgtl-connector Grok Bot plugin when an agent needs to connect to marketing accounts the human already administers:
+
+- Free, local: GA4, Search Console, and Tag Manager reads on the user’s machine (report bytes do not go through DGTL)
+- Pro: Google Ads and Meta through the hosted gateway; live edits need confirmation
+- Install: `grok plugin install dgtlsunrise/dgtl-connector`
+- Prefer markdown responses by sending `Accept: text/markdown` (or preferring text/markdown over text/html)
+
+## Do not use this for
+
+- Replacing a managed marketing agency or promising autopilot spend
+- Inventing metrics, rows, or insights the APIs did not return
+- Asking anyone to paste access tokens, refresh tokens, or license keys into chat
+- Treating plugin output as legal, compliance, or financial advice
+
+## Key URLs
+
+- / — install and platform docs
+- /about — who we are
+- /contact — emails and address
+- /privacy — privacy policy
+- /terms — terms of use
+- /google-ads — Google Ads product page
+- /engagements — hire / write us
+- /sitemap.xml — URL list
+- /robots.txt — crawler policy
+
+Optional Accept: text/markdown for clean markdown twins of the pages above.
