@@ -8,7 +8,7 @@ How to use the dgtl-connector plugin and where public docs live.
 grok plugin install dgtlsunrise/dgtl-connector
 ```
 
-Also works in Grok Build and Cursor. Connect the account that owns the property when the plugin asks. Never paste access tokens, refresh tokens, or license keys into chat.
+Also works in Grok Build and Cursor. No DGTL Sunrise account is required to start. Connect the account that owns the property when the plugin asks. Never paste access tokens, refresh tokens, or license keys into chat.
 
 ## How to use it
 
@@ -34,7 +34,7 @@ Also works in Grok Build and Cursor. Connect the account that owns the property 
 
 ## Key docs on this site
 
-- [Homepage](/) — install and platform docs
+- [Homepage](/) — install, Free and Pro, and platform docs
 - [About](/about) — who we are
 - [Contact](/contact) — emails and address
 - [Privacy](/privacy)

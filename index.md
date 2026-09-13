@@ -12,7 +12,7 @@ In Grok Bot, run:
 grok plugin install dgtlsunrise/dgtl-connector
 ```
 
-Connect the account that owns the property when the plugin asks. Also works in Grok Build and Cursor.
+You do not need a DGTL Sunrise account to get started. Connect the account that owns the property when the plugin asks. Also works in Grok Build and Cursor.
 
 ## How to use it
 
@@ -22,6 +22,18 @@ Connect the account that owns the property when the plugin asks. Also works in G
 4. Approve any confirmation before a live edit or publish.
 
 Never paste access tokens, refresh tokens, or license keys into chat.
+
+## Free and Pro
+
+**What is free.** Install the plugin and connect the marketing accounts you already use. No DGTL Sunrise account is required.
+
+- Google Analytics 4, Search Console, and Tag Manager run on your machine (read and manage). Live edits need confirmation and stay off until you enable writes on the install. Report bytes stay on your machine and do not go through DGTL.
+- Klaviyo uses a private API key you hold on the install. Free. Not Pro. The key stays on your machine.
+- Shopify connects on the install. Live edits need confirmation.
+- Merchant Center is plugin-direct Google. You can create a data source and upsert or delete product inputs after you confirm, when writes are enabled. This is not the Pro gateway.
+- Google Business Profile can be read when that path is available. Edit is not in this version.
+
+**What is paid.** Pro is $19 / month. It adds the hosted Google Ads and Meta gateway. Live changes need confirmation. TikTok is available when your Pro entitlement includes it and TikTok access allows it. Details: [/google-ads](/google-ads).
 
 ## Platforms
 

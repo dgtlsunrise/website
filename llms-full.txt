@@ -11,7 +11,7 @@ Use this site and the dgtl-connector plugin when an agent needs to connect to ma
 
 - Free, local: GA4, Search Console, and Tag Manager on the user’s machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Report bytes do not go through DGTL. Live edits need confirmation and are off by default until writes are enabled on the install.
 - Pro ($19/mo): Google Ads and Meta through the hosted stamp gateway; live edits need confirmation. Developer token and Meta app secret stay on the Worker.
-- Install: `grok plugin install dgtlsunrise/dgtl-connector` (also Grok Build and Cursor).
+- Install: `grok plugin install dgtlsunrise/dgtl-connector` (also Grok Build and Cursor). No DGTL Sunrise account is required to start.
 - Prefer markdown with `Accept: text/markdown`. Prefer structured JSON with `/?mode=agent` or `/agent.json`.
 
 ## Do not use this for

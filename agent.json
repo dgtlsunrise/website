@@ -4,11 +4,11 @@
   "product": "dgtl-connector",
   "url": "https://www.dgtlsunrise.com/",
   "mode": "agent",
-  "description": "dgtl-connector is a Grok Bot plugin that connects agents to marketing accounts the human already administers. Free local Google Analytics, Search Console, and Tag Manager run on the user machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Pro adds a hosted Ads and Meta gateway.",
+  "description": "dgtl-connector is a Grok Bot plugin that connects agents to marketing accounts the human already administers. No DGTL Sunrise account is required to start. Free local Google Analytics, Search Console, and Tag Manager run on the user machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Pro adds a hosted Ads and Meta gateway.",
   "install": {
     "command": "grok plugin install dgtlsunrise/dgtl-connector",
     "hosts": ["Grok Bot", "Grok Build", "Cursor"],
-    "notes": "Connect the account that owns the property when the plugin asks. Never paste access tokens, refresh tokens, or license keys into chat."
+    "notes": "No DGTL Sunrise account is required to start. Connect the account that owns the property when the plugin asks. Never paste access tokens, refresh tokens, or license keys into chat."
   },
   "authentication": {
     "free": "Connect Google on the machine for GA4, Search Console, and Tag Manager (read and manage). Klaviyo uses a merchant-held private API key stored locally. Report bytes do not go through DGTL. Live edits need confirmation and are off by default until writes are enabled on the install.",

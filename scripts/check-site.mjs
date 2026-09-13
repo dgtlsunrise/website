@@ -64,12 +64,23 @@ check(index.includes("Manage property settings the tools support"), "home GA4 ed
 check(index.includes("Submit or delete sitemaps after you confirm"), "home GSC edit");
 check(index.includes("create or update tags, triggers, and variables"), "home GTM manage");
 check(index.includes("$19") && index.includes("Google Ads") && index.includes("Meta"), "home Pro Ads/Meta");
+check(/You do not need a DGTL Sunrise account to get started/.test(index), "home no DGTL account required");
 
 const section = (id) => {
   const re = new RegExp(`<h2 id="${id}">[\\s\\S]*?(?=<h2 |</main>)`);
   const m = index.match(re);
   return m ? m[0] : "";
 };
+
+const freeAndPro = section("free-and-pro");
+check(
+  /<h2 id="free-and-pro">Free and Pro<\/h2>/.test(index) &&
+    index.includes('href="#free-and-pro"') &&
+    /What is free/.test(freeAndPro) &&
+    /What is paid/.test(freeAndPro) &&
+    /\$19/.test(freeAndPro),
+  "home Free vs Pro section"
+);
 
 const klaviyo = section("klaviyo");
 const merchant = section("merchant-center");
@@ -98,6 +109,7 @@ check(/catalogs/.test(tiktok) && /Events API/.test(tiktok), "TikTok catalogs and
 
 check(about.includes("on your machine (read and manage)"), "about free path is read and manage");
 
+check(/No DGTL Sunrise account is required/.test(agent), "agent.json no account required");
 check(agent.includes("read and manage"), "agent.json free path is read and manage");
 check(!/Free local reads stay/i.test(agent), "agent.json description is not reads-only");
 const agentObj = JSON.parse(agent);
@@ -117,6 +129,13 @@ const mdSection = (title) => {
   const m = indexMd.match(re);
   return m ? m[0] : "";
 };
+check(/You do not need a DGTL Sunrise account to get started/.test(indexMd), "index.md no DGTL account required");
+check(
+  /## Free and Pro/.test(indexMd) &&
+    /\*\*What is free\.\*\*/.test(indexMd) &&
+    /\*\*What is paid\.\*\*/.test(indexMd),
+  "index.md has Free and Pro section"
+);
 check(/Klaviyo/.test(mdSection("Klaviyo")) && /\*\*Overview\.\*\*/.test(mdSection("Klaviyo")), "index.md has Klaviyo section");
 check(
   /product inputs/.test(mdSection("Merchant Center")) &&
@@ -131,6 +150,9 @@ check(!/marketplace submit/i.test(publicFacing), "no marketplace submit promise"
 
 for (const file of ["llms.txt", "llms-full.txt", "docs/llms.txt", "api/llms.txt"]) {
   check(/Klaviyo/.test(text(file)), `${file} mentions Klaviyo`);
+}
+for (const file of ["llms.txt", "llms-full.txt", "docs/llms.txt"]) {
+  check(/No DGTL Sunrise account is required/.test(text(file)), `${file} no account required`);
 }
 
 check(!/Ryze/i.test(allServed), "no Ryze in served HTML");
@@ -186,6 +208,8 @@ if (base) {
   check(home.text.includes("grok plugin install dgtlsunrise/dgtl-connector"), "preview / shows install command");
   check(home.text.includes("run on your machine (read and manage)"), "preview / free path is read and manage");
   check(home.text.includes("Klaviyo"), "preview / includes Klaviyo");
+  check(/You do not need a DGTL Sunrise account to get started/.test(home.text), "preview / no DGTL account required");
+  check(home.text.includes('id="free-and-pro"') && home.text.includes('href="#free-and-pro"'), "preview / Free vs Pro section");
 
   const plugin = await fetchText("/plugin");
   const loc = plugin.res.headers.get("location") || "";

@@ -27,7 +27,7 @@ With a preview already running:
 node scripts/check-site.mjs --base http://127.0.0.1:8787
 ```
 
-The script fails if the install command is missing, if the free-path read-and-manage sentence drifts, if Klaviyo is missing from the homepage or agent.json, if Merchant Center still claims edit is absent, if Ryze or a Polar checkout URL appears, if dual-door copy returns, if internal Consent A/W/C labels appear on public HTML/md/json/llms, or if `/google-ads` drops project 960111255083, MCC 684-442-5544, customer login, or confirm-gated management.
+The script fails if the install command is missing, if the homepage drops the no-DGTL-account sentence or the Free and Pro section, if the free-path read-and-manage sentence drifts, if Klaviyo is missing from the homepage or agent.json, if Merchant Center still claims edit is absent, if Ryze or a Polar checkout URL appears, if dual-door copy returns, if internal Consent A/W/C labels appear on public HTML/md/json/llms, or if `/google-ads` drops project 960111255083, MCC 684-442-5544, customer login, or confirm-gated management.
 
 ## Docs
 
