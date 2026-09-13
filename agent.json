@@ -4,14 +4,14 @@
   "product": "dgtl-connector",
   "url": "https://www.dgtlsunrise.com/",
   "mode": "agent",
-  "description": "dgtl-connector is a Grok Bot plugin that connects agents to marketing accounts the human already administers. Free local reads stay on the user machine. Pro adds a hosted Ads and Meta gateway.",
+  "description": "dgtl-connector is a Grok Bot plugin that connects agents to marketing accounts the human already administers. Free local Google Analytics, Search Console, and Tag Manager run on the user machine (read and manage). Pro adds a hosted Ads and Meta gateway.",
   "install": {
     "command": "grok plugin install dgtlsunrise/dgtl-connector",
     "hosts": ["Grok Bot", "Grok Build", "Cursor"],
     "notes": "Connect the account that owns the property when the plugin asks. Never paste access tokens, refresh tokens, or license keys into chat."
   },
   "authentication": {
-    "free": "Google OAuth on the user’s machine for GA4, Search Console, and Tag Manager. Report bytes do not go through DGTL.",
+    "free": "Connect Google on the machine for GA4, Search Console, and Tag Manager (read and manage). Report bytes do not go through DGTL. Live edits need confirmation and are off by default until writes are enabled on the install.",
     "pro": "Polar license redeemed at the stamp host yields a license JWT. Google Ads and Meta calls use that JWT plus the user’s OAuth. The Google Ads developer token and Meta app secret stay on the Worker.",
     "rules": [
       "Never paste access tokens, refresh tokens, or license keys into chat.",
@@ -95,22 +95,22 @@
       "platform": "Google Analytics 4",
       "tier": "free",
       "read": true,
-      "write": false,
-      "notes": "Local on the user machine. List accounts and properties; property details, data streams, key events; run reports. Property setup and admin changes are not in this version."
+      "write": "confirm-gated when writes are enabled",
+      "notes": "Local on the user machine. List accounts and properties; property details, data streams, key events; run reports. Manage property settings the tools support (data streams, key events, custom definitions, Measurement Protocol secrets where enabled). Live edits need confirmation and are off by default until writes are enabled on the install."
     },
     {
       "platform": "Google Search Console",
       "tier": "free",
       "read": true,
-      "write": false,
-      "notes": "Local. List sites; query search performance; inspect a URL; list and open sitemaps. Submitting or changing sitemaps through the plugin is not available yet."
+      "write": "confirm-gated sitemap submit/delete when writes are enabled",
+      "notes": "Local. List sites; query search performance; inspect a URL; list and open sitemaps. Submit or delete sitemaps after confirmation. Edits are off by default until writes are enabled on the install."
     },
     {
       "platform": "Google Tag Manager",
       "tier": "free",
       "read": true,
       "write": "confirm-gated when writes are enabled",
-      "notes": "Read is free and local. Create or update tags, triggers, and variables, and publish, only when writes are enabled plus confirmation."
+      "notes": "Local. Inspect containers and manage tags, triggers, and variables. Publish after confirmation. Edits are off by default until writes are enabled on the install."
     },
     {
       "platform": "Google Ads",

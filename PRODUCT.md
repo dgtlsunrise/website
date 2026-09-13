@@ -1,8 +1,8 @@
 # Product
 
-Audience: a founder or marketer who already has GA4, Search Console, or Tag Manager, and wants those reads in the agent they already use.
+Audience: a founder or marketer who already has GA4, Search Console, or Tag Manager, and wants those products in the agent they already use (read and manage).
 
-Purpose: dgtl-connector is a free local Grok plugin. You install it, connect accounts you administer, pull, analyze, and recommend. A human publishes. The plugin reads the result back. DGTL Sunrise is the company that ships that plugin and, for a fee, a hosted Ads and Meta gateway.
+Purpose: dgtl-connector is a free local Grok plugin. You install it, connect accounts you administer, then read and manage those products. Live edits need confirmation and are off by default until writes are enabled on the install. DGTL Sunrise is the company that ships that plugin and, for a fee, a hosted Ads and Meta gateway.
 
 Not: a dual-door brochure, a plugin company name on `/`, a personal brand, a staff count, invented metrics.
 
@@ -14,7 +14,7 @@ Visual rules live in `BRAND-GUIDE.md`. Information architecture:
 |---|---|
 | `/` | Install command, six-step loop, free byte path, short Pro pointer. |
 | `/connector` | Worksheet. `#install` and `#pro`. |
-| `/google-ads` | Google Ads Reporting product page for API compliance. |
+| `/google-ads` | Google Ads product page for API compliance (confirm-gated manage, not read-only). |
 | `/engagements` | Thin hire page. Out of primary nav. Footer mailto. |
 | `/privacy`, `/terms` | Legal claims. Restyle the shell only. |
 | `/plugin` | 301 to `/connector`. |
@@ -28,9 +28,9 @@ Primary nav is Connector plus Install. Talk and Engagements stay out of primary 
 3. Pull
 4. Analyze
 5. Recommend
-6. Publish (a human publishes; the plugin reads back)
+6. Confirm a live edit or publish when the tools support it (edits off by default until writes are enabled)
 
-Free is self-hosted. On the free path, tokens and report bytes never go through DGTL. The platform talks to the agent on the machine you installed.
+Free is self-hosted. Free GA4, Search Console, and Tag Manager are read and manage on the machine. On the free path, tokens and report bytes never go through DGTL. The platform talks to the agent on the machine you installed.
 
 Pro is $19/mo for the hosted Ads and Meta gateway only. One Polar customer. The same human may use more than one host. No employee seats. Unlimited ad accounts under that human's OAuth. Server-side GTM is not in this version.
 

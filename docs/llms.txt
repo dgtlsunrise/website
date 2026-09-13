@@ -19,7 +19,7 @@ Also works in Grok Build and Cursor. Connect the account that owns the property 
 
 ## Platforms overview
 
-- Free local: GA4, Search Console, Tag Manager reads on the user machine. Report bytes do not go through DGTL.
+- Free local: GA4, Search Console, Tag Manager on the user machine (read and manage). Report bytes do not go through DGTL. Live edits need confirmation and are off by default until writes are enabled on the install.
 - Pro ($19/mo): hosted Google Ads and Meta gateway; confirm-gated writes. Developer token and Meta app secret stay on the Worker.
 - TikTok: stamp hop when Polar feature `tiktok` is minted.
 - Merchant Center, Google Business Profile, Shopify: plugin-direct Google/Shopify, not stamp.

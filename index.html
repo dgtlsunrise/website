@@ -356,7 +356,7 @@
   <main>
     <h1><code class="mono">dgtl-connector</code> for Grok Bot</h1>
     <p class="lede">A Grok Bot plugin that connects your agent to your marketing accounts. Install it, connect Google (and Meta, Shopify, or TikTok when you need them), then ask in chat.</p>
-    <p>Free Google Analytics, Search Console, and Tag Manager reads run on your machine. Those report bytes do not go through DGTL.</p>
+    <p>Free Google Analytics, Search Console, and Tag Manager run on your machine (read and manage). Report bytes do not go through DGTL.</p>
 
     <h2 id="install">Install</h2>
     <p class="section-body">In Grok Bot, run:</p>
@@ -390,51 +390,53 @@
     <!-- Google Analytics 4 -->
     <h2 id="google-analytics-4">Google Analytics 4</h2>
     <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent for GA4 properties and reports.</p>
+    <p class="section-body">Ask your agent for GA4 properties, reports, and property settings the tools support.</p>
     <p class="section-label">Read</p>
     <p class="section-body">List accounts and properties. Open property details, data streams, and key events. Run reports for the date ranges and metrics you ask for.</p>
     <p class="section-label">Edit</p>
-    <p class="section-body">Not in this version. Property setup and admin changes are not available through the plugin yet.</p>
+    <p class="section-body">Manage property settings the tools support (data streams, key events, custom definitions, and Measurement Protocol secrets where enabled). Live changes need your confirmation. Edits are off by default until you enable writes on the install.</p>
     <p class="section-label">Requirements</p>
-    <p class="section-body">Free. Connect Google.</p>
+    <p class="section-body">Free. Connect Google. Live edits need writes enabled on your install, plus confirmation.</p>
     <p class="section-label">Example asks</p>
     <ul>
       <li>List my GA4 properties.</li>
       <li>Sessions and conversions for this property over the last 28 days.</li>
       <li>Which data streams are on this property?</li>
+      <li>Add this key event after I confirm.</li>
     </ul>
     <p class="section-label">Guardrails</p>
-    <p class="section-body">If you have more than one property, the agent asks which one to use instead of guessing. It cites the property ID on numbers so you can see where a figure came from. It does not invent metrics the API did not return.</p>
+    <p class="section-body">If you have more than one property, the agent asks which one to use instead of guessing. It cites the property ID on numbers so you can see where a figure came from. It does not invent metrics the API did not return. Live edits wait for your confirmation.</p>
 
     <!-- Google Search Console -->
     <h2 id="google-search-console">Google Search Console</h2>
     <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent about verified sites, queries, and URL indexing status.</p>
+    <p class="section-body">Ask your agent about verified sites, queries, URL indexing status, and sitemaps.</p>
     <p class="section-label">Read</p>
     <p class="section-body">List sites. Query search performance. Inspect a URL. List and open sitemaps.</p>
     <p class="section-label">Edit</p>
-    <p class="section-body">Not in this version. Submitting or changing sitemaps through the plugin is not available yet.</p>
+    <p class="section-body">Submit or delete sitemaps after you confirm. Edits are off by default until you enable writes on the install.</p>
     <p class="section-label">Requirements</p>
-    <p class="section-body">Free. Connect Google. The site must already appear in Search Console for that account.</p>
+    <p class="section-body">Free. Connect Google. The site must already appear in Search Console for that account. Live edits need writes enabled on your install, plus confirmation.</p>
     <p class="section-label">Example asks</p>
     <ul>
       <li>Which Search Console sites can I access?</li>
       <li>Top queries for example.com over the last 28 days.</li>
       <li>Inspect https://example.com/page for indexing issues.</li>
+      <li>Submit the sitemap for example.com after I confirm.</li>
     </ul>
     <p class="section-label">Guardrails</p>
-    <p class="section-body">The agent asks which site to use when several are available. Search Console figures stay labeled as Search Console (they are not the same as GA4 sessions).</p>
+    <p class="section-body">The agent asks which site to use when several are available. Search Console figures stay labeled as Search Console (they are not the same as GA4 sessions). Live edits wait for your confirmation.</p>
 
     <!-- Google Tag Manager -->
     <h2 id="google-tag-manager">Google Tag Manager</h2>
     <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent to inspect containers. When writes are enabled on your install, it can create or update tags, triggers, and variables, and publish after you approve.</p>
+    <p class="section-body">Ask your agent to inspect containers and to create or update tags, triggers, and variables. Publish after you approve. Edits are off by default until you enable writes on the install.</p>
     <p class="section-label">Read</p>
     <p class="section-body">List accounts, containers, workspaces, tags, triggers, and variables. Open a container. Show the live container version.</p>
     <p class="section-label">Edit</p>
     <p class="section-body">Create and update tags, triggers, and variables. Publish a container. Live changes need your confirmation. Writes are off by default until you enable them on the install.</p>
     <p class="section-label">Requirements</p>
-    <p class="section-body">Read: free, connect Google. Edit and publish: writes enabled on your install, plus confirmation.</p>
+    <p class="section-body">Free. Connect Google. Live edits and publishes need writes enabled on your install, plus confirmation.</p>
     <p class="section-label">Example asks</p>
     <ul>
       <li>List my GTM containers.</li>

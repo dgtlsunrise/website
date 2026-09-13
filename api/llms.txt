@@ -10,7 +10,7 @@ Structured copy of endpoints and capabilities: [agent.json](/agent.json) and [/?
 
 ## Auth model
 
-- Free GA4, Search Console, and Tag Manager: Google OAuth on the user’s machine. Report bytes do not go through DGTL or stamp.
+- Free GA4, Search Console, and Tag Manager: connect Google on the machine (read and manage). Report bytes do not go through DGTL or stamp. Live edits need confirmation and are off by default until writes are enabled on the install.
 - Pro: redeem a Polar purchase via POST /v1/license to obtain a license JWT. Google Ads and Meta gateway calls use that JWT plus the user’s OAuth.
 - The Google Ads developer token and Meta app secret stay on the Worker.
 - Never paste access tokens, refresh tokens, or license keys into chat.

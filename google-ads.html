@@ -59,7 +59,7 @@
       <p class="kicker">The tool</p>
       <h2 id="tool-title">Reads performance. Confirm-gated manage and create are live.</h2>
       <p>Sunrise Consulting LLC, doing business as DGTL Sunrise, builds dgtl-connector: a Grok Bot plugin plus a hosted gateway. This page is the Google Ads API product page for that gateway.</p>
-      <p>Pro customers connect their own Google Ads accounts with Consent C OAuth. The developer token stays on the Worker — never on the user’s machine. The agent reads performance through closed recipes (no raw GAQL from the client).</p>
+      <p>Pro customers connect their own Google Ads login. That path is separate from free Google Analytics, Search Console, and Tag Manager. The developer token stays on the Worker, never on the user's machine. The agent reads performance through closed recipes (no raw GAQL from the client).</p>
       <p>With your confirm in that chat turn (digits-only customer id in the confirm phrase), the agent can pause or enable campaigns, ad groups, keywords, and ads; update daily budget within product spend caps; and create with dry-run propose-first. Creates default PAUSED so spend does not start without a separate enable. The Worker builds closed mutate ops only — clients cannot supply raw mutateOperations.</p>
       <p>Create surface (all confirm-gated, PAUSED defaults): Search campaign bundles and RSA; Search keywords; Display plus Responsive Display Ads; IMAGE asset upload; Performance Max with uploaded or existing assets; Shopping when merchant_center_id is known, plus listing groups; Video, Demand Gen, App, and Hotel named campaign creates. Local create is not offered (Google sunset — use PMax). Smart create is not advertised. No App Conversion Tracking or Remarketing API. No autopilot.</p>
       <p>Intended audience: marketing operators who already administer the Google Ads accounts they connect.</p>
@@ -94,13 +94,13 @@
   <section class="section" aria-labelledby="auth-title">
     <div class="wrap">
       <p class="kicker">How the API is called</p>
-      <h2 id="auth-title">Consent C OAuth. Worker plus MCC token.</h2>
-      <p class="lede mb">Customers connect their own Google Ads accounts with OAuth. That client is Consent C, on Google Cloud project 960111255083. It is a separate OAuth client from the free plugin.</p>
+      <h2 id="auth-title">Your Google Ads login. Worker plus MCC token.</h2>
+      <p class="lede mb">Customers connect their own Google Ads login. That connection uses Google Cloud project 960111255083. It is separate from the free Analytics, Search Console, and Tag Manager path.</p>
       <div class="stack stack--2">
         <article class="panel">
-          <p class="kicker">Consent C</p>
-          <h3>Customer OAuth</h3>
-          <p>The user signs in with a Google account that already administers the Ads customer. Tokens are not pasted into chat. Scope is Ads reporting, not Gmail, Drive, Calendar, or Contacts.</p>
+          <p class="kicker">Customer login</p>
+          <h3>Your Google Ads account</h3>
+          <p>The user signs in with a Google account that already administers the Ads customer. Tokens are not pasted into chat. We do not request Gmail, Drive, Calendar, or Contacts.</p>
         </article>
         <article class="panel">
           <p class="kicker">Gateway</p>
@@ -113,10 +113,10 @@
 
   <section class="section" aria-labelledby="path-title">
     <div class="wrap prose">
-      <p class="kicker">Two OAuth clients</p>
-      <h2 id="path-title">Free GA4 is separate</h2>
-      <p>Free local GA4, Search Console, and Tag Manager use a different OAuth client. Auth and report bytes stay on the machine where the plugin is installed. That path is not part of this Google Ads developer token request.</p>
-      <p>Pro Google Ads reads go through the hosted Worker and the MCC token. Meta is not a Google API. It is listed on /connector because the same paid plan may use it later.</p>
+      <p class="kicker">Two paths</p>
+      <h2 id="path-title">Free Analytics is separate</h2>
+      <p>Free local Google Analytics, Search Console, and Tag Manager run on the machine where the plugin is installed. Auth and report bytes stay there. That path is not part of this Google Ads developer token request.</p>
+      <p>Pro Google Ads calls go through the hosted Worker and the MCC token. Meta is not a Google API. The same paid plan covers Meta through the hosted gateway.</p>
       <p>Start Pro at <a href="/connector">/connector</a> or <a href="https://www.dgtlsunrise.com/connector">https://www.dgtlsunrise.com/connector</a>.</p>
     </div>
   </section>
@@ -129,7 +129,7 @@
         <article class="panel">
           <p class="kicker">GCP project</p>
           <h3>960111255083</h3>
-          <p>Google Cloud project number paired to this Ads API access and the Consent C OAuth client.</p>
+          <p>Google Cloud project number paired to this Ads API access.</p>
         </article>
         <article class="panel">
           <p class="kicker">MCC</p>
@@ -149,7 +149,7 @@
     <div class="wrap">
       <div class="panel">
         <p class="kicker" id="use-title">Use of Google user data</p>
-        <p>Google Ads data is used only to answer the signed-in user's reporting question in that session. We do not sell it. We do not use it for advertising. We do not transfer it except to complete a request the user started, or if the law requires it. Use of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
+        <p>Google Ads data is used only to serve the signed-in user's request in that session: reporting, and confirm-gated changes they approve. We do not sell it. We do not use it for advertising. We do not transfer it except to complete a request the user started, or if the law requires it. Use of information received from Google APIs adheres to the <a href="https://developers.google.com/terms/api-services-user-data-policy" rel="noopener">Google API Services User Data Policy</a>, including the Limited Use requirements.</p>
         <p class="mt"><a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · <a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a> · API contact <a href="mailto:noel@dgtlsunrise.com">noel@dgtlsunrise.com</a> · 858.354.3666</p>
       </div>
     </div>
@@ -172,8 +172,8 @@
         </article>
         <article class="panel">
           <p class="kicker">OAuth</p>
-          <h3>Consent C</h3>
-          <p>Customer Ads accounts. Separate from free GA4.</p>
+          <h3>Customer login</h3>
+          <p>Your Google Ads login. Separate from free Analytics, Search Console, and Tag Manager.</p>
         </article>
         <article class="panel">
           <p class="kicker">Token</p>

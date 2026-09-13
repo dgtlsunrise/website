@@ -17,7 +17,7 @@ Steal nothing from Composio. Do not restyle the old theater in indigo. Delete it
 ## 2. Product locks (do not drift)
 
 - Company = DGTL Sunrise. The offering on `/` is dgtl-connector, not a second company name.
-- Free = local GA4 / GSC / GTM. Tokens and report bytes never go through DGTL on the free path.
+- Free = local GA4 / GSC / GTM (read and manage). Tokens and report bytes never go through DGTL on the free path. Live edits need confirmation and are off by default until writes are enabled on the install.
 - Pro = $19/mo, Ads and Meta hosted gateway only. One Polar customer. Same human, more than one host, is fine. No employee seats. Unlimited ad accounts under that human's OAuth.
 - Server-side GTM is not in this version.
 - Point Pro at `/connector#pro` and `https://www.dgtlsunrise.com/connector`. Never invent a Polar checkout URL.
@@ -26,7 +26,7 @@ Steal nothing from Composio. Do not restyle the old theater in indigo. Delete it
 - Footer on every page: © 2026 Sunrise Consulting LLC · contact@dgtlsunrise.com · support@dgtlsunrise.com · Engagements · Privacy · Terms.
 - `/plugin` → `/connector` 301. `/google-ads.html` → `/google-ads` 301.
 - Privacy and terms: restyle the shell only. Keep article body claims.
-- `/google-ads` keeps Consent C, Google Cloud project 960111255083, MCC 684-442-5544, and reporting only.
+- `/google-ads` keeps Google Cloud project 960111255083, MCC 684-442-5544, customer Google Ads login (no internal consent labels), developer token on the Worker, and confirm-gated management. Do not call Ads read-only.
 - No fake customer logos. No SOC2/ISO claims. No "1,500 apps." No invented GA metrics. Label any example number as an example.
 - Public copy: human, concrete, no AI tells, no em dashes, sentence-case headings. Ban unlock / leverage / empower / delve.
 

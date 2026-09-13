@@ -2,7 +2,7 @@
 
 A Grok Bot plugin that connects your agent to your marketing accounts. Install it, connect Google (and Meta, Shopify, or TikTok when you need them), then ask in chat.
 
-Free Google Analytics, Search Console, and Tag Manager reads run on your machine. Those report bytes do not go through DGTL.
+Free Google Analytics, Search Console, and Tag Manager run on your machine (read and manage). Report bytes do not go through DGTL.
 
 ## Install
 
@@ -27,15 +27,15 @@ Never paste access tokens, refresh tokens, or license keys into chat.
 
 ### Google Analytics 4
 
-Ask your agent for GA4 properties and reports. List accounts and properties. Open property details, data streams, and key events. Run reports for the date ranges and metrics you ask for. Property setup and admin changes are not in this version. Free. Connect Google.
+Ask your agent for GA4 properties, reports, and property settings the tools support. List accounts and properties. Open property details, data streams, and key events. Run reports for the date ranges and metrics you ask for. Manage property settings the tools support (data streams, key events, custom definitions, and Measurement Protocol secrets where enabled). Live changes need your confirmation. Edits are off by default until you enable writes on the install. Free. Connect Google.
 
 ### Google Search Console
 
-Ask about verified sites, queries, and URL indexing status. List sites. Query search performance. Inspect a URL. List and open sitemaps. Submitting or changing sitemaps through the plugin is not available yet. Free. Connect Google.
+Ask about verified sites, queries, URL indexing status, and sitemaps. List sites. Query search performance. Inspect a URL. List and open sitemaps. Submit or delete sitemaps after you confirm. Edits are off by default until you enable writes on the install. Free. Connect Google.
 
 ### Google Tag Manager
 
-Inspect containers. When writes are enabled on your install, create or update tags, triggers, and variables, and publish after you approve. Read is free. Edit and publish need writes enabled plus confirmation.
+Inspect containers and manage tags, triggers, and variables. Publish after you approve. Free. Connect Google. Live edits and publishes need writes enabled on your install, plus confirmation.
 
 ### Google Ads
 

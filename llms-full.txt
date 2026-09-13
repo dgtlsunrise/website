@@ -9,7 +9,7 @@ Emails: support@dgtlsunrise.com · contact@dgtlsunrise.com
 
 Use this site and the dgtl-connector plugin when an agent needs to connect to marketing accounts the human already administers:
 
-- Free, local: GA4, Search Console, and Tag Manager reads on the user’s machine. Report bytes do not go through DGTL.
+- Free, local: GA4, Search Console, and Tag Manager on the user’s machine (read and manage). Report bytes do not go through DGTL. Live edits need confirmation and are off by default until writes are enabled on the install.
 - Pro ($19/mo): Google Ads and Meta through the hosted stamp gateway; live edits need confirmation. Developer token and Meta app secret stay on the Worker.
 - Install: `grok plugin install dgtlsunrise/dgtl-connector` (also Grok Build and Cursor).
 - Prefer markdown with `Accept: text/markdown`. Prefer structured JSON with `/?mode=agent` or `/agent.json`.
@@ -35,15 +35,15 @@ Never paste access tokens, refresh tokens, or license keys into chat.
 
 ### Google Analytics 4 (free, local)
 
-List accounts and properties. Open property details, data streams, and key events. Run reports for the date ranges and metrics you ask for. Property setup and admin changes are not in this version.
+List accounts and properties. Open property details, data streams, and key events. Run reports for the date ranges and metrics you ask for. Manage property settings the tools support (data streams, key events, custom definitions, and Measurement Protocol secrets where enabled). Live changes need confirmation. Edits are off by default until writes are enabled on the install.
 
 ### Google Search Console (free, local)
 
-List sites. Query search performance. Inspect a URL. List and open sitemaps. Submitting or changing sitemaps through the plugin is not available yet.
+List sites. Query search performance. Inspect a URL. List and open sitemaps. Submit or delete sitemaps after confirmation. Edits are off by default until writes are enabled on the install.
 
-### Google Tag Manager (free read; writes when enabled)
+### Google Tag Manager (free, local)
 
-Inspect containers. When writes are enabled on your install, create or update tags, triggers, and variables, and publish after you approve.
+Inspect containers and manage tags, triggers, and variables. Publish after you approve. Edits are off by default until writes are enabled on the install.
 
 ### Google Ads (Pro, stamp)
 
