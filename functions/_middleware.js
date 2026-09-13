@@ -1,6 +1,6 @@
 /**
  * Content negotiation: serve companion .md when Accept prefers markdown.
- * HTML (and */*) continue to static assets via next().
+ * HTML and bare Accept star/star continue to static assets via next().
  */
 
 const MD_TYPE = "text/markdown; charset=utf-8";
