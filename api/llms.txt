@@ -32,8 +32,9 @@ Structured copy of endpoints and capabilities: [agent.json](/agent.json) and [/?
 
 ## Related platforms (not all stamp)
 
-- TikTok stamp hop exists when Polar feature `tiktok` is minted.
+- TikTok stamp hop exists when the Pro TikTok entitlement is on.
 - Merchant Center, Google Business Profile, and Shopify are plugin-direct to Google or Shopify, not stamp.
+- Klaviyo is local on the user machine with a merchant-held private API key. Free. Not Pro. Not stamp.
 
 ## Related site files
 

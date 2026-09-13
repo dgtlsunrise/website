@@ -1,6 +1,6 @@
 # DGTL Sunrise
 
-dgtl-connector is a Grok Bot plugin that connects agents to marketing accounts you already administer. Free GA4, Search Console, and Tag Manager run on your machine (read and manage). Pro ($19/mo) adds a hosted Google Ads and Meta gateway with confirm-gated writes. Install: `grok plugin install dgtlsunrise/dgtl-connector` (also Grok Build and Cursor).
+dgtl-connector is a Grok Bot plugin that connects agents to marketing accounts you already administer. Free GA4, Search Console, and Tag Manager run on your machine (read and manage). Klaviyo is local on the same machine with a key you hold. Pro ($19/mo) adds a hosted Google Ads and Meta gateway with confirm-gated writes. Install: `grok plugin install dgtlsunrise/dgtl-connector` (also Grok Build and Cursor).
 
 ## When to use this
 

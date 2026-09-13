@@ -65,10 +65,73 @@ check(index.includes("Submit or delete sitemaps after you confirm"), "home GSC e
 check(index.includes("create or update tags, triggers, and variables"), "home GTM manage");
 check(index.includes("$19") && index.includes("Google Ads") && index.includes("Meta"), "home Pro Ads/Meta");
 
+const section = (id) => {
+  const re = new RegExp(`<h2 id="${id}">[\\s\\S]*?(?=<h2 |</main>)`);
+  const m = index.match(re);
+  return m ? m[0] : "";
+};
+
+const klaviyo = section("klaviyo");
+const merchant = section("merchant-center");
+const gbp = section("google-business-profile");
+const shopify = section("shopify");
+const meta = section("meta-ads");
+const tiktok = section("tiktok-ads");
+
+check(index.includes('href="#klaviyo"') && /<h2 id="klaviyo">Klaviyo<\/h2>/.test(index), "home contents and heading include Klaviyo");
+check(
+  /Overview/.test(klaviyo) &&
+    /Read/.test(klaviyo) &&
+    /Edit/.test(klaviyo) &&
+    /Requirements/.test(klaviyo) &&
+    /Example asks/.test(klaviyo) &&
+    /Guardrails/.test(klaviyo),
+  "Klaviyo has full section labels"
+);
+check(/This is not a Pro feature/.test(klaviyo) && /key stays on your machine/.test(klaviyo), "Klaviyo is free and local");
+check(/Creating a draft does not send it/.test(klaviyo), "Klaviyo draft-create does not send");
+check(/product inputs/.test(merchant) && !/Not in this version/.test(merchant), "MC documents product-input edits");
+check(/Not in this version/.test(gbp), "GBP edit still not in this version");
+check(/Publications and catalogs/.test(shopify) && /product set/.test(shopify), "Shopify publications and product set");
+check(/catalogs/.test(meta) && /Conversions API/.test(meta), "Meta catalogs and Conversions API");
+check(/catalogs/.test(tiktok) && /Events API/.test(tiktok), "TikTok catalogs and Events API");
+
 check(about.includes("on your machine (read and manage)"), "about free path is read and manage");
 
 check(agent.includes("read and manage"), "agent.json free path is read and manage");
 check(!/Free local reads stay/i.test(agent), "agent.json description is not reads-only");
+const agentObj = JSON.parse(agent);
+const capability = (name) => agentObj.capabilities.find((c) => c.platform === name);
+
+check(capability("Klaviyo") && /Not Pro\. Not stamp/.test(capability("Klaviyo").notes), "agent.json includes Klaviyo");
+check(
+  capability("Merchant Center") &&
+    /product inputs/.test(capability("Merchant Center").notes) &&
+    !/Edit is not in this version/.test(capability("Merchant Center").notes),
+  "agent.json MC has product-input writes"
+);
+
+const indexMd = text("index.md");
+const mdSection = (title) => {
+  const re = new RegExp(`### ${title}\\n\\n[\\s\\S]*?(?=\\n### |$)`);
+  const m = indexMd.match(re);
+  return m ? m[0] : "";
+};
+check(/Klaviyo/.test(mdSection("Klaviyo")) && /\*\*Overview\.\*\*/.test(mdSection("Klaviyo")), "index.md has Klaviyo section");
+check(
+  /product inputs/.test(mdSection("Merchant Center")) &&
+    !/Edit is not in this version/.test(mdSection("Merchant Center")),
+  "index.md MC no longer claims edit absent"
+);
+
+check(!/DGTL_WRITES_ENABLED/.test(publicFacing), "no DGTL_WRITES_ENABLED product name");
+check(!/Waves? 1[89]\b/.test(publicFacing), "no internal wave numbers");
+check(!/\bAxos\b/.test(publicFacing), "no Axos");
+check(!/marketplace submit/i.test(publicFacing), "no marketplace submit promise");
+
+for (const file of ["llms.txt", "llms-full.txt", "docs/llms.txt", "api/llms.txt"]) {
+  check(/Klaviyo/.test(text(file)), `${file} mentions Klaviyo`);
+}
 
 check(!/Ryze/i.test(allServed), "no Ryze in served HTML");
 check(!/https?:\/\/[^\s"'<>]*polar[^\s"'<>]*/i.test(allServed), "no Polar URL");
@@ -122,6 +185,7 @@ if (base) {
   check(home.res.status === 200, "GET / is 200", String(home.res.status));
   check(home.text.includes("grok plugin install dgtlsunrise/dgtl-connector"), "preview / shows install command");
   check(home.text.includes("run on your machine (read and manage)"), "preview / free path is read and manage");
+  check(home.text.includes("Klaviyo"), "preview / includes Klaviyo");
 
   const plugin = await fetchText("/plugin");
   const loc = plugin.res.headers.get("location") || "";

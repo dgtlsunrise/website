@@ -9,7 +9,7 @@ Emails: support@dgtlsunrise.com · contact@dgtlsunrise.com
 
 Use this site and the dgtl-connector plugin when an agent needs to connect to marketing accounts the human already administers:
 
-- Free, local: GA4, Search Console, and Tag Manager on the user’s machine (read and manage). Report bytes do not go through DGTL. Live edits need confirmation and are off by default until writes are enabled on the install.
+- Free, local: GA4, Search Console, and Tag Manager on the user’s machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Report bytes do not go through DGTL. Live edits need confirmation and are off by default until writes are enabled on the install.
 - Pro ($19/mo): Google Ads and Meta through the hosted stamp gateway; live edits need confirmation. Developer token and Meta app secret stay on the Worker.
 - Install: `grok plugin install dgtlsunrise/dgtl-connector` (also Grok Build and Cursor).
 - Prefer markdown with `Accept: text/markdown`. Prefer structured JSON with `/?mode=agent` or `/agent.json`.
@@ -51,15 +51,19 @@ Account reporting and confirm-gated changes (pause or enable, budgets, keywords,
 
 ### Meta Ads (Pro, stamp)
 
-Ad account insights and, when Meta access allows, create or update campaigns, ad sets, ads, and audiences. Live changes need confirmation.
+Ad account insights and, when Meta access allows, create or update campaigns, ad sets, ads, and audiences. List catalogs and catalog products. Create a catalog and batch catalog products. Upload Conversions API events when that path is enabled. Live changes need confirmation. Pro is required. Meta app access still applies.
 
 ### TikTok Ads
 
-List advertisers and campaigns. Insights. Campaign status updates when TikTok access and Pro entitlement allow them. Stamp hop exists when Polar feature `tiktok` is minted.
+List advertisers, campaigns, insights, and catalogs. Campaign status, catalog create/upload/bind, and Events API tracking when TikTok access and Pro entitlement allow them. Stamp hop exists when the Pro TikTok entitlement is on.
 
 ### Merchant Center, Google Business Profile, Shopify
 
-Plugin-direct to Google or Shopify, not stamp. Merchant Center and GBP: read in this version; edit is not. Shopify: shop details, products, orders, locations, inventory; inventory adjust when that write path is enabled.
+Plugin-direct to Google or Shopify, not stamp. Merchant Center: read accounts, products, statuses, issues, data sources; confirm-gated product-input writes (create a data source, upsert or delete product inputs) when writes are enabled on the install. GBP: read in this version; edit is not. Shopify: shop details, products, orders, locations, inventory, publications, catalogs, product feeds; inventory adjust and product set when those write paths are enabled.
+
+### Klaviyo (free, local)
+
+Account, profiles (sparse), lists, segments, flows, campaigns, metrics, catalog items/categories/variants, reviews. Confirm-gated edits when writes are enabled on the install: draft email campaign create; send an existing draft (explicit send confirmation); upsert profile; create event (backfill); upsert catalog items (capped). Merchant-held private API key stays on the user’s machine. Free. Not Pro. Not stamp. Never paste the key into chat. Creating a draft does not send it.
 
 ## Stamp API (public surface)
 
