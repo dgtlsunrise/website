@@ -368,7 +368,7 @@
       <li>Install the plugin in Grok Bot.</li>
       <li>Connect the account that owns the property.</li>
       <li>Ask in chat.</li>
-      <li>Approve any confirmation before a live edit or publish.</li>
+      <li>Review and approve before anything is published or changed on your accounts.</li>
     </ol>
     <p class="note">Never paste access tokens, refresh tokens, or license keys into chat.</p>
 
@@ -393,14 +393,21 @@
     <p class="section-label">What is free</p>
     <p class="section-body">Install the plugin and connect the marketing accounts you already use. No DGTL Sunrise account is required.</p>
     <ul>
-      <li>Google Analytics 4, Search Console, and Tag Manager run on your machine (read and manage). Live edits need confirmation and stay off until you enable writes on the install. Report bytes stay on your machine and do not go through DGTL.</li>
+      <li>Google Analytics 4, Search Console, and Tag Manager run on your machine (read and manage). Edits stay off until you enable writes on the install, and nothing goes live until you approve it. Report bytes stay on your machine and do not go through DGTL.</li>
       <li>Klaviyo uses a private API key you hold on the install. Free. Not Pro. The key stays on your machine.</li>
-      <li>Shopify connects on the install. Live edits need confirmation.</li>
-      <li>Merchant Center is plugin-direct Google. You can create a data source and upsert or delete product inputs after you confirm, when writes are enabled. This is not the Pro gateway.</li>
+      <li>Shopify connects on the install. Catalog and inventory changes wait for your approval.</li>
+      <li>Merchant Center is plugin-direct Google. You can create a data source and upsert or delete product inputs when writes are enabled, and only after you approve. This is not the Pro gateway.</li>
       <li>Google Business Profile can be read when that path is available. Edit is not in this version.</li>
     </ul>
     <p class="section-label">What is paid</p>
-    <p class="section-body">Pro is $19 / month. It adds the hosted Google Ads and Meta gateway. Live changes need confirmation. TikTok is available when your Pro entitlement includes it and TikTok access allows it. Details: <a href="/google-ads">/google-ads</a>.</p>
+    <p class="section-body">Pro is $19 / month. It unlocks the hosted gateway for advertising platforms:</p>
+    <ul>
+      <li>Google Ads reporting, plus manage and create (campaigns, budgets, keywords, ads, and more). Details: <a href="/google-ads">/google-ads</a>.</li>
+      <li>Meta Ads insights, campaigns, ad sets, ads, audiences, catalogs, and Conversions API events (when Meta has granted the needed app access).</li>
+      <li>TikTok Ads advertisers, campaigns, insights, catalogs, and Events API tracking.<sup>*</sup></li>
+    </ul>
+    <p class="section-body">Nothing is published or changed on your ad accounts until you review and approve it first.</p>
+    <p class="note"><sup>*</sup>TikTok Ads is included in Pro. We expect TikTok to finish approving our app access soon; until then some TikTok calls may wait on that approval.</p>
 
     <!-- Google Analytics 4 -->
     <h2 id="google-analytics-4">Google Analytics 4</h2>
@@ -488,7 +495,7 @@
     <p class="section-label">Read</p>
     <p class="section-body">List ad accounts, campaigns, ad sets, and ads. Pull insights and creative details. List catalogs and catalog products.</p>
     <p class="section-label">Edit</p>
-    <p class="section-body">Create and update campaigns, ad sets, and ads. Upload image or video. Create creatives. Update targeting. Create custom and lookalike audiences and attach them. Create a catalog and batch catalog products. Upload Conversions API events when that path is enabled on your install. Live changes need confirmation.</p>
+    <p class="section-body">Create and update campaigns, ad sets, and ads. Upload image or video. Create creatives. Update targeting. Create custom and lookalike audiences and attach them. Create a catalog and batch catalog products. Upload Conversions API events when that path is enabled on your install. Nothing goes live until you approve it.</p>
     <p class="section-label">Requirements</p>
     <p class="section-body">Pro. Meta must grant the needed app access for your account. Some write actions stay blocked until Meta finishes that review.</p>
     <p class="section-label">Example asks</p>
@@ -508,7 +515,7 @@
     <p class="section-label">Read</p>
     <p class="section-body">List accounts. List and open products. Product statuses. Account issues. Data sources.</p>
     <p class="section-label">Edit</p>
-    <p class="section-body">Create a data source. Upsert or delete product inputs. Live changes need confirmation. Writes are off by default until you enable them on the install.</p>
+    <p class="section-body">Create a data source. Upsert or delete product inputs. Writes stay off until you enable them on the install, and nothing goes live until you approve it.</p>
     <p class="section-label">Requirements</p>
     <p class="section-body">Connect the Google account that owns Merchant Center. Live edits need writes enabled on your install, plus confirmation.</p>
     <p class="section-label">Example asks</p>
@@ -548,7 +555,7 @@
     <p class="section-label">Read</p>
     <p class="section-body">Shop details. Products. Orders. Locations. Inventory levels. Publications and catalogs. Product feeds.</p>
     <p class="section-label">Edit</p>
-    <p class="section-body">Adjust inventory. Create or update products with a product set. Live changes need confirmation. Those write paths are off until you enable them on the install.</p>
+    <p class="section-body">Adjust inventory. Create or update products with a product set. Those write paths stay off until you enable them on the install, and nothing goes live until you approve it.</p>
     <p class="section-label">Requirements</p>
     <p class="section-body">Connect Shopify on the install. Live edits need writes enabled on your install, plus confirmation.</p>
     <p class="section-label">Example asks</p>
@@ -569,7 +576,7 @@
     <p class="section-label">Read</p>
     <p class="section-body">Open the account. List profiles (sparse fields only). Show lists, segments, flows, campaigns, and metrics. List catalog items, categories, and variants. List reviews.</p>
     <p class="section-label">Edit</p>
-    <p class="section-body">Create a draft email campaign. Send an existing draft. That send needs its own confirmation. Upsert a profile. Create an event for backfill. Upsert catalog items (capped). Live changes need confirmation. Writes are off by default until you enable them on the install.</p>
+    <p class="section-body">Create a draft email campaign. Send an existing draft. That send needs its own confirmation. Upsert a profile. Create an event for backfill. Upsert catalog items (capped). Writes stay off until you enable them on the install, and nothing goes live until you approve it.</p>
     <p class="section-label">Requirements</p>
     <p class="section-body">Free. This is not a Pro feature. Connect Klaviyo with a private API key you hold on the install. That key stays on your machine. Never paste the key into chat.</p>
     <p class="section-label">Example asks</p>
@@ -586,13 +593,14 @@
     <!-- TikTok Ads -->
     <h2 id="tiktok-ads">TikTok Ads</h2>
     <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent for advertisers, campaigns, insights, and catalogs. Campaign status, catalog create or upload, and Events API tracking are available when TikTok access and your Pro entitlement allow them.</p>
+    <p class="section-body">Ask your agent for advertisers, campaigns, insights, and catalogs. With Pro, campaign status updates, catalog create or upload, and Events API tracking are included.<sup>*</sup></p>
     <p class="section-label">Read</p>
     <p class="section-body">List advertisers and campaigns. Insights. List catalogs.</p>
     <p class="section-label">Edit</p>
-    <p class="section-body">Update campaign status (for example pause or enable) after confirmation. Create a catalog, upload products, and bind the catalog. Send Events API tracking when access allows.</p>
+    <p class="section-body">Update campaign status (for example pause or enable). Create a catalog, upload products, and bind the catalog. Send Events API tracking. Nothing goes live until you approve it.</p>
     <p class="section-label">Requirements</p>
-    <p class="section-body">Pro entitlement for TikTok when the license requires it. Your TikTok ads app access must be approved. Approval may still be pending.</p>
+    <p class="section-body">Pro ($19 / month). TikTok Ads is included in Pro.<sup>*</sup></p>
+    <p class="note"><sup>*</sup>We expect TikTok to finish approving our app access soon; until then some TikTok calls may wait on that approval.</p>
     <p class="section-label">Example asks</p>
     <ul>
       <li>List TikTok advertisers I can access.</li>

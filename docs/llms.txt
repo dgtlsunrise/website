@@ -21,7 +21,7 @@ Also works in Grok Build and Cursor. No DGTL Sunrise account is required to star
 
 - Free local: GA4, Search Console, Tag Manager on the user machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Report bytes do not go through DGTL. Live edits need confirmation and are off by default until writes are enabled on the install.
 - Pro ($19/mo): hosted Google Ads and Meta gateway; confirm-gated writes. Developer token and Meta app secret stay on the Worker. Meta also covers catalogs and Conversions API events when that path is enabled.
-- TikTok: stamp hop when the Pro TikTok entitlement is on. Catalogs and Events API tracking when access and entitlement allow.
+- TikTok Ads is included in Pro (catalogs and Events API tracking). App access approval may still be pending.
 - Merchant Center, Google Business Profile, Shopify: plugin-direct Google/Shopify, not stamp. Merchant Center product-input writes are confirm-gated when writes are enabled on the install. Shopify reads include publications, catalogs, and product feeds; writes include inventory adjust and product set.
 
 ## Guardrails

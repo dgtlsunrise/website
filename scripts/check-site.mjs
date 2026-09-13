@@ -78,7 +78,16 @@ check(
     index.includes('href="#free-and-pro"') &&
     /What is free/.test(freeAndPro) &&
     /What is paid/.test(freeAndPro) &&
-    /\$19/.test(freeAndPro),
+    /\$19/.test(freeAndPro) &&
+    /Google Ads reporting/.test(freeAndPro) &&
+    /Meta Ads insights/.test(freeAndPro) &&
+    /TikTok Ads advertisers/.test(freeAndPro) &&
+    /Nothing is published or changed on your ad accounts until you review and approve it first/.test(freeAndPro) &&
+    /TikTok Ads is included in Pro/.test(freeAndPro) &&
+    !/Live changes need confirmation/.test(freeAndPro) &&
+    !/Pro entitlement/.test(freeAndPro) &&
+    /Nothing is published or changed on your ad accounts until you review and approve it first/.test(freeAndPro) &&
+    /TikTok Ads is included in Pro/.test(freeAndPro),
   "home Free vs Pro section"
 );
 
@@ -130,10 +139,19 @@ const mdSection = (title) => {
   return m ? m[0] : "";
 };
 check(/You do not need a DGTL Sunrise account to get started/.test(indexMd), "index.md no DGTL account required");
+const freeProMd = (() => {
+  const start = indexMd.indexOf("## Free and Pro");
+  const end = indexMd.indexOf("## Platforms");
+  return start >= 0 ? indexMd.slice(start, end > start ? end : undefined) : "";
+})();
 check(
-  /## Free and Pro/.test(indexMd) &&
-    /\*\*What is free\.\*\*/.test(indexMd) &&
-    /\*\*What is paid\.\*\*/.test(indexMd),
+  /## Free and Pro/.test(freeProMd) &&
+    /\*\*What is free\.\*\*/.test(freeProMd) &&
+    /\*\*What is paid\.\*\*/.test(freeProMd) &&
+    /Nothing is published or changed on your ad accounts until you review and approve it first/.test(freeProMd) &&
+    /TikTok Ads is included in Pro/.test(freeProMd) &&
+    !/Live changes need confirmation/.test(freeProMd) &&
+    !/Pro entitlement/.test(freeProMd),
   "index.md has Free and Pro section"
 );
 check(/Klaviyo/.test(mdSection("Klaviyo")) && /\*\*Overview\.\*\*/.test(mdSection("Klaviyo")), "index.md has Klaviyo section");

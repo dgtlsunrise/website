@@ -85,7 +85,7 @@
       }
     ],
     "notes": [
-      "TikTok stamp hop exists when Polar feature tiktok is minted.",
+      "TikTok stamp hop exists when Pro is active.",
       "Merchant Center, Google Business Profile, and Shopify are plugin-direct to Google or Shopify, not stamp.",
       "Klaviyo is local on the user machine with a merchant-held private API key. Free. Not Pro. Not stamp.",
       "Free GA4, Search Console, and Tag Manager traffic does not use stamp for report bytes."
@@ -132,7 +132,7 @@
       "tier": "pro (feature tiktok)",
       "read": true,
       "write": "campaign status, catalogs, and Events API when access and entitlement allow",
-      "notes": "Stamp hop when the Pro TikTok entitlement is on. Reads include advertisers, campaigns, insights, and catalogs. Writes include campaign status, catalog create/upload/bind, and Events API tracking when TikTok access and that entitlement allow."
+      "notes": "Included in Pro ($19/mo). Reads: advertisers, campaigns, insights, catalogs. Writes: campaign status, catalog create/upload/bind, Events API tracking. Nothing goes live until you approve it. TikTok app access approval may still be pending."
     },
     {
       "platform": "Merchant Center",

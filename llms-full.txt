@@ -55,7 +55,7 @@ Ad account insights and, when Meta access allows, create or update campaigns, ad
 
 ### TikTok Ads
 
-List advertisers, campaigns, insights, and catalogs. Campaign status, catalog create/upload/bind, and Events API tracking when TikTok access and Pro entitlement allow them. Stamp hop exists when the Pro TikTok entitlement is on.
+List advertisers, campaigns, insights, and catalogs. TikTok Ads is included in Pro: campaign status, catalog create/upload/bind, and Events API tracking. App access approval may still be pending. Nothing goes live until you approve it.
 
 ### Merchant Center, Google Business Profile, Shopify
 
