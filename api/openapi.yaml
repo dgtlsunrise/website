@@ -26,6 +26,15 @@ paths:
             application/json:
               schema:
                 type: object
+        '404':
+          description: Not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problem'
   /agent.json:
     get:
       operationId: getAgentJson
@@ -38,6 +47,15 @@ paths:
             application/json:
               schema:
                 type: object
+        '404':
+          description: Not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problem'
   /:
     get:
       operationId: getHomepageAgentMode
@@ -59,6 +77,15 @@ paths:
             application/json:
               schema:
                 type: object
+        '404':
+          description: Not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problem'
   /llms.txt:
     get:
       operationId: getLlmsTxt
@@ -71,6 +98,15 @@ paths:
             text/plain:
               schema:
                 type: string
+        '404':
+          description: Not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problem'
   /developers:
     get:
       operationId: getDevelopers
@@ -86,6 +122,15 @@ paths:
             text/markdown:
               schema:
                 type: string
+        '404':
+          description: Not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problem'
   /server.json:
     get:
       operationId: getMcpServerJson
@@ -98,6 +143,15 @@ paths:
             application/json:
               schema:
                 type: object
+        '404':
+          description: Not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problem'
   /.well-known/mcp/server-card.json:
     get:
       operationId: getMcpServerCard
@@ -110,6 +164,15 @@ paths:
             application/json:
               schema:
                 type: object
+        '404':
+          description: Not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problem'
   /sitemap.xml:
     get:
       operationId: getSitemap
@@ -121,6 +184,39 @@ paths:
             application/xml:
               schema:
                 type: string
+        '404':
+          description: Not found
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+  /v1/docs-discovery/health:
+    get:
+      operationId: getDocsDiscoveryHealth
+      summary: Docs discovery health
+      description: Lightweight JSON health check for the public docs-discovery surface. Not an Ads API.
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ok
+                  - service
+                properties:
+                  ok:
+                    type: boolean
+                  service:
+                    type: string
+                  openapi:
+                    type: string
+        '404':
+          $ref: '#/components/responses/NotFound'
 components:
   schemas:
     Problem:

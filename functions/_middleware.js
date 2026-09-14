@@ -175,6 +175,25 @@ async function fetchAsset(env, origin, assetPath) {
   return env.ASSETS.fetch(new Request(url.toString()));
 }
 
+
+/** True when the client clearly wants HTML and did not ask for JSON/markdown. */
+function prefersHtmlOnly(acceptHeader) {
+  const types = parseAccept(acceptHeader);
+  if (!types.length) return false; // empty Accept → treat as agent-flexible, not HTML-only
+
+  const htmlQ = maxQ(types, ["text/html", "application/xhtml+xml"]);
+  const jsonQ = maxQ(types, ["application/json", "application/problem+json"]);
+  const mdQ = maxQ(types, ["text/markdown", "text/x-markdown"]);
+  const starQ = maxQ(types, ["*/*"]);
+
+  if (jsonQ >= 0 || mdQ >= 0) return false;
+  if (htmlQ < 0) return false;
+  // text/html present and no json/md. Bare */* alongside html still counts as HTML-capable browsers,
+  // but Accept: */* alone (star only) is not HTML-only.
+  if (starQ >= 0 && htmlQ < 0) return false;
+  return htmlQ >= 0;
+}
+
 function isHomepage(path) {
   return path === "/" || path === "/index" || path === "/index.html";
 }
@@ -191,6 +210,18 @@ export async function onRequest(context) {
   const url = new URL(request.url);
   const path = normalizePath(url.pathname);
   const accept = request.headers.get("Accept") || "";
+
+  // Docs-discovery health (JSON)
+  if (path === "/v1/docs-discovery/health") {
+    return jsonResponse(
+      {
+        ok: true,
+        service: "dgtl-sunrise-docs-discovery",
+        openapi: "/openapi.json",
+      },
+      200
+    );
+  }
 
   // Structured agent view on homepage: wins before HTML / markdown / JSON negotiation.
   if (isHomepage(path) && url.searchParams.get("mode") === "agent") {
@@ -250,12 +281,10 @@ export async function onRequest(context) {
   }
 
   if (!prefersMarkdown(accept)) {
-    // HTML clients: still return JSON 404 for clearly missing API-ish paths when Accept includes json.
     const res = await next();
-    if (
-      res.status === 404 &&
-      maxQ(parseAccept(accept), ["application/json", "application/problem+json"]) >= 0
-    ) {
+    // Agent scanners often send Accept: */* or omit Accept. Return structured JSON 404s
+    // unless the client clearly asked for HTML only.
+    if (res.status === 404 && !prefersHtmlOnly(accept)) {
       return jsonResponse(problemNotFound(path), 404, PROBLEM_TYPE);
     }
     return res;

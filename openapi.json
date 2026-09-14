@@ -27,7 +27,24 @@
             "description": "OpenAPI document",
             "content": {
               "application/json": {
-                "schema": { "type": "object" }
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
               }
             }
           }
@@ -44,7 +61,24 @@
             "description": "Agent document",
             "content": {
               "application/json": {
-                "schema": { "type": "object" }
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
               }
             }
           }
@@ -61,7 +95,12 @@
             "name": "mode",
             "in": "query",
             "required": true,
-            "schema": { "type": "string", "enum": ["agent"] },
+            "schema": {
+              "type": "string",
+              "enum": [
+                "agent"
+              ]
+            },
             "description": "Set to agent for the JSON agent document."
           }
         ],
@@ -70,7 +109,24 @@
             "description": "Agent document when mode=agent",
             "content": {
               "application/json": {
-                "schema": { "type": "object" }
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
               }
             }
           }
@@ -87,7 +143,24 @@
             "description": "Markdown index",
             "content": {
               "text/plain": {
-                "schema": { "type": "string" }
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
               }
             }
           }
@@ -104,10 +177,29 @@
             "description": "Developer resources page",
             "content": {
               "text/html": {
-                "schema": { "type": "string" }
+                "schema": {
+                  "type": "string"
+                }
               },
               "text/markdown": {
-                "schema": { "type": "string" }
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
               }
             }
           }
@@ -124,7 +216,24 @@
             "description": "MCP server manifest",
             "content": {
               "application/json": {
-                "schema": { "type": "object" }
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
               }
             }
           }
@@ -141,7 +250,24 @@
             "description": "MCP server card",
             "content": {
               "application/json": {
-                "schema": { "type": "object" }
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
               }
             }
           }
@@ -157,9 +283,63 @@
             "description": "XML sitemap",
             "content": {
               "application/xml": {
-                "schema": { "type": "string" }
+                "schema": {
+                  "type": "string"
+                }
               }
             }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/docs-discovery/health": {
+      "get": {
+        "operationId": "getDocsDiscoveryHealth",
+        "summary": "Docs discovery health",
+        "description": "Lightweight JSON health check for the public docs-discovery surface. Not an Ads API.",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": [
+                    "ok",
+                    "service"
+                  ],
+                  "properties": {
+                    "ok": {
+                      "type": "boolean"
+                    },
+                    "service": {
+                      "type": "string"
+                    },
+                    "openapi": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
           }
         }
       }
@@ -169,16 +349,41 @@
     "schemas": {
       "Problem": {
         "type": "object",
-        "required": ["type", "title", "status", "detail", "code", "message", "resolution"],
+        "required": [
+          "type",
+          "title",
+          "status",
+          "detail",
+          "code",
+          "message",
+          "resolution"
+        ],
         "properties": {
-          "type": { "type": "string", "format": "uri" },
-          "title": { "type": "string" },
-          "status": { "type": "integer" },
-          "detail": { "type": "string" },
-          "instance": { "type": "string" },
-          "code": { "type": "string" },
-          "message": { "type": "string" },
-          "resolution": { "type": "string" }
+          "type": {
+            "type": "string",
+            "format": "uri"
+          },
+          "title": {
+            "type": "string"
+          },
+          "status": {
+            "type": "integer"
+          },
+          "detail": {
+            "type": "string"
+          },
+          "instance": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "resolution": {
+            "type": "string"
+          }
         }
       }
     },
@@ -187,10 +392,14 @@
         "description": "Path not found",
         "content": {
           "application/problem+json": {
-            "schema": { "$ref": "#/components/schemas/Problem" }
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            }
           },
           "application/json": {
-            "schema": { "$ref": "#/components/schemas/Problem" }
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            }
           }
         }
       }
