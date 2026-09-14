@@ -2,7 +2,21 @@
 
 A plugin that connects your agent to Google, Meta, Shopify, Klaviyo, and TikTok marketing accounts. These connections let your agent set up and manage accounts, pull reports, recommend changes, and push approved changes live after you review them. Built for Grok Bot first. It also works with other MCP hosts such as Cursor and Claude Desktop.
 
-Your data stays yours. Free tools talk to the platform directly from your agent’s computer. Pro advertising calls go through our allowlisted gateway so we can attach the platform credentials that cannot live in the plugin, complete the request you started, and return the response to your agent. We do not keep those report bytes.
+## Contents
+
+1. [Install](#install)
+2. [How to use it](#how-to-use)
+3. [Free and Pro](#free-and-pro)
+4. [Google Analytics 4](#google-analytics-4)
+5. [Google Search Console](#google-search-console)
+6. [Google Tag Manager](#google-tag-manager)
+7. [Google Ads](#google-ads)
+8. [Meta Ads](#meta-ads)
+9. [Merchant Center](#merchant-center)
+10. [Google Business Profile](#google-business-profile)
+11. [Shopify](#shopify)
+12. [Klaviyo](#klaviyo)
+13. [TikTok Ads](#tiktok-ads)
 
 ## Install
 

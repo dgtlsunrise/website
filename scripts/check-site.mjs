@@ -68,11 +68,13 @@ check(!/Package id/.test(index), "home dropped package id line");
 check(!/Connect the account that owns the property when the plugin asks/.test(index), "home dropped connect-when-asks line");
 
 check(index.includes("run on your machine (read and manage)"), "home free path is read and manage");
-check(index.includes("Your data stays yours."), "home data-stays-yours");
-check(index.includes("Free tools talk to the platform directly"), "home free direct path");
-check(index.includes("Pro advertising calls go through our allowlisted gateway"), "home pro gateway sentence");
-check(index.includes("We do not keep those report bytes."), "home no-keep report bytes");
 check(/<h1>DGTL Connector by DGTL Sunrise<\/h1>/.test(index), "home title DGTL Connector by DGTL Sunrise");
+check(!/Your data stays yours/.test(index), "home dropped data-stays-yours paragraph");
+const toc = index.match(/<nav class="contents"[\s\S]*?<\/nav>/)?.[0] || "";
+check(/href="#install"/.test(toc), "home toc has install");
+check(/href="#how-to-use"/.test(toc), "home toc has how-to-use");
+check((index.match(/<nav class="contents"/g) || []).length === 1, "home has one contents nav");
+check(index.indexOf('aria-label="Contents"') < index.indexOf('id="install"'), "home contents before install");
 check(!/href="#install"/.test(index.match(/<header[\s\S]*?<\/header>/)?.[0] || ""), "home header has no Install link");
 check(/\.brand img \{[\s\S]*?width:\s*auto/.test(index), "home logo uses width auto");
 check(index.includes("Manage property settings the tools support"), "home GA4 edit");
