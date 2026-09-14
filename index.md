@@ -1,6 +1,28 @@
-# DGTL Connector by DGTL Sunrise
+# Connect your Bot to the marketing accounts you already run.
 
 A Grok Bot plugin that connects your Bot to Google, Meta, Shopify, Klaviyo, and TikTok marketing accounts. These connections let your Bot set up and manage accounts, pull reports, recommend changes, and push approved changes live after you review them. It also works with other MCP hosts such as Cursor and Claude Desktop.
+
+[Install](#install) · [About](/about)
+
+## Example conversation
+
+This is a demo transcript with example numbers. It is not a live chat and not a customer story.
+
+**You.** Connect Google if it is not connected yet. Using dgtl-connector tools only, list every marketing account you can see. Do not guess or pick a default.
+
+**Bot.** Google is connected. Example inventory: GA4 property 123456789 (example.com), Search Console sc-domain:example.com, and Tag Manager container GTM-XXXX. No other accounts on this install. Nothing changed live.
+
+**You.** Compare last 28 days to the prior 28 for sessions and conversions on property 123456789.
+
+**Bot.** Example numbers for property 123456789, last 28 days versus the prior 28. Sessions 12,480 versus 11,210. Conversions 186 versus 201. Sessions are up. Conversions are down. The largest landing-page drop is /pricing.
+
+**You.** Draft a change on container GTM-XXXX so the conversion tag fires on /thank-you. Do not publish until I approve.
+
+**Bot.** Draft is in the workspace only. New trigger: Page Path equals /thank-you. The existing conversion tag uses that trigger. Live container is unchanged.
+
+**You.** Approve. Publish that workspace.
+
+**Bot.** Published after your approval. Live container version is now 14. The conversion tag fires on /thank-you.
 
 ## Contents
 

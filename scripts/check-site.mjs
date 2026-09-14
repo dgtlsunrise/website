@@ -76,11 +76,19 @@ check(!/Package id/.test(index), "home dropped package id line");
 check(!/Connect the account that owns the property when the plugin asks/.test(index), "home dropped connect-when-asks line");
 
 check(index.includes("run on your machine (read and manage)"), "home free path is read and manage");
-check(/<h1>DGTL Connector by DGTL Sunrise<\/h1>/.test(index), "home title DGTL Connector by DGTL Sunrise");
+check(/<h1 id="hero-title">Connect your Bot to the marketing accounts you already run\.<\/h1>/.test(index), "home headline in product voice");
+check(index.includes('class="page-landing"'), "home uses landing body class");
+check(index.includes("/assets/landing.css"), "home imports landing.css");
+check(index.includes('class="tile-grid"'), "home has tile grid");
+check(/Example conversation/.test(index) && /demo transcript/i.test(index), "home has labeled example conversation");
+check(index.includes("Published after your approval"), "home example conversation ends applied");
+check(!/not live yet/i.test(index), "home has no not-live-yet caveat");
+check(!/expect .{0,80} soon/i.test(index), "home has no expect-soon caveat");
 check(!/Your data stays yours/.test(index), "home dropped data-stays-yours paragraph");
-const toc = index.match(/<nav class="contents"[\s\S]*?<\/nav>/)?.[0] || "";
-check(/href="#install"/.test(toc), "home toc has install");
-check(/href="#how-to-use"/.test(toc), "home toc has how-to-use");
+const hero = index.match(/<section class="hero"[\s\S]*?<\/section>/)?.[0] || "";
+check(/href="#install"/.test(hero), "home hero Install CTA");
+check(/href="\/about"/.test(hero), "home hero About CTA");
+check(/href="#install"/.test(index) && /href="#how-to-use"/.test(index), "home jump links include install and how-to-use");
 check(index.includes("A Grok Bot plugin that connects your Bot"), "home lede is Grok Bot plugin");
 check(index.includes("Start with a map"), "home how-to has Start with a map");
 check(index.includes("Starter prompt"), "home how-to has Starter prompt");
@@ -92,8 +100,9 @@ check(!/Free first, Pro when you need ads/.test(index), "home how-to dropped Fre
 check(!/enable writes on the install/i.test(index), "home does not say enable writes on the install");
 check(!/\/dgtl-connector\s+-pro/.test(index), "home does not invent a Pro slash command");
 
-check((index.match(/<nav class="contents"/g) || []).length === 1, "home has one contents nav");
-check(index.indexOf('aria-label="Contents"') < index.indexOf('id="install"'), "home contents before install");
+check((index.match(/<nav class="contents"/g) || []).length === 0, "home dropped article contents nav");
+check(index.indexOf('class="hero"') < index.indexOf('id="install"'), "home hero before install");
+check(index.indexOf("Example conversation") < index.indexOf('id="install"'), "home example conversation before install");
 check(!/href="#install"/.test(index.match(/<header[\s\S]*?<\/header>/)?.[0] || ""), "home header has no Install link");
 check(/\.brand img \{[\s\S]*?width:\s*auto/.test(text("assets/article.css")), "home logo uses width auto");
 check(index.includes("Manage property settings the tools support"), "home GA4 edit");
@@ -192,6 +201,9 @@ const mdSection = (title) => {
   return m ? m[0] : "";
 };
 check(/You do not need a DGTL Sunrise account to get started/.test(indexMd), "index.md no DGTL account required");
+check(/Connect your Bot to the marketing accounts you already run/.test(indexMd), "index.md has landing headline");
+check(/Example conversation/.test(indexMd) && /demo transcript/i.test(indexMd), "index.md has example conversation");
+check(!/not live yet/i.test(indexMd), "index.md has no not-live-yet caveat");
 const freeProMd = (() => {
   const start = indexMd.indexOf("## Free and Pro");
   const end = indexMd.indexOf("## Platforms");
@@ -264,6 +276,7 @@ check(text("llms.txt").includes("DGTL Connector by DGTL Sunrise"), "llms.txt nam
 check(text("llms.txt").includes("/developers"), "llms.txt links developers");
 
 check(!/scanfield|tag-match|data-demo|Watch it work/i.test(allServed), "no MATCH/demo theater");
+check(!/Grok Bot<\/span>|chrome__bar|bubble--bot/i.test(index), "home example conversation is not Grok chrome");
 check(!/Talk<\/a>/.test(allServed) && !primaryNav(index).includes("Engagements"), "no Talk or Engagements in primary nav");
 
 check(!/Consent [AWCGBS]\b/.test(publicFacing), "no internal Consent labels on public HTML/md/json/llms");
@@ -317,6 +330,9 @@ for (const file of articlePages) {
   check(!page.includes('class="sunband"'), `${file} no indigo sunband`);
   check(!primaryNav(page).includes("Engagements"), `${file} Engagements out of primary nav`);
   check(page.includes('href="/google-ads">Google Ads'), `${file} footer links Google Ads`);
+  if (file !== "index.html") {
+    check(!page.includes("/assets/landing.css"), `${file} does not import landing.css`);
+  }
 }
 check(!index.includes("Details:") || !/Details:[\s\S]{0,40}\/google-ads/.test(index), "home body has no Details /google-ads");
 
