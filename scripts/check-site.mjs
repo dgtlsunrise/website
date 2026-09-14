@@ -86,7 +86,7 @@ check(index.includes("I installed the dgtl-connector plugin"), "home starter pro
 check(index.includes("Ask for decisions, not dumps"), "home how-to has Ask for decisions");
 check(index.includes("Confirm before live changes"), "home how-to Confirm before live changes");
 check(index.includes("Connect Google once with all Free permissions up front"), "home Free Connect is all permissions up front");
-check(index.includes("Upgrade me to DGTL Pro"), "home Pro upgrade is by asking the Bot");
+check(!/Free first, Pro when you need ads/.test(index), "home how-to dropped Free-first block");
 check(!/enable writes on the install/i.test(index), "home does not say enable writes on the install");
 check(!/\/dgtl-connector\s+-pro/.test(index), "home does not invent a Pro slash command");
 
@@ -111,7 +111,8 @@ check(
   /<h2 id="free-and-pro">Free and Pro<\/h2>/.test(index) &&
     index.includes('href="#free-and-pro"') &&
     /What is free/.test(freeAndPro) &&
-    /What is paid/.test(freeAndPro) &&
+    /What is Pro/.test(freeAndPro) &&
+    !/What is paid/.test(freeAndPro) &&
     /\$19/.test(freeAndPro) &&
     /Google Ads reporting/.test(freeAndPro) &&
     /Meta Ads insights/.test(freeAndPro) &&
@@ -123,7 +124,12 @@ check(
     /Nothing is published or changed on your ad accounts until you review and approve it first/.test(freeAndPro) &&
     /Meta Ads and TikTok Ads are included in Pro/.test(freeAndPro) &&
     /Merchant Center accounts, products/.test(freeAndPro) &&
-    !/Merchant Center is plugin-direct Google/.test(freeAndPro),
+    !/Merchant Center is plugin-direct Google/.test(freeAndPro) &&
+    /id="pro-upgrade-prompt"/.test(freeAndPro) &&
+    /data-copy="#pro-upgrade-prompt"/.test(freeAndPro) &&
+    /I use the dgtl-connector plugin/.test(freeAndPro) &&
+    /license_status/.test(freeAndPro) &&
+    /license JWT/.test(freeAndPro),
   "home Free vs Pro section"
 );
 
@@ -192,11 +198,15 @@ const freeProMd = (() => {
 check(
   /## Free and Pro/.test(freeProMd) &&
     /\*\*What is free\.\*\*/.test(freeProMd) &&
-    /\*\*What is paid\.\*\*/.test(freeProMd) &&
+    /\*\*What is Pro\.\*\*/.test(freeProMd) &&
+    !/\*\*What is paid\.\*\*/.test(freeProMd) &&
     /Nothing is published or changed on your ad accounts until you review and approve it first/.test(freeProMd) &&
     /Meta Ads and TikTok Ads are included in Pro/.test(freeProMd) &&
+    /I use the dgtl-connector plugin/.test(freeProMd) &&
+    /license_status/.test(freeProMd) &&
     !/Live changes need confirmation/.test(freeProMd) &&
-    !/Pro entitlement/.test(freeProMd),
+    !/Pro entitlement/.test(freeProMd) &&
+    !/Free first, Pro when you need ads/.test(indexMd),
   "index.md has Free and Pro section"
 );
 check(/Klaviyo/.test(mdSection("Klaviyo")) && /\*\*Overview\.\*\*/.test(mdSection("Klaviyo")), "index.md has Klaviyo section");
@@ -216,10 +226,18 @@ for (const file of ["llms.txt", "llms-full.txt", "docs/llms.txt", "api/llms.txt"
 }
 for (const file of ["llms.txt", "llms-full.txt", "docs/llms.txt"]) {
   check(/No DGTL Sunrise account is required/.test(text(file)), `${file} no account required`);
+  check(/What is Pro/.test(text(file)), `${file} has What is Pro`);
+  check(!/Free first, Pro when you need ads/.test(text(file)), `${file} dropped Free-first`);
 }
+check(/I use the dgtl-connector plugin/.test(text("llms-full.txt")), "llms-full.txt has Pro upgrade prompt");
+check(/I use the dgtl-connector plugin/.test(text("docs/llms.txt")), "docs/llms.txt has Pro upgrade prompt");
+check(/What is Pro/.test(agent) && /license_status/.test(agent), "agent.json has What is Pro upgrade path");
 
 const POLAR_CHECKOUT = "https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll";
+const polarEscaped = POLAR_CHECKOUT.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 check(index.includes(POLAR_CHECKOUT), "home documents Polar checkout");
+check(freeAndPro.includes(POLAR_CHECKOUT), "home Polar checkout is in What is Pro");
+check((index.match(new RegExp(polarEscaped, "g")) || []).length === 1, "home Polar checkout appears once");
 check(!publicFacing.includes("stamp.dgtlsunrise.com/checkout"), "Polar CTA is not stamp checkout");
 const polarUrls = [...publicFacing.matchAll(/https?:\/\/[^\s"'<>\)]*polar[^\s"'<>\)]*/gi)].map((m) => m[0].replace(/[.,]$/, ""));
 check(polarUrls.length > 0 && polarUrls.every((u) => u === POLAR_CHECKOUT), "only documented Polar checkout URL");

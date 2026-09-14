@@ -203,13 +203,6 @@ npm run build</code></pre>
     <p class="section-label">Confirm before live changes</p>
     <p class="section-body">When you Connect Google for Free features, you grant all Free Google permissions in that one Connect. The plugin expects those permissions before Free Google tools are useful. Live changes still need your confirmation. Treat chat as a draft surface: approve publishes, pauses, budget moves, and catalog edits the same way you would approve a pull request.</p>
 
-    <p class="section-label">Free first, Pro when you need ads</p>
-    <p class="section-body">Use Free Google Analytics 4, Search Console, and Tag Manager on your machine with no DGTL account. Add Pro when you need Google Ads, Meta, or TikTok through the hosted gateway, or Merchant Center on the Pro path.</p>
-    <p class="section-body">When you need those Pro paths, ask the Bot in plain language. Examples that work: "Upgrade me to DGTL Pro" or "I need Google Ads through dgtl-connector". The Bot should walk Polar checkout at $19 / month, then redeem the license on your install. Do not paste a license token into chat. After Pro is on the install, Connect Ads or Meta as needed.</p>
-    <p class="section-body">Polar checkout: <a href="https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll">https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll</a>. Homepage: <a href="https://www.dgtlsunrise.com/">https://www.dgtlsunrise.com/</a>. Keep tokens and license keys out of chat. Put them only where the install expects them.</p>
-
-    <p class="note">Never paste access tokens, refresh tokens, or license keys into chat.</p>
-
     <h2 id="free-and-pro">Free and Pro</h2>
     <p class="section-label">What is free</p>
     <p class="section-body">Install the plugin and connect the marketing accounts you already use. No DGTL Sunrise account is required.</p>
@@ -219,7 +212,7 @@ npm run build</code></pre>
       <li>Shopify connects on the install. Catalog and inventory changes wait for your approval.</li>
       <li>Google Business Profile can be read when that path is available. Edit is not in this version.</li>
     </ul>
-    <p class="section-label">What is paid</p>
+    <p class="section-label">What is Pro</p>
     <p class="section-body">Pro is $19 / month. It unlocks the hosted gateway for advertising platforms, plus Pro-gated Merchant Center on your machine:</p>
     <ul>
       <li>Google Ads reporting, plus manage and create (campaigns, budgets, keywords, ads, and more).</li>
@@ -229,6 +222,14 @@ npm run build</code></pre>
     </ul>
     <p class="section-body">Nothing is published or changed on your ad accounts until you review and approve it first.</p>
     <p class="note"><sup>*</sup>Meta Ads and TikTok Ads are included in Pro. We expect Meta and TikTok to finish approving our app access soon; until then some Meta or TikTok calls may wait on that approval.</p>
+    <p class="section-body">Paste this to ask the Bot to upgrade to Pro. Redeem the license on the install. Never paste tokens or license keys into chat.</p>
+    <div class="code-panel">
+      <div class="code-panel-bar">
+        <span>Pro upgrade prompt</span>
+        <button type="button" class="copy-btn" data-copy="#pro-upgrade-prompt">Copy</button>
+      </div>
+      <pre><code id="pro-upgrade-prompt">I use the dgtl-connector plugin (DGTL Sunrise). I want DGTL Pro for Google Ads / Meta / TikTok. Walk me through Polar checkout at $19 / month using https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll, then redeem the license on this install using the one-time code or checkout id Polar gives me. Do not ask me to paste a license JWT into chat. After redeem succeeds, confirm license_status and tell me what to Connect next. Do not change any live ad accounts until I approve.</code></pre>
+    </div>
 
     <!-- Google Analytics 4 -->
     <h2 id="google-analytics-4">Google Analytics 4</h2>

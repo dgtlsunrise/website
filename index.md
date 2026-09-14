@@ -100,20 +100,6 @@ If the Bot invents a metric or a property id, stop it and ask it to re-run from 
 
 When you Connect Google for Free features, you grant all Free Google permissions in that one Connect. The plugin expects those permissions before Free Google tools are useful. Live changes still need your confirmation. Treat chat as a draft surface: approve publishes, pauses, budget moves, and catalog edits the same way you would approve a pull request.
 
-### Free first, Pro when you need ads
-
-Use Free Google Analytics 4, Search Console, and Tag Manager on your machine with no DGTL account. Add Pro when you need Google Ads, Meta, or TikTok through the hosted gateway, or Merchant Center on the Pro path.
-
-When you need those Pro paths, ask the Bot in plain language. Examples that work: "Upgrade me to DGTL Pro" or "I need Google Ads through dgtl-connector". The Bot should walk Polar checkout at $19 / month, then redeem the license on your install. Do not paste a license token into chat. After Pro is on the install, Connect Ads or Meta as needed.
-
-Polar checkout: https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll
-
-Homepage: https://www.dgtlsunrise.com/
-
-Keep tokens and license keys out of chat. Put them only where the install expects them.
-
-Never paste access tokens, refresh tokens, or license keys into chat.
-
 ## Free and Pro
 
 **What is free.** Install the plugin and connect the marketing accounts you already use. No DGTL Sunrise account is required.
@@ -123,7 +109,7 @@ Never paste access tokens, refresh tokens, or license keys into chat.
 - Shopify connects on the install. Catalog and inventory changes wait for your approval.
 - Google Business Profile can be read when that path is available. Edit is not in this version.
 
-**What is paid.** Pro is $19 / month. It unlocks the hosted gateway for advertising platforms, plus Pro-gated Merchant Center on your machine:
+**What is Pro.** Pro is $19 / month. It unlocks the hosted gateway for advertising platforms, plus Pro-gated Merchant Center on your machine:
 
 - Google Ads reporting, plus manage and create (campaigns, budgets, keywords, ads, and more).
 - Meta Ads insights, campaigns, ad sets, ads, audiences, catalogs, and Conversions API events.*
@@ -132,6 +118,12 @@ Never paste access tokens, refresh tokens, or license keys into chat.
 Nothing is published or changed on your ad accounts until you review and approve it first.
 
 \*Meta Ads and TikTok Ads are included in Pro. We expect Meta and TikTok to finish approving our app access soon; until then some Meta or TikTok calls may wait on that approval.
+
+Paste this to ask the Bot to upgrade to Pro. Redeem the license on the install. Never paste tokens or license keys into chat.
+
+```
+I use the dgtl-connector plugin (DGTL Sunrise). I want DGTL Pro for Google Ads / Meta / TikTok. Walk me through Polar checkout at $19 / month using https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll, then redeem the license on this install using the one-time code or checkout id Polar gives me. Do not ask me to paste a license JWT into chat. After redeem succeeds, confirm license_status and tell me what to Connect next. Do not change any live ad accounts until I approve.
+```
 
 ## Platforms
 
