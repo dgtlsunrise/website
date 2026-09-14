@@ -76,7 +76,7 @@ check(/href="#how-to-use"/.test(toc), "home toc has how-to-use");
 check((index.match(/<nav class="contents"/g) || []).length === 1, "home has one contents nav");
 check(index.indexOf('aria-label="Contents"') < index.indexOf('id="install"'), "home contents before install");
 check(!/href="#install"/.test(index.match(/<header[\s\S]*?<\/header>/)?.[0] || ""), "home header has no Install link");
-check(/\.brand img \{[\s\S]*?width:\s*auto/.test(index), "home logo uses width auto");
+check(/\.brand img \{[\s\S]*?width:\s*auto/.test(text("assets/article.css")), "home logo uses width auto");
 check(index.includes("Manage property settings the tools support"), "home GA4 edit");
 check(index.includes("Submit or delete sitemaps after you confirm"), "home GSC edit");
 check(index.includes("create or update tags, triggers, and variables"), "home GTM manage");
@@ -237,17 +237,35 @@ check(terms.includes("Idaho law governs these terms"), "terms Idaho venue");
 check(terms.includes("Live edits need your confirmation"), "terms confirm-gated edits");
 check(terms.includes("DGTL Pro subscription"), "terms Pro exists");
 
-const article = (page) => {
-  const m = page.match(/<article class="legal-wrap" id="legal">([\s\S]*?)<\/article>/);
+const mainBody = (page) => {
+  const m = page.match(/<main[^>]*>([\s\S]*?)<\/main>/);
   return m ? m[1] : "";
 };
-check(article(privacy).includes("How we protect Google user data"), "privacy article body present");
-check(article(terms).includes("Paid features"), "terms article body present");
+check(mainBody(privacy).includes("How we protect Google user data"), "privacy article body present");
+check(mainBody(terms).includes("Paid features"), "terms article body present");
 
-for (const page of [html("engagements.html"), ads, privacy, terms]) {
-  check(page.includes('class="sunband"'), "sunband on indigo shell page");
-  check(!primaryNav(page).includes("Engagements"), "Engagements out of primary nav");
+const articlePages = [
+  "index.html",
+  "about.html",
+  "contact.html",
+  "privacy.html",
+  "terms.html",
+  "engagements.html",
+  "google-ads.html",
+  "developers.html",
+  "404.html",
+];
+for (const file of articlePages) {
+  const page = html(file);
+  check(page.includes('/assets/article.css'), `${file} uses article.css`);
+  check(page.includes("AI Marketing Engineering"), `${file} has brand tagline`);
+  check(page.includes('class="site-header"') && page.includes('class="site-footer"'), `${file} shared header/footer`);
+  check(!page.includes("/assets/style.css"), `${file} not on indigo style.css`);
+  check(!page.includes('class="sunband"'), `${file} no indigo sunband`);
+  check(!primaryNav(page).includes("Engagements"), `${file} Engagements out of primary nav`);
+  check(page.includes('href="/google-ads">Google Ads'), `${file} footer links Google Ads`);
 }
+check(!index.includes("Details:") || !/Details:[\s\S]{0,40}\/google-ads/.test(index), "home body has no Details /google-ads");
 
 if (base) {
   const fetchText = async (path, opts = {}) => {

@@ -79,7 +79,7 @@ Never paste access tokens, refresh tokens, or license keys into chat.
 
 **What is paid.** Pro is $19 / month. It unlocks the hosted gateway for advertising platforms:
 
-- Google Ads reporting, plus manage and create (campaigns, budgets, keywords, ads, and more). Details: [/google-ads](/google-ads).
+- Google Ads reporting, plus manage and create (campaigns, budgets, keywords, ads, and more).
 - Meta Ads insights, campaigns, ad sets, ads, audiences, catalogs, and Conversions API events.*
 - TikTok Ads advertisers, campaigns, insights, catalogs, and Events API tracking.*
 
@@ -103,7 +103,7 @@ Inspect containers and manage tags, triggers, and variables. Publish after you a
 
 ### Google Ads
 
-With Pro ($19 / month), ask for account reporting and confirm-gated changes (pause or enable, budgets, keywords, ads, and new campaigns where enabled). Every live change needs confirmation. Details: [/google-ads](/google-ads).
+With Pro ($19 / month), ask for account reporting and confirm-gated changes (pause or enable, budgets, keywords, ads, and new campaigns where enabled). Every live change needs confirmation.
 
 ### Meta Ads
 
