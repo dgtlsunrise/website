@@ -17,7 +17,7 @@
   },
   "authentication": {
     "free": "Connect Google on the machine for GA4, Search Console, and Tag Manager (read and manage). Klaviyo uses a merchant-held private API key stored locally. Report bytes do not go through DGTL. Connect Google once with all Free permissions up front. Live edits need confirmation.",
-    "pro": "A Pro license unlocks Google Ads, Meta, and TikTok in the plugin. Platform credentials required for those Pro paths stay off the public plugin package. Live changes stay confirm-gated.",
+    "pro": "Ask the Bot in plain language to upgrade to DGTL Pro. Polar checkout is $19/mo at https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk. Redeem the license on the install. Never paste tokens into chat. A Pro license unlocks Google Ads, Meta, and TikTok in the plugin. Platform credentials required for those Pro paths stay off the public plugin package. Live changes stay confirm-gated.",
     "rules": [
       "Never paste access tokens, refresh tokens, or license keys into chat.",
       "Never invent metrics, rows, or insights the APIs did not return.",
@@ -33,21 +33,21 @@
       "platform": "Google Analytics 4",
       "tier": "free",
       "read": true,
-      "write": "confirm-gated when writes are enabled",
+      "write": "confirm-gated",
       "notes": "Local on the user machine. List accounts and properties; property details, data streams, key events; run reports. Manage property settings the tools support (data streams, key events, custom definitions, Measurement Protocol secrets where enabled). Connect Google once with all Free permissions up front. Live edits need confirmation."
     },
     {
       "platform": "Google Search Console",
       "tier": "free",
       "read": true,
-      "write": "confirm-gated sitemap submit/delete when writes are enabled",
+      "write": "confirm-gated sitemap submit/delete",
       "notes": "Local. List sites; query search performance; inspect a URL; list and open sitemaps. Submit or delete sitemaps after confirmation. Connect Google once with all Free permissions up front."
     },
     {
       "platform": "Google Tag Manager",
       "tier": "free",
       "read": true,
-      "write": "confirm-gated when writes are enabled",
+      "write": "confirm-gated",
       "notes": "Local. Inspect containers and manage tags, triggers, and variables. Publish after confirmation. Connect Google once with all Free permissions up front."
     },
     {
@@ -89,14 +89,14 @@
       "platform": "Shopify",
       "tier": "plugin-direct",
       "read": true,
-      "write": "inventory adjust and product set when those write paths are enabled",
-      "notes": "Plugin-direct Shopify. Reads include publications, catalogs, and product feeds. Writes: inventory adjust and product set. Live changes need confirmation. Write paths are off until enabled on the install."
+      "write": "confirm-gated inventory adjust and product set",
+      "notes": "Plugin-direct Shopify. Reads include publications, catalogs, and product feeds. Writes: inventory adjust and product set. Live changes need confirmation."
     },
     {
       "platform": "Klaviyo",
       "tier": "free",
       "read": true,
-      "write": "confirm-gated when writes are enabled",
+      "write": "confirm-gated",
       "notes": "Local on the user machine. Merchant-held private API key (KLAVIYO_API_KEY or local store). Free. Not Pro. Read: account, profiles (sparse), lists, segments, flows, campaigns, metrics, catalog items/categories/variants, reviews. Edit: draft email campaign create; send an existing draft (explicit send confirmation); upsert profile; create event (backfill); upsert catalog items (capped). Never paste the API key into chat. Creating a draft does not send it."
     }
   ],

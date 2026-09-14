@@ -77,6 +77,14 @@ ChatGPT and other hosts that can run a local stdio MCP server use the same `bin/
 
 Before you ask for numbers, ask the Bot to list what it can see: GA4 properties, Search Console sites, GTM accounts, or ad accounts. Then pick the one you mean in plain language. If you leave it vague, a careful Bot will ask which one. Do not let it guess among agency or client accounts.
 
+### Starter prompt
+
+Paste this so the Bot knows you installed `dgtl-connector`, even if you come back weeks later. It should use those tools only, and it should not guess which account you mean.
+
+```
+I installed the dgtl-connector plugin (DGTL Sunrise). Connect Google if it is not connected yet. Using dgtl-connector tools only, list every marketing account the plugin can see: GA4 properties, Search Console sites, Tag Manager accounts and containers, plus Shopify, Klaviyo, or ad accounts if those are connected. Do not guess or pick a default. Summarize what is connected, what looks healthy, and the top three questions I should ask next. Keep it short. Do not change anything live.
+```
+
 ### Ask for decisions, not dumps
 
 Short, specific asks beat vague ones. Prefer a date range, a comparison, and the decision you need. Examples that work well:
@@ -94,7 +102,15 @@ When you Connect Google for Free features, you grant all Free Google permissions
 
 ### Free first, Pro when you need ads
 
-Use Free Google Analytics 4, Search Console, and Tag Manager on your machine with no DGTL account. Add Pro when you need Google Ads, Meta, or TikTok through the hosted gateway, or Merchant Center on the Pro path. Keep tokens and license keys out of chat. Put them only where the install expects them.
+Use Free Google Analytics 4, Search Console, and Tag Manager on your machine with no DGTL account. Add Pro when you need Google Ads, Meta, or TikTok through the hosted gateway, or Merchant Center on the Pro path.
+
+When you need those Pro paths, ask the Bot in plain language. Examples that work: "Upgrade me to DGTL Pro" or "I need Google Ads through dgtl-connector". The Bot should walk Polar checkout at $19 / month, then redeem the license on your install. Do not paste a license token into chat. After Pro is on the install, Connect Ads or Meta as needed.
+
+Polar checkout: https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk
+
+Homepage: https://www.dgtlsunrise.com/
+
+Keep tokens and license keys out of chat. Put them only where the install expects them.
 
 Never paste access tokens, refresh tokens, or license keys into chat.
 
@@ -129,7 +145,7 @@ Ask about verified sites, queries, URL indexing status, and sitemaps. List sites
 
 ### Google Tag Manager
 
-Inspect containers and manage tags, triggers, and variables. Publish after you approve. Free. Connect Google. Live edits and publishes need writes enabled on your install, plus confirmation.
+Inspect containers and manage tags, triggers, and variables. Publish after you approve. Free. Connect Google. Live edits and publishes need your confirmation.
 
 ### Google Ads
 
@@ -141,7 +157,7 @@ With Pro, ask for ad account insights and, when Meta access allows, create or up
 
 ### Merchant Center
 
-With Pro, list accounts, products, statuses, account issues, and data sources. Create a data source. Upsert or delete product inputs. Nothing goes live until you approve it. Pro ($19 / month). Connect the Google account that owns Merchant Center. Calls stay on your machine; this is not the Ads/Meta/TikTok Worker hop.
+With Pro, list accounts, products, statuses, account issues, and data sources. Create a data source. Upsert or delete product inputs. Nothing goes live until you approve it. Pro ($19 / month). Connect the Google account that owns Merchant Center. Live edits need writes enabled on your install, plus confirmation. Calls stay on your machine; this is not the Ads/Meta/TikTok Worker hop.
 
 ### Google Business Profile
 
@@ -153,7 +169,7 @@ Shop details, products, orders, locations, inventory, publications, catalogs, an
 
 ### Klaviyo
 
-**Overview.** Ask your agent about your Klaviyo account, lists, segments, flows, campaigns, catalog, and reviews. When writes are enabled on your install, it can create a draft email campaign, send an existing draft after you confirm, and update profiles or catalog items.
+**Overview.** Ask your agent about your Klaviyo account, lists, segments, flows, campaigns, catalog, and reviews. It can create a draft email campaign, send an existing draft after you confirm, and update profiles or catalog items.
 
 **Read.** Open the account. List profiles (sparse fields only). Show lists, segments, flows, campaigns, and metrics. List catalog items, categories, and variants. List reviews.
 

@@ -13,7 +13,7 @@ Full rationale lives in [BRAND-GUIDE.md](./BRAND-GUIDE.md). Check both files bef
 - Primary nav: Connector. No Talk. No Engagements.
 - Motion: copy-to-clipboard only. Respect `prefers-reduced-motion`. Pages stay static HTML plus `/assets/style.css` plus `/assets/site.js` (no bundler).
 - Copy: plugin loop, not dual-door. No headcount, no "one operator," no RainbowOPTX, no fake logos, no SOC2/ISO, no "1,500 apps."
-- Pro is $19/mo for Ads and Meta. Point it at `/connector#pro` and `https://www.dgtlsunrise.com/connector`. Do not invent Polar checkout URLs. Do not name Ryze in served HTML.
+- Pro is $19/mo for Ads and Meta. Documented Polar checkout: `https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk`. Ask the Bot in plain language, then redeem on the install. Do not invent other Polar checkout URLs. Do not name Ryze in served HTML.
 - Footer on every page: © 2026 Sunrise Consulting LLC, `contact@dgtlsunrise.com`, `support@dgtlsunrise.com`, Engagements, Privacy, Terms.
 - `/plugin` 301s to `/connector`. `/google-ads.html` 301s to `/google-ads`.
 - Legal pages keep reviewed article bodies. Restyle the shell only.
@@ -40,4 +40,4 @@ Do not run `wrangler pages deploy` or publish to production from this work.
 
 ## Ban list
 
-Composio cyan, paper mid-page, scanfield, MATCH theater, staged demo sequencer, dual-door cards, sticky blur theater, scraped graphics, Lottie, Three, fake terminals, fake customers, invented Polar URLs, Google Fonts, unlock/leverage/empower/delve, em dashes on marketing copy.
+Composio cyan, paper mid-page, scanfield, MATCH theater, staged demo sequencer, dual-door cards, sticky blur theater, scraped graphics, Lottie, Three, fake terminals, fake customers, invented Polar URLs (use only the documented checkout), Google Fonts, unlock/leverage/empower/delve, em dashes on marketing copy.

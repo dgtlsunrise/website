@@ -20,7 +20,7 @@ Steal nothing from Composio. Do not restyle the old theater in indigo. Delete it
 - Free = local GA4 / GSC / GTM (read and manage). Tokens and report bytes never go through DGTL on the free path. Connect Google once with all Free permissions up front. Live edits need confirmation.
 - Pro = $19/mo, Ads and Meta hosted gateway only. One Polar customer. Same human, more than one host, is fine. No employee seats. Unlimited ad accounts under that human's OAuth.
 - Server-side GTM is not in this version.
-- Point Pro at `/connector#pro` and `https://www.dgtlsunrise.com/connector`. Never invent a Polar checkout URL.
+- Documented Polar checkout: `https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk`. Ask the Bot in plain language, then redeem on the install. Never invent another Polar checkout URL.
 - Do not name Ryze in served HTML.
 - Install: `grok plugin install dgtlsunrise/dgtl-connector`. That string must render in HTML without JavaScript.
 - Footer on every page: © 2026 Sunrise Consulting LLC · contact@dgtlsunrise.com · support@dgtlsunrise.com · Engagements · Privacy · Terms.

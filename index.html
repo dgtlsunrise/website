@@ -180,6 +180,16 @@ npm run build</code></pre>
     <p class="section-label">Start with a map</p>
     <p class="section-body">Before you ask for numbers, ask the Bot to list what it can see: GA4 properties, Search Console sites, GTM accounts, or ad accounts. Then pick the one you mean in plain language. If you leave it vague, a careful Bot will ask which one. Do not let it guess among agency or client accounts.</p>
 
+    <p class="section-label">Starter prompt</p>
+    <p class="section-body">Paste this so the Bot knows you installed <code class="mono">dgtl-connector</code>, even if you come back weeks later. It should use those tools only, and it should not guess which account you mean.</p>
+    <div class="code-panel">
+      <div class="code-panel-bar">
+        <span>Starter prompt</span>
+        <button type="button" class="copy-btn" data-copy="#starter-prompt">Copy</button>
+      </div>
+      <pre><code id="starter-prompt">I installed the dgtl-connector plugin (DGTL Sunrise). Connect Google if it is not connected yet. Using dgtl-connector tools only, list every marketing account the plugin can see: GA4 properties, Search Console sites, Tag Manager accounts and containers, plus Shopify, Klaviyo, or ad accounts if those are connected. Do not guess or pick a default. Summarize what is connected, what looks healthy, and the top three questions I should ask next. Keep it short. Do not change anything live.</code></pre>
+    </div>
+
     <p class="section-label">Ask for decisions, not dumps</p>
     <p class="section-body">Short, specific asks beat vague ones. Prefer a date range, a comparison, and the decision you need. Examples that work well:</p>
     <ul>
@@ -194,7 +204,9 @@ npm run build</code></pre>
     <p class="section-body">When you Connect Google for Free features, you grant all Free Google permissions in that one Connect. The plugin expects those permissions before Free Google tools are useful. Live changes still need your confirmation. Treat chat as a draft surface: approve publishes, pauses, budget moves, and catalog edits the same way you would approve a pull request.</p>
 
     <p class="section-label">Free first, Pro when you need ads</p>
-    <p class="section-body">Use Free Google Analytics 4, Search Console, and Tag Manager on your machine with no DGTL account. Add Pro when you need Google Ads, Meta, or TikTok through the hosted gateway, or Merchant Center on the Pro path. Keep tokens and license keys out of chat. Put them only where the install expects them.</p>
+    <p class="section-body">Use Free Google Analytics 4, Search Console, and Tag Manager on your machine with no DGTL account. Add Pro when you need Google Ads, Meta, or TikTok through the hosted gateway, or Merchant Center on the Pro path.</p>
+    <p class="section-body">When you need those Pro paths, ask the Bot in plain language. Examples that work: "Upgrade me to DGTL Pro" or "I need Google Ads through dgtl-connector". The Bot should walk Polar checkout at $19 / month, then redeem the license on your install. Do not paste a license token into chat. After Pro is on the install, Connect Ads or Meta as needed.</p>
+    <p class="section-body">Polar checkout: <a href="https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk">https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk</a>. Homepage: <a href="https://www.dgtlsunrise.com/">https://www.dgtlsunrise.com/</a>. Keep tokens and license keys out of chat. Put them only where the install expects them.</p>
 
     <p class="note">Never paste access tokens, refresh tokens, or license keys into chat.</p>
 
@@ -227,7 +239,7 @@ npm run build</code></pre>
     <p class="section-label">Edit</p>
     <p class="section-body">Manage property settings the tools support (data streams, key events, custom definitions, and Measurement Protocol secrets where enabled). Connect Google once with all Free permissions up front. Live changes need your confirmation.</p>
     <p class="section-label">Requirements</p>
-    <p class="section-body">Free. Connect Google. Live edits need writes enabled on your install, plus confirmation.</p>
+    <p class="section-body">Free. Connect Google. Live edits need your confirmation.</p>
     <p class="section-label">Example asks</p>
     <ul>
       <li>List my GA4 properties.</li>
@@ -247,7 +259,7 @@ npm run build</code></pre>
     <p class="section-label">Edit</p>
     <p class="section-body">Submit or delete sitemaps after you confirm. Connect Google once with all Free permissions up front.</p>
     <p class="section-label">Requirements</p>
-    <p class="section-body">Free. Connect Google. The site must already appear in Search Console for that account. Live edits need writes enabled on your install, plus confirmation.</p>
+    <p class="section-body">Free. Connect Google. The site must already appear in Search Console for that account. Live edits need your confirmation.</p>
     <p class="section-label">Example asks</p>
     <ul>
       <li>Which Search Console sites can I access?</li>
@@ -267,7 +279,7 @@ npm run build</code></pre>
     <p class="section-label">Edit</p>
     <p class="section-body">Create and update tags, triggers, and variables. Publish a container. Connect Google once with all Free permissions up front. Live changes need your confirmation.</p>
     <p class="section-label">Requirements</p>
-    <p class="section-body">Free. Connect Google. Live edits and publishes need writes enabled on your install, plus confirmation.</p>
+    <p class="section-body">Free. Connect Google. Live edits and publishes need your confirmation.</p>
     <p class="section-label">Example asks</p>
     <ul>
       <li>List my GTM containers.</li>
@@ -360,13 +372,13 @@ npm run build</code></pre>
     <!-- Shopify -->
     <h2 id="shopify">Shopify</h2>
     <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent about your shop, catalog, orders, inventory, publications, and product feeds. Inventory and product-set writes are available when those write paths are enabled on your install.</p>
+    <p class="section-body">Ask your agent about your shop, catalog, orders, inventory, publications, and product feeds. Inventory and product-set writes wait for your confirmation.</p>
     <p class="section-label">Read</p>
     <p class="section-body">Shop details. Products. Orders. Locations. Inventory levels. Publications and catalogs. Product feeds.</p>
     <p class="section-label">Edit</p>
     <p class="section-body">Adjust inventory. Create or update products with a product set. Nothing goes live until you approve it.</p>
     <p class="section-label">Requirements</p>
-    <p class="section-body">Connect Shopify on the install. Live edits need writes enabled on your install, plus confirmation.</p>
+    <p class="section-body">Connect Shopify on the install. Live edits need your confirmation.</p>
     <p class="section-label">Example asks</p>
     <ul>
       <li>What is my shop name and domain?</li>
@@ -381,7 +393,7 @@ npm run build</code></pre>
     <!-- Klaviyo -->
     <h2 id="klaviyo">Klaviyo</h2>
     <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent about your Klaviyo account, lists, segments, flows, campaigns, catalog, and reviews. When writes are enabled on your install, it can create a draft email campaign, send an existing draft after you confirm, and update profiles or catalog items.</p>
+    <p class="section-body">Ask your agent about your Klaviyo account, lists, segments, flows, campaigns, catalog, and reviews. It can create a draft email campaign, send an existing draft after you confirm, and update profiles or catalog items.</p>
     <p class="section-label">Read</p>
     <p class="section-body">Open the account. List profiles (sparse fields only). Show lists, segments, flows, campaigns, and metrics. List catalog items, categories, and variants. List reviews.</p>
     <p class="section-label">Edit</p>

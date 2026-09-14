@@ -81,10 +81,14 @@ check(/href="#install"/.test(toc), "home toc has install");
 check(/href="#how-to-use"/.test(toc), "home toc has how-to-use");
 check(index.includes("A Grok Bot plugin that connects your Bot"), "home lede is Grok Bot plugin");
 check(index.includes("Start with a map"), "home how-to has Start with a map");
+check(index.includes("Starter prompt"), "home how-to has Starter prompt");
+check(index.includes("I installed the dgtl-connector plugin"), "home starter prompt names dgtl-connector");
 check(index.includes("Ask for decisions, not dumps"), "home how-to has Ask for decisions");
 check(index.includes("Confirm before live changes"), "home how-to Confirm before live changes");
 check(index.includes("Connect Google once with all Free permissions up front"), "home Free Connect is all permissions up front");
+check(index.includes("Upgrade me to DGTL Pro"), "home Pro upgrade is by asking the Bot");
 check(!/enable writes on the install/i.test(index), "home does not say enable writes on the install");
+check(!/\/dgtl-connector\s+-pro/.test(index), "home does not invent a Pro slash command");
 
 check((index.match(/<nav class="contents"/g) || []).length === 1, "home has one contents nav");
 check(index.indexOf('aria-label="Contents"') < index.indexOf('id="install"'), "home contents before install");
@@ -148,6 +152,11 @@ check(/Creating a draft does not send it/.test(klaviyo), "Klaviyo draft-create d
 check(/product inputs/.test(merchant) && !/Not in this version/.test(merchant), "MC documents product-input edits");
 check(/Not in this version/.test(gbp), "GBP edit still not in this version");
 check(/Publications and catalogs/.test(shopify) && /product set/.test(shopify), "Shopify publications and product set");
+check(
+  !/writes enabled on your install/.test(section("google-analytics-4") + section("google-search-console") + section("google-tag-manager") + shopify + klaviyo),
+  "Free GA4/GSC/GTM/Shopify/Klaviyo are confirmation-only"
+);
+check(/writes enabled on your install/.test(merchant), "MC still documents writes enabled");
 check(/catalogs/.test(meta) && /Conversions API/.test(meta), "Meta catalogs and Conversions API");
 check(/catalogs/.test(tiktok) && /Events API/.test(tiktok), "TikTok catalogs and Events API");
 
@@ -209,8 +218,11 @@ for (const file of ["llms.txt", "llms-full.txt", "docs/llms.txt"]) {
   check(/No DGTL Sunrise account is required/.test(text(file)), `${file} no account required`);
 }
 
+const POLAR_CHECKOUT = "https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk";
+check(index.includes(POLAR_CHECKOUT), "home documents Polar checkout");
+const polarUrls = [...publicFacing.matchAll(/https?:\/\/[^\s"'<>\)]*polar[^\s"'<>\)]*/gi)].map((m) => m[0].replace(/[.,]$/, ""));
+check(polarUrls.length > 0 && polarUrls.every((u) => u === POLAR_CHECKOUT), "only documented Polar checkout URL");
 check(!/Ryze/i.test(allServed), "no Ryze in served HTML");
-check(!/https?:\/\/[^\s"'<>]*polar[^\s"'<>]*/i.test(allServed), "no Polar URL");
 check(!/dual-?door|Two doors|Install it, or hire us/i.test(allServed), "no dual-door copy");
 check(text("developers.html").includes("DGTL Sunrise developer resources"), "developers page exists");
 check(text("developers.md").includes("DGTL Sunrise developer resources"), "developers.md exists");

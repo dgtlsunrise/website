@@ -20,7 +20,7 @@ Use this site and the dgtl-connector plugin when an agent needs to connect to ma
 - Inventing metrics, rows, or insights the APIs did not return.
 - Asking anyone to paste access tokens, refresh tokens, or license keys into chat.
 - Treating plugin output as legal, compliance, or financial advice.
-- Inventing Polar checkout URLs beyond the documented stamp checkout path.
+- Inventing Polar checkout URLs beyond the documented Polar checkout: https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk
 
 ## Install and loop
 
@@ -96,6 +96,14 @@ DGTL Sunrise is an AI-first marketing engineer agency. Sunrise Consulting LLC sh
 
 Before you ask for numbers, ask the Bot to list what it can see: GA4 properties, Search Console sites, GTM accounts, or ad accounts. Then pick the one you mean in plain language. If you leave it vague, a careful Bot will ask which one. Do not let it guess among agency or client accounts.
 
+### Starter prompt
+
+Paste this so the Bot knows you installed `dgtl-connector`, even if you come back weeks later. It should use those tools only, and it should not guess which account you mean.
+
+```
+I installed the dgtl-connector plugin (DGTL Sunrise). Connect Google if it is not connected yet. Using dgtl-connector tools only, list every marketing account the plugin can see: GA4 properties, Search Console sites, Tag Manager accounts and containers, plus Shopify, Klaviyo, or ad accounts if those are connected. Do not guess or pick a default. Summarize what is connected, what looks healthy, and the top three questions I should ask next. Keep it short. Do not change anything live.
+```
+
 ### Ask for decisions, not dumps
 
 Short, specific asks beat vague ones. Prefer a date range, a comparison, and the decision you need. Examples that work well:
@@ -113,7 +121,15 @@ When you Connect Google for Free features, you grant all Free Google permissions
 
 ### Free first, Pro when you need ads
 
-Use Free Google Analytics 4, Search Console, and Tag Manager on your machine with no DGTL account. Add Pro when you need Google Ads, Meta, or TikTok through the hosted gateway, or Merchant Center on the Pro path. Keep tokens and license keys out of chat. Put them only where the install expects them.
+Use Free Google Analytics 4, Search Console, and Tag Manager on your machine with no DGTL account. Add Pro when you need Google Ads, Meta, or TikTok through the hosted gateway, or Merchant Center on the Pro path.
+
+When you need those Pro paths, ask the Bot in plain language. Examples that work: "Upgrade me to DGTL Pro" or "I need Google Ads through dgtl-connector". The Bot should walk Polar checkout at $19 / month, then redeem the license on your install. Do not paste a license token into chat. After Pro is on the install, Connect Ads or Meta as needed.
+
+Polar checkout: https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk
+
+Homepage: https://www.dgtlsunrise.com/
+
+Keep tokens and license keys out of chat. Put them only where the install expects them.
 
 Never paste access tokens, refresh tokens, or license keys into chat.
 
@@ -133,7 +149,7 @@ Use this site and the dgtl-connector plugin when an agent needs to connect to ma
 - Inventing metrics, rows, or insights the APIs did not return.
 - Asking anyone to paste access tokens, refresh tokens, or license keys into chat.
 - Treating plugin output as legal, compliance, or financial advice.
-- Inventing Polar checkout URLs beyond the documented stamp checkout path.
+- Inventing Polar checkout URLs beyond the documented Polar checkout: https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk
 
 ## Install and loop
 
