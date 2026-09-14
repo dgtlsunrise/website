@@ -81,7 +81,12 @@ check(index.includes('class="page-landing"'), "home uses landing body class");
 check(index.includes("/assets/landing.css"), "home imports landing.css");
 check(index.includes('class="tile-grid"'), "home has tile grid");
 check(/Example conversation/.test(index) && /demo transcript/i.test(index), "home has labeled example conversation");
-check(index.includes("Published after your approval"), "home example conversation ends applied");
+check(index.includes("Applied after your approval"), "home example conversation ends applied");
+check(/keyword pause list for campaign C/.test(index), "home demo drafts a keyword pause");
+check(index.includes('class="bot-window"') && index.includes('class="agent-list"') && index.includes('class="composer"'), "home embeds Bot app chrome");
+check(index.includes("DGTL Connector") && index.includes("Message DGTL Connector"), "home demo bot is DGTL Connector");
+check(!/Armand|Sales Outbound|Inbox Manager/i.test(index), "home demo is not x.ai marketing cast");
+check(!/cdn\.x\.ai|assets\.x\.ai|grok-bot.*\.(svg|css|js)/i.test(index + text("assets/landing.css")), "home does not hotlink x.ai assets");
 check(!/not live yet/i.test(index), "home has no not-live-yet caveat");
 check(!/expect .{0,80} soon/i.test(index), "home has no expect-soon caveat");
 check(!/Your data stays yours/.test(index), "home dropped data-stays-yours paragraph");
@@ -276,7 +281,7 @@ check(text("llms.txt").includes("DGTL Connector by DGTL Sunrise"), "llms.txt nam
 check(text("llms.txt").includes("/developers"), "llms.txt links developers");
 
 check(!/scanfield|tag-match|data-demo|Watch it work/i.test(allServed), "no MATCH/demo theater");
-check(!/Grok Bot<\/span>|chrome__bar|bubble--bot/i.test(index), "home example conversation is not Grok chrome");
+check(!/Grok Bot<\/span>|chrome__bar|bubble--bot/i.test(index), "home chrome uses owned class names");
 check(!/Talk<\/a>/.test(allServed) && !primaryNav(index).includes("Engagements"), "no Talk or Engagements in primary nav");
 
 check(!/Consent [AWCGBS]\b/.test(publicFacing), "no internal Consent labels on public HTML/md/json/llms");

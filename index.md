@@ -16,13 +16,13 @@ This is a demo transcript with example numbers. It is not a live chat and not a 
 
 **Bot.** Example numbers for property 123456789, last 28 days versus the prior 28. Sessions 12,480 versus 11,210. Conversions 186 versus 201. Sessions are up. Conversions are down. The largest landing-page drop is /pricing.
 
-**You.** Draft a change on container GTM-XXXX so the conversion tag fires on /thank-you. Do not publish until I approve.
+**You.** Draft a keyword pause list for campaign C where cost is high and conversions are zero for 14 days. Do not push live until I approve.
 
-**Bot.** Draft is in the workspace only. New trigger: Page Path equals /thank-you. The existing conversion tag uses that trigger. Live container is unchanged.
+**Bot.** Draft pause list is in the workspace only. 12 keywords in campaign C with spend and zero conversions over 14 days. Live account is unchanged.
 
-**You.** Approve. Publish that workspace.
+**You.** Approve.
 
-**Bot.** Published after your approval. Live container version is now 14. The conversion tag fires on /thank-you.
+**Bot.** Applied after your approval. Those 12 keywords are paused in campaign C.
 
 ## Contents
 
