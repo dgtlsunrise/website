@@ -9,7 +9,7 @@ Emails: support@dgtlsunrise.com · contact@dgtlsunrise.com
 
 Use this site and the dgtl-connector plugin when an agent needs to connect to marketing accounts the human already administers:
 
-- Free, local: GA4, Search Console, and Tag Manager on the user’s machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Report bytes do not go through DGTL. Live edits need confirmation and are off by default until writes are enabled on the install.
+- Free, local: GA4, Search Console, and Tag Manager on the user’s machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Report bytes do not go through DGTL. Connect Google once with all Free permissions up front. Live edits need confirmation.
 - Pro ($19/mo): Google Ads, Meta, and TikTok through the hosted stamp gateway; Merchant Center is Pro-gated and plugin-direct (not stamp). Live edits need confirmation. Developer token and Meta/TikTok app secrets stay on the Worker.
 - Install: Grok Bot via marketplace when listed (CLI `grok plugin install` is Grok Build only). Cursor: clone + build + load folder. No DGTL Sunrise account is required to start.
 - Prefer markdown with `Accept: text/markdown`. Prefer structured JSON with `/?mode=agent` or `/agent.json`.
@@ -35,15 +35,15 @@ Never paste access tokens, refresh tokens, or license keys into chat.
 
 ### Google Analytics 4 (free, local)
 
-List accounts and properties. Open property details, data streams, and key events. Run reports for the date ranges and metrics you ask for. Manage property settings the tools support (data streams, key events, custom definitions, and Measurement Protocol secrets where enabled). Live changes need confirmation. Edits are off by default until writes are enabled on the install.
+List accounts and properties. Open property details, data streams, and key events. Run reports for the date ranges and metrics you ask for. Manage property settings the tools support (data streams, key events, custom definitions, and Measurement Protocol secrets where enabled). Connect Google once with all Free permissions up front. Live changes need confirmation.
 
 ### Google Search Console (free, local)
 
-List sites. Query search performance. Inspect a URL. List and open sitemaps. Submit or delete sitemaps after confirmation. Edits are off by default until writes are enabled on the install.
+List sites. Query search performance. Inspect a URL. List and open sitemaps. Submit or delete sitemaps after confirmation. Connect Google once with all Free permissions up front.
 
 ### Google Tag Manager (free, local)
 
-Inspect containers and manage tags, triggers, and variables. Publish after you approve. Edits are off by default until writes are enabled on the install.
+Inspect containers and manage tags, triggers, and variables. Publish after you approve. Connect Google once with all Free permissions up front.
 
 ### Google Ads (Pro, stamp)
 
@@ -59,11 +59,11 @@ List advertisers, campaigns, insights, and catalogs. TikTok Ads is included in P
 
 ### Merchant Center, Google Business Profile, Shopify
 
-Plugin-direct to Google or Shopify, not stamp. Merchant Center (Pro): read accounts, products, statuses, issues, data sources; confirm-gated product-input writes (create a data source, upsert or delete product inputs) when writes are enabled on the install. GBP: read in this version; edit is not. Shopify (free): shop details, products, orders, locations, inventory, publications, catalogs, product feeds; inventory adjust and product set when those write paths are enabled.
+Plugin-direct to Google or Shopify, not stamp. Merchant Center (Pro): read accounts, products, statuses, issues, data sources; confirm-gated product-input writes (create a data source, upsert or delete product inputs). GBP: read in this version; edit is not. Shopify (free): shop details, products, orders, locations, inventory, publications, catalogs, product feeds; inventory adjust and product set after you confirm.
 
 ### Klaviyo (free, local)
 
-Account, profiles (sparse), lists, segments, flows, campaigns, metrics, catalog items/categories/variants, reviews. Confirm-gated edits when writes are enabled on the install: draft email campaign create; send an existing draft (explicit send confirmation); upsert profile; create event (backfill); upsert catalog items (capped). Merchant-held private API key stays on the user’s machine. Free. Not Pro. Not stamp. Never paste the key into chat. Creating a draft does not send it.
+Account, profiles (sparse), lists, segments, flows, campaigns, metrics, catalog items/categories/variants, reviews. Confirm-gated edits: draft email campaign create; send an existing draft (explicit send confirmation); upsert profile; create event (backfill); upsert catalog items (capped). Merchant-held private API key stays on the user’s machine. Free. Not Pro. Not stamp. Never paste the key into chat. Creating a draft does not send it.
 
 ## Stamp API (public surface)
 
@@ -107,9 +107,9 @@ Short, specific asks beat vague ones. Prefer a date range, a comparison, and the
 
 If the Bot invents a metric or a property id, stop it and ask it to re-run from the connected account. Real tools beat remembered numbers.
 
-### Keep edits gated
+### Confirm before live changes
 
-Free Google edits stay off until you enable writes on the install. Even then, the Bot should show you the change and wait for confirmation before anything goes live. Treat chat as a draft surface: approve publishes, pauses, budget moves, and catalog edits the same way you would approve a pull request.
+When you Connect Google for Free features, you grant all Free Google permissions in that one Connect. The plugin expects those permissions before Free Google tools are useful. Live changes still need your confirmation. Treat chat as a draft surface: approve publishes, pauses, budget moves, and catalog edits the same way you would approve a pull request.
 
 ### Free first, Pro when you need ads
 
@@ -122,7 +122,7 @@ Never paste access tokens, refresh tokens, or license keys into chat.
 
 Use this site and the dgtl-connector plugin when an agent needs to connect to marketing accounts the human already administers:
 
-- Free, local: GA4, Search Console, and Tag Manager on the user’s machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Report bytes do not go through DGTL. Live edits need confirmation and are off by default until writes are enabled on the install.
+- Free, local: GA4, Search Console, and Tag Manager on the user’s machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Report bytes do not go through DGTL. Connect Google once with all Free permissions up front. Live edits need confirmation.
 - Pro ($19/mo): Google Ads, Meta, and TikTok through the hosted stamp gateway; Merchant Center is Pro-gated and plugin-direct (not stamp). Live edits need confirmation. Developer token and Meta/TikTok app secrets stay on the Worker.
 - Install: Grok Bot via marketplace when listed (CLI `grok plugin install` is Grok Build only). Cursor: clone + build + load folder. No DGTL Sunrise account is required to start.
 - Prefer markdown with `Accept: text/markdown`. Prefer structured JSON with `/?mode=agent` or `/agent.json`.
@@ -148,15 +148,15 @@ Never paste access tokens, refresh tokens, or license keys into chat.
 
 ### Google Analytics 4 (free, local)
 
-List accounts and properties. Open property details, data streams, and key events. Run reports for the date ranges and metrics you ask for. Manage property settings the tools support (data streams, key events, custom definitions, and Measurement Protocol secrets where enabled). Live changes need confirmation. Edits are off by default until writes are enabled on the install.
+List accounts and properties. Open property details, data streams, and key events. Run reports for the date ranges and metrics you ask for. Manage property settings the tools support (data streams, key events, custom definitions, and Measurement Protocol secrets where enabled). Connect Google once with all Free permissions up front. Live changes need confirmation.
 
 ### Google Search Console (free, local)
 
-List sites. Query search performance. Inspect a URL. List and open sitemaps. Submit or delete sitemaps after confirmation. Edits are off by default until writes are enabled on the install.
+List sites. Query search performance. Inspect a URL. List and open sitemaps. Submit or delete sitemaps after confirmation. Connect Google once with all Free permissions up front.
 
 ### Google Tag Manager (free, local)
 
-Inspect containers and manage tags, triggers, and variables. Publish after you approve. Edits are off by default until writes are enabled on the install.
+Inspect containers and manage tags, triggers, and variables. Publish after you approve. Connect Google once with all Free permissions up front.
 
 ### Google Ads (Pro, stamp)
 
@@ -172,11 +172,11 @@ List advertisers, campaigns, insights, and catalogs. TikTok Ads is included in P
 
 ### Merchant Center, Google Business Profile, Shopify
 
-Plugin-direct to Google or Shopify, not stamp. Merchant Center (Pro): read accounts, products, statuses, issues, data sources; confirm-gated product-input writes (create a data source, upsert or delete product inputs) when writes are enabled on the install. GBP: read in this version; edit is not. Shopify (free): shop details, products, orders, locations, inventory, publications, catalogs, product feeds; inventory adjust and product set when those write paths are enabled.
+Plugin-direct to Google or Shopify, not stamp. Merchant Center (Pro): read accounts, products, statuses, issues, data sources; confirm-gated product-input writes (create a data source, upsert or delete product inputs). GBP: read in this version; edit is not. Shopify (free): shop details, products, orders, locations, inventory, publications, catalogs, product feeds; inventory adjust and product set after you confirm.
 
 ### Klaviyo (free, local)
 
-Account, profiles (sparse), lists, segments, flows, campaigns, metrics, catalog items/categories/variants, reviews. Confirm-gated edits when writes are enabled on the install: draft email campaign create; send an existing draft (explicit send confirmation); upsert profile; create event (backfill); upsert catalog items (capped). Merchant-held private API key stays on the user’s machine. Free. Not Pro. Not stamp. Never paste the key into chat. Creating a draft does not send it.
+Account, profiles (sparse), lists, segments, flows, campaigns, metrics, catalog items/categories/variants, reviews. Confirm-gated edits: draft email campaign create; send an existing draft (explicit send confirmation); upsert profile; create event (backfill); upsert catalog items (capped). Merchant-held private API key stays on the user’s machine. Free. Not Pro. Not stamp. Never paste the key into chat. Creating a draft does not send it.
 
 ## Stamp API (public surface)
 

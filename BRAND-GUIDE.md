@@ -17,7 +17,7 @@ Steal nothing from Composio. Do not restyle the old theater in indigo. Delete it
 ## 2. Product locks (do not drift)
 
 - Company = DGTL Sunrise. The offering on `/` is dgtl-connector, not a second company name.
-- Free = local GA4 / GSC / GTM (read and manage). Tokens and report bytes never go through DGTL on the free path. Live edits need confirmation and are off by default until writes are enabled on the install.
+- Free = local GA4 / GSC / GTM (read and manage). Tokens and report bytes never go through DGTL on the free path. Connect Google once with all Free permissions up front. Live edits need confirmation.
 - Pro = $19/mo, Ads and Meta hosted gateway only. One Polar customer. Same human, more than one host, is fine. No employee seats. Unlimited ad accounts under that human's OAuth.
 - Server-side GTM is not in this version.
 - Point Pro at `/connector#pro` and `https://www.dgtlsunrise.com/connector`. Never invent a Polar checkout URL.

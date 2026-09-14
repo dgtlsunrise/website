@@ -2,7 +2,7 @@
 
 Audience: a founder or marketer who already has GA4, Search Console, or Tag Manager, and wants those products in the agent they already use (read and manage).
 
-Purpose: dgtl-connector is a free local Grok plugin. You install it, connect accounts you administer, then read and manage those products. Live edits need confirmation and are off by default until writes are enabled on the install. DGTL Sunrise is the company that ships that plugin and, for a fee, a hosted Ads and Meta gateway.
+Purpose: dgtl-connector is a free local Grok plugin. You install it, connect accounts you administer, then read and manage those products. Connect Google once with all Free permissions up front. Live edits need confirmation. DGTL Sunrise is the company that ships that plugin and, for a fee, a hosted Ads and Meta gateway.
 
 Not: a dual-door brochure, a plugin company name on `/`, a personal brand, a staff count, invented metrics.
 
@@ -28,7 +28,7 @@ Primary nav is Connector plus Install. Talk and Engagements stay out of primary 
 3. Pull
 4. Analyze
 5. Recommend
-6. Confirm a live edit or publish when the tools support it (edits off by default until writes are enabled)
+6. Confirm a live edit or publish when the tools support it
 
 Free is self-hosted. Free GA4, Search Console, and Tag Manager are read and manage on the machine. On the free path, tokens and report bytes never go through DGTL. The platform talks to the agent on the machine you installed.
 

@@ -82,7 +82,9 @@ check(/href="#how-to-use"/.test(toc), "home toc has how-to-use");
 check(index.includes("A Grok Bot plugin that connects your Bot"), "home lede is Grok Bot plugin");
 check(index.includes("Start with a map"), "home how-to has Start with a map");
 check(index.includes("Ask for decisions, not dumps"), "home how-to has Ask for decisions");
-check(index.includes("Keep edits gated"), "home how-to has Keep edits gated");
+check(index.includes("Confirm before live changes"), "home how-to Confirm before live changes");
+check(index.includes("Connect Google once with all Free permissions up front"), "home Free Connect is all permissions up front");
+check(!/enable writes on the install/i.test(index), "home does not say enable writes on the install");
 
 check((index.match(/<nav class="contents"/g) || []).length === 1, "home has one contents nav");
 check(index.indexOf('aria-label="Contents"') < index.indexOf('id="install"'), "home contents before install");

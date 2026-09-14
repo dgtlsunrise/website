@@ -88,9 +88,9 @@ Short, specific asks beat vague ones. Prefer a date range, a comparison, and the
 
 If the Bot invents a metric or a property id, stop it and ask it to re-run from the connected account. Real tools beat remembered numbers.
 
-### Keep edits gated
+### Confirm before live changes
 
-Free Google edits stay off until you enable writes on the install. Even then, the Bot should show you the change and wait for confirmation before anything goes live. Treat chat as a draft surface: approve publishes, pauses, budget moves, and catalog edits the same way you would approve a pull request.
+When you Connect Google for Free features, you grant all Free Google permissions in that one Connect. The plugin expects those permissions before Free Google tools are useful. Live changes still need your confirmation. Treat chat as a draft surface: approve publishes, pauses, budget moves, and catalog edits the same way you would approve a pull request.
 
 ### Free first, Pro when you need ads
 
@@ -102,7 +102,7 @@ Never paste access tokens, refresh tokens, or license keys into chat.
 
 **What is free.** Install the plugin and connect the marketing accounts you already use. No DGTL Sunrise account is required.
 
-- Free Google Analytics 4, Search Console, and Tag Manager run on your machine (read and manage). Edits stay off until you enable writes on the install, and nothing goes live until you approve it. Report bytes stay on your machine and do not go through DGTL.
+- Free Google Analytics 4, Search Console, and Tag Manager run on your machine (read and manage). Connect Google once with all Free permissions up front. Nothing goes live until you approve it. Report bytes stay on your machine and do not go through DGTL.
 - Klaviyo uses a private API key you hold on the install. Free. Not Pro. The key stays on your machine.
 - Shopify connects on the install. Catalog and inventory changes wait for your approval.
 - Google Business Profile can be read when that path is available. Edit is not in this version.
@@ -121,11 +121,11 @@ Nothing is published or changed on your ad accounts until you review and approve
 
 ### Google Analytics 4
 
-Ask your agent for GA4 properties, reports, and property settings the tools support. List accounts and properties. Open property details, data streams, and key events. Run reports for the date ranges and metrics you ask for. Manage property settings the tools support (data streams, key events, custom definitions, and Measurement Protocol secrets where enabled). Live changes need your confirmation. Edits are off by default until you enable writes on the install. Free. Connect Google.
+Ask your agent for GA4 properties, reports, and property settings the tools support. List accounts and properties. Open property details, data streams, and key events. Run reports for the date ranges and metrics you ask for. Manage property settings the tools support (data streams, key events, custom definitions, and Measurement Protocol secrets where enabled). Connect Google once with all Free permissions up front. Live changes need your confirmation. Free. Connect Google.
 
 ### Google Search Console
 
-Ask about verified sites, queries, URL indexing status, and sitemaps. List sites. Query search performance. Inspect a URL. List and open sitemaps. Submit or delete sitemaps after you confirm. Edits are off by default until you enable writes on the install. Free. Connect Google.
+Ask about verified sites, queries, URL indexing status, and sitemaps. List sites. Query search performance. Inspect a URL. List and open sitemaps. Submit or delete sitemaps after you confirm. Connect Google once with all Free permissions up front. Free. Connect Google.
 
 ### Google Tag Manager
 
@@ -141,7 +141,7 @@ With Pro, ask for ad account insights and, when Meta access allows, create or up
 
 ### Merchant Center
 
-With Pro, list accounts, products, statuses, account issues, and data sources. Create a data source. Upsert or delete product inputs. Writes stay off until you enable them on the install, and nothing goes live until you approve it. Pro ($19 / month). Connect the Google account that owns Merchant Center. Calls stay on your machine; this is not the Ads/Meta/TikTok Worker hop.
+With Pro, list accounts, products, statuses, account issues, and data sources. Create a data source. Upsert or delete product inputs. Nothing goes live until you approve it. Pro ($19 / month). Connect the Google account that owns Merchant Center. Calls stay on your machine; this is not the Ads/Meta/TikTok Worker hop.
 
 ### Google Business Profile
 
@@ -149,7 +149,7 @@ List accounts and locations. Performance and search keywords. Edit is not in thi
 
 ### Shopify
 
-Shop details, products, orders, locations, inventory, publications, catalogs, and product feeds. Adjust inventory. Create or update products with a product set. Those write paths stay off until you enable them on the install, and nothing goes live until you approve it.
+Shop details, products, orders, locations, inventory, publications, catalogs, and product feeds. Adjust inventory. Create or update products with a product set. Nothing goes live until you approve it.
 
 ### Klaviyo
 
@@ -157,7 +157,7 @@ Shop details, products, orders, locations, inventory, publications, catalogs, an
 
 **Read.** Open the account. List profiles (sparse fields only). Show lists, segments, flows, campaigns, and metrics. List catalog items, categories, and variants. List reviews.
 
-**Edit.** Create a draft email campaign. Send an existing draft. That send needs its own confirmation. Upsert a profile. Create an event for backfill. Upsert catalog items (capped). Writes stay off until you enable them on the install, and nothing goes live until you approve it.
+**Edit.** Create a draft email campaign. Send an existing draft. That send needs its own confirmation. Upsert a profile. Create an event for backfill. Upsert catalog items (capped). Nothing goes live until you approve it.
 
 **Requirements.** Free. This is not a Pro feature. Connect Klaviyo with a private API key you hold on the install. That key stays on your machine. Never paste the key into chat.
 

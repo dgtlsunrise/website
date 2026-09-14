@@ -16,7 +16,7 @@
     "notes": "No DGTL Sunrise account is required to start. Never paste access tokens, refresh tokens, or license keys into chat. See /developers for MCP manifests."
   },
   "authentication": {
-    "free": "Connect Google on the machine for GA4, Search Console, and Tag Manager (read and manage). Klaviyo uses a merchant-held private API key stored locally. Report bytes do not go through DGTL. Live edits need confirmation and are off by default until writes are enabled on the install.",
+    "free": "Connect Google on the machine for GA4, Search Console, and Tag Manager (read and manage). Klaviyo uses a merchant-held private API key stored locally. Report bytes do not go through DGTL. Connect Google once with all Free permissions up front. Live edits need confirmation.",
     "pro": "A Pro license unlocks Google Ads, Meta, and TikTok in the plugin. Platform credentials required for those Pro paths stay off the public plugin package. Live changes stay confirm-gated.",
     "rules": [
       "Never paste access tokens, refresh tokens, or license keys into chat.",
@@ -34,21 +34,21 @@
       "tier": "free",
       "read": true,
       "write": "confirm-gated when writes are enabled",
-      "notes": "Local on the user machine. List accounts and properties; property details, data streams, key events; run reports. Manage property settings the tools support (data streams, key events, custom definitions, Measurement Protocol secrets where enabled). Live edits need confirmation and are off by default until writes are enabled on the install."
+      "notes": "Local on the user machine. List accounts and properties; property details, data streams, key events; run reports. Manage property settings the tools support (data streams, key events, custom definitions, Measurement Protocol secrets where enabled). Connect Google once with all Free permissions up front. Live edits need confirmation."
     },
     {
       "platform": "Google Search Console",
       "tier": "free",
       "read": true,
       "write": "confirm-gated sitemap submit/delete when writes are enabled",
-      "notes": "Local. List sites; query search performance; inspect a URL; list and open sitemaps. Submit or delete sitemaps after confirmation. Edits are off by default until writes are enabled on the install."
+      "notes": "Local. List sites; query search performance; inspect a URL; list and open sitemaps. Submit or delete sitemaps after confirmation. Connect Google once with all Free permissions up front."
     },
     {
       "platform": "Google Tag Manager",
       "tier": "free",
       "read": true,
       "write": "confirm-gated when writes are enabled",
-      "notes": "Local. Inspect containers and manage tags, triggers, and variables. Publish after confirmation. Edits are off by default until writes are enabled on the install."
+      "notes": "Local. Inspect containers and manage tags, triggers, and variables. Publish after confirmation. Connect Google once with all Free permissions up front."
     },
     {
       "platform": "Google Ads",
@@ -76,7 +76,7 @@
       "tier": "pro",
       "read": true,
       "write": "confirm-gated when writes are enabled",
-      "notes": "Pro ($19/mo). Plugin-direct Google (not stamp). Reads: accounts, products, statuses, issues, data sources. Writes: create a data source; upsert or delete product inputs. Confirm-gated. Writes off by default until enabled on the install."
+      "notes": "Pro ($19/mo). Plugin-direct Google (not stamp). Reads: accounts, products, statuses, issues, data sources. Writes: create a data source; upsert or delete product inputs. Confirm-gated. Nothing goes live until you approve it."
     },
     {
       "platform": "Google Business Profile",
