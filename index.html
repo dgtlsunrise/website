@@ -93,13 +93,25 @@
           <span class="brand-tagline">AI Marketing Engineering</span>
         </span>
       </a>
+      <nav class="header-nav" aria-label="Primary">
+        <a href="/about">About</a>
+        <a href="/developers">Developers</a>
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-pill" href="/contact">Contact</a>
+      </div>
     </div>
     <div class="logo-hairline" aria-hidden="true"></div>
   </header>
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
-      <p class="hero-kicker">DGTL Connector</p>
+      <a class="hero-kicker" href="#install">
+        <span class="hero-kicker-dot" aria-hidden="true">D</span>
+        DGTL Connector
+      </a>
       <h1 id="hero-title">Connect your Bot to the marketing accounts you already run.</h1>
       <p class="lede">A Grok Bot plugin that connects your Bot to Google, Meta, Shopify, Klaviyo, and TikTok marketing accounts. These connections let your Bot set up and manage accounts, pull reports, recommend changes, and push approved changes live after you review them. It also works with other MCP hosts such as Cursor and Claude Desktop.</p>
       <div class="hero-ctas">
@@ -111,47 +123,203 @@
     <section class="example-convo" aria-labelledby="example-convo-title">
       <div class="example-convo-intro">
         <p class="example-convo-label">Example conversation</p>
-        <h2 id="example-convo-title">A dgtl-connector session</h2>
+        <h2 class="visually-hidden" id="example-convo-title">A dgtl-connector session</h2>
         <p class="example-convo-note">This is a demo transcript with example numbers. It is not a live chat and not a customer story.</p>
       </div>
-      <figure class="transcript-panel">
-        <div class="transcript-band" aria-hidden="true"></div>
-        <figcaption class="visually-hidden">Demo transcript. Example numbers only.</figcaption>
-        <ol class="transcript">
-          <li class="turn turn-you">
-            <p class="turn-who">You</p>
-            <p class="turn-body">Connect Google if it is not connected yet. Using dgtl-connector tools only, list every marketing account you can see. Do not guess or pick a default.</p>
-          </li>
-          <li class="turn turn-bot">
-            <p class="turn-who">Bot</p>
-            <p class="turn-body">Google is connected. Example inventory: GA4 property 123456789 (example.com), Search Console sc-domain:example.com, and Tag Manager container GTM-XXXX. No other accounts on this install. Nothing changed live.</p>
-          </li>
-          <li class="turn turn-you">
-            <p class="turn-who">You</p>
-            <p class="turn-body">Compare last 28 days to the prior 28 for sessions and conversions on property 123456789.</p>
-          </li>
-          <li class="turn turn-bot">
-            <p class="turn-who">Bot</p>
-            <p class="turn-body">Example numbers for property 123456789, last 28 days versus the prior 28. Sessions 12,480 versus 11,210. Conversions 186 versus 201. Sessions are up. Conversions are down. The largest landing-page drop is /pricing.</p>
-          </li>
-          <li class="turn turn-you">
-            <p class="turn-who">You</p>
-            <p class="turn-body">Draft a change on container GTM-XXXX so the conversion tag fires on /thank-you. Do not publish until I approve.</p>
-          </li>
-          <li class="turn turn-bot">
-            <p class="turn-who">Bot</p>
-            <p class="turn-body">Draft is in the workspace only. New trigger: Page Path equals /thank-you. The existing conversion tag uses that trigger. Live container is unchanged.</p>
-          </li>
-          <li class="turn turn-you">
-            <p class="turn-who">You</p>
-            <p class="turn-body">Approve. Publish that workspace.</p>
-          </li>
-          <li class="turn turn-bot turn-applied">
-            <p class="turn-who">Bot · applied</p>
-            <p class="turn-body">Published after your approval. Live container version is now 14. The conversion tag fires on /thank-you.</p>
-          </li>
-        </ol>
+      <figure class="bot-window">
+        <figcaption class="visually-hidden">Demo transcript inside an example Bot window. Example numbers only.</figcaption>
+        <div class="bot-titlebar" aria-hidden="true">
+          <div class="traffic">
+            <i class="tl-r"></i>
+            <i class="tl-y"></i>
+            <i class="tl-g"></i>
+          </div>
+          <div class="bot-tabs">
+            <span class="bot-tab-add">+</span>
+            <span class="bot-tab">
+              <span class="avatar av-orange">D</span>
+              DGTL Connector
+            </span>
+          </div>
+          <span class="bot-title-spacer"></span>
+        </div>
+        <div class="bot-body">
+          <aside class="bot-sidebar" aria-hidden="true">
+            <div class="bot-search">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="7" cy="7" r="4.25" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M10.2 10.2 13.5 13.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+              Search
+            </div>
+            <ul class="agent-list">
+              <li class="agent-row is-selected">
+                <span class="avatar av-orange">D</span>
+                <div class="agent-copy">
+                  <div class="agent-top">
+                    <span class="agent-name">DGTL Connector</span>
+                    <span class="agent-time">12:22 PM</span>
+                  </div>
+                  <p class="agent-snip">Google connected. GA4, GSC, and GTM…</p>
+                </div>
+              </li>
+              <li class="agent-row">
+                <span class="avatar av-blue">A</span>
+                <div class="agent-copy">
+                  <div class="agent-top">
+                    <span class="agent-name">Analytics Review</span>
+                    <span class="agent-time">9:14 AM</span>
+                  </div>
+                  <p class="agent-snip">Sessions up, conversions down on /pricing…</p>
+                </div>
+              </li>
+              <li class="agent-row">
+                <span class="avatar av-purple">P</span>
+                <div class="agent-copy">
+                  <div class="agent-top">
+                    <span class="agent-name">Ads Operator</span>
+                    <span class="agent-time">8:02 AM</span>
+                  </div>
+                  <p class="agent-snip">Draft pause list ready for campaign C…</p>
+                </div>
+              </li>
+              <li class="agent-row">
+                <span class="avatar av-green">S</span>
+                <div class="agent-copy">
+                  <div class="agent-top">
+                    <span class="agent-name">Search Watch</span>
+                    <span class="agent-time">4:22 PM</span>
+                  </div>
+                  <p class="agent-snip">Queries gained impressions but lost clicks…</p>
+                </div>
+              </li>
+              <li class="agent-row">
+                <span class="avatar av-magenta">C</span>
+                <div class="agent-copy">
+                  <div class="agent-top">
+                    <span class="agent-name">Catalog Ops</span>
+                    <span class="agent-time">2:18 PM</span>
+                  </div>
+                  <p class="agent-snip">Merchant Center issues on 9 products…</p>
+                </div>
+              </li>
+              <li class="agent-row">
+                <span class="avatar av-gold">F</span>
+                <div class="agent-copy">
+                  <div class="agent-top">
+                    <span class="agent-name">Flow Editor</span>
+                    <span class="agent-time">6:22 AM</span>
+                  </div>
+                  <p class="agent-snip">Klaviyo draft sitting until you confirm send…</p>
+                </div>
+              </li>
+            </ul>
+            <div class="sidebar-foot">
+              <span class="avatar av-ink">D</span>
+              DGTL Sunrise
+            </div>
+          </aside>
+          <div class="bot-pane">
+            <ol class="thread">
+              <li class="turn-out">
+                <p class="msg msg-out">Connect Google if it is not connected yet. Using dgtl-connector tools only, list every marketing account you can see. Do not guess or pick a default.</p>
+              </li>
+              <li>
+                <p class="status-line"><span class="status-dot"></span> Google connected</p>
+              </li>
+              <li class="turn-in">
+                <p class="msg msg-in">Google is connected. Example inventory: GA4 property 123456789 (example.com), Search Console sc-domain:example.com, and Tag Manager container GTM-XXXX. No other accounts on this install. Nothing changed live.</p>
+                <div class="tool-card" aria-hidden="true">
+                  <div class="tool-frame">
+                    <div class="tool-frame-bar">Connected accounts · example</div>
+                    <ul class="tool-rows">
+                      <li><span class="tool-swatch sw-ga"></span> GA4 · 123456789 · example.com</li>
+                      <li><span class="tool-swatch sw-gsc"></span> Search Console · sc-domain:example.com</li>
+                      <li><span class="tool-swatch sw-gtm"></span> Tag Manager · GTM-XXXX</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="turn-out">
+                <p class="msg msg-out">Compare last 28 days to the prior 28 for sessions and conversions on property 123456789.</p>
+              </li>
+              <li>
+                <p class="status-working"><span class="spin" aria-hidden="true"></span> Working</p>
+              </li>
+              <li class="turn-in">
+                <p class="msg msg-in">Example numbers for property 123456789, last 28 days versus the prior 28. Sessions 12,480 versus 11,210. Conversions 186 versus 201. Sessions are up. Conversions are down. The largest landing-page drop is /pricing.</p>
+              </li>
+              <li class="turn-out">
+                <p class="msg msg-out">Draft a keyword pause list for campaign C where cost is high and conversions are zero for 14 days. Do not push live until I approve.</p>
+              </li>
+              <li class="turn-in">
+                <p class="msg msg-in">Draft pause list is in the workspace only. 12 keywords in campaign C with spend and zero conversions over 14 days. Live account is unchanged.</p>
+                <div class="draft-card" aria-hidden="true">
+                  <p>Draft · campaign C</p>
+                  <ul>
+                    <li><span>brand+audit</span><span>pause</span></li>
+                    <li><span>cheap+leads</span><span>pause</span></li>
+                    <li><span>pricing+coupon</span><span>pause</span></li>
+                    <li><span>+ 9 more example rows</span><span></span></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="turn-out">
+                <p class="msg msg-out">Approve.</p>
+                <p class="react" aria-hidden="true">👍</p>
+              </li>
+              <li class="turn-in">
+                <p class="msg msg-in msg-applied">Applied after your approval. Those 12 keywords are paused in campaign C.</p>
+              </li>
+            </ol>
+            <div class="composer" aria-hidden="true">
+              <span class="composer-add">+</span>
+              <span class="composer-ph">Message DGTL Connector</span>
+              <span class="composer-mic">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="9" y="3.5" width="6" height="10" rx="3" fill="currentColor"/>
+                  <path d="M6.5 11a5.5 5.5 0 0 0 11 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M12 16.5v3.2M9 20.2h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
       </figure>
+    </section>
+
+    <section class="pair-section" aria-labelledby="pair-title">
+      <h2 id="pair-title">Ask in chat. Approve before it goes live.</h2>
+      <p class="pair-lede">Install the plugin, connect the accounts you already run, and add another Bot when the work splits. dgtl-connector lists what it can see, drafts the change, and waits for you.</p>
+      <div class="pair-grid">
+        <article class="pair-card">
+          <h3>Connects where you already work</h3>
+          <p>Install once. Connect Google, then list GA4 properties, Search Console sites, and Tag Manager containers the same way you would in the consoles.</p>
+          <div class="mini-shell" aria-hidden="true">
+            <div class="mini-bar">dgtl-connector <span>Working</span></div>
+            <div class="mini-body">
+              <p class="mini-msg">Signing in to Google so I can list the accounts you own.</p>
+              <ul class="mini-rows">
+                <li><span class="avatar avatar-sm av-orange">G</span> Google connected</li>
+                <li><span class="tool-swatch sw-ga"></span> GA4 · example.com</li>
+                <li><span class="tool-swatch sw-gsc"></span> Search Console · sc-domain:example.com</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <article class="pair-card">
+          <h3>Show it once. Approve the draft.</h3>
+          <p>Ask for a comparison, then a keyword pause list. The draft stays in the workspace. Nothing is published or changed until you say Approve.</p>
+          <div class="mini-shell" aria-hidden="true">
+            <div class="mini-bar">Ads Operator <span>Draft ready</span></div>
+            <div class="mini-body">
+              <p class="mini-msg">12 keywords in campaign C. High cost, zero conversions, 14 days. Live account unchanged.</p>
+              <p class="mini-msg out">Approve.</p>
+              <p class="mini-msg">Applied after your approval.</p>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
 
     <nav class="jump" aria-label="On this page">
