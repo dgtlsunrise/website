@@ -24,13 +24,21 @@ You do not need a DGTL Sunrise account to get started. Pick your agent host.
 
 ### Grok Bot
 
+Install from the Grok Bot marketplace when DGTL Connector is listed. That is the one-click Bot path. The `grok plugin install` CLI command does not install into Bot.
+
+Marketplace listing is not live yet. Until it is, use Grok Build or Cursor below.
+
+### Grok Build
+
+Use the Grok CLI. This installs into Grok Build, not Grok Bot.
+
 ```
 grok plugin install dgtlsunrise/dgtl-connector
 ```
 
-### Cursor and Grok Build
+### Cursor
 
-Clone the public repo, build it, then load that folder as a local Agent Plugin (Cursor uses `mcp.json`; Grok Build uses `.mcp.json`).
+Clone the public repo, build it, then load that folder as a local Agent Plugin (`mcp.json`). Grok Build can also load the built folder with `.mcp.json`.
 
 ```
 git clone https://github.com/dgtlsunrise/dgtl-connector.git
@@ -56,7 +64,7 @@ Build the repo with the Cursor steps above, then add this stdio server in Claude
 }
 ```
 
-ChatGPT and other hosts that can run a local stdio MCP server use the same `bin/dgtl-connector-mcp` command after you build the repo. One-click marketplace install is Grok Bot first.
+ChatGPT and other hosts that can run a local stdio MCP server use the same `bin/dgtl-connector-mcp` command after you build the repo. Hand-wiring a custom MCP server in Grok Bot is an advanced tools-only option; it is not the marketplace install and does not include the full plugin package.
 
 ## How to use it
 

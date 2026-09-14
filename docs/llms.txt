@@ -5,7 +5,7 @@ How to use the dgtl-connector plugin and where public docs live.
 ## Install
 
 ```
-grok plugin install dgtlsunrise/dgtl-connector
+Grok Bot: marketplace when listed. Grok Build: `grok plugin install dgtlsunrise/dgtl-connector`. Cursor: clone + build + load folder.
 ```
 
 Also works in Grok Build and Cursor. No DGTL Sunrise account is required to start. Connect the account that owns the property when the plugin asks. Never paste access tokens, refresh tokens, or license keys into chat.
