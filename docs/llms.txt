@@ -13,9 +13,11 @@ Also works in Grok Build and Cursor. No DGTL Sunrise account is required to star
 ## How to use it
 
 1. Install the plugin.
-2. Connect the account that owns the property.
-3. Ask in chat.
+2. Connect the account that owns the property, site, or ad account.
+3. Ask in chat. Name the property when you have more than one.
 4. Approve any confirmation before a live edit or publish.
+
+Start with a map (list properties/sites/accounts), then ask for decisions with date ranges and named ids. Keep edits gated. Free Google first; Pro for Ads/Meta/TikTok. Never paste tokens or license keys into chat.
 
 ## Platforms overview
 

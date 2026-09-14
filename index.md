@@ -1,6 +1,6 @@
 # DGTL Connector by DGTL Sunrise
 
-A plugin that connects your agent to Google, Meta, Shopify, Klaviyo, and TikTok marketing accounts. These connections let your agent set up and manage accounts, pull reports, recommend changes, and push approved changes live after you review them. Built for Grok Bot first. It also works with other MCP hosts such as Cursor and Claude Desktop.
+A Grok Bot plugin that connects your Bot to Google, Meta, Shopify, Klaviyo, and TikTok marketing accounts. These connections let your Bot set up and manage accounts, pull reports, recommend changes, and push approved changes live after you review them. It also works with other MCP hosts such as Cursor and Claude Desktop.
 
 ## Contents
 
@@ -69,9 +69,32 @@ ChatGPT and other hosts that can run a local stdio MCP server use the same `bin/
 ## How to use it
 
 1. Install the plugin in your agent host.
-2. Connect the account that owns the property.
-3. Ask in chat.
+2. Connect the account that owns the property, site, or ad account you care about.
+3. Ask in chat. Name the property, site, or account when you have more than one.
 4. Review and approve before anything is published or changed on your accounts.
+
+### Start with a map
+
+Before you ask for numbers, ask the Bot to list what it can see: GA4 properties, Search Console sites, GTM accounts, or ad accounts. Then pick the one you mean in plain language. If you leave it vague, a careful Bot will ask which one. Do not let it guess among agency or client accounts.
+
+### Ask for decisions, not dumps
+
+Short, specific asks beat vague ones. Prefer a date range, a comparison, and the decision you need. Examples that work well:
+
+- Compare last 28 days to the prior 28 for sessions, conversions, and top landing pages on property X.
+- Which Search Console queries gained impressions but lost clicks this month on site Y?
+- Show the live GTM tags on container Z and flag anything that still fires on thank-you without a conversion.
+- Draft a keyword pause list for campaign C where cost is high and conversions are zero for 14 days. Do not push live until I approve.
+
+If the Bot invents a metric or a property id, stop it and ask it to re-run from the connected account. Real tools beat remembered numbers.
+
+### Keep edits gated
+
+Free Google edits stay off until you enable writes on the install. Even then, the Bot should show you the change and wait for confirmation before anything goes live. Treat chat as a draft surface: approve publishes, pauses, budget moves, and catalog edits the same way you would approve a pull request.
+
+### Free first, Pro when you need ads
+
+Use Free Google Analytics 4, Search Console, and Tag Manager on your machine with no DGTL account. Add Pro when you need Google Ads, Meta, or TikTok through the hosted gateway, or Merchant Center on the Pro path. Keep tokens and license keys out of chat. Put them only where the install expects them.
 
 Never paste access tokens, refresh tokens, or license keys into chat.
 

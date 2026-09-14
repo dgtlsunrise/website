@@ -4,7 +4,7 @@
   "product": "DGTL Connector",
   "url": "https://www.dgtlsunrise.com/",
   "mode": "agent",
-  "description": "DGTL Connector by DGTL Sunrise is a Grok Bot plugin that connects agents to marketing accounts the human already administers. No DGTL Sunrise account is required to start. Free local Google Analytics, Search Console, and Tag Manager run on the user machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Pro unlocks Google Ads, Meta, TikTok, and Merchant Center through the plugin’s Pro plan.",
+  "description": "DGTL Connector by DGTL Sunrise is a Grok Bot plugin that connects your Bot to marketing accounts you already administer. No DGTL Sunrise account is required to start. Free local Google Analytics, Search Console, and Tag Manager run on the user machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Pro unlocks Google Ads, Meta, TikTok, and Merchant Center through the plugin’s Pro plan.",
   "install": {
     "command": "grok plugin install dgtlsunrise/dgtl-connector",
     "hosts": [

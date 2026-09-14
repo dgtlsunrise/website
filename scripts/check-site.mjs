@@ -79,6 +79,11 @@ check(!/Your data stays yours/.test(index), "home dropped data-stays-yours parag
 const toc = index.match(/<nav class="contents"[\s\S]*?<\/nav>/)?.[0] || "";
 check(/href="#install"/.test(toc), "home toc has install");
 check(/href="#how-to-use"/.test(toc), "home toc has how-to-use");
+check(index.includes("A Grok Bot plugin that connects your Bot"), "home lede is Grok Bot plugin");
+check(index.includes("Start with a map"), "home how-to has Start with a map");
+check(index.includes("Ask for decisions, not dumps"), "home how-to has Ask for decisions");
+check(index.includes("Keep edits gated"), "home how-to has Keep edits gated");
+
 check((index.match(/<nav class="contents"/g) || []).length === 1, "home has one contents nav");
 check(index.indexOf('aria-label="Contents"') < index.indexOf('id="install"'), "home contents before install");
 check(!/href="#install"/.test(index.match(/<header[\s\S]*?<\/header>/)?.[0] || ""), "home header has no Install link");

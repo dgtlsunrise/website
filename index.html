@@ -62,7 +62,7 @@
     "applicationCategory": "BusinessApplication",
     "operatingSystem": "Grok Bot",
     "url": "https://www.dgtlsunrise.com/",
-    "description": "Plugin that connects your agent to marketing accounts including Google, Meta, Shopify, Klaviyo, and TikTok.",
+    "description": "A Grok Bot plugin that connects your Bot to Google, Meta, Shopify, Klaviyo, and TikTok marketing accounts.",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -97,7 +97,7 @@
 
   <main>
     <h1>DGTL Connector by DGTL Sunrise</h1>
-    <p class="lede">A plugin that connects your agent to Google, Meta, Shopify, Klaviyo, and TikTok marketing accounts. These connections let your agent set up and manage accounts, pull reports, recommend changes, and push approved changes live after you review them. Built for Grok Bot first. It also works with other MCP hosts such as Cursor and Claude Desktop.</p>
+    <p class="lede">A Grok Bot plugin that connects your Bot to Google, Meta, Shopify, Klaviyo, and TikTok marketing accounts. These connections let your Bot set up and manage accounts, pull reports, recommend changes, and push approved changes live after you review them. It also works with other MCP hosts such as Cursor and Claude Desktop.</p>
 
     <nav class="contents" aria-label="Contents">
       <p class="contents-title">Contents</p>
@@ -172,10 +172,30 @@ npm run build</code></pre>
     <h2 id="how-to-use">How to use it</h2>
     <ol>
       <li>Install the plugin in your agent host.</li>
-      <li>Connect the account that owns the property.</li>
-      <li>Ask in chat.</li>
+      <li>Connect the account that owns the property, site, or ad account you care about.</li>
+      <li>Ask in chat. Name the property, site, or account when you have more than one.</li>
       <li>Review and approve before anything is published or changed on your accounts.</li>
     </ol>
+
+    <p class="section-label">Start with a map</p>
+    <p class="section-body">Before you ask for numbers, ask the Bot to list what it can see: GA4 properties, Search Console sites, GTM accounts, or ad accounts. Then pick the one you mean in plain language. If you leave it vague, a careful Bot will ask which one. Do not let it guess among agency or client accounts.</p>
+
+    <p class="section-label">Ask for decisions, not dumps</p>
+    <p class="section-body">Short, specific asks beat vague ones. Prefer a date range, a comparison, and the decision you need. Examples that work well:</p>
+    <ul>
+      <li>Compare last 28 days to the prior 28 for sessions, conversions, and top landing pages on property X.</li>
+      <li>Which Search Console queries gained impressions but lost clicks this month on site Y?</li>
+      <li>Show the live GTM tags on container Z and flag anything that still fires on thank-you without a conversion.</li>
+      <li>Draft a keyword pause list for campaign C where cost is high and conversions are zero for 14 days. Do not push live until I approve.</li>
+    </ul>
+    <p class="section-body">If the Bot invents a metric or a property id, stop it and ask it to re-run from the connected account. Real tools beat remembered numbers.</p>
+
+    <p class="section-label">Keep edits gated</p>
+    <p class="section-body">Free Google edits stay off until you enable writes on the install. Even then, the Bot should show you the change and wait for confirmation before anything goes live. Treat chat as a draft surface: approve publishes, pauses, budget moves, and catalog edits the same way you would approve a pull request.</p>
+
+    <p class="section-label">Free first, Pro when you need ads</p>
+    <p class="section-body">Use Free Google Analytics 4, Search Console, and Tag Manager on your machine with no DGTL account. Add Pro when you need Google Ads, Meta, or TikTok through the hosted gateway, or Merchant Center on the Pro path. Keep tokens and license keys out of chat. Put them only where the install expects them.</p>
+
     <p class="note">Never paste access tokens, refresh tokens, or license keys into chat.</p>
 
     <h2 id="free-and-pro">Free and Pro</h2>
