@@ -1,0 +1,326 @@
+/* Homepage landing only. Article pages keep assets/article.css as-is. */
+
+.page-landing {
+  --max: 70rem;
+  --landing-measure: 40rem;
+  --tile-radius: 8px;
+  background:
+    radial-gradient(ellipse 90% 42% at 12% -8%, rgba(253, 194, 4, 0.16), transparent 58%),
+    radial-gradient(ellipse 70% 36% at 92% 0%, rgba(240, 144, 32, 0.1), transparent 52%),
+    var(--bg);
+}
+
+.skip {
+  position: absolute;
+  inset-inline-start: 0.85rem;
+  inset-block-start: -3rem;
+  z-index: 80;
+  padding: 0.45rem 0.7rem;
+  background: var(--text);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.skip:focus {
+  inset-block-start: 0.75rem;
+  color: #fff;
+}
+
+.skip:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.page-landing main {
+  padding-block-start: 2.25rem;
+}
+
+.hero {
+  max-inline-size: var(--landing-measure);
+  margin-block-end: 2.25rem;
+}
+
+.hero-kicker {
+  margin: 0 0 0.7rem;
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.page-landing .hero h1 {
+  margin: 0 0 0.9rem;
+  font-size: clamp(1.85rem, 4.2vw, 2.75rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.page-landing .hero .lede {
+  margin-block-end: 1.35rem;
+}
+
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-block-size: 2.75rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.cta--primary {
+  background: var(--text);
+  color: #fff;
+}
+
+.cta--primary:hover {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.cta--secondary {
+  background: #fff;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.cta--secondary:hover {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+.cta:focus-visible {
+  outline: 2px solid var(--text);
+  outline-offset: 3px;
+}
+
+.example-convo {
+  max-inline-size: 46rem;
+  margin-block-end: 2.5rem;
+}
+
+.example-convo-intro {
+  margin: 0 0 0.85rem;
+}
+
+.example-convo-label {
+  margin: 0 0 0.35rem;
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.page-landing .example-convo h2 {
+  margin: 0 0 0.4rem;
+  padding-top: 0;
+  border-top: 0;
+  font-size: 1.25rem;
+}
+
+.example-convo-note {
+  margin: 0 0 0.9rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+
+.transcript-panel {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--tile-radius);
+  background: #fff;
+  overflow: hidden;
+}
+
+.transcript-band {
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--logo-y) 0%,
+    var(--logo-o) 25%,
+    var(--logo-g) 50%,
+    var(--logo-b) 75%,
+    var(--logo-m) 100%
+  );
+}
+
+.transcript {
+  margin: 0;
+  padding: 0.35rem 0;
+  list-style: none;
+}
+
+.transcript > li {
+  margin: 0;
+  padding: 0.85rem 1.1rem;
+  border-block-end: 1px solid var(--border);
+}
+
+.transcript > li:last-child {
+  border-block-end: 0;
+}
+
+.turn-who {
+  margin: 0 0 0.28rem;
+  font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.turn-bot .turn-who {
+  color: #0D7AD4;
+}
+
+.turn-applied .turn-who {
+  color: #178A4A;
+}
+
+.turn-body {
+  margin: 0;
+  font-size: 0.9875rem;
+  line-height: 1.55;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .transcript > li {
+    animation: landing-turn-in 0.5s ease both;
+  }
+
+  .transcript > li:nth-child(1) { animation-delay: 0.05s; }
+  .transcript > li:nth-child(2) { animation-delay: 0.18s; }
+  .transcript > li:nth-child(3) { animation-delay: 0.31s; }
+  .transcript > li:nth-child(4) { animation-delay: 0.44s; }
+  .transcript > li:nth-child(5) { animation-delay: 0.57s; }
+  .transcript > li:nth-child(6) { animation-delay: 0.7s; }
+  .transcript > li:nth-child(7) { animation-delay: 0.83s; }
+  .transcript > li:nth-child(8) { animation-delay: 0.96s; }
+  .transcript > li:nth-child(9) { animation-delay: 1.09s; }
+  .transcript > li:nth-child(10) { animation-delay: 1.22s; }
+}
+
+@keyframes landing-turn-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.7rem;
+  margin: 0 0 1.5rem;
+}
+
+.jump a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.jump a:hover {
+  color: var(--text);
+  text-decoration: underline;
+}
+
+.tile-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.tile {
+  min-inline-size: 0;
+  padding: 1.2rem 1.25rem 1.3rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--tile-radius);
+}
+
+.tile--wide {
+  grid-column: 1 / -1;
+}
+
+.page-landing .tile h2 {
+  margin: 0 0 0.7rem;
+  padding-top: 0;
+  border-top: 0;
+  font-size: 1.2rem;
+  line-height: 1.25;
+}
+
+.page-landing .tile .section-label {
+  margin-top: 0.95rem;
+}
+
+.page-landing .tile .section-label:first-of-type {
+  margin-top: 0.15rem;
+}
+
+.page-landing .tile ul,
+.page-landing .tile ol {
+  margin-block-end: 0.45rem;
+}
+
+.page-landing .tile .code-panel {
+  margin-block-end: 0.85rem;
+}
+
+.page-landing .tile .note {
+  margin-top: 0.75rem;
+}
+
+@media (min-width: 860px) {
+  .tile-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .page-landing main {
+    padding-block-start: 1.5rem;
+  }
+
+  .page-landing .hero h1 {
+    font-size: 1.7rem;
+  }
+}
