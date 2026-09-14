@@ -139,7 +139,7 @@ check(!/Free local reads stay/i.test(agent), "agent.json description is not read
 const agentObj = JSON.parse(agent);
 const capability = (name) => agentObj.capabilities.find((c) => c.platform === name);
 
-check(capability("Klaviyo") && /Not Pro\. Not stamp/.test(capability("Klaviyo").notes), "agent.json includes Klaviyo");
+check(capability("Klaviyo") && /Not Pro/.test(capability("Klaviyo").notes) && /private API key/.test(capability("Klaviyo").notes), "agent.json includes Klaviyo");
 check(
   capability("Merchant Center") &&
     /product inputs/.test(capability("Merchant Center").notes) &&

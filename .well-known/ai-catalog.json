@@ -1,14 +1,14 @@
 {
   "version": 1,
   "name": "DGTL Connector by DGTL Sunrise",
-  "description": "Developer and agent discovery catalog for DGTL Connector.",
+  "description": "Public docs and local MCP plugin discovery for DGTL Connector.",
   "website": "https://www.dgtlsunrise.com/",
   "documents": [
     { "url": "https://www.dgtlsunrise.com/developers", "title": "DGTL Connector developer resources" },
     { "url": "https://www.dgtlsunrise.com/llms.txt", "title": "llms.txt" },
     { "url": "https://www.dgtlsunrise.com/agent.json", "title": "agent.json" },
-    { "url": "https://www.dgtlsunrise.com/server.json", "title": "MCP server.json" },
-    { "url": "https://www.dgtlsunrise.com/.well-known/mcp/server-card.json", "title": "MCP server card" },
+    { "url": "https://www.dgtlsunrise.com/server.json", "title": "Local MCP server.json" },
+    { "url": "https://www.dgtlsunrise.com/.well-known/mcp/server-card.json", "title": "Local MCP server card" },
     { "url": "https://github.com/dgtlsunrise/dgtl-connector", "title": "dgtl-connector source" }
   ]
 }

@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.dgtlsunrise/dgtl-connector",
   "title": "DGTL Connector",
-  "description": "DGTL Connector by DGTL Sunrise is a local stdio MCP plugin that connects agents to Google, Meta, Shopify, Klaviyo, and TikTok marketing APIs. Free Google tools run on the user machine. Pro advertising calls use the allowlisted stamp gateway. Install from GitHub, then run bin/dgtl-connector-mcp.",
+  "description": "DGTL Connector by DGTL Sunrise is a local stdio MCP plugin for marketing accounts. Free Google tools run on the user machine. Pro advertising platforms are unlocked through the plugin’s Pro plan. Install from GitHub, then run bin/dgtl-connector-mcp.",
   "version": "0.1.0",
   "websiteUrl": "https://www.dgtlsunrise.com/developers",
   "repository": {

@@ -67,9 +67,7 @@ Account, profiles (sparse), lists, segments, flows, campaigns, metrics, catalog 
 
 ## Stamp API (public surface)
 
-Base: https://stamp.dgtlsunrise.com
-
-Documented routes: GET /v1/health; GET /checkout; POST /v1/license (Polar redeem); POST /v1/gads/* and POST /v1/meta/* (license JWT + user OAuth); GET /meta/login, GET /meta/callback, POST /v1/meta/exchange; POST /v1/feedback; POST /v1/sgtm/ingest (keys; optional hosted route, not a v1 marketing-site product promise).
+Pro advertising platforms are unlocked through the local plugin after a Pro license. That path is not published as a public OpenAPI or developer REST catalog on this site.
 
 Machine-readable detail: /agent.json and /?mode=agent. API notes: /api/llms.txt.
 

@@ -1,44 +1,9 @@
-# DGTL Sunrise — stamp API surface for agents
+# DGTL Sunrise — Pro gateway notes
 
-Public facts about the hosted stamp API used by Pro Google Ads and Meta (and related routes). No secrets. Do not invent Polar checkout URLs beyond the documented path.
+This file is for licensed Pro plugin installs. It is not a public developer API catalog and it is not an OpenAPI surface.
 
-## Base
+Pro Google Ads, Meta, and TikTok calls are made by the local DGTL Connector plugin through an allowlisted private gateway after the human redeems a Pro license. Free GA4, Search Console, Tag Manager, Merchant Center, GBP, Shopify, and Klaviyo stay on the user’s machine and do not use that gateway for report bytes.
 
-https://stamp.dgtlsunrise.com
+Do not invent Polar checkout URLs. Do not treat gateway hostnames as a public REST or GraphQL product. Prefer the homepage docs, `/developers`, and `agent.json` capabilities for what the plugin can do.
 
-Structured copy of endpoints and capabilities: [agent.json](/agent.json) and [/?mode=agent](/?mode=agent).
-
-## Auth model
-
-- Free GA4, Search Console, and Tag Manager: connect Google on the machine (read and manage). Report bytes do not go through DGTL or stamp. Live edits need confirmation and are off by default until writes are enabled on the install.
-- Pro: redeem a Polar purchase via POST /v1/license to obtain a license JWT. Google Ads and Meta gateway calls use that JWT plus the user’s OAuth.
-- The Google Ads developer token and Meta app secret stay on the Worker.
-- Never paste access tokens, refresh tokens, or license keys into chat.
-
-## Documented routes
-
-| Method | Path | Purpose | Auth |
-|--------|------|---------|------|
-| GET | /v1/health | Health check | none |
-| GET | /checkout | Pro checkout entry (Polar) | none |
-| POST | /v1/license | Polar redeem → license JWT | Polar redeem as plugin documents |
-| POST | /v1/gads/* | Google Ads gateway | license JWT + user Google OAuth |
-| POST | /v1/meta/* | Meta Ads gateway | license JWT + user Meta OAuth |
-| GET | /meta/login | Start Meta OAuth | browser OAuth start |
-| GET | /meta/callback | Meta OAuth callback | OAuth callback |
-| POST | /v1/meta/exchange | Exchange Meta OAuth code | as plugin documents |
-| POST | /v1/feedback | Product feedback | as plugin documents |
-| POST | /v1/sgtm/ingest | Optional hosted sGTM ingest | keys; not a v1 marketing-site product promise |
-
-## Related platforms (not all stamp)
-
-- TikTok stamp hop exists when the Pro TikTok entitlement is on.
-- Merchant Center, Google Business Profile, and Shopify are plugin-direct to Google or Shopify, not stamp.
-- Klaviyo is local on the user machine with a merchant-held private API key. Free. Not Pro. Not stamp.
-
-## Related site files
-
-- [llms.txt](/llms.txt) — short nav index
-- [llms-full.txt](/llms-full.txt) — expanded guide
-- [docs/llms.txt](/docs/llms.txt) — install and guardrails
-- [Homepage](/) · [Google Ads](/google-ads) · [Privacy](/privacy)
+support@dgtlsunrise.com · contact@dgtlsunrise.com

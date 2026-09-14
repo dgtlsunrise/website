@@ -42,7 +42,7 @@ Also works in Grok Build and Cursor. No DGTL Sunrise account is required to star
 - [Google Ads product page](/google-ads)
 - [Engagements](/engagements)
 - [Full agent guide](/llms-full.txt)
-- [API / stamp notes](/api/llms.txt)
+- [Pro gateway notes](/api/llms.txt)
 - [Structured agent JSON](/agent.json) · [/?mode=agent](/?mode=agent)
 - [llms.txt index](/llms.txt)
 

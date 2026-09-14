@@ -212,32 +212,33 @@
 
   <main>
     <h1>DGTL Connector developer resources</h1>
-    <p class="lede">DGTL Connector by DGTL Sunrise is a local stdio MCP plugin. Agents use it to connect to Google, Meta, Shopify, Klaviyo, and TikTok marketing APIs. This page is the public map for install, machine-readable docs, and the MCP server manifest.</p>
+    <p class="lede">DGTL Connector by DGTL Sunrise is a local MCP plugin for Grok Bot and other MCP hosts. It connects your agent to marketing accounts you already administer. This page maps install docs, machine-readable site files, and the local MCP manifest.</p>
 
-    <h2>Product</h2>
+    <h2>Product docs</h2>
     <ul>
-      <li><a href="/">DGTL Connector docs homepage</a></li>
-      <li><a href="/#install">Install commands</a> (Grok Bot, Cursor, Grok Build, Claude Desktop)</li>
+      <li><a href="/">DGTL Connector homepage</a></li>
+      <li><a href="/#install">Install</a> (Grok Bot, Cursor, Grok Build, Claude Desktop)</li>
       <li><a href="/#free-and-pro">Free and Pro</a></li>
       <li><a href="/google-ads">Google Ads product page</a></li>
-      <li><a href="https://github.com/dgtlsunrise/dgtl-connector">GitHub source (dgtlsunrise/dgtl-connector)</a></li>
+      <li><a href="https://github.com/dgtlsunrise/dgtl-connector">GitHub: dgtlsunrise/dgtl-connector</a></li>
     </ul>
 
-    <h2>Machine-readable</h2>
+    <h2>Machine-readable site files</h2>
     <ul>
-      <li><a href="/agent.json">agent.json</a> · also <a href="/?mode=agent">/?mode=agent</a></li>
-      <li><a href="/llms.txt">llms.txt</a> · <a href="/llms-full.txt">llms-full.txt</a> · <a href="/docs/llms.txt">docs/llms.txt</a> · <a href="/api/llms.txt">api/llms.txt</a></li>
-      <li><a href="/server.json">MCP server.json</a> (local stdio manifest)</li>
-      <li><a href="/.well-known/mcp/server-card.json">.well-known/mcp/server-card.json</a></li>
+      <li><a href="/agent.json">agent.json</a> · <a href="/?mode=agent">/?mode=agent</a></li>
+      <li><a href="/llms.txt">llms.txt</a> · <a href="/llms-full.txt">llms-full.txt</a> · <a href="/docs/llms.txt">docs/llms.txt</a></li>
+      <li><a href="/server.json">MCP server.json</a> (local stdio plugin manifest)</li>
+      <li><a href="/.well-known/mcp/server-card.json">MCP server card</a></li>
       <li><a href="/sitemap.xml">sitemap.xml</a></li>
     </ul>
 
-    <h2>MCP transport</h2>
-    <p>DGTL Connector ships as a <strong>local stdio</strong> MCP server (<code class="mono">bin/dgtl-connector-mcp</code>). Clone the GitHub repo, build it, and point your host at that binary. There is no hosted Streamable HTTP MCP for ad-account tools in v1; Pro Ads/Meta/TikTok API hops use the allowlisted stamp gateway after local plugin auth, not a remote MCP URL.</p>
+    <h2>Local MCP plugin</h2>
+    <p>DGTL Connector runs on your machine as a local stdio process (<code class="mono">bin/dgtl-connector-mcp</code>). Clone the GitHub repo, build it, and point your host at that binary. There is no remote MCP URL for account tools in v1.</p>
 
     <h2>Support</h2>
     <p><a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a> · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · Sunrise Consulting LLC</p>
   </main>
+
 
   <footer class="site-footer">
     <p><a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a> · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/google-ads">Google Ads</a></p>
