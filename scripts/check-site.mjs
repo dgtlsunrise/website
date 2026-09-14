@@ -95,8 +95,13 @@ check(index.includes(`href="${landingCssHref}"`), "home imports hashed landing.c
 check(index.includes(`href="${articleCssHref}"`), "home imports hashed article.css");
 check(!unhashedAssetCss.test(index), "home has no unhashed /assets CSS href");
 check(!index.includes('class="tile-grid"'), "home dropped tile grid");
-check(!/Example conversation/.test(index) && !/demo transcript/i.test(index), "home dropped example conversation");
-check(!index.includes('class="bot-window"') && !index.includes('class="agent-list"') && !index.includes('class="composer"'), "home dropped Bot window");
+check(!/Example conversation/.test(index), "home dropped Example conversation label");
+check(!/This is a demo transcript with example numbers/.test(index), "home dropped demo transcript note");
+check(!/A dgtl-connector session/.test(index), "home dropped session label");
+check(index.includes('class="bot-window"') && index.includes('class="agent-list"') && index.includes('class="composer"'), "home keeps Bot window");
+check(index.includes("Applied after your approval"), "home demo conversation ends applied");
+check(/keyword pause list for campaign C/.test(index), "home demo drafts a keyword pause");
+check(index.includes("DGTL Connector") && index.includes("Message DGTL Connector"), "home demo bot is DGTL Connector");
 check(!/Ask in chat\. Approve before it goes live/.test(index), "home dropped pair heading");
 check(!index.includes('class="pair-section"') && !index.includes('class="pair-card"'), "home dropped pair cards");
 check(!index.includes('class="jump"'), "home dropped on-this-page jump nav");
@@ -127,7 +132,7 @@ check(!/\/dgtl-connector\s+-pro/.test(docs), "docs does not invent a Pro slash c
 check((index.match(/<nav class="contents"/g) || []).length === 0, "home dropped article contents nav");
 check((docs.match(/<nav class="contents"/g) || []).length === 1, "docs has table of contents");
 check(docs.includes('aria-label="On this page"') && docs.includes("contents-title"), "docs TOC is on-this-page");
-check(index.indexOf('class="hero"') < index.indexOf('id="platforms-title"'), "home hero before platforms");
+check(index.indexOf('class="hero"') < index.indexOf('class="bot-window"') && index.indexOf('class="bot-window"') < index.indexOf('id="platforms-title"'), "home hero then Bot window then platforms");
 check(!/href="#install"/.test(index.match(/<header[\s\S]*?<\/header>/)?.[0] || ""), "home header has no Install link");
 check(/\.brand img \{[\s\S]*?width:\s*auto/.test(text("assets/article.css")), "home logo uses width auto");
 check(docs.includes("Manage property settings the tools support"), "docs GA4 edit");
@@ -251,7 +256,8 @@ const mdSection = (title) => {
 };
 check(/Connect your Bot to the marketing accounts you already run/.test(indexMd), "index.md has landing headline");
 check(/The platforms it talks to/.test(indexMd), "index.md has platforms list");
-check(!/Example conversation/.test(indexMd), "index.md dropped example conversation");
+check(!/Example conversation/.test(indexMd), "index.md dropped Example conversation label");
+check(/Applied after your approval/.test(indexMd), "index.md keeps demo conversation");
 check(!/not live yet/i.test(indexMd), "index.md has no not-live-yet caveat");
 check(/You do not need a DGTL Sunrise account to get started/.test(docsMd), "documentation.md no DGTL account required");
 const freeProMd = (() => {
@@ -428,7 +434,8 @@ if (base) {
   check(home.res.status === 200, "GET / is 200", String(home.res.status));
   check(home.text.includes("The platforms it talks to"), "preview / shows platforms");
   check(home.text.includes("Klaviyo"), "preview / includes Klaviyo");
-  check(!/Example conversation/.test(home.text), "preview / dropped example conversation");
+  check(!/Example conversation/.test(home.text), "preview / dropped Example conversation label");
+  check(home.text.includes('class="bot-window"'), "preview / keeps Bot window");
   check(home.text.includes(`href="${landingCssHref}"`), "preview / hashed landing.css");
   check(home.text.includes(`href="${articleCssHref}"`), "preview / hashed article.css");
   const homeCache = (home.res.headers.get("cache-control") || "").toLowerCase();

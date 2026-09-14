@@ -80,7 +80,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/assets/article.css?v=34f76c487fd2" />
-  <link rel="stylesheet" href="/assets/landing.css?v=046d80f1049f" />
+  <link rel="stylesheet" href="/assets/landing.css?v=d40f8f2c280b" />
 </head>
 <body class="page-landing">
   <a class="skip" href="#main">Skip to content</a>
@@ -111,6 +111,169 @@
         <a class="cta cta--primary" href="/documentation#install">Install</a>
         <a class="cta cta--secondary" href="/documentation">Documentation</a>
       </div>
+    </section>
+
+    <section class="example-convo" aria-label="DGTL Connector session">
+      <figure class="bot-window">
+        <figcaption class="visually-hidden">DGTL Connector in a Bot window.</figcaption>
+        <div class="bot-titlebar" aria-hidden="true">
+          <div class="traffic">
+            <i class="tl-r"></i>
+            <i class="tl-y"></i>
+            <i class="tl-g"></i>
+          </div>
+          <div class="bot-tabs">
+            <span class="bot-tab-add">+</span>
+            <span class="bot-tab">
+              <span class="avatar av-orange">D</span>
+              DGTL Connector
+            </span>
+          </div>
+          <span class="bot-title-spacer"></span>
+        </div>
+        <div class="bot-body">
+          <aside class="bot-sidebar" aria-hidden="true">
+            <div class="bot-search">
+              <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="7" cy="7" r="4.25" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M10.2 10.2 13.5 13.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+              </svg>
+              Search
+            </div>
+            <ul class="agent-list">
+              <li class="agent-row is-selected">
+                <span class="avatar av-orange">D</span>
+                <div class="agent-copy">
+                  <div class="agent-top">
+                    <span class="agent-name">DGTL Connector</span>
+                    <span class="agent-time">12:22 PM</span>
+                  </div>
+                  <p class="agent-snip">Google connected. GA4, GSC, and GTM…</p>
+                </div>
+              </li>
+              <li class="agent-row">
+                <span class="avatar av-blue">A</span>
+                <div class="agent-copy">
+                  <div class="agent-top">
+                    <span class="agent-name">Analytics Review</span>
+                    <span class="agent-time">9:14 AM</span>
+                  </div>
+                  <p class="agent-snip">Sessions up, conversions down on /pricing…</p>
+                </div>
+              </li>
+              <li class="agent-row">
+                <span class="avatar av-purple">P</span>
+                <div class="agent-copy">
+                  <div class="agent-top">
+                    <span class="agent-name">Ads Operator</span>
+                    <span class="agent-time">8:02 AM</span>
+                  </div>
+                  <p class="agent-snip">Draft pause list ready for campaign C…</p>
+                </div>
+              </li>
+              <li class="agent-row">
+                <span class="avatar av-green">S</span>
+                <div class="agent-copy">
+                  <div class="agent-top">
+                    <span class="agent-name">Search Watch</span>
+                    <span class="agent-time">4:22 PM</span>
+                  </div>
+                  <p class="agent-snip">Queries gained impressions but lost clicks…</p>
+                </div>
+              </li>
+              <li class="agent-row">
+                <span class="avatar av-magenta">C</span>
+                <div class="agent-copy">
+                  <div class="agent-top">
+                    <span class="agent-name">Catalog Ops</span>
+                    <span class="agent-time">2:18 PM</span>
+                  </div>
+                  <p class="agent-snip">Merchant Center issues on 9 products…</p>
+                </div>
+              </li>
+              <li class="agent-row">
+                <span class="avatar av-gold">F</span>
+                <div class="agent-copy">
+                  <div class="agent-top">
+                    <span class="agent-name">Flow Editor</span>
+                    <span class="agent-time">6:22 AM</span>
+                  </div>
+                  <p class="agent-snip">Klaviyo draft sitting until you confirm send…</p>
+                </div>
+              </li>
+            </ul>
+            <div class="sidebar-foot">
+              <span class="avatar av-ink">D</span>
+              DGTL Sunrise
+            </div>
+          </aside>
+          <div class="bot-pane">
+            <ol class="thread">
+              <li class="turn-out">
+                <p class="msg msg-out">Connect Google if it is not connected yet. Using dgtl-connector tools only, list every marketing account you can see. Do not guess or pick a default.</p>
+              </li>
+              <li>
+                <p class="status-line"><span class="status-dot"></span> Google connected</p>
+              </li>
+              <li class="turn-in">
+                <p class="msg msg-in">Google is connected. Example inventory: GA4 property 123456789 (example.com), Search Console sc-domain:example.com, and Tag Manager container GTM-XXXX. No other accounts on this install. Nothing changed live.</p>
+                <div class="tool-card" aria-hidden="true">
+                  <div class="tool-frame">
+                    <div class="tool-frame-bar">Connected accounts · example</div>
+                    <ul class="tool-rows">
+                      <li><span class="tool-swatch sw-ga"></span> GA4 · 123456789 · example.com</li>
+                      <li><span class="tool-swatch sw-gsc"></span> Search Console · sc-domain:example.com</li>
+                      <li><span class="tool-swatch sw-gtm"></span> Tag Manager · GTM-XXXX</li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+              <li class="turn-out">
+                <p class="msg msg-out">Compare last 28 days to the prior 28 for sessions and conversions on property 123456789.</p>
+              </li>
+              <li>
+                <p class="status-working"><span class="spin" aria-hidden="true"></span> Working</p>
+              </li>
+              <li class="turn-in">
+                <p class="msg msg-in">Example numbers for property 123456789, last 28 days versus the prior 28. Sessions 12,480 versus 11,210. Conversions 186 versus 201. Sessions are up. Conversions are down. The largest landing-page drop is /pricing.</p>
+              </li>
+              <li class="turn-out">
+                <p class="msg msg-out">Draft a keyword pause list for campaign C where cost is high and conversions are zero for 14 days. Do not push live until I approve.</p>
+              </li>
+              <li class="turn-in">
+                <p class="msg msg-in">Draft pause list is in the workspace only. 12 keywords in campaign C with spend and zero conversions over 14 days. Live account is unchanged.</p>
+                <div class="draft-card" aria-hidden="true">
+                  <p>Draft · campaign C</p>
+                  <ul>
+                    <li><span>brand+audit</span><span>pause</span></li>
+                    <li><span>cheap+leads</span><span>pause</span></li>
+                    <li><span>pricing+coupon</span><span>pause</span></li>
+                    <li><span>+ 9 more example rows</span><span></span></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="turn-out">
+                <p class="msg msg-out">Approve.</p>
+                <p class="react" aria-hidden="true">👍</p>
+              </li>
+              <li class="turn-in">
+                <p class="msg msg-in msg-applied">Applied after your approval. Those 12 keywords are paused in campaign C.</p>
+              </li>
+            </ol>
+            <div class="composer" aria-hidden="true">
+              <span class="composer-add">+</span>
+              <span class="composer-ph">Message DGTL Connector</span>
+              <span class="composer-mic">
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <rect x="9" y="3.5" width="6" height="10" rx="3" fill="currentColor"/>
+                  <path d="M6.5 11a5.5 5.5 0 0 0 11 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                  <path d="M12 16.5v3.2M9 20.2h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </div>
+      </figure>
     </section>
 
     <section class="platforms" aria-labelledby="platforms-title">
