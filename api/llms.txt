@@ -4,6 +4,6 @@ This file is for licensed Pro plugin installs. It is not a public developer API 
 
 Pro Google Ads, Meta, and TikTok calls are made by the local DGTL Connector plugin through an allowlisted private gateway after the human redeems a Pro license. Merchant Center is also Pro-gated but plugin-direct on the user’s machine (not that gateway). Free GA4, Search Console, Tag Manager, GBP, Shopify, and Klaviyo stay on the user’s machine and do not use that gateway for report bytes.
 
-Documented Polar checkout (Pro, $19 / month): https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk. The human asks the Bot in plain language to upgrade, then redeems the license on the install. Never paste tokens into chat. Do not invent other Polar checkout URLs. Do not treat gateway hostnames as a public REST or GraphQL product. Prefer the homepage docs, `/developers`, and `agent.json` capabilities for what the plugin can do.
+Documented Polar checkout (Pro, $19 / month): https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll. The human asks the Bot in plain language to upgrade, then redeems the license on the install. Never paste tokens into chat. Do not invent other Polar checkout URLs. Do not treat gateway hostnames as a public REST or GraphQL product. Prefer the homepage docs, `/developers`, and `agent.json` capabilities for what the plugin can do.
 
 support@dgtlsunrise.com · contact@dgtlsunrise.com

@@ -34,7 +34,7 @@ Free is self-hosted. Free GA4, Search Console, and Tag Manager are read and mana
 
 Pro is $19/mo for the hosted Ads and Meta gateway only. One Polar customer. The same human may use more than one host. No employee seats. Unlimited ad accounts under that human's OAuth. Server-side GTM is not in this version.
 
-Documented Polar checkout: `https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk`. Ask the Bot in plain language, then redeem on the install. Do not invent another Polar checkout URL. Do not name Ryze in served HTML.
+Documented Polar checkout: `https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll`. Ask the Bot in plain language, then redeem on the install. Do not invent another Polar checkout URL. Do not name Ryze in served HTML.
 
 ## How DGTL gets paid
 

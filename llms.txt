@@ -32,6 +32,6 @@ Use this index when an agent needs a short map of public docs and install facts 
 
 Send `Accept: text/markdown` (preferring text/markdown over text/html) for companion markdown twins of HTML pages. Homepage `/?mode=agent` returns application/json from `agent.json` and wins over HTML and markdown negotiation for that query. DGTL Connector is a local stdio plugin (`bin/dgtl-connector-mcp`); see `/developers` and `/server.json`.
 
-First chat: paste the homepage starter prompt so the Bot uses `dgtl-connector` tools and lists accounts instead of guessing. Pro is $19/mo via Polar (https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk). The human asks the Bot to upgrade in plain language; redeem on the install. Never paste tokens or license keys into chat. Long How to use copy: `/` and `/llms-full.txt`.
+First chat: paste the homepage starter prompt so the Bot uses `dgtl-connector` tools and lists accounts instead of guessing. Pro is $19/mo via Polar (https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll). The human asks the Bot to upgrade in plain language; redeem on the install. Never paste tokens or license keys into chat. Long How to use copy: `/` and `/llms-full.txt`.
 
 support@dgtlsunrise.com · contact@dgtlsunrise.com · Sunrise Consulting LLC

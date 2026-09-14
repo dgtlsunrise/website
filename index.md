@@ -106,7 +106,7 @@ Use Free Google Analytics 4, Search Console, and Tag Manager on your machine wit
 
 When you need those Pro paths, ask the Bot in plain language. Examples that work: "Upgrade me to DGTL Pro" or "I need Google Ads through dgtl-connector". The Bot should walk Polar checkout at $19 / month, then redeem the license on your install. Do not paste a license token into chat. After Pro is on the install, Connect Ads or Meta as needed.
 
-Polar checkout: https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk
+Polar checkout: https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll
 
 Homepage: https://www.dgtlsunrise.com/
 

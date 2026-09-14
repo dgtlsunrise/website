@@ -17,7 +17,7 @@
   },
   "authentication": {
     "free": "Connect Google on the machine for GA4, Search Console, and Tag Manager (read and manage). Klaviyo uses a merchant-held private API key stored locally. Report bytes do not go through DGTL. Connect Google once with all Free permissions up front. Live edits need confirmation.",
-    "pro": "Ask the Bot in plain language to upgrade to DGTL Pro. Polar checkout is $19/mo at https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk. Redeem the license on the install. Never paste tokens into chat. A Pro license unlocks Google Ads, Meta, and TikTok in the plugin. Platform credentials required for those Pro paths stay off the public plugin package. Live changes stay confirm-gated.",
+    "pro": "Ask the Bot in plain language to upgrade to DGTL Pro. Polar checkout is $19/mo at https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll. Redeem the license on the install. Never paste tokens into chat. A Pro license unlocks Google Ads, Meta, and TikTok in the plugin. Platform credentials required for those Pro paths stay off the public plugin package. Live changes stay confirm-gated.",
     "rules": [
       "Never paste access tokens, refresh tokens, or license keys into chat.",
       "Never invent metrics, rows, or insights the APIs did not return.",

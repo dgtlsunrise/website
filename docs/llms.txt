@@ -21,7 +21,7 @@ Start with a map (list properties/sites/accounts), then ask for decisions with d
 
 Starter prompt: I installed the dgtl-connector plugin (DGTL Sunrise). Connect Google if it is not connected yet. Using dgtl-connector tools only, list every marketing account the plugin can see: GA4 properties, Search Console sites, Tag Manager accounts and containers, plus Shopify, Klaviyo, or ad accounts if those are connected. Do not guess or pick a default. Summarize what is connected, what looks healthy, and the top three questions I should ask next. Keep it short. Do not change anything live.
 
-When the human needs Google Ads, Meta, TikTok, or Pro Merchant Center, they ask the Bot in plain language (for example "Upgrade me to DGTL Pro"). The Bot walks Polar checkout at $19 / month (https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk), then redeems the license on the install. Never paste tokens or license keys into chat.
+When the human needs Google Ads, Meta, TikTok, or Pro Merchant Center, they ask the Bot in plain language (for example "Upgrade me to DGTL Pro"). The Bot walks Polar checkout at $19 / month (https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll), then redeems the license on the install. Never paste tokens or license keys into chat.
 
 ## Platforms overview
 

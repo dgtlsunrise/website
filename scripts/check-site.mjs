@@ -218,8 +218,9 @@ for (const file of ["llms.txt", "llms-full.txt", "docs/llms.txt"]) {
   check(/No DGTL Sunrise account is required/.test(text(file)), `${file} no account required`);
 }
 
-const POLAR_CHECKOUT = "https://buy.polar.sh/polar_cl_yZECJ26Ln9mGTQDwBETXCskJRMTwrYAd6thMJO1zHPk";
+const POLAR_CHECKOUT = "https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll";
 check(index.includes(POLAR_CHECKOUT), "home documents Polar checkout");
+check(!publicFacing.includes("stamp.dgtlsunrise.com/checkout"), "Polar CTA is not stamp checkout");
 const polarUrls = [...publicFacing.matchAll(/https?:\/\/[^\s"'<>\)]*polar[^\s"'<>\)]*/gi)].map((m) => m[0].replace(/[.,]$/, ""));
 check(polarUrls.length > 0 && polarUrls.every((u) => u === POLAR_CHECKOUT), "only documented Polar checkout URL");
 check(!/Ryze/i.test(allServed), "no Ryze in served HTML");
