@@ -17,6 +17,7 @@ A Grok Bot plugin that connects your Bot to Google, Meta, Shopify, Klaviyo, and 
 11. [Shopify](#shopify)
 12. [Klaviyo](#klaviyo)
 13. [TikTok Ads](#tiktok-ads)
+14. [Company](#company)
 
 ## Install
 
@@ -26,7 +27,7 @@ You do not need a DGTL Sunrise account to get started. Pick your agent host.
 
 Install from the Grok Bot marketplace when DGTL Connector is listed. That is the one-click Bot path. The `grok plugin install` CLI command does not install into Bot.
 
-Marketplace listing is not live yet. Until it is, use Grok Build or Cursor below.
+The marketplace listing is under review. Grok Build and Cursor remain complete install paths.
 
 ### Grok Build
 
@@ -112,12 +113,12 @@ When you Connect Google for Free features, you grant all Free Google permissions
 **What is Pro.** Pro is $19 / month. It unlocks the hosted gateway for advertising platforms, plus Pro-gated Merchant Center on your machine:
 
 - Google Ads reporting, plus manage and create (campaigns, budgets, keywords, ads, and more).
-- Meta Ads insights, campaigns, ad sets, ads, audiences, catalogs, and Conversions API events.*
-- TikTok Ads advertisers, campaigns, insights, catalogs, and Events API tracking.*
+- Meta Ads insights, campaigns, ad sets, ads, audiences, catalogs, and Conversions API events.
+- TikTok Ads advertisers, campaigns, insights, catalogs, and Events API tracking.
 
 Nothing is published or changed on your ad accounts until you review and approve it first.
 
-\*Meta Ads and TikTok Ads are included in Pro. We expect Meta and TikTok to finish approving our app access soon; until then some Meta or TikTok calls may wait on that approval.
+Meta Ads and TikTok Ads are included in Pro. Access on those platforms depends on Meta and TikTok granting app access for the connected account. The plugin reports a denied or pending grant instead of inventing results.
 
 Paste this to ask the Bot to upgrade to Pro. Redeem the license on the install. Never paste tokens or license keys into chat.
 
@@ -175,11 +176,11 @@ Shop details, products, orders, locations, inventory, publications, catalogs, an
 
 ### TikTok Ads
 
-List advertisers, campaigns, insights, and catalogs. With Pro: campaign status updates, catalog create/upload/bind, and Events API tracking. Meta Ads and TikTok Ads are included in Pro. We expect Meta and TikTok to finish approving our app access soon; until then some Meta or TikTok calls may wait on that approval. Nothing goes live until you approve it.
+List advertisers, campaigns, insights, and catalogs. With Pro: campaign status updates, catalog create/upload/bind, and Events API tracking. TikTok Ads is included in Pro. Reads and writes depend on TikTok granting the needed app access for the connected account. Nothing goes live until you approve it.
 
 ## Company
 
-DGTL Sunrise (Sunrise Consulting LLC). Site: https://www.dgtlsunrise.com/
+Sunrise Consulting LLC, doing business as DGTL Sunrise, ships dgtl-connector from Coeur d’Alene, Idaho. The plugin connects your agent to the marketing accounts you already run. Legal name, address, and contacts are on [About](/about). Site: https://www.dgtlsunrise.com/
 
 - [About](/about)
 - [Contact](/contact)
