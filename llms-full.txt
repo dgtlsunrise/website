@@ -11,7 +11,7 @@ Use this site and the dgtl-connector plugin when an agent needs to connect to ma
 
 - Free, local: GA4, Search Console, and Tag Manager on the user’s machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Report bytes do not go through DGTL. Live edits need confirmation and are off by default until writes are enabled on the install.
 - Pro ($19/mo): Google Ads, Meta, and TikTok through the hosted stamp gateway; Merchant Center is Pro-gated and plugin-direct (not stamp). Live edits need confirmation. Developer token and Meta/TikTok app secrets stay on the Worker.
-- Install: `grok plugin install dgtlsunrise/dgtl-connector` (also Grok Build and Cursor). No DGTL Sunrise account is required to start.
+- Install: Grok Bot via marketplace when listed (CLI `grok plugin install` is Grok Build only). Cursor: clone + build + load folder. No DGTL Sunrise account is required to start.
 - Prefer markdown with `Accept: text/markdown`. Prefer structured JSON with `/?mode=agent` or `/agent.json`.
 
 ## Do not use this for
@@ -24,7 +24,7 @@ Use this site and the dgtl-connector plugin when an agent needs to connect to ma
 
 ## Install and loop
 
-1. Install the plugin in Grok Bot (or Grok Build / Cursor).
+1. Install the plugin (Grok Bot marketplace when listed; Grok Build CLI or Cursor folder meanwhile).
 2. Connect the account that owns the property.
 3. Ask in chat.
 4. Approve any confirmation before a live edit or publish.

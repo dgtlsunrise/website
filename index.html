@@ -122,6 +122,11 @@
     <p class="section-body">You do not need a DGTL Sunrise account to get started. Pick your agent host.</p>
 
     <p class="section-label">Grok Bot</p>
+    <p class="section-body">Install from the Grok Bot marketplace when DGTL Connector is listed. That is the one-click Bot path. The <code class="mono">grok plugin install</code> CLI command does not install into Bot.</p>
+    <p class="note">Marketplace listing is not live yet. Until it is, use Grok Build or Cursor below.</p>
+
+    <p class="section-label">Grok Build</p>
+    <p class="section-body">Use the Grok CLI. This installs into Grok Build, not Grok Bot.</p>
     <div class="code-panel">
       <div class="code-panel-bar">
         <span>Install command</span>
@@ -130,8 +135,8 @@
       <pre><code id="install-grok">grok plugin install dgtlsunrise/dgtl-connector</code></pre>
     </div>
 
-    <p class="section-label">Cursor and Grok Build</p>
-    <p class="section-body">Clone the public repo, build it, then load that folder as a local Agent Plugin (Cursor uses <code class="mono">mcp.json</code>; Grok Build uses <code class="mono">.mcp.json</code>).</p>
+    <p class="section-label">Cursor</p>
+    <p class="section-body">Clone the public repo, build it, then load that folder as a local Agent Plugin (<code class="mono">mcp.json</code>). Grok Build can also load the built folder with <code class="mono">.mcp.json</code>.</p>
     <div class="code-panel">
       <div class="code-panel-bar">
         <span>Clone and build</span>
@@ -162,7 +167,7 @@ npm run build</code></pre>
 }</code></pre>
     </div>
 
-    <p class="note">ChatGPT and other hosts that can run a local stdio MCP server use the same <code class="mono">bin/dgtl-connector-mcp</code> command after you build the repo. One-click marketplace install is Grok Bot first.</p>
+    <p class="note">ChatGPT and other hosts that can run a local stdio MCP server use the same <code class="mono">bin/dgtl-connector-mcp</code> command after you build the repo. Hand-wiring a custom MCP server in Grok Bot is an advanced tools-only option; it is not the marketplace install and does not include the full plugin package.</p>
 
     <h2 id="how-to-use">How to use it</h2>
     <ol>

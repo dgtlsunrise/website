@@ -63,6 +63,12 @@ check(index.includes('data-copy="#install-cursor"'), "home Cursor install has co
 check(index.includes('data-copy="#install-claude"'), "home Claude install has copy button");
 check(index.includes("git clone https://github.com/dgtlsunrise/dgtl-connector.git"), "home Cursor clone command");
 check(index.includes("Claude Desktop"), "home Claude Desktop install");
+check(/section-label">Grok Bot<\/p>[\s\S]*?marketplace/i.test(index), "home Grok Bot install is marketplace");
+check(/section-label">Grok Build<\/p>[\s\S]*?id="install-grok"/i.test(index), "home grok CLI is under Grok Build");
+check(!/section-label">Grok Bot<\/p>[\s\S]{0,500}id="install-grok"/i.test(index), "home Bot section does not own grok CLI panel");
+check(index.includes("does not install into Bot"), "home states CLI does not install into Bot");
+check(index.includes("Marketplace listing is not live yet"), "home notes Bot marketplace not live yet");
+
 check(index.includes("/assets/site.js"), "home loads site.js for copy");
 check(!/Package id/.test(index), "home dropped package id line");
 check(!/Connect the account that owns the property when the plugin asks/.test(index), "home dropped connect-when-asks line");
