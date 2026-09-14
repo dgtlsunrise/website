@@ -15,6 +15,6 @@ Coeur d’Alene, ID 83814
 United States
 
 
-For product docs and install: [dgtlsunrise.com](/). Company: [About](/about). Agent context: [llms.txt](/llms.txt). Privacy: [/privacy](/privacy). Terms: [/terms](/terms).
+For product docs and install: [Documentation](/documentation). Company: [About](/about). Agent context: [llms.txt](/llms.txt). Privacy: [/privacy](/privacy). Terms: [/terms](/terms).
 
 Do not paste access tokens, refresh tokens, or license keys into email or chat.

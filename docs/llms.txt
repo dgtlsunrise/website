@@ -21,7 +21,7 @@ Start with a map (list properties/sites/accounts), then ask for decisions with d
 
 Starter prompt: I installed the dgtl-connector plugin (DGTL Sunrise). Connect Google if it is not connected yet. Using dgtl-connector tools only, list every marketing account the plugin can see: GA4 properties, Search Console sites, Tag Manager accounts and containers, plus Shopify, Klaviyo, or ad accounts if those are connected. Do not guess or pick a default. Summarize what is connected, what looks healthy, and the top three questions I should ask next. Keep it short. Do not change anything live.
 
-**What is Pro.** Pro is $19 / month for hosted Google Ads, Meta, and TikTok, plus Pro-gated Merchant Center. Paste the homepage upgrade prompt to ask the Bot to upgrade. Redeem the license on the install. Never paste tokens or license keys into chat.
+**What is Pro.** Pro is $19 / month for hosted Google Ads, Meta, and TikTok, plus Pro-gated Merchant Center. Paste the Documentation upgrade prompt to ask the Bot to upgrade. Redeem the license on the install. Never paste tokens or license keys into chat.
 
 Pro upgrade prompt: I use the dgtl-connector plugin (DGTL Sunrise). I want DGTL Pro for Google Ads / Meta / TikTok. Walk me through Polar checkout at $19 / month using https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll, then redeem the license on this install using the one-time code or checkout id Polar gives me. Do not ask me to paste a license JWT into chat. After redeem succeeds, confirm license_status and tell me what to Connect next. Do not change any live ad accounts until I approve.
 
@@ -42,7 +42,8 @@ Pro upgrade prompt: I use the dgtl-connector plugin (DGTL Sunrise). I want DGTL 
 
 ## Key docs on this site
 
-- [Homepage](/) — install, Free and Pro, and platform docs
+- [Homepage](/) — product introduction and platform list
+- [Documentation](/documentation) — install, Free and Pro, and platform docs
 - [About](/about) — who we are
 - [Contact](/contact) — emails and address
 - [Privacy](/privacy)

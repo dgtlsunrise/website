@@ -17,7 +17,7 @@
   },
   "authentication": {
     "free": "Connect Google on the machine for GA4, Search Console, and Tag Manager (read and manage). Klaviyo uses a merchant-held private API key stored locally. Report bytes do not go through DGTL. Connect Google once with all Free permissions up front. Live edits need confirmation.",
-    "pro": "What is Pro: $19/mo unlocks Google Ads, Meta, TikTok, and Pro Merchant Center. Paste the homepage Pro upgrade prompt so the Bot walks Polar checkout at https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll, then redeem the license on the install with the one-time code or checkout id Polar gives. Do not ask for a license JWT in chat. After redeem, confirm license_status and say what to Connect next. Never paste tokens into chat. Platform credentials required for those Pro paths stay off the public plugin package. Live changes stay confirm-gated.",
+    "pro": "What is Pro: $19/mo unlocks Google Ads, Meta, TikTok, and Pro Merchant Center. Paste the Documentation Pro upgrade prompt so the Bot walks Polar checkout at https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll, then redeem the license on the install with the one-time code or checkout id Polar gives. Do not ask for a license JWT in chat. After redeem, confirm license_status and say what to Connect next. Never paste tokens into chat. Platform credentials required for those Pro paths stay off the public plugin package. Live changes stay confirm-gated.",
     "rules": [
       "Never paste access tokens, refresh tokens, or license keys into chat.",
       "Never invent metrics, rows, or insights the APIs did not return.",
@@ -109,6 +109,7 @@
     "agent_json": "https://www.dgtlsunrise.com/agent.json",
     "sitemap": "https://www.dgtlsunrise.com/sitemap.xml",
     "robots": "https://www.dgtlsunrise.com/robots.txt",
+    "documentation": "https://www.dgtlsunrise.com/documentation",
     "developers": "https://www.dgtlsunrise.com/developers",
     "server_json": "https://www.dgtlsunrise.com/server.json",
     "mcp_server_card": "https://www.dgtlsunrise.com/.well-known/mcp/server-card.json",

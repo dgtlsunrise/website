@@ -12,8 +12,9 @@ Visual rules live in `BRAND-GUIDE.md`. Information architecture:
 
 | Route | Job |
 |---|---|
-| `/` | Install command, six-step loop, free byte path, short Pro pointer. |
-| `/connector` | Worksheet. `#install` and `#pro`. |
+| `/` | Product introduction, Install + Documentation CTAs, hosted platform marks. |
+| `/documentation` | Install, how to use, Free and Pro, and per-platform reference. |
+| `/connector` | Stub that sends visitors to `/documentation#install`. |
 | `/google-ads` | Google Ads product page for API compliance (confirm-gated manage, not read-only). |
 | `/engagements` | Thin hire page. Out of primary nav. Footer mailto. |
 | `/privacy`, `/terms` | Legal claims. Restyle the shell only. |

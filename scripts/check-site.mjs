@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { createHash } from "node:crypto";
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
@@ -28,6 +28,7 @@ const unhashedAssetCss = /href="\/assets\/[^"?]+\.css"/;
 
 const served = [
   "index.html",
+  "documentation.html",
   "connector.html",
   "engagements.html",
   "google-ads.html",
@@ -42,6 +43,7 @@ const allServed = served.map(html).join("\n");
 const publicFacing = [
   ...served,
   "index.md",
+  "documentation.md",
   "about.md",
   "privacy.md",
   "terms.md",
@@ -54,6 +56,7 @@ const publicFacing = [
 ].map(text).join("\n");
 
 const index = html("index.html");
+const docs = html("documentation.html");
 const ads = html("google-ads.html");
 const privacy = html("privacy.html");
 const terms = html("terms.html");
@@ -65,78 +68,107 @@ const primaryNav = (page) => {
   return m ? m[0] : "";
 };
 
-check(index.includes("grok plugin install dgtlsunrise/dgtl-connector"), "home has install command");
-check(/id="install-grok"[^>]*>grok plugin install dgtlsunrise\/dgtl-connector<\/code>/.test(index), "install command is in HTML, not JS");
-check(index.includes('data-copy="#install-grok"'), "home Grok install has copy button");
-check(index.includes('data-copy="#install-cursor"'), "home Cursor install has copy button");
-check(index.includes('data-copy="#install-claude"'), "home Claude install has copy button");
-check(index.includes("git clone https://github.com/dgtlsunrise/dgtl-connector.git"), "home Cursor clone command");
-check(index.includes("Claude Desktop"), "home Claude Desktop install");
-check(/section-label">Grok Bot<\/p>[\s\S]*?marketplace/i.test(index), "home Grok Bot install is marketplace");
-check(/section-label">Grok Build<\/p>[\s\S]*?id="install-grok"/i.test(index), "home grok CLI is under Grok Build");
-check(!/section-label">Grok Bot<\/p>[\s\S]{0,500}id="install-grok"/i.test(index), "home Bot section does not own grok CLI panel");
-check(index.includes("does not install into Bot"), "home states CLI does not install into Bot");
-check(index.includes("marketplace listing is under review"), "home notes Bot marketplace listing under review");
-check(!/Marketplace listing is not live yet/.test(index), "home dropped marketplace-not-live scaffolding");
-check(!/We expect Meta and TikTok to finish approving/.test(index), "home dropped Meta/TikTok soon promise");
+check(docs.includes("grok plugin install dgtlsunrise/dgtl-connector"), "docs has install command");
+check(/id="install-grok"[^>]*>grok plugin install dgtlsunrise\/dgtl-connector<\/code>/.test(docs), "install command is in HTML, not JS");
+check(docs.includes('data-copy="#install-grok"'), "docs Grok install has copy button");
+check(docs.includes('data-copy="#install-cursor-cmd"'), "docs Cursor install has copy button");
+check(docs.includes('data-copy="#install-claude"'), "docs Claude install has copy button");
+check(docs.includes("git clone https://github.com/dgtlsunrise/dgtl-connector.git"), "docs Cursor clone command");
+check(docs.includes("Claude Desktop"), "docs Claude Desktop install");
+check(/section-label"[^>]*>Grok Bot<\/p>[\s\S]*?marketplace/i.test(docs), "docs Grok Bot install is marketplace");
+check(/section-label"[^>]*>Grok Build<\/p>[\s\S]*?id="install-grok"/i.test(docs), "docs grok CLI is under Grok Build");
+check(!/section-label"[^>]*>Grok Bot<\/p>[\s\S]{0,500}id="install-grok"/i.test(docs), "docs Bot section does not own grok CLI panel");
+check(docs.includes("does not install into Bot"), "docs states CLI does not install into Bot");
+check(docs.includes("marketplace listing is under review"), "docs notes Bot marketplace listing under review");
+check(!/Marketplace listing is not live yet/.test(docs), "docs dropped marketplace-not-live scaffolding");
+check(!/We expect Meta and TikTok to finish approving/.test(docs), "docs dropped Meta/TikTok soon promise");
 
-check(index.includes(`src="${siteJsHref}"`), "home loads hashed site.js for copy");
-check(!/Package id/.test(index), "home dropped package id line");
-check(!/Connect the account that owns the property when the plugin asks/.test(index), "home dropped connect-when-asks line");
+check(docs.includes(`src="${siteJsHref}"`), "docs loads hashed site.js for copy");
+check(!index.includes("/assets/site.js"), "home does not load site.js");
+check(!/Package id/.test(index + docs), "site dropped package id line");
+check(!/Connect the account that owns the property when the plugin asks/.test(index + docs), "site dropped connect-when-asks line");
 
-check(index.includes("run on your machine (read and manage)"), "home free path is read and manage");
+check(docs.includes("run on your machine (read and manage)"), "docs free path is read and manage");
 check(/<h1 id="hero-title">Connect your Bot to the marketing accounts you already run\.<\/h1>/.test(index), "home headline in product voice");
 check(index.includes('class="page-landing"'), "home uses landing body class");
 check(index.includes(`href="${landingCssHref}"`), "home imports hashed landing.css");
 check(index.includes(`href="${articleCssHref}"`), "home imports hashed article.css");
 check(!unhashedAssetCss.test(index), "home has no unhashed /assets CSS href");
-check(index.includes('class="tile-grid"'), "home has tile grid");
-check(/Example conversation/.test(index) && /demo transcript/i.test(index), "home has labeled example conversation");
-check(index.includes("Applied after your approval"), "home example conversation ends applied");
-check(/keyword pause list for campaign C/.test(index), "home demo drafts a keyword pause");
-check(index.includes('class="bot-window"') && index.includes('class="agent-list"') && index.includes('class="composer"'), "home embeds Bot app chrome");
-check(index.includes("DGTL Connector") && index.includes("Message DGTL Connector"), "home demo bot is DGTL Connector");
-check(!/Armand|Sales Outbound|Inbox Manager/i.test(index), "home demo is not x.ai marketing cast");
+check(!index.includes('class="tile-grid"'), "home dropped tile grid");
+check(!/Example conversation/.test(index) && !/demo transcript/i.test(index), "home dropped example conversation");
+check(!index.includes('class="bot-window"') && !index.includes('class="agent-list"') && !index.includes('class="composer"'), "home dropped Bot window");
+check(!/Ask in chat\. Approve before it goes live/.test(index), "home dropped pair heading");
+check(!index.includes('class="pair-section"') && !index.includes('class="pair-card"'), "home dropped pair cards");
+check(!index.includes('class="jump"'), "home dropped on-this-page jump nav");
+check(!index.includes('class="hero-kicker"'), "home dropped DGTL Connector install chip");
+check(!index.includes('class="header-pill"') && !/href="\/contact"/.test(index.match(/<header[\s\S]*?<\/header>/)?.[0] || ""), "home header has no Contact pill");
+check(/href="\/documentation"/.test(primaryNav(index)) && !/href="\/about"/.test(primaryNav(index)), "home header About replaced by Documentation");
+check(!/Armand|Sales Outbound|Inbox Manager/i.test(index), "home is not x.ai marketing cast");
 check(!/cdn\.x\.ai|assets\.x\.ai|grok-bot.*\.(svg|css|js)/i.test(index + text("assets/landing.css")), "home does not hotlink x.ai assets");
 check(!/not live yet/i.test(index), "home has no not-live-yet caveat");
 check(!/expect .{0,80} soon/i.test(index), "home has no expect-soon caveat");
 check(!/Your data stays yours/.test(index), "home dropped data-stays-yours paragraph");
 const hero = index.match(/<section class="hero"[\s\S]*?<\/section>/)?.[0] || "";
-check(/href="#install"/.test(hero), "home hero Install CTA");
-check(/href="\/about"/.test(hero), "home hero About CTA");
-check(/href="#install"/.test(index) && /href="#how-to-use"/.test(index), "home jump links include install and how-to-use");
+check(/href="\/documentation#install"/.test(hero), "home hero Install CTA");
+check(/href="\/documentation"/.test(hero) && /Documentation<\/a>/.test(hero), "home hero Documentation CTA");
+check(!/href="\/about"/.test(hero), "home hero dropped About CTA");
+check(docs.includes('href="#install"') && docs.includes('href="#how-to-use"'), "docs TOC includes install and how-to-use");
 check(index.includes("A Grok Bot plugin that connects your Bot"), "home lede is Grok Bot plugin");
-check(index.includes("Start with a map"), "home how-to has Start with a map");
-check(index.includes("Starter prompt"), "home how-to has Starter prompt");
-check(index.includes("I installed the dgtl-connector plugin"), "home starter prompt names dgtl-connector");
-check(index.includes("Ask for decisions, not dumps"), "home how-to has Ask for decisions");
-check(index.includes("Confirm before live changes"), "home how-to Confirm before live changes");
-check(index.includes("Connect Google once with all Free permissions up front"), "home Free Connect is all permissions up front");
-check(!/Free first, Pro when you need ads/.test(index), "home how-to dropped Free-first block");
-check(!/enable writes on the install/i.test(index), "home does not say enable writes on the install");
-check(!/\/dgtl-connector\s+-pro/.test(index), "home does not invent a Pro slash command");
+check(docs.includes("Start with a map"), "docs how-to has Start with a map");
+check(docs.includes("Starter prompt"), "docs how-to has Starter prompt");
+check(docs.includes("I installed the dgtl-connector plugin"), "docs starter prompt names dgtl-connector");
+check(docs.includes("Ask for decisions, not dumps"), "docs how-to has Ask for decisions");
+check(docs.includes("Confirm before live changes"), "docs how-to Confirm before live changes");
+check(docs.includes("Connect Google once with all Free permissions up front"), "docs Free Connect is all permissions up front");
+check(!/Free first, Pro when you need ads/.test(docs), "docs how-to dropped Free-first block");
+check(!/enable writes on the install/i.test(docs), "docs does not say enable writes on the install");
+check(!/\/dgtl-connector\s+-pro/.test(docs), "docs does not invent a Pro slash command");
 
 check((index.match(/<nav class="contents"/g) || []).length === 0, "home dropped article contents nav");
-check(index.indexOf('class="hero"') < index.indexOf('id="install"'), "home hero before install");
-check(index.indexOf("Example conversation") < index.indexOf('id="install"'), "home example conversation before install");
+check((docs.match(/<nav class="contents"/g) || []).length === 1, "docs has table of contents");
+check(docs.includes('aria-label="On this page"') && docs.includes("contents-title"), "docs TOC is on-this-page");
+check(index.indexOf('class="hero"') < index.indexOf('id="platforms-title"'), "home hero before platforms");
 check(!/href="#install"/.test(index.match(/<header[\s\S]*?<\/header>/)?.[0] || ""), "home header has no Install link");
 check(/\.brand img \{[\s\S]*?width:\s*auto/.test(text("assets/article.css")), "home logo uses width auto");
-check(index.includes("Manage property settings the tools support"), "home GA4 edit");
-check(index.includes("Submit or delete sitemaps after you confirm"), "home GSC edit");
-check(index.includes("create or update tags, triggers, and variables"), "home GTM manage");
-check(index.includes("$19") && index.includes("Google Ads") && index.includes("Meta"), "home Pro Ads/Meta");
-check(/You do not need a DGTL Sunrise account to get started/.test(index), "home no DGTL account required");
+check(docs.includes("Manage property settings the tools support"), "docs GA4 edit");
+check(docs.includes("Submit or delete sitemaps after you confirm"), "docs GSC edit");
+check(docs.includes("create or update tags, triggers, and variables"), "docs GTM manage");
+check(docs.includes("$19") && docs.includes("Google Ads") && docs.includes("Meta"), "docs Pro Ads/Meta");
+check(/You do not need a DGTL Sunrise account to get started/.test(docs), "docs no DGTL account required");
+
+const platforms = [
+  ["ga4.svg", "Google Analytics 4"],
+  ["search-console.svg", "Google Search Console"],
+  ["tag-manager.svg", "Google Tag Manager"],
+  ["google-ads.svg", "Google Ads"],
+  ["meta.svg", "Meta Ads"],
+  ["merchant-center.svg", "Merchant Center"],
+  ["business-profile.svg", "Google Business Profile"],
+  ["shopify.svg", "Shopify"],
+  ["klaviyo.svg", "Klaviyo"],
+  ["tiktok.svg", "TikTok Ads"],
+];
+const platformSection = index.match(/<section class="platforms"[\s\S]*?<\/section>/)?.[0] || "";
+check(platformSection.includes('id="platforms-title"'), "home has platforms section");
+check(/dgtl-connector uses these marketing APIs/.test(platformSection), "home platforms lede is one finished sentence");
+check(!/not live yet|pending approval|Consent /i.test(platformSection), "home platforms copy has no caveats");
+for (const [file, label] of platforms) {
+  check(existsSync(resolve(root, "assets/platforms", file)), `hosted platform mark ${file}`);
+  check(platformSection.includes(`/assets/platforms/${file}`), `home hosts ${label} mark`);
+  check(platformSection.includes(label), `home names ${label}`);
+}
+check(!/https?:\/\/[^"']+\/(simpleicons|gstatic|cdn\.jsdelivr|unpkg)/i.test(platformSection), "home does not hotlink platform CDNs");
 
 const section = (id) => {
   const re = new RegExp(`<h2 id="${id}">[\\s\\S]*?(?=<h2 |</main>)`);
-  const m = index.match(re);
+  const m = docs.match(re);
   return m ? m[0] : "";
 };
 
 const freeAndPro = section("free-and-pro");
 check(
-  /<h2 id="free-and-pro">Free and Pro<\/h2>/.test(index) &&
-    index.includes('href="#free-and-pro"') &&
+  /<h2 id="free-and-pro">Free and Pro<\/h2>/.test(docs) &&
+    docs.includes('href="#free-and-pro"') &&
     /What is free/.test(freeAndPro) &&
     /What is Pro/.test(freeAndPro) &&
     !/What is paid/.test(freeAndPro) &&
@@ -157,20 +189,20 @@ check(
     /I use the dgtl-connector plugin/.test(freeAndPro) &&
     /license_status/.test(freeAndPro) &&
     /license JWT/.test(freeAndPro),
-  "home Free vs Pro section"
+  "docs Free vs Pro section"
 );
 
 const klaviyo = section("klaviyo");
 const merchant = section("merchant-center");
-check(!/Local campaigns/.test(section("google-ads")), "home Ads Edit has no Local campaigns");
-check(/Pro \(\$19 \/ month\)/.test(merchant), "home MC Requirements are Pro");
+check(!/Local campaigns/.test(section("google-ads")), "docs Ads Edit has no Local campaigns");
+check(/Pro \(\$19 \/ month\)/.test(merchant), "docs MC Requirements are Pro");
 
 const gbp = section("google-business-profile");
 const shopify = section("shopify");
 const meta = section("meta-ads");
 const tiktok = section("tiktok-ads");
 
-check(index.includes('href="#klaviyo"') && /<h2 id="klaviyo">Klaviyo<\/h2>/.test(index), "home contents and heading include Klaviyo");
+check(docs.includes('href="#klaviyo"') && /<h2 id="klaviyo">Klaviyo<\/h2>/.test(docs), "docs contents and heading include Klaviyo");
 check(
   /Overview/.test(klaviyo) &&
     /Read/.test(klaviyo) &&
@@ -211,19 +243,21 @@ check(
 );
 
 const indexMd = text("index.md");
+const docsMd = text("documentation.md");
 const mdSection = (title) => {
   const re = new RegExp(`### ${title}\\n\\n[\\s\\S]*?(?=\\n### |$)`);
-  const m = indexMd.match(re);
+  const m = docsMd.match(re);
   return m ? m[0] : "";
 };
-check(/You do not need a DGTL Sunrise account to get started/.test(indexMd), "index.md no DGTL account required");
 check(/Connect your Bot to the marketing accounts you already run/.test(indexMd), "index.md has landing headline");
-check(/Example conversation/.test(indexMd) && /demo transcript/i.test(indexMd), "index.md has example conversation");
+check(/The platforms it talks to/.test(indexMd), "index.md has platforms list");
+check(!/Example conversation/.test(indexMd), "index.md dropped example conversation");
 check(!/not live yet/i.test(indexMd), "index.md has no not-live-yet caveat");
+check(/You do not need a DGTL Sunrise account to get started/.test(docsMd), "documentation.md no DGTL account required");
 const freeProMd = (() => {
-  const start = indexMd.indexOf("## Free and Pro");
-  const end = indexMd.indexOf("## Platforms");
-  return start >= 0 ? indexMd.slice(start, end > start ? end : undefined) : "";
+  const start = docsMd.indexOf("## Free and Pro");
+  const end = docsMd.indexOf("## Platforms");
+  return start >= 0 ? docsMd.slice(start, end > start ? end : undefined) : "";
 })();
 check(
   /## Free and Pro/.test(freeProMd) &&
@@ -236,14 +270,14 @@ check(
     /license_status/.test(freeProMd) &&
     !/Live changes need confirmation/.test(freeProMd) &&
     !/Pro entitlement/.test(freeProMd) &&
-    !/Free first, Pro when you need ads/.test(indexMd),
-  "index.md has Free and Pro section"
+    !/Free first, Pro when you need ads/.test(docsMd),
+  "documentation.md has Free and Pro section"
 );
-check(/Klaviyo/.test(mdSection("Klaviyo")) && /\*\*Overview\.\*\*/.test(mdSection("Klaviyo")), "index.md has Klaviyo section");
+check(/Klaviyo/.test(mdSection("Klaviyo")) && /\*\*Overview\.\*\*/.test(mdSection("Klaviyo")), "documentation.md has Klaviyo section");
 check(
   /product inputs/.test(mdSection("Merchant Center")) &&
     !/Edit is not in this version/.test(mdSection("Merchant Center")),
-  "index.md MC no longer claims edit absent"
+  "documentation.md MC no longer claims edit absent"
 );
 
 check(!/DGTL_WRITES_ENABLED/.test(publicFacing), "no DGTL_WRITES_ENABLED product name");
@@ -262,12 +296,16 @@ for (const file of ["llms.txt", "llms-full.txt", "docs/llms.txt"]) {
 check(/I use the dgtl-connector plugin/.test(text("llms-full.txt")), "llms-full.txt has Pro upgrade prompt");
 check(/I use the dgtl-connector plugin/.test(text("docs/llms.txt")), "docs/llms.txt has Pro upgrade prompt");
 check(/What is Pro/.test(agent) && /license_status/.test(agent), "agent.json has What is Pro upgrade path");
+check(text("llms.txt").includes("/documentation"), "llms.txt links documentation");
+check(text("docs/llms.txt").includes("/documentation"), "docs/llms.txt links documentation");
+check(text("functions/_middleware.js").includes('"/documentation": "/documentation.md"'), "middleware maps /documentation");
 
 const POLAR_CHECKOUT = "https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll";
 const polarEscaped = POLAR_CHECKOUT.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-check(index.includes(POLAR_CHECKOUT), "home documents Polar checkout");
-check(freeAndPro.includes(POLAR_CHECKOUT), "home Polar checkout is in What is Pro");
-check((index.match(new RegExp(polarEscaped, "g")) || []).length === 1, "home Polar checkout appears once");
+check(!index.includes(POLAR_CHECKOUT), "home Polar checkout moved off homepage");
+check(docs.includes(POLAR_CHECKOUT), "docs documents Polar checkout");
+check(freeAndPro.includes(POLAR_CHECKOUT), "docs Polar checkout is in What is Pro");
+check((docs.match(new RegExp(polarEscaped, "g")) || []).length === 1, "docs Polar checkout appears once");
 check(!publicFacing.includes("stamp.dgtlsunrise.com/checkout"), "Polar CTA is not stamp checkout");
 const polarUrls = [...publicFacing.matchAll(/https?:\/\/[^\s"'<>\)]*polar[^\s"'<>\)]*/gi)].map((m) => m[0].replace(/[.,]$/, ""));
 check(polarUrls.length > 0 && polarUrls.every((u) => u === POLAR_CHECKOUT), "only documented Polar checkout URL");
@@ -328,6 +366,7 @@ check(mainBody(terms).includes("Paid features"), "terms article body present");
 
 const articlePages = [
   "index.html",
+  "documentation.html",
   "about.html",
   "contact.html",
   "privacy.html",
@@ -347,6 +386,7 @@ for (const file of articlePages) {
   check(!page.includes('class="sunband"'), `${file} no indigo sunband`);
   check(!primaryNav(page).includes("Engagements"), `${file} Engagements out of primary nav`);
   check(page.includes('href="/google-ads">Google Ads'), `${file} footer links Google Ads`);
+  check(page.includes('href="/documentation">Documentation'), `${file} footer links Documentation`);
   if (file !== "index.html") {
     check(!page.includes("/assets/landing.css"), `${file} does not import landing.css`);
   }
@@ -386,11 +426,9 @@ if (base) {
 
   const home = await fetchText("/");
   check(home.res.status === 200, "GET / is 200", String(home.res.status));
-  check(home.text.includes("grok plugin install dgtlsunrise/dgtl-connector"), "preview / shows install command");
-  check(home.text.includes("run on your machine (read and manage)"), "preview / free path is read and manage");
+  check(home.text.includes("The platforms it talks to"), "preview / shows platforms");
   check(home.text.includes("Klaviyo"), "preview / includes Klaviyo");
-  check(/You do not need a DGTL Sunrise account to get started/.test(home.text), "preview / no DGTL account required");
-  check(home.text.includes('id="free-and-pro"') && home.text.includes('href="#free-and-pro"'), "preview / Free vs Pro section");
+  check(!/Example conversation/.test(home.text), "preview / dropped example conversation");
   check(home.text.includes(`href="${landingCssHref}"`), "preview / hashed landing.css");
   check(home.text.includes(`href="${articleCssHref}"`), "preview / hashed article.css");
   const homeCache = (home.res.headers.get("cache-control") || "").toLowerCase();
@@ -400,6 +438,16 @@ if (base) {
     homeCache
   );
 
+  const docsPage = await fetchText("/documentation");
+  check(docsPage.res.status === 200, "GET /documentation is 200", String(docsPage.res.status));
+  check(docsPage.text.includes("grok plugin install dgtlsunrise/dgtl-connector"), "preview /documentation shows install command");
+  check(docsPage.text.includes("run on your machine (read and manage)"), "preview /documentation free path is read and manage");
+  check(/You do not need a DGTL Sunrise account to get started/.test(docsPage.text), "preview /documentation no DGTL account required");
+  check(docsPage.text.includes('id="free-and-pro"') && docsPage.text.includes('href="#free-and-pro"'), "preview /documentation Free vs Pro section");
+  check(docsPage.text.includes('class="contents"'), "preview /documentation has TOC");
+  check(docsPage.text.includes(`href="${articleCssHref}"`), "preview /documentation hashed article.css");
+  check(!docsPage.text.includes("/assets/landing.css"), "preview /documentation does not import landing.css");
+
   const landingCss = await fetchText("/assets/landing.css");
   const landingCache = (landingCss.res.headers.get("cache-control") || "").toLowerCase();
   check(landingCss.res.status === 200, "preview landing.css is 200", String(landingCss.res.status));
@@ -408,6 +456,9 @@ if (base) {
     "preview landing.css short-cache",
     landingCache
   );
+
+  const platformMark = await fetchText("/assets/platforms/ga4.svg");
+  check(platformMark.res.status === 200, "preview platform mark is 200", String(platformMark.res.status));
 
   const aboutPage = await fetchText("/about");
   check(aboutPage.text.includes(`href="${articleCssHref}"`), "preview /about hashed article.css");

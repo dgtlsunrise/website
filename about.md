@@ -15,7 +15,7 @@ United States
 
 dgtl-connector is the product on this site. You install it in Grok Bot, Grok Build, Cursor, or Claude Desktop, connect the accounts you own, then ask in chat. The plugin can list properties and ad accounts, pull reports, recommend changes, and push approved changes live after you review them.
 
-Public docs on the [homepage](/) cover install, platform capabilities, and guardrails. Agents must not invent metrics the APIs did not return, and must never ask anyone to paste secrets into chat.
+Public docs on [Documentation](/documentation) cover install, platform capabilities, and guardrails. Agents must not invent metrics the APIs did not return, and must never ask anyone to paste secrets into chat.
 
 We are not a managed-agency replacement. If you want a system installed around the connector, write contact@dgtlsunrise.com.
 
@@ -25,7 +25,7 @@ The free path covers Google Analytics 4, Search Console, and Tag Manager on your
 
 Pro is $19 / month. It includes the hosted gateway for Google Ads, Meta Ads, and TikTok Ads, plus Pro-gated Merchant Center on your machine. Meta and TikTok access depends on those platforms granting app access for the connected account. Nothing is published or changed on your ad accounts until you review and approve it.
 
-Pro checkout is Polar, linked from the homepage. Redeem the license on the install. Do not paste tokens or license keys into chat.
+Pro checkout is Polar, linked from Documentation. Redeem the license on the install. Do not paste tokens or license keys into chat.
 
 ## Contact
 
@@ -34,6 +34,7 @@ Pro checkout is Polar, linked from the homepage. Redeem the license on the insta
 - noel@dgtlsunrise.com — API and developer review
 
 - [Home](/)
+- [Documentation](/documentation)
 - [Contact](/contact)
 - [Privacy](/privacy)
 - [Terms](/terms)

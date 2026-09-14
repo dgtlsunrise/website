@@ -79,7 +79,7 @@ Machine-readable detail: /agent.json and /?mode=agent. API notes: /api/llms.txt.
 - /api/llms.txt — stamp and auth surface
 - /agent.json and /?mode=agent — structured JSON
 - Companion .md via Accept: text/markdown
-- /sitemap.xml, /robots.txt, /about, /contact, /privacy, /terms
+- /sitemap.xml, /robots.txt, /about, /contact, /privacy, /terms, /documentation
 
 ## Company
 
@@ -203,7 +203,7 @@ Machine-readable detail: /agent.json and /?mode=agent. API notes: /api/llms.txt.
 - /api/llms.txt — stamp and auth surface
 - /agent.json and /?mode=agent — structured JSON
 - Companion .md via Accept: text/markdown
-- /sitemap.xml, /robots.txt, /about, /contact, /privacy, /terms
+- /sitemap.xml, /robots.txt, /about, /contact, /privacy, /terms, /documentation
 
 ## Company
 
