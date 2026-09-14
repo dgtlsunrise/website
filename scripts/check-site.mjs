@@ -194,6 +194,12 @@ check(!/dual-?door|Two doors|Install it, or hire us/i.test(allServed), "no dual-
 check(text("developers.html").includes("DGTL Connector developer resources"), "developers page exists");
 check(text("developers.md").includes("DGTL Connector developer resources"), "developers.md exists");
 check(text("server.json").includes("com.dgtlsunrise/dgtl-connector"), "server.json MCP manifest");
+check(text("openapi.json").includes("DGTL Connector docs discovery"), "openapi.json docs discovery");
+check(text("openapi.json").includes("operationId"), "openapi.json has operationIds");
+check(text("api/openapi.yaml").includes("DGTL Connector docs discovery"), "api/openapi.yaml exists");
+check(text("functions/_middleware.js").includes("application/problem+json"), "middleware JSON problem errors");
+check(text("functions/_middleware.js").includes("prefersJson"), "middleware prefersJson");
+
 check(text(".well-known/mcp/server-card.json").includes("com.dgtlsunrise/dgtl-connector"), "mcp server-card");
 check(text("llms.txt").includes("DGTL Connector by DGTL Sunrise"), "llms.txt names DGTL Connector");
 check(text("llms.txt").includes("/developers"), "llms.txt links developers");

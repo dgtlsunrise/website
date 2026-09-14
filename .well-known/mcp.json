@@ -1,0 +1,12 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/v1/server-card.schema.json",
+  "name": "com.dgtlsunrise/dgtl-connector",
+  "title": "DGTL Connector",
+  "description": "DGTL Connector by DGTL Sunrise. Local stdio MCP plugin (bin/dgtl-connector-mcp) from GitHub dgtlsunrise/dgtl-connector. Not a remote Streamable HTTP MCP. See websiteUrl for developer resources and server.json.",
+  "version": "0.1.0",
+  "websiteUrl": "https://www.dgtlsunrise.com/developers",
+  "repository": {
+    "source": "github",
+    "url": "https://github.com/dgtlsunrise/dgtl-connector"
+  }
+}

@@ -13,6 +13,7 @@ Use this index when an agent needs a short map of public docs and install facts 
 - [Docs-oriented llms.txt](/docs/llms.txt)
 - [Structured agent JSON](/agent.json)
 - [Homepage agent mode](/?mode=agent)
+- [OpenAPI (docs discovery)](/openapi.json)
 - [MCP server.json](/server.json)
 - [MCP server card](/.well-known/mcp/server-card.json)
 - [Sitemap](/sitemap.xml)

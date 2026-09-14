@@ -14,6 +14,7 @@ DGTL Connector by DGTL Sunrise is a local MCP plugin for Grok Bot and other MCP 
 
 - [agent.json](/agent.json) · [/?mode=agent](/?mode=agent)
 - [llms.txt](/llms.txt) · [llms-full.txt](/llms-full.txt) · [docs/llms.txt](/docs/llms.txt)
+- [OpenAPI (docs discovery)](/openapi.json) · [api/openapi.yaml](/api/openapi.yaml)
 - [MCP server.json](/server.json) (local stdio plugin manifest)
 - [MCP server card](/.well-known/mcp/server-card.json)
 - [sitemap.xml](/sitemap.xml)

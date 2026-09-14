@@ -1,0 +1,163 @@
+openapi: 3.1.0
+info:
+  title: DGTL Connector docs discovery
+  description: >-
+    Public docs-discovery surface for DGTL Connector by DGTL Sunrise. These routes help agents find
+    install docs, capabilities, and the local MCP plugin manifest. This is not a public Ads account
+    API and it does not expose customer marketing data.
+  version: 1.0.0
+  contact:
+    name: DGTL Sunrise
+    email: support@dgtlsunrise.com
+    url: https://www.dgtlsunrise.com/developers
+servers:
+  - url: https://www.dgtlsunrise.com
+    description: DGTL Sunrise marketing and docs site
+paths:
+  /openapi.json:
+    get:
+      operationId: getOpenApi
+      summary: OpenAPI document
+      description: Machine-readable OpenAPI description of the public docs-discovery routes.
+      responses:
+        '200':
+          description: OpenAPI document
+          content:
+            application/json:
+              schema:
+                type: object
+  /agent.json:
+    get:
+      operationId: getAgentJson
+      summary: Structured agent capabilities
+      description: Product capabilities, install facts, and agent discovery links for DGTL Connector.
+      responses:
+        '200':
+          description: Agent document
+          content:
+            application/json:
+              schema:
+                type: object
+  /:
+    get:
+      operationId: getHomepageAgentMode
+      summary: Homepage agent mode
+      description: When mode=agent, returns the same document as /agent.json.
+      parameters:
+        - name: mode
+          in: query
+          required: true
+          schema:
+            type: string
+            enum:
+              - agent
+          description: Set to agent for the JSON agent document.
+      responses:
+        '200':
+          description: Agent document when mode=agent
+          content:
+            application/json:
+              schema:
+                type: object
+  /llms.txt:
+    get:
+      operationId: getLlmsTxt
+      summary: llms.txt navigation index
+      description: Short markdown index of public docs for agents.
+      responses:
+        '200':
+          description: Markdown index
+          content:
+            text/plain:
+              schema:
+                type: string
+  /developers:
+    get:
+      operationId: getDevelopers
+      summary: Developer resources
+      description: Human and agent map of install docs, manifests, and GitHub.
+      responses:
+        '200':
+          description: Developer resources page
+          content:
+            text/html:
+              schema:
+                type: string
+            text/markdown:
+              schema:
+                type: string
+  /server.json:
+    get:
+      operationId: getMcpServerJson
+      summary: Local MCP server.json
+      description: MCP Registry-shaped manifest for the local stdio DGTL Connector plugin.
+      responses:
+        '200':
+          description: MCP server manifest
+          content:
+            application/json:
+              schema:
+                type: object
+  /.well-known/mcp/server-card.json:
+    get:
+      operationId: getMcpServerCard
+      summary: MCP server card
+      description: Well-known MCP server card for DGTL Connector (local stdio plugin).
+      responses:
+        '200':
+          description: MCP server card
+          content:
+            application/json:
+              schema:
+                type: object
+  /sitemap.xml:
+    get:
+      operationId: getSitemap
+      summary: Sitemap
+      responses:
+        '200':
+          description: XML sitemap
+          content:
+            application/xml:
+              schema:
+                type: string
+components:
+  schemas:
+    Problem:
+      type: object
+      required:
+        - type
+        - title
+        - status
+        - detail
+        - code
+        - message
+        - resolution
+      properties:
+        type:
+          type: string
+          format: uri
+        title:
+          type: string
+        status:
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+        code:
+          type: string
+        message:
+          type: string
+        resolution:
+          type: string
+  responses:
+    NotFound:
+      description: Path not found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/Problem'
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Problem'
