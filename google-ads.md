@@ -10,4 +10,4 @@ Pro connects Google Ads to your agent through a hosted gateway. Reporting is liv
 - Reads use closed recipes. Live writes need your confirm with the customer id in that chat turn.
 - Campaign types covered for report and create include Search, Display, Performance Max, Shopping, Video, Demand Gen, App, and Hotel (where enabled).
 
-Install the plugin from the [homepage](/). Pro is $19 / month for the Ads and Meta gateway.
+Install the plugin from [Documentation](/documentation#install). Pro is $19 / month for the Ads and Meta gateway.

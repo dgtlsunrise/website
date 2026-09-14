@@ -79,8 +79,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/article.css?v=9fe50bf7facd" />
-  <link rel="stylesheet" href="/assets/landing.css?v=6b3cf9ec7e73" />
+  <link rel="stylesheet" href="/assets/article.css?v=34f76c487fd2" />
+  <link rel="stylesheet" href="/assets/landing.css?v=d40f8f2c280b" />
 </head>
 <body class="page-landing">
   <a class="skip" href="#main">Skip to content</a>
@@ -94,40 +94,28 @@
         </span>
       </a>
       <nav class="header-nav" aria-label="Primary">
-        <a href="/about">About</a>
+        <a href="/documentation">Documentation</a>
         <a href="/developers">Developers</a>
         <a href="/privacy">Privacy</a>
         <a href="/terms">Terms</a>
       </nav>
-      <div class="header-actions">
-        <a class="header-pill" href="/contact">Contact</a>
-      </div>
     </div>
     <div class="logo-hairline" aria-hidden="true"></div>
   </header>
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-title">
-      <a class="hero-kicker" href="#install">
-        <span class="hero-kicker-dot" aria-hidden="true">D</span>
-        DGTL Connector
-      </a>
       <h1 id="hero-title">Connect your Bot to the marketing accounts you already run.</h1>
       <p class="lede">A Grok Bot plugin that connects your Bot to Google, Meta, Shopify, Klaviyo, and TikTok marketing accounts. These connections let your Bot set up and manage accounts, pull reports, recommend changes, and push approved changes live after you review them. It also works with other MCP hosts such as Cursor and Claude Desktop.</p>
       <div class="hero-ctas">
-        <a class="cta cta--primary" href="#install">Install</a>
-        <a class="cta cta--secondary" href="/about">About</a>
+        <a class="cta cta--primary" href="/documentation#install">Install</a>
+        <a class="cta cta--secondary" href="/documentation">Documentation</a>
       </div>
     </section>
 
-    <section class="example-convo" aria-labelledby="example-convo-title">
-      <div class="example-convo-intro">
-        <p class="example-convo-label">Example conversation</p>
-        <h2 class="visually-hidden" id="example-convo-title">A dgtl-connector session</h2>
-        <p class="example-convo-note">This is a demo transcript with example numbers. It is not a live chat and not a customer story.</p>
-      </div>
+    <section class="example-convo" aria-label="DGTL Connector session">
       <figure class="bot-window">
-        <figcaption class="visually-hidden">Demo transcript inside an example Bot window. Example numbers only.</figcaption>
+        <figcaption class="visually-hidden">DGTL Connector in a Bot window.</figcaption>
         <div class="bot-titlebar" aria-hidden="true">
           <div class="traffic">
             <i class="tl-r"></i>
@@ -288,400 +276,77 @@
       </figure>
     </section>
 
-    <section class="pair-section" aria-labelledby="pair-title">
-      <h2 id="pair-title">Ask in chat. Approve before it goes live.</h2>
-      <p class="pair-lede">Install the plugin, connect the accounts you already run, and add another Bot when the work splits. dgtl-connector lists what it can see, drafts the change, and waits for you.</p>
-      <div class="pair-grid">
-        <article class="pair-card">
-          <h3>Connects where you already work</h3>
-          <p>Install once. Connect Google, then list GA4 properties, Search Console sites, and Tag Manager containers the same way you would in the consoles.</p>
-          <div class="mini-shell" aria-hidden="true">
-            <div class="mini-bar">dgtl-connector <span>Working</span></div>
-            <div class="mini-body">
-              <p class="mini-msg">Signing in to Google so I can list the accounts you own.</p>
-              <ul class="mini-rows">
-                <li><span class="avatar avatar-sm av-orange">G</span> Google connected</li>
-                <li><span class="tool-swatch sw-ga"></span> GA4 · example.com</li>
-                <li><span class="tool-swatch sw-gsc"></span> Search Console · sc-domain:example.com</li>
-              </ul>
-            </div>
-          </div>
-        </article>
-        <article class="pair-card">
-          <h3>Show it once. Approve the draft.</h3>
-          <p>Ask for a comparison, then a keyword pause list. The draft stays in the workspace. Nothing is published or changed until you say Approve.</p>
-          <div class="mini-shell" aria-hidden="true">
-            <div class="mini-bar">Ads Operator <span>Draft ready</span></div>
-            <div class="mini-body">
-              <p class="mini-msg">12 keywords in campaign C. High cost, zero conversions, 14 days. Live account unchanged.</p>
-              <p class="mini-msg out">Approve.</p>
-              <p class="mini-msg">Applied after your approval.</p>
-            </div>
-          </div>
-        </article>
-      </div>
+    <section class="platforms" aria-labelledby="platforms-title">
+      <h2 id="platforms-title">The platforms it talks to</h2>
+      <p class="platforms-lede">dgtl-connector uses these marketing APIs after you connect the accounts you already run.</p>
+      <ul class="platform-grid">
+        <li>
+          <a href="/documentation#google-analytics-4">
+            <img src="/assets/platforms/ga4.svg" width="36" height="36" alt="" />
+            <span>Google Analytics 4</span>
+          </a>
+        </li>
+        <li>
+          <a href="/documentation#google-search-console">
+            <img src="/assets/platforms/search-console.svg" width="36" height="36" alt="" />
+            <span>Google Search Console</span>
+          </a>
+        </li>
+        <li>
+          <a href="/documentation#google-tag-manager">
+            <img src="/assets/platforms/tag-manager.svg" width="36" height="36" alt="" />
+            <span>Google Tag Manager</span>
+          </a>
+        </li>
+        <li>
+          <a href="/documentation#google-ads">
+            <img src="/assets/platforms/google-ads.svg" width="36" height="36" alt="" />
+            <span>Google Ads</span>
+          </a>
+        </li>
+        <li>
+          <a href="/documentation#meta-ads">
+            <img src="/assets/platforms/meta.svg" width="36" height="36" alt="" />
+            <span>Meta Ads</span>
+          </a>
+        </li>
+        <li>
+          <a href="/documentation#merchant-center">
+            <img src="/assets/platforms/merchant-center.svg" width="36" height="36" alt="" />
+            <span>Merchant Center</span>
+          </a>
+        </li>
+        <li>
+          <a href="/documentation#google-business-profile">
+            <img src="/assets/platforms/business-profile.svg" width="36" height="36" alt="" />
+            <span>Google Business Profile</span>
+          </a>
+        </li>
+        <li>
+          <a href="/documentation#shopify">
+            <img src="/assets/platforms/shopify.svg" width="36" height="36" alt="" />
+            <span>Shopify</span>
+          </a>
+        </li>
+        <li>
+          <a href="/documentation#klaviyo">
+            <img src="/assets/platforms/klaviyo.svg" width="36" height="36" alt="" />
+            <span>Klaviyo</span>
+          </a>
+        </li>
+        <li>
+          <a href="/documentation#tiktok-ads">
+            <img src="/assets/platforms/tiktok.svg" width="36" height="36" alt="" />
+            <span>TikTok Ads</span>
+          </a>
+        </li>
+      </ul>
     </section>
-
-    <nav class="jump" aria-label="On this page">
-      <a href="#install">Install</a>
-      <a href="#how-to-use">How to use</a>
-      <a href="#free-and-pro">Free and Pro</a>
-      <a href="#google-analytics-4">GA4</a>
-      <a href="#google-search-console">Search Console</a>
-      <a href="#google-tag-manager">Tag Manager</a>
-      <a href="#google-ads">Ads</a>
-      <a href="#meta-ads">Meta</a>
-      <a href="#merchant-center">Merchant Center</a>
-      <a href="#google-business-profile">Business Profile</a>
-      <a href="#shopify">Shopify</a>
-      <a href="#klaviyo">Klaviyo</a>
-      <a href="#tiktok-ads">TikTok</a>
-      <a href="#company">Company</a>
-    </nav>
-
-    <div class="tile-grid">
-    <article class="tile tile--wide">
-    <h2 id="install">Install</h2>
-    <p class="section-body">You do not need a DGTL Sunrise account to get started. Pick your agent host.</p>
-
-    <p class="section-label">Grok Bot</p>
-    <p class="section-body">Install from the Grok Bot marketplace when DGTL Connector is listed. That is the one-click Bot path. The <code class="mono">grok plugin install</code> CLI command does not install into Bot.</p>
-    <p class="note">The marketplace listing is under review. Grok Build and Cursor remain complete install paths.</p>
-
-    <p class="section-label">Grok Build</p>
-    <p class="section-body">Use the Grok CLI. This installs into Grok Build, not Grok Bot.</p>
-    <div class="code-panel">
-      <div class="code-panel-bar">
-        <span>Install command</span>
-        <button type="button" class="copy-btn" data-copy="#install-grok">Copy</button>
-      </div>
-      <pre><code id="install-grok">grok plugin install dgtlsunrise/dgtl-connector</code></pre>
-    </div>
-
-    <p class="section-label">Cursor</p>
-    <p class="section-body">Clone the public repo, build it, then load that folder as a local Agent Plugin (<code class="mono">mcp.json</code>). Grok Build can also load the built folder with <code class="mono">.mcp.json</code>.</p>
-    <div class="code-panel">
-      <div class="code-panel-bar">
-        <span>Clone and build</span>
-        <button type="button" class="copy-btn" data-copy="#install-cursor">Copy</button>
-      </div>
-      <pre><code id="install-cursor">git clone https://github.com/dgtlsunrise/dgtl-connector.git
-cd dgtl-connector
-npm install
-npm run build</code></pre>
-    </div>
-
-    <p class="section-label">Claude Desktop</p>
-    <p class="section-body">Build the repo with the Cursor steps above, then add this stdio server in Claude Desktop MCP settings. Replace the paths with the absolute paths on your machine.</p>
-    <div class="code-panel">
-      <div class="code-panel-bar">
-        <span>MCP server config</span>
-        <button type="button" class="copy-btn" data-copy="#install-claude">Copy</button>
-      </div>
-      <pre><code id="install-claude">{
-  "mcpServers": {
-    "dgtl-connector": {
-      "command": "/path/to/dgtl-connector/bin/dgtl-connector-mcp",
-      "env": {
-        "PLUGIN_DATA": "/path/to/dgtl-connector-data"
-      }
-    }
-  }
-}</code></pre>
-    </div>
-
-    <p class="note">ChatGPT and other hosts that can run a local stdio MCP server use the same <code class="mono">bin/dgtl-connector-mcp</code> command after you build the repo. Hand-wiring a custom MCP server in Grok Bot is an advanced tools-only option; it is not the marketplace install and does not include the full plugin package.</p>
-    </article>
-
-    <article class="tile tile--wide">
-    <h2 id="how-to-use">How to use it</h2>
-    <ol>
-      <li>Install the plugin in your agent host.</li>
-      <li>Connect the account that owns the property, site, or ad account you care about.</li>
-      <li>Ask in chat. Name the property, site, or account when you have more than one.</li>
-      <li>Review and approve before anything is published or changed on your accounts.</li>
-    </ol>
-
-    <p class="section-label">Start with a map</p>
-    <p class="section-body">Before you ask for numbers, ask the Bot to list what it can see: GA4 properties, Search Console sites, GTM accounts, or ad accounts. Then pick the one you mean in plain language. If you leave it vague, a careful Bot will ask which one. Do not let it guess among agency or client accounts.</p>
-
-    <p class="section-label">Starter prompt</p>
-    <p class="section-body">Paste this so the Bot knows you installed <code class="mono">dgtl-connector</code>, even if you come back weeks later. It should use those tools only, and it should not guess which account you mean.</p>
-    <div class="code-panel">
-      <div class="code-panel-bar">
-        <span>Starter prompt</span>
-        <button type="button" class="copy-btn" data-copy="#starter-prompt">Copy</button>
-      </div>
-      <pre><code id="starter-prompt">I installed the dgtl-connector plugin (DGTL Sunrise). Connect Google if it is not connected yet. Using dgtl-connector tools only, list every marketing account the plugin can see: GA4 properties, Search Console sites, Tag Manager accounts and containers, plus Shopify, Klaviyo, or ad accounts if those are connected. Do not guess or pick a default. Summarize what is connected, what looks healthy, and the top three questions I should ask next. Keep it short. Do not change anything live.</code></pre>
-    </div>
-
-    <p class="section-label">Ask for decisions, not dumps</p>
-    <p class="section-body">Short, specific asks beat vague ones. Prefer a date range, a comparison, and the decision you need. Examples that work well:</p>
-    <ul>
-      <li>Compare last 28 days to the prior 28 for sessions, conversions, and top landing pages on property X.</li>
-      <li>Which Search Console queries gained impressions but lost clicks this month on site Y?</li>
-      <li>Show the live GTM tags on container Z and flag anything that still fires on thank-you without a conversion.</li>
-      <li>Draft a keyword pause list for campaign C where cost is high and conversions are zero for 14 days. Do not push live until I approve.</li>
-    </ul>
-    <p class="section-body">If the Bot invents a metric or a property id, stop it and ask it to re-run from the connected account. Real tools beat remembered numbers.</p>
-
-    <p class="section-label">Confirm before live changes</p>
-    <p class="section-body">When you Connect Google for Free features, you grant all Free Google permissions in that one Connect. The plugin expects those permissions before Free Google tools are useful. Live changes still need your confirmation. Treat chat as a draft surface: approve publishes, pauses, budget moves, and catalog edits the same way you would approve a pull request.</p>
-    </article>
-
-    <article class="tile tile--wide">
-    <h2 id="free-and-pro">Free and Pro</h2>
-    <p class="section-label">What is free</p>
-    <p class="section-body">Install the plugin and connect the marketing accounts you already use. No DGTL Sunrise account is required.</p>
-    <ul>
-      <li>Free Google Analytics 4, Search Console, and Tag Manager run on your machine (read and manage). Connect Google once with all Free permissions up front. Nothing goes live until you approve it. Report bytes stay on your machine and do not go through DGTL.</li>
-      <li>Klaviyo uses a private API key you hold on the install. Free. Not Pro. The key stays on your machine.</li>
-      <li>Shopify connects on the install. Catalog and inventory changes wait for your approval.</li>
-      <li>Google Business Profile can be read when that path is available. Edit is not in this version.</li>
-    </ul>
-    <p class="section-label">What is Pro</p>
-    <p class="section-body">Pro is $19 / month. It unlocks the hosted gateway for advertising platforms, plus Pro-gated Merchant Center on your machine:</p>
-    <ul>
-      <li>Google Ads reporting, plus manage and create (campaigns, budgets, keywords, ads, and more).</li>
-      <li>Meta Ads insights, campaigns, ad sets, ads, audiences, catalogs, and Conversions API events.</li>
-      <li>TikTok Ads advertisers, campaigns, insights, catalogs, and Events API tracking.</li>
-      <li>Merchant Center accounts, products, and confirm-gated product-input writes. Plugin-direct Google on your machine (not the Ads/Meta/TikTok Worker hop).</li>
-    </ul>
-    <p class="section-body">Nothing is published or changed on your ad accounts until you review and approve it first.</p>
-    <p class="note">Meta Ads and TikTok Ads are included in Pro. Access on those platforms depends on Meta and TikTok granting app access for the connected account. The plugin reports a denied or pending grant instead of inventing results.</p>
-    <p class="section-body">Paste this to ask the Bot to upgrade to Pro. Redeem the license on the install. Never paste tokens or license keys into chat.</p>
-    <div class="code-panel">
-      <div class="code-panel-bar">
-        <span>Pro upgrade prompt</span>
-        <button type="button" class="copy-btn" data-copy="#pro-upgrade-prompt">Copy</button>
-      </div>
-      <pre><code id="pro-upgrade-prompt">I use the dgtl-connector plugin (DGTL Sunrise). I want DGTL Pro for Google Ads / Meta / TikTok. Walk me through Polar checkout at $19 / month using https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll, then redeem the license on this install using the one-time code or checkout id Polar gives me. Do not ask me to paste a license JWT into chat. After redeem succeeds, confirm license_status and tell me what to Connect next. Do not change any live ad accounts until I approve.</code></pre>
-    </div>
-    </article>
-
-    <article class="tile">
-    <h2 id="google-analytics-4">Google Analytics 4</h2>
-    <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent for GA4 properties, reports, and property settings the tools support.</p>
-    <p class="section-label">Read</p>
-    <p class="section-body">List accounts and properties. Open property details, data streams, and key events. Run reports for the date ranges and metrics you ask for.</p>
-    <p class="section-label">Edit</p>
-    <p class="section-body">Manage property settings the tools support (data streams, key events, custom definitions, and Measurement Protocol secrets where enabled). Connect Google once with all Free permissions up front. Live changes need your confirmation.</p>
-    <p class="section-label">Requirements</p>
-    <p class="section-body">Free. Connect Google. Live edits need your confirmation.</p>
-    <p class="section-label">Example asks</p>
-    <ul>
-      <li>List my GA4 properties.</li>
-      <li>Sessions and conversions for this property over the last 28 days.</li>
-      <li>Which data streams are on this property?</li>
-      <li>Add this key event after I confirm.</li>
-    </ul>
-    <p class="section-label">Guardrails</p>
-    <p class="section-body">If you have more than one property, the agent asks which one to use instead of guessing. It cites the property ID on numbers so you can see where a figure came from. It does not invent metrics the API did not return. Live edits wait for your confirmation.</p>
-    </article>
-
-    <article class="tile">
-    <h2 id="google-search-console">Google Search Console</h2>
-    <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent about verified sites, queries, URL indexing status, and sitemaps.</p>
-    <p class="section-label">Read</p>
-    <p class="section-body">List sites. Query search performance. Inspect a URL. List and open sitemaps.</p>
-    <p class="section-label">Edit</p>
-    <p class="section-body">Submit or delete sitemaps after you confirm. Connect Google once with all Free permissions up front.</p>
-    <p class="section-label">Requirements</p>
-    <p class="section-body">Free. Connect Google. The site must already appear in Search Console for that account. Live edits need your confirmation.</p>
-    <p class="section-label">Example asks</p>
-    <ul>
-      <li>Which Search Console sites can I access?</li>
-      <li>Top queries for example.com over the last 28 days.</li>
-      <li>Inspect https://example.com/page for indexing issues.</li>
-      <li>Submit the sitemap for example.com after I confirm.</li>
-    </ul>
-    <p class="section-label">Guardrails</p>
-    <p class="section-body">The agent asks which site to use when several are available. Search Console figures stay labeled as Search Console (they are not the same as GA4 sessions). Live edits wait for your confirmation.</p>
-    </article>
-
-    <article class="tile">
-    <h2 id="google-tag-manager">Google Tag Manager</h2>
-    <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent to inspect containers and to create or update tags, triggers, and variables. Publish after you approve. Connect Google once with all Free permissions up front.</p>
-    <p class="section-label">Read</p>
-    <p class="section-body">List accounts, containers, workspaces, tags, triggers, and variables. Open a container. Show the live container version.</p>
-    <p class="section-label">Edit</p>
-    <p class="section-body">Create and update tags, triggers, and variables. Publish a container. Connect Google once with all Free permissions up front. Live changes need your confirmation.</p>
-    <p class="section-label">Requirements</p>
-    <p class="section-body">Free. Connect Google. Live edits and publishes need your confirmation.</p>
-    <p class="section-label">Example asks</p>
-    <ul>
-      <li>List my GTM containers.</li>
-      <li>What tags are in GTM-XXXX?</li>
-      <li>Propose a new tag, then publish only after I approve.</li>
-    </ul>
-    <p class="section-label">Guardrails</p>
-    <p class="section-body">Draft or dry-run work stays separate from the live container until you approve publish. The agent will not publish without that confirmation.</p>
-    </article>
-
-    <article class="tile">
-    <h2 id="google-ads">Google Ads</h2>
-    <p class="section-label">Overview</p>
-    <p class="section-body">With Pro, ask your agent for account reporting and confirm-gated changes (pause or enable, budgets, keywords, ads, and new campaigns where enabled).</p>
-    <p class="section-label">Read</p>
-    <p class="section-body">List accessible accounts. Account and campaign reporting. Search performance style queries. Merchant Center link status.</p>
-    <p class="section-label">Edit</p>
-    <p class="section-body">Pause or enable campaigns, ad groups, keywords, and ads. Update budgets. Add keywords and negatives. Create responsive search and display ads. Create Search, Display, Performance Max, Shopping, Video, Demand Gen, App, and Hotel campaigns. Upload assets. Set geo, language, demographics, schedules, and bidding. Create conversion actions and experiments. Link or unlink Merchant Center. Every live change needs confirmation.</p>
-    <p class="section-label">Requirements</p>
-    <p class="section-body">Pro ($19 / month). Connect Google Ads under your own login.</p>
-    <p class="section-label">Example asks</p>
-    <ul>
-      <li>List my Google Ads accounts.</li>
-      <li>Campaign performance for the last 14 days.</li>
-      <li>Pause this campaign after I confirm.</li>
-      <li>Create a paused Search campaign with these keywords.</li>
-    </ul>
-    <p class="section-label">Guardrails</p>
-    <p class="section-body">Creates and status changes wait for your confirmation. Prefer paused drafts when you are testing. Without Pro, Ads tools do not invent results.</p>
-    </article>
-
-    <article class="tile">
-    <h2 id="meta-ads">Meta Ads</h2>
-    <p class="section-label">Overview</p>
-    <p class="section-body">With Pro, ask your agent for ad account insights and, when Meta access allows, create or update campaigns, ad sets, ads, and audiences.</p>
-    <p class="section-label">Read</p>
-    <p class="section-body">List ad accounts, campaigns, ad sets, and ads. Pull insights and creative details. List catalogs and catalog products.</p>
-    <p class="section-label">Edit</p>
-    <p class="section-body">Create and update campaigns, ad sets, and ads. Upload image or video. Create creatives. Update targeting. Create custom and lookalike audiences and attach them. Create a catalog and batch catalog products. Upload Conversions API events when that path is enabled on your install. Nothing goes live until you approve it.</p>
-    <p class="section-label">Requirements</p>
-    <p class="section-body">Pro. Meta must grant the needed app access for your account. Some write actions stay blocked until Meta finishes that review.</p>
-    <p class="section-label">Example asks</p>
-    <ul>
-      <li>List my Meta ad accounts.</li>
-      <li>Insights for this campaign over the last 7 days.</li>
-      <li>List catalogs on this ad account.</li>
-      <li>Create a paused campaign after I confirm.</li>
-    </ul>
-    <p class="section-label">Guardrails</p>
-    <p class="section-body">The agent confirms before live changes. If Meta denies access, it reports that instead of inventing insights or edits.</p>
-    </article>
-
-    <article class="tile">
-    <h2 id="merchant-center">Merchant Center</h2>
-    <p class="section-label">Overview</p>
-    <p class="section-body">With Pro, ask your agent about Merchant Center accounts, products, and account issues. When writes are enabled on your install, it can create a data source and upsert or delete product inputs after you confirm.</p>
-    <p class="section-label">Read</p>
-    <p class="section-body">List accounts. List and open products. Product statuses. Account issues. Data sources.</p>
-    <p class="section-label">Edit</p>
-    <p class="section-body">Create a data source. Upsert or delete product inputs. Nothing goes live until you approve it.</p>
-    <p class="section-label">Requirements</p>
-    <p class="section-body">Pro ($19 / month). Connect the Google account that owns Merchant Center. Live edits need writes enabled on your install, plus confirmation. Calls stay on your machine; this is not the Ads/Meta/TikTok Worker hop.</p>
-    <p class="section-label">Example asks</p>
-    <ul>
-      <li>List Merchant Center accounts I can access.</li>
-      <li>Which products have issues?</li>
-      <li>Show account issues.</li>
-      <li>Create a data source after I confirm.</li>
-      <li>Upsert these product inputs after I confirm.</li>
-    </ul>
-    <p class="section-label">Guardrails</p>
-    <p class="section-body">The agent asks which account to use when more than one is available. It does not invent product or issue rows. Live edits wait for your confirmation.</p>
-    </article>
-
-    <article class="tile">
-    <h2 id="google-business-profile">Google Business Profile</h2>
-    <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent about Business Profile locations, performance, and search keywords.</p>
-    <p class="section-label">Read</p>
-    <p class="section-body">List accounts and locations. Open a location. Performance. Search keywords.</p>
-    <p class="section-label">Edit</p>
-    <p class="section-body">Not in this version.</p>
-    <p class="section-label">Requirements</p>
-    <p class="section-body">Connect Google. Some calls need Google’s Business Profile API access for your profile before they work.</p>
-    <p class="section-label">Example asks</p>
-    <ul>
-      <li>List my Business Profile locations.</li>
-      <li>Performance for this location over the last 28 days.</li>
-      <li>Search keywords for this location.</li>
-    </ul>
-    <p class="section-label">Guardrails</p>
-    <p class="section-body">The agent asks which location to use when several exist. If Google has not granted API access yet, it says so instead of inventing performance data.</p>
-    </article>
-
-    <article class="tile">
-    <h2 id="shopify">Shopify</h2>
-    <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent about your shop, catalog, orders, inventory, publications, and product feeds. Inventory and product-set writes wait for your confirmation.</p>
-    <p class="section-label">Read</p>
-    <p class="section-body">Shop details. Products. Orders. Locations. Inventory levels. Publications and catalogs. Product feeds.</p>
-    <p class="section-label">Edit</p>
-    <p class="section-body">Adjust inventory. Create or update products with a product set. Nothing goes live until you approve it.</p>
-    <p class="section-label">Requirements</p>
-    <p class="section-body">Connect Shopify on the install. Live edits need your confirmation.</p>
-    <p class="section-label">Example asks</p>
-    <ul>
-      <li>What is my shop name and domain?</li>
-      <li>List products.</li>
-      <li>List publications and catalogs.</li>
-      <li>Adjust inventory for this variant after I confirm.</li>
-      <li>Create or update this product after I confirm.</li>
-    </ul>
-    <p class="section-label">Guardrails</p>
-    <p class="section-body">Inventory and product-set changes wait for your confirmation. The agent does not invent order or stock numbers.</p>
-    </article>
-
-    <article class="tile">
-    <h2 id="klaviyo">Klaviyo</h2>
-    <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent about your Klaviyo account, lists, segments, flows, campaigns, catalog, and reviews. It can create a draft email campaign, send an existing draft after you confirm, and update profiles or catalog items.</p>
-    <p class="section-label">Read</p>
-    <p class="section-body">Open the account. List profiles (sparse fields only). Show lists, segments, flows, campaigns, and metrics. List catalog items, categories, and variants. List reviews.</p>
-    <p class="section-label">Edit</p>
-    <p class="section-body">Create a draft email campaign. Send an existing draft. That send needs its own confirmation. Upsert a profile. Create an event for backfill. Upsert catalog items (capped). Nothing goes live until you approve it.</p>
-    <p class="section-label">Requirements</p>
-    <p class="section-body">Free. This is not a Pro feature. Connect Klaviyo with a private API key you hold on the install. That key stays on your machine. Never paste the key into chat.</p>
-    <p class="section-label">Example asks</p>
-    <ul>
-      <li>Which Klaviyo lists and segments can I access?</li>
-      <li>Show recent email campaigns and their status.</li>
-      <li>Create a draft email campaign after I confirm.</li>
-      <li>Send this existing draft after I confirm send.</li>
-      <li>Upsert this profile after I confirm.</li>
-    </ul>
-    <p class="section-label">Guardrails</p>
-    <p class="section-body">The agent never asks you to paste the API key into chat. It asks which account or list to use when more than one is available. It does not invent profile fields. Creating a draft does not send it. A send needs its own explicit send confirmation.</p>
-    </article>
-
-    <article class="tile">
-    <h2 id="tiktok-ads">TikTok Ads</h2>
-    <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent for advertisers, campaigns, insights, and catalogs. With Pro, campaign status updates, catalog create or upload, and Events API tracking are included.</p>
-    <p class="section-label">Read</p>
-    <p class="section-body">List advertisers and campaigns. Insights. List catalogs.</p>
-    <p class="section-label">Edit</p>
-    <p class="section-body">Update campaign status (for example pause or enable). Create a catalog, upload products, and bind the catalog. Send Events API tracking. Nothing goes live until you approve it.</p>
-    <p class="section-label">Requirements</p>
-    <p class="section-body">Pro ($19 / month). TikTok Ads is included in Pro. Reads and writes depend on TikTok granting the needed app access for the connected account.</p>
-    <p class="section-label">Example asks</p>
-    <ul>
-      <li>List TikTok advertisers I can access.</li>
-      <li>Campaign insights for the last 7 days.</li>
-      <li>List catalogs I can access.</li>
-      <li>Pause this campaign after I confirm.</li>
-      <li>Upload products to this catalog after I confirm.</li>
-    </ul>
-    <p class="section-label">Guardrails</p>
-    <p class="section-body">Status changes and catalog uploads wait for your confirmation. If TikTok access or entitlement is missing, the agent reports that instead of inventing insights.</p>
-    </article>
-
-    <article class="tile tile--wide">
-    <h2 id="company">Company</h2>
-    <p class="section-body">Sunrise Consulting LLC, doing business as DGTL Sunrise, ships <code class="mono">dgtl-connector</code> from Coeur d’Alene, Idaho. The plugin connects your agent to the marketing accounts you already run. Legal name, address, and contacts are on <a href="/about">About</a>.</p>
-    </article>
-    </div>
   </main>
 
   <footer class="site-footer">
-    <p><a href="/developers">Developers</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a> · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/google-ads">Google Ads</a> · <a href="/llms.txt">llms.txt</a> · <a href="/?mode=agent">Agent JSON</a></p>
+    <p><a href="/developers">Developers</a> · <a href="/documentation">Documentation</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a> · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/google-ads">Google Ads</a> · <a href="/llms.txt">llms.txt</a> · <a href="/?mode=agent">Agent JSON</a></p>
     <p>© 2026 Sunrise Consulting LLC</p>
   </footer>
-  <script src="/assets/site.js?v=143c8ce3a2fa" defer></script>
 </body>
 </html>
