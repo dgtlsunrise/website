@@ -191,16 +191,21 @@ for (const file of ["llms.txt", "llms-full.txt", "docs/llms.txt"]) {
 check(!/Ryze/i.test(allServed), "no Ryze in served HTML");
 check(!/https?:\/\/[^\s"'<>]*polar[^\s"'<>]*/i.test(allServed), "no Polar URL");
 check(!/dual-?door|Two doors|Install it, or hire us/i.test(allServed), "no dual-door copy");
-check(text("developers.html").includes("DGTL Connector developer resources"), "developers page exists");
-check(text("developers.md").includes("DGTL Connector developer resources"), "developers.md exists");
+check(text("developers.html").includes("DGTL Sunrise developer resources"), "developers page exists");
+check(text("developers.md").includes("DGTL Sunrise developer resources"), "developers.md exists");
 check(text("server.json").includes("com.dgtlsunrise/dgtl-connector"), "server.json MCP manifest");
 check(text("openapi.json").includes("DGTL Connector docs discovery"), "openapi.json docs discovery");
 check(text("openapi.json").includes("operationId"), "openapi.json has operationIds");
 check(text("api/openapi.yaml").includes("DGTL Connector docs discovery"), "api/openapi.yaml exists");
 check(text("functions/_middleware.js").includes("application/problem+json"), "middleware JSON problem errors");
 check(text("functions/_middleware.js").includes("prefersJson"), "middleware prefersJson");
+check(text("functions/_middleware.js").includes("handleMcp"), "middleware docs MCP");
+check(text("functions/_middleware.js").includes("RateLimit-Policy"), "middleware rate limit headers");
+check(text(".well-known/mcp.json").includes("streamable-http"), "mcp.json has streamable-http remote");
+check(text("api/versioning-policy.md").includes("Sunset"), "versioning policy exists");
 
-check(text(".well-known/mcp/server-card.json").includes("com.dgtlsunrise/dgtl-connector"), "mcp server-card");
+
+check(text(".well-known/mcp/server-card.json").includes("streamable-http"), "mcp server-card");
 check(text("llms.txt").includes("DGTL Connector by DGTL Sunrise"), "llms.txt names DGTL Connector");
 check(text("llms.txt").includes("/developers"), "llms.txt links developers");
 

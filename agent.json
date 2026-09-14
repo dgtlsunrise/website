@@ -114,7 +114,10 @@
     "mcp_server_card": "https://www.dgtlsunrise.com/.well-known/mcp/server-card.json",
     "github": "https://github.com/dgtlsunrise/dgtl-connector",
     "openapi": "https://www.dgtlsunrise.com/openapi.json",
-    "openapi_yaml": "https://www.dgtlsunrise.com/api/openapi.yaml"
+    "openapi_yaml": "https://www.dgtlsunrise.com/api/openapi.yaml",
+    "mcp": "https://www.dgtlsunrise.com/mcp",
+    "versioning_policy": "https://www.dgtlsunrise.com/api/versioning-policy",
+    "docs_health": "https://www.dgtlsunrise.com/v1/docs-discovery/health"
   },
   "contact": {
     "company": "Sunrise Consulting LLC (DGTL Sunrise)",

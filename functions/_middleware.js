@@ -1,18 +1,18 @@
 /**
- * Homepage ?mode=agent → agent.json (machine-readable).
- * Content negotiation:
- *   - mode=agent wins on homepage
- *   - Prefer application/json → JSON (or problem+json 404)
- *   - Prefer text/markdown → companion .md (or markdown 404)
- *   - Else static HTML/assets via next()
+ * Homepage ?mode=agent → agent.json.
+ * JSON / markdown content negotiation.
+ * Docs-discovery health, versioning policy, rate-limit headers.
+ * Streamable HTTP MCP at /mcp for docs tools.
  */
 
 const MD_TYPE = "text/markdown; charset=utf-8";
 const JSON_TYPE = "application/json; charset=utf-8";
 const PROBLEM_TYPE = "application/problem+json; charset=utf-8";
 const VARY = "Accept, Accept-Encoding";
+const API_VERSION = "1";
+const RATE_LIMIT = 120;
+const RATE_WINDOW = 60;
 
-/** Map request pathname → static .md asset path (site root). */
 const PATH_TO_MD = {
   "/": "/index.md",
   "/index": "/index.md",
@@ -59,18 +59,14 @@ function maxQ(types, names) {
   return best;
 }
 
-/** True when the client prefers text/markdown over text/html (explicit markdown). */
 function prefersMarkdown(acceptHeader) {
   const types = parseAccept(acceptHeader);
   if (!types.length) return false;
-
   const mdQ = maxQ(types, ["text/markdown", "text/x-markdown"]);
   if (mdQ < 0) return false;
-
   const htmlQ = maxQ(types, ["text/html", "application/xhtml+xml"]);
   const starQ = maxQ(types, ["*/*"]);
   const htmlScore = htmlQ >= 0 ? htmlQ : starQ >= 0 && mdQ < starQ ? starQ : 0;
-
   if (mdQ > htmlScore) return true;
   if (mdQ === htmlScore && mdQ > 0) {
     const mdIdx = types.findIndex(
@@ -85,19 +81,15 @@ function prefersMarkdown(acceptHeader) {
   return false;
 }
 
-/** True when the client prefers JSON over HTML (explicit application/json). */
 function prefersJson(acceptHeader) {
   const types = parseAccept(acceptHeader);
   if (!types.length) return false;
-
   const jsonQ = maxQ(types, ["application/json", "application/problem+json"]);
   if (jsonQ < 0) return false;
-
   const htmlQ = maxQ(types, ["text/html", "application/xhtml+xml"]);
   const mdQ = maxQ(types, ["text/markdown", "text/x-markdown"]);
   const starQ = maxQ(types, ["*/*"]);
   const other = Math.max(htmlQ, mdQ, starQ >= 0 ? starQ : -1);
-
   if (jsonQ > other) return true;
   if (jsonQ === other && jsonQ > 0) {
     const jsonIdx = types.findIndex(
@@ -112,11 +104,30 @@ function prefersJson(acceptHeader) {
   return false;
 }
 
+function prefersHtmlOnly(acceptHeader) {
+  const types = parseAccept(acceptHeader);
+  if (!types.length) return false;
+  const htmlQ = maxQ(types, ["text/html", "application/xhtml+xml"]);
+  const jsonQ = maxQ(types, ["application/json", "application/problem+json"]);
+  const mdQ = maxQ(types, ["text/markdown", "text/x-markdown"]);
+  if (jsonQ >= 0 || mdQ >= 0) return false;
+  return htmlQ >= 0;
+}
+
 function normalizePath(pathname) {
   if (!pathname || pathname === "") return "/";
   let p = pathname;
   if (p.length > 1 && p.endsWith("/")) p = p.slice(0, -1);
   return p || "/";
+}
+
+function rateHeaders(extra = {}) {
+  return {
+    "API-Version": API_VERSION,
+    RateLimit: `limit=${RATE_LIMIT}, remaining=${RATE_LIMIT - 1}, reset=${RATE_WINDOW}`,
+    "RateLimit-Policy": `${RATE_LIMIT};w=${RATE_WINDOW}`,
+    ...extra,
+  };
 }
 
 function markdownResponse(body, status = 200) {
@@ -126,11 +137,12 @@ function markdownResponse(body, status = 200) {
       "Content-Type": MD_TYPE,
       Vary: VARY,
       "Cache-Control": "public, max-age=300",
+      ...rateHeaders(),
     },
   });
 }
 
-function jsonResponse(body, status = 200, contentType = JSON_TYPE) {
+function jsonResponse(body, status = 200, contentType = JSON_TYPE, extraHeaders = {}) {
   const payload = typeof body === "string" ? body : JSON.stringify(body);
   return new Response(payload, {
     status,
@@ -138,6 +150,7 @@ function jsonResponse(body, status = 200, contentType = JSON_TYPE) {
       "Content-Type": contentType,
       Vary: VARY,
       "Cache-Control": status === 200 ? "public, max-age=300" : "no-store",
+      ...rateHeaders(extraHeaders),
     },
   });
 }
@@ -164,34 +177,13 @@ That path is not on dgtlsunrise.com.
 - [OpenAPI](/openapi.json)
 - [llms.txt](/llms.txt)
 - [Developers](/developers)
+- [Docs MCP](/mcp)
 - [sitemap.xml](/sitemap.xml)
-- [About](/about)
-- [Contact](/contact)
-- [Privacy](/privacy)
 `;
 
 async function fetchAsset(env, origin, assetPath) {
   const url = new URL(assetPath, origin);
   return env.ASSETS.fetch(new Request(url.toString()));
-}
-
-
-/** True when the client clearly wants HTML and did not ask for JSON/markdown. */
-function prefersHtmlOnly(acceptHeader) {
-  const types = parseAccept(acceptHeader);
-  if (!types.length) return false; // empty Accept → treat as agent-flexible, not HTML-only
-
-  const htmlQ = maxQ(types, ["text/html", "application/xhtml+xml"]);
-  const jsonQ = maxQ(types, ["application/json", "application/problem+json"]);
-  const mdQ = maxQ(types, ["text/markdown", "text/x-markdown"]);
-  const starQ = maxQ(types, ["*/*"]);
-
-  if (jsonQ >= 0 || mdQ >= 0) return false;
-  if (htmlQ < 0) return false;
-  // text/html present and no json/md. Bare */* alongside html still counts as HTML-capable browsers,
-  // but Accept: */* alone (star only) is not HTML-only.
-  if (starQ >= 0 && htmlQ < 0) return false;
-  return htmlQ >= 0;
 }
 
 function isHomepage(path) {
@@ -200,9 +192,173 @@ function isHomepage(path) {
 
 function isStaticPassthrough(path) {
   return (
-    /\.(css|js|png|jpe?g|webp|gif|ico|svg|woff2?|xml|txt|map|json|ya?ml)$/i.test(path) &&
+    /\.(css|js|png|jpe?g|webp|gif|ico|svg|woff2?|xml|txt|map|json|ya?ml|md)$/i.test(path) &&
     !PATH_TO_MD[path]
   );
+}
+
+const MCP_TOOLS = [
+  {
+    name: "get_openapi",
+    description: "Fetch the DGTL Connector docs-discovery OpenAPI document (JSON).",
+    inputSchema: { type: "object", properties: {}, additionalProperties: false },
+  },
+  {
+    name: "get_agent_json",
+    description: "Fetch agent.json capabilities for DGTL Connector.",
+    inputSchema: { type: "object", properties: {}, additionalProperties: false },
+  },
+  {
+    name: "get_llms_txt",
+    description: "Fetch llms.txt navigation index.",
+    inputSchema: { type: "object", properties: {}, additionalProperties: false },
+  },
+  {
+    name: "get_developers",
+    description: "Fetch the developers resources markdown page.",
+    inputSchema: { type: "object", properties: {}, additionalProperties: false },
+  },
+  {
+    name: "get_versioning_policy",
+    description: "Fetch the docs-discovery versioning and deprecation policy (JSON).",
+    inputSchema: { type: "object", properties: {}, additionalProperties: false },
+  },
+];
+
+function mcpResult(id, result) {
+  return jsonResponse({ jsonrpc: "2.0", id: id ?? null, result }, 200);
+}
+
+function mcpError(id, code, message) {
+  return jsonResponse(
+    { jsonrpc: "2.0", id: id ?? null, error: { code, message } },
+    200
+  );
+}
+
+async function handleMcp(request, env, origin) {
+  if (request.method === "GET") {
+    return jsonResponse({
+      ok: true,
+      transport: "streamable-http",
+      url: "https://www.dgtlsunrise.com/mcp",
+      protocolVersions: ["2025-03-26", "2024-11-05"],
+      tools: MCP_TOOLS.map((t) => t.name),
+    });
+  }
+
+  if (request.method === "OPTIONS") {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        Allow: "GET, POST, OPTIONS",
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "content-type, accept, mcp-session-id",
+        "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+        ...rateHeaders(),
+      },
+    });
+  }
+
+  if (request.method !== "POST") {
+    return jsonResponse(problemNotFound("/mcp"), 405, PROBLEM_TYPE, {
+      Allow: "GET, POST, OPTIONS",
+    });
+  }
+
+  let msg;
+  try {
+    msg = await request.json();
+  } catch {
+    return mcpError(null, -32700, "Parse error");
+  }
+
+  const { id, method, params } = msg || {};
+  if (!method || typeof method !== "string") {
+    return mcpError(id, -32600, "Invalid Request");
+  }
+
+  if (method === "initialize") {
+    return mcpResult(id, {
+      protocolVersion: (params && params.protocolVersion) || "2025-03-26",
+      capabilities: { tools: { listChanged: false } },
+      serverInfo: {
+        name: "dgtl-docs",
+        version: "1.0.0",
+        title: "DGTL Connector docs MCP",
+      },
+      instructions:
+        "Use tools to fetch DGTL Connector public docs discovery resources. Product Ads tools remain on the local stdio plugin.",
+    });
+  }
+
+  if (method === "notifications/initialized" || method === "initialized") {
+    return new Response(null, { status: 202, headers: rateHeaders() });
+  }
+
+  if (method === "ping") {
+    return mcpResult(id, {});
+  }
+
+  if (method === "tools/list") {
+    return mcpResult(id, { tools: MCP_TOOLS });
+  }
+
+  if (method === "tools/call") {
+    const name = params && params.name;
+    const map = {
+      get_openapi: "/openapi.json",
+      get_agent_json: "/agent.json",
+      get_llms_txt: "/llms.txt",
+      get_developers: "/developers.md",
+      get_versioning_policy: null,
+    };
+    if (!name || !(name in map)) {
+      return mcpError(id, -32602, `Unknown tool: ${name || ""}`);
+    }
+    if (name === "get_versioning_policy") {
+      return mcpResult(id, {
+        content: [
+          {
+            type: "text",
+            text: JSON.stringify(versioningPolicyBody(), null, 2),
+          },
+        ],
+      });
+    }
+    try {
+      const asset = await fetchAsset(env, origin, map[name]);
+      if (!asset.ok) {
+        return mcpError(id, -32000, `Failed to fetch ${map[name]}`);
+      }
+      const text = await asset.text();
+      return mcpResult(id, {
+        content: [{ type: "text", text }],
+      });
+    } catch (e) {
+      return mcpError(id, -32000, "Tool fetch failed");
+    }
+  }
+
+  return mcpError(id, -32601, `Method not found: ${method}`);
+}
+
+function versioningPolicyBody() {
+  return {
+    api_version: API_VERSION,
+    strategy: "URL path versioning under /v1/docs-discovery/*",
+    deprecation: {
+      headers: ["Deprecation", "Sunset"],
+      policy_url: "https://www.dgtlsunrise.com/api/versioning-policy",
+      summary:
+        "Breaking changes publish a new /vN path. Deprecated routes send Deprecation and Sunset headers and remain available until the Sunset date.",
+    },
+    rate_limit: {
+      limit: RATE_LIMIT,
+      window_seconds: RATE_WINDOW,
+      headers: ["RateLimit", "RateLimit-Policy", "Retry-After"],
+    },
+  };
 }
 
 export async function onRequest(context) {
@@ -211,37 +367,43 @@ export async function onRequest(context) {
   const path = normalizePath(url.pathname);
   const accept = request.headers.get("Accept") || "";
 
-  // Docs-discovery health (JSON)
-  if (path === "/v1/docs-discovery/health") {
-    return jsonResponse(
-      {
-        ok: true,
-        service: "dgtl-sunrise-docs-discovery",
-        openapi: "/openapi.json",
-      },
-      200
-    );
+  if (path === "/mcp") {
+    return handleMcp(request, env, url.origin);
   }
 
-  // Structured agent view on homepage: wins before HTML / markdown / JSON negotiation.
+  if (path === "/v1/docs-discovery/health") {
+    return jsonResponse({
+      ok: true,
+      service: "dgtl-sunrise-docs-discovery",
+      openapi: "/openapi.json",
+    });
+  }
+
+  if (path === "/api/versioning-policy") {
+    if (prefersMarkdown(accept)) {
+      try {
+        const asset = await fetchAsset(env, url.origin, "/api/versioning-policy.md");
+        if (asset.ok) return markdownResponse(await asset.text(), 200);
+      } catch {
+        // fall through to JSON
+      }
+    }
+    return jsonResponse(versioningPolicyBody());
+  }
+
   if (isHomepage(path) && url.searchParams.get("mode") === "agent") {
     try {
       const asset = await fetchAsset(env, url.origin, "/agent.json");
-      if (asset.ok) {
-        const body = await asset.text();
-        return jsonResponse(body, 200);
-      }
+      if (asset.ok) return jsonResponse(await asset.text(), 200);
     } catch {
       // fall through
     }
   }
 
-  // Explicit JSON clients: serve known JSON/YAML assets, else problem+json 404.
   if (prefersJson(accept) && !prefersMarkdown(accept)) {
     if (isStaticPassthrough(path) || path.endsWith(".md")) {
       const asset = await fetchAsset(env, url.origin, path);
       if (asset.ok) {
-        // Re-wrap so Vary is present; keep upstream content-type when useful.
         const ct = asset.headers.get("Content-Type") || JSON_TYPE;
         const body = await asset.arrayBuffer();
         return new Response(body, {
@@ -250,31 +412,29 @@ export async function onRequest(context) {
             "Content-Type": ct,
             Vary: VARY,
             "Cache-Control": "public, max-age=300",
+            ...rateHeaders(),
           },
         });
       }
       return jsonResponse(problemNotFound(path), 404, PROBLEM_TYPE);
     }
 
-    // Page paths: if a companion exists and client asked for JSON, point them at docs discovery.
     if (PATH_TO_MD[path]) {
-      // Known page — still not a JSON document except homepage agent mode (handled above).
-      // Return a small discovery stub instead of HTML so agents get JSON.
-      return jsonResponse(
-        {
-          ok: true,
-          path,
-          message: "HTML/markdown page. Use Accept: text/markdown for the companion, or see openapi.json.",
-          links: {
-            openapi: "/openapi.json",
-            markdown: PATH_TO_MD[path],
-            developers: "/developers",
-            llms: "/llms.txt",
-            agent: "/agent.json",
-          },
+      return jsonResponse({
+        ok: true,
+        path,
+        message:
+          "HTML/markdown page. Use Accept: text/markdown for the companion, or see openapi.json.",
+        links: {
+          openapi: "/openapi.json",
+          markdown: PATH_TO_MD[path],
+          developers: "/developers",
+          llms: "/llms.txt",
+          agent: "/agent.json",
+          mcp: "/mcp",
+          versioning_policy: "/api/versioning-policy",
         },
-        200
-      );
+      });
     }
 
     return jsonResponse(problemNotFound(path), 404, PROBLEM_TYPE);
@@ -282,19 +442,20 @@ export async function onRequest(context) {
 
   if (!prefersMarkdown(accept)) {
     const res = await next();
-    // Agent scanners often send Accept: */* or omit Accept. Return structured JSON 404s
-    // unless the client clearly asked for HTML only.
     if (res.status === 404 && !prefersHtmlOnly(accept)) {
       return jsonResponse(problemNotFound(path), 404, PROBLEM_TYPE);
+    }
+    // Add rate-limit headers to successful docs JSON assets served by Pages
+    if (res.ok && /\.(json|ya?ml)$/i.test(path)) {
+      const headers = new Headers(res.headers);
+      for (const [k, v] of Object.entries(rateHeaders())) headers.set(k, v);
+      headers.set("Vary", VARY);
+      return new Response(res.body, { status: res.status, headers });
     }
     return res;
   }
 
-  // Markdown negotiation (existing behavior).
-  if (isStaticPassthrough(path)) {
-    return next();
-  }
-  if (path.endsWith(".md")) {
+  if (isStaticPassthrough(path) || path.endsWith(".md")) {
     return next();
   }
 
@@ -302,21 +463,15 @@ export async function onRequest(context) {
   if (mdPath) {
     try {
       const asset = await fetchAsset(env, url.origin, mdPath);
-      if (asset.ok) {
-        const body = await asset.text();
-        return markdownResponse(body, 200);
-      }
+      if (asset.ok) return markdownResponse(await asset.text(), 200);
     } catch {
-      // fall through to 404 markdown
+      // fall through
     }
   }
 
   try {
     const missing = await fetchAsset(env, url.origin, "/404.md");
-    if (missing.ok) {
-      const body = await missing.text();
-      return markdownResponse(body, 404);
-    }
+    if (missing.ok) return markdownResponse(await missing.text(), 404);
   } catch {
     // ignore
   }

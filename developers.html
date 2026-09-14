@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DGTL Connector developer resources · DGTL Sunrise</title>
+  <title>DGTL Sunrise developer resources · DGTL Connector OpenAPI MCP</title>
   <meta name="description" content="Developer resources for DGTL Connector by DGTL Sunrise. We ship dgtl-connector, a Grok Bot plugin that connects agents to marketing accounts." />
   <link rel="canonical" href="https://www.dgtlsunrise.com/developers" />
   <link rel="icon" type="image/png" href="/favicon.png" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="DGTL Sunrise" />
-  <meta property="og:title" content="DGTL Connector developer resources · DGTL Sunrise" />
+  <meta property="og:title" content="DGTL Sunrise developer resources · DGTL Connector OpenAPI MCP" />
   <meta property="og:description" content="Developer resources for DGTL Connector by DGTL Sunrise. We ship dgtl-connector, a Grok Bot plugin that connects agents to marketing accounts." />
   <meta property="og:url" content="https://www.dgtlsunrise.com/developers" />
   <meta property="og:image" content="https://www.dgtlsunrise.com/og-share.png" />
@@ -17,7 +17,7 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content="DGTL Connector by DGTL Sunrise developer resources." />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="DGTL Connector developer resources · DGTL Sunrise" />
+  <meta name="twitter:title" content="DGTL Sunrise developer resources · DGTL Connector OpenAPI MCP" />
   <meta name="twitter:description" content="Developer resources for DGTL Connector by DGTL Sunrise. We ship dgtl-connector, a Grok Bot plugin that connects agents to marketing accounts." />
   <meta name="twitter:image" content="https://www.dgtlsunrise.com/og-share.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -211,7 +211,7 @@
   </header>
 
   <main>
-    <h1>DGTL Connector developer resources</h1>
+    <h1>DGTL Sunrise developer resources for DGTL Connector</h1>
     <p class="lede">DGTL Connector by DGTL Sunrise is a local MCP plugin for Grok Bot and other MCP hosts. It connects your agent to marketing accounts you already administer. This page maps install docs, machine-readable site files, and the local MCP manifest.</p>
 
     <h2>Product docs</h2>
@@ -233,7 +233,13 @@
       <li><a href="/sitemap.xml">sitemap.xml</a></li>
     </ul>
 
-    <h2>Local MCP plugin</h2>
+    <h2>Docs MCP (Streamable HTTP)</h2>
+    <p>Remote docs MCP for agents: <code class="mono">https://www.dgtlsunrise.com/mcp</code> (initialize / tools/list / tools/call). Manifest: <a href="/.well-known/mcp.json">/.well-known/mcp.json</a>.</p>
+
+    <h2>Versioning</h2>
+    <p><a href="/api/versioning-policy">Docs-discovery versioning policy</a></p>
+
+    <h2>Local product MCP plugin</h2>
     <p>DGTL Connector runs on your machine as a local stdio process (<code class="mono">bin/dgtl-connector-mcp</code>). Clone the GitHub repo, build it, and point your host at that binary. There is no remote MCP URL for account tools in v1.</p>
 
     <h2>Support</h2>

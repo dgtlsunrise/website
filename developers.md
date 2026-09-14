@@ -1,4 +1,4 @@
-# DGTL Connector developer resources
+# DGTL Sunrise developer resources for DGTL Connector
 
 DGTL Connector by DGTL Sunrise is a local MCP plugin for Grok Bot and other MCP hosts. It connects your agent to marketing accounts you already administer. This page maps install docs, machine-readable site files, and the local MCP manifest.
 

@@ -2,18 +2,69 @@ openapi: 3.1.0
 info:
   title: DGTL Connector docs discovery
   description: >-
-    Public docs-discovery surface for DGTL Connector by DGTL Sunrise. These routes help agents find
-    install docs, capabilities, and the local MCP plugin manifest. This is not a public Ads account
-    API and it does not expose customer marketing data.
+    Public docs-discovery surface for DGTL Connector by DGTL Sunrise. Agents use these routes to
+    find install docs, capabilities, OpenAPI, and the docs MCP. This is not a public Ads account
+    API.
+
+
+    Versioning policy: URL path versioning under /v1/docs-discovery/* (major version in the path).
+    Breaking changes publish a new /vN path. Deprecated routes send Deprecation and Sunset headers
+    and remain available until the Sunset date. See /api/versioning-policy.
   version: 1.0.0
   contact:
     name: DGTL Sunrise
     email: support@dgtlsunrise.com
     url: https://www.dgtlsunrise.com/developers
+  license:
+    name: Apache-2.0
 servers:
   - url: https://www.dgtlsunrise.com
-    description: DGTL Sunrise marketing and docs site
+    description: Production docs site
 paths:
+  /v1/docs-discovery/health:
+    get:
+      operationId: getDocsDiscoveryHealth
+      summary: Docs discovery health
+      description: Lightweight JSON health check for the public docs-discovery surface.
+      responses:
+        '200':
+          description: Health payload
+          headers:
+            RateLimit:
+              description: IETF RateLimit structured field
+              schema:
+                type: string
+            RateLimit-Policy:
+              description: IETF RateLimit-Policy structured field
+              schema:
+                type: string
+            API-Version:
+              description: Docs-discovery API major version
+              schema:
+                type: string
+                example: '1'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          description: Rate limited
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+            RateLimit:
+              schema:
+                type: string
+            RateLimit-Policy:
+              schema:
+                type: string
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
   /openapi.json:
     get:
       operationId: getOpenApi
@@ -22,19 +73,66 @@ paths:
       responses:
         '200':
           description: OpenAPI document
+          headers:
+            RateLimit:
+              description: IETF RateLimit structured field
+              schema:
+                type: string
+            RateLimit-Policy:
+              description: IETF RateLimit-Policy structured field
+              schema:
+                type: string
+            API-Version:
+              description: Docs-discovery API major version
+              schema:
+                type: string
+                example: '1'
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/OpenApiDocument'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
+        '429':
+          description: Rate limited
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+            RateLimit:
+              schema:
+                type: string
+            RateLimit-Policy:
+              schema:
+                type: string
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Problem'
-            application/json:
+  /api/openapi.yaml:
+    get:
+      operationId: getOpenApiYaml
+      summary: OpenAPI YAML
+      description: YAML twin of /openapi.json.
+      responses:
+        '200':
+          description: OpenAPI YAML
+          headers:
+            RateLimit:
               schema:
-                $ref: '#/components/schemas/Problem'
+                type: string
+            RateLimit-Policy:
+              schema:
+                type: string
+            API-Version:
+              schema:
+                type: string
+          content:
+            application/yaml:
+              schema:
+                type: string
+        '404':
+          $ref: '#/components/responses/NotFound'
   /agent.json:
     get:
       operationId: getAgentJson
@@ -43,17 +141,40 @@ paths:
       responses:
         '200':
           description: Agent document
+          headers:
+            RateLimit:
+              description: IETF RateLimit structured field
+              schema:
+                type: string
+            RateLimit-Policy:
+              description: IETF RateLimit-Policy structured field
+              schema:
+                type: string
+            API-Version:
+              description: Docs-discovery API major version
+              schema:
+                type: string
+                example: '1'
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/AgentDocument'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
+        '429':
+          description: Rate limited
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+            RateLimit:
+              schema:
+                type: string
+            RateLimit-Policy:
+              schema:
+                type: string
           content:
             application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
-            application/json:
               schema:
                 $ref: '#/components/schemas/Problem'
   /:
@@ -61,6 +182,45 @@ paths:
       operationId: getHomepageAgentMode
       summary: Homepage agent mode
       description: When mode=agent, returns the same document as /agent.json.
+      responses:
+        '200':
+          description: Agent document when mode=agent
+          headers:
+            RateLimit:
+              description: IETF RateLimit structured field
+              schema:
+                type: string
+            RateLimit-Policy:
+              description: IETF RateLimit-Policy structured field
+              schema:
+                type: string
+            API-Version:
+              description: Docs-discovery API major version
+              schema:
+                type: string
+                example: '1'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentDocument'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          description: Rate limited
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+            RateLimit:
+              schema:
+                type: string
+            RateLimit-Policy:
+              schema:
+                type: string
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
       parameters:
         - name: mode
           in: query
@@ -70,22 +230,6 @@ paths:
             enum:
               - agent
           description: Set to agent for the JSON agent document.
-      responses:
-        '200':
-          description: Agent document when mode=agent
-          content:
-            application/json:
-              schema:
-                type: object
-        '404':
-          description: Not found
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Problem'
   /llms.txt:
     get:
       operationId: getLlmsTxt
@@ -94,41 +238,64 @@ paths:
       responses:
         '200':
           description: Markdown index
+          headers:
+            RateLimit:
+              schema:
+                type: string
+            RateLimit-Policy:
+              schema:
+                type: string
+            API-Version:
+              schema:
+                type: string
           content:
             text/plain:
               schema:
                 type: string
         '404':
-          description: Not found
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Problem'
+          $ref: '#/components/responses/NotFound'
   /developers:
     get:
       operationId: getDevelopers
       summary: Developer resources
-      description: Human and agent map of install docs, manifests, and GitHub.
+      description: JSON discovery stub when Accept prefers JSON; HTML/markdown otherwise.
       responses:
         '200':
-          description: Developer resources page
+          description: Discovery stub for JSON clients
+          headers:
+            RateLimit:
+              description: IETF RateLimit structured field
+              schema:
+                type: string
+            RateLimit-Policy:
+              description: IETF RateLimit-Policy structured field
+              schema:
+                type: string
+            API-Version:
+              description: Docs-discovery API major version
+              schema:
+                type: string
+                example: '1'
           content:
-            text/html:
+            application/json:
               schema:
-                type: string
-            text/markdown:
-              schema:
-                type: string
+                $ref: '#/components/schemas/DiscoveryStub'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
+        '429':
+          description: Rate limited
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+            RateLimit:
+              schema:
+                type: string
+            RateLimit-Policy:
+              schema:
+                type: string
           content:
             application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
-            application/json:
               schema:
                 $ref: '#/components/schemas/Problem'
   /server.json:
@@ -139,40 +306,291 @@ paths:
       responses:
         '200':
           description: MCP server manifest
+          headers:
+            RateLimit:
+              description: IETF RateLimit structured field
+              schema:
+                type: string
+            RateLimit-Policy:
+              description: IETF RateLimit-Policy structured field
+              schema:
+                type: string
+            API-Version:
+              description: Docs-discovery API major version
+              schema:
+                type: string
+                example: '1'
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/McpServerJson'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
+        '429':
+          description: Rate limited
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+            RateLimit:
+              schema:
+                type: string
+            RateLimit-Policy:
+              schema:
+                type: string
           content:
             application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
-            application/json:
               schema:
                 $ref: '#/components/schemas/Problem'
   /.well-known/mcp/server-card.json:
     get:
       operationId: getMcpServerCard
       summary: MCP server card
-      description: Well-known MCP server card for DGTL Connector (local stdio plugin).
+      description: Well-known MCP server card including the remote docs MCP endpoint.
       responses:
         '200':
           description: MCP server card
+          headers:
+            RateLimit:
+              description: IETF RateLimit structured field
+              schema:
+                type: string
+            RateLimit-Policy:
+              description: IETF RateLimit-Policy structured field
+              schema:
+                type: string
+            API-Version:
+              description: Docs-discovery API major version
+              schema:
+                type: string
+                example: '1'
           content:
             application/json:
               schema:
-                type: object
+                $ref: '#/components/schemas/McpServerCard'
         '404':
-          description: Not found
+          $ref: '#/components/responses/NotFound'
+        '429':
+          description: Rate limited
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+            RateLimit:
+              schema:
+                type: string
+            RateLimit-Policy:
+              schema:
+                type: string
           content:
             application/problem+json:
               schema:
                 $ref: '#/components/schemas/Problem'
+  /.well-known/mcp.json:
+    get:
+      operationId: getWellKnownMcpJson
+      summary: Well-known MCP alias
+      description: Alias of the MCP server card at /.well-known/mcp.json.
+      responses:
+        '200':
+          description: MCP server card
+          headers:
+            RateLimit:
+              description: IETF RateLimit structured field
+              schema:
+                type: string
+            RateLimit-Policy:
+              description: IETF RateLimit-Policy structured field
+              schema:
+                type: string
+            API-Version:
+              description: Docs-discovery API major version
+              schema:
+                type: string
+                example: '1'
+          content:
             application/json:
               schema:
+                $ref: '#/components/schemas/McpServerCard'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          description: Rate limited
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+            RateLimit:
+              schema:
+                type: string
+            RateLimit-Policy:
+              schema:
+                type: string
+          content:
+            application/problem+json:
+              schema:
                 $ref: '#/components/schemas/Problem'
+  /mcp:
+    post:
+      operationId: postMcp
+      summary: Docs MCP Streamable HTTP
+      description: JSON-RPC Streamable HTTP MCP endpoint for docs discovery tools.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - jsonrpc
+                - method
+              properties:
+                jsonrpc:
+                  type: string
+                  enum:
+                    - '2.0'
+                id: {}
+                method:
+                  type: string
+                params:
+                  type: object
+      responses:
+        '200':
+          description: JSON-RPC response
+          headers:
+            RateLimit:
+              schema:
+                type: string
+            RateLimit-Policy:
+              schema:
+                type: string
+            API-Version:
+              schema:
+                type: string
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - jsonrpc
+                properties:
+                  jsonrpc:
+                    type: string
+                  id: {}
+                  result:
+                    type: object
+                  error:
+                    type: object
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '429':
+          description: Rate limited
+          headers:
+            Retry-After:
+              schema:
+                type: integer
+            RateLimit:
+              schema:
+                type: string
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/Problem'
+    get:
+      operationId: getMcp
+      summary: Docs MCP endpoint info
+      description: Returns how to connect to the docs MCP over Streamable HTTP.
+      responses:
+        '200':
+          description: MCP endpoint info
+          headers:
+            RateLimit:
+              description: IETF RateLimit structured field
+              schema:
+                type: string
+            RateLimit-Policy:
+              description: IETF RateLimit-Policy structured field
+              schema:
+                type: string
+            API-Version:
+              description: Docs-discovery API major version
+              schema:
+                type: string
+                example: '1'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - ok
+                  - transport
+                  - url
+                properties:
+                  ok:
+                    type: boolean
+                  transport:
+                    type: string
+                  url:
+                    type: string
+                    format: uri
+                  protocolVersions:
+                    type: array
+                    items:
+                      type: string
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /api/versioning-policy:
+    get:
+      operationId: getVersioningPolicy
+      summary: API versioning and deprecation policy
+      description: Machine-readable versioning and deprecation policy for docs-discovery routes.
+      responses:
+        '200':
+          description: Versioning policy
+          headers:
+            RateLimit:
+              description: IETF RateLimit structured field
+              schema:
+                type: string
+            RateLimit-Policy:
+              description: IETF RateLimit-Policy structured field
+              schema:
+                type: string
+            API-Version:
+              description: Docs-discovery API major version
+              schema:
+                type: string
+                example: '1'
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - api_version
+                  - strategy
+                  - deprecation
+                properties:
+                  api_version:
+                    type: string
+                  strategy:
+                    type: string
+                  deprecation:
+                    type: object
+                    required:
+                      - headers
+                      - policy_url
+                    properties:
+                      headers:
+                        type: array
+                        items:
+                          type: string
+                      policy_url:
+                        type: string
+                        format: uri
+                      summary:
+                        type: string
+        '404':
+          $ref: '#/components/responses/NotFound'
   /sitemap.xml:
     get:
       operationId: getSitemap
@@ -180,41 +598,17 @@ paths:
       responses:
         '200':
           description: XML sitemap
+          headers:
+            RateLimit:
+              schema:
+                type: string
+            API-Version:
+              schema:
+                type: string
           content:
             application/xml:
               schema:
                 type: string
-        '404':
-          description: Not found
-          content:
-            application/problem+json:
-              schema:
-                $ref: '#/components/schemas/Problem'
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Problem'
-  /v1/docs-discovery/health:
-    get:
-      operationId: getDocsDiscoveryHealth
-      summary: Docs discovery health
-      description: Lightweight JSON health check for the public docs-discovery surface. Not an Ads API.
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                type: object
-                required:
-                  - ok
-                  - service
-                properties:
-                  ok:
-                    type: boolean
-                  service:
-                    type: string
-                  openapi:
-                    type: string
         '404':
           $ref: '#/components/responses/NotFound'
 components:
@@ -229,6 +623,7 @@ components:
         - code
         - message
         - resolution
+      additionalProperties: false
       properties:
         type:
           type: string
@@ -247,9 +642,131 @@ components:
           type: string
         resolution:
           type: string
+    Health:
+      type: object
+      required:
+        - ok
+        - service
+        - openapi
+      additionalProperties: false
+      properties:
+        ok:
+          type: boolean
+        service:
+          type: string
+        openapi:
+          type: string
+    DiscoveryStub:
+      type: object
+      required:
+        - ok
+        - path
+        - message
+        - links
+      additionalProperties: false
+      properties:
+        ok:
+          type: boolean
+        path:
+          type: string
+        message:
+          type: string
+        links:
+          type: object
+          additionalProperties:
+            type: string
+    AgentDocument:
+      type: object
+      required:
+        - name
+        - product
+        - url
+        - description
+      properties:
+        name:
+          type: string
+        product:
+          type: string
+        url:
+          type: string
+          format: uri
+        mode:
+          type: string
+        description:
+          type: string
+        install:
+          type: object
+        authentication:
+          type: object
+        apis:
+          type: object
+        capabilities:
+          type: array
+        agent_discovery:
+          type: object
+        contact:
+          type: object
+    McpServerJson:
+      type: object
+      required:
+        - name
+        - description
+        - version
+      properties:
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+        websiteUrl:
+          type: string
+          format: uri
+        repository:
+          type: object
+    McpServerCard:
+      type: object
+      required:
+        - name
+        - title
+        - description
+        - version
+      properties:
+        name:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        version:
+          type: string
+        websiteUrl:
+          type: string
+          format: uri
+        repository:
+          type: object
+        remotes:
+          type: array
+          items:
+            type: object
+    OpenApiDocument:
+      type: object
+      description: OpenAPI 3.1 document
   responses:
     NotFound:
-      description: Path not found
+      description: Not found
+      headers:
+        RateLimit:
+          schema:
+            type: string
+        RateLimit-Policy:
+          schema:
+            type: string
+        API-Version:
+          schema:
+            type: string
       content:
         application/problem+json:
           schema:
