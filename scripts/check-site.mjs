@@ -67,7 +67,9 @@ check(/section-label">Grok Bot<\/p>[\s\S]*?marketplace/i.test(index), "home Grok
 check(/section-label">Grok Build<\/p>[\s\S]*?id="install-grok"/i.test(index), "home grok CLI is under Grok Build");
 check(!/section-label">Grok Bot<\/p>[\s\S]{0,500}id="install-grok"/i.test(index), "home Bot section does not own grok CLI panel");
 check(index.includes("does not install into Bot"), "home states CLI does not install into Bot");
-check(index.includes("Marketplace listing is not live yet"), "home notes Bot marketplace not live yet");
+check(index.includes("marketplace listing is under review"), "home notes Bot marketplace listing under review");
+check(!/Marketplace listing is not live yet/.test(index), "home dropped marketplace-not-live scaffolding");
+check(!/We expect Meta and TikTok to finish approving/.test(index), "home dropped Meta/TikTok soon promise");
 
 check(index.includes("/assets/site.js"), "home loads site.js for copy");
 check(!/Package id/.test(index), "home dropped package id line");

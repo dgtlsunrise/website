@@ -115,6 +115,7 @@
         <li><a href="#shopify">Shopify</a></li>
         <li><a href="#klaviyo">Klaviyo</a></li>
         <li><a href="#tiktok-ads">TikTok Ads</a></li>
+        <li><a href="#company">Company</a></li>
       </ol>
     </nav>
 
@@ -123,7 +124,7 @@
 
     <p class="section-label">Grok Bot</p>
     <p class="section-body">Install from the Grok Bot marketplace when DGTL Connector is listed. That is the one-click Bot path. The <code class="mono">grok plugin install</code> CLI command does not install into Bot.</p>
-    <p class="note">Marketplace listing is not live yet. Until it is, use Grok Build or Cursor below.</p>
+    <p class="note">The marketplace listing is under review. Grok Build and Cursor remain complete install paths.</p>
 
     <p class="section-label">Grok Build</p>
     <p class="section-body">Use the Grok CLI. This installs into Grok Build, not Grok Bot.</p>
@@ -216,12 +217,12 @@ npm run build</code></pre>
     <p class="section-body">Pro is $19 / month. It unlocks the hosted gateway for advertising platforms, plus Pro-gated Merchant Center on your machine:</p>
     <ul>
       <li>Google Ads reporting, plus manage and create (campaigns, budgets, keywords, ads, and more).</li>
-      <li>Meta Ads insights, campaigns, ad sets, ads, audiences, catalogs, and Conversions API events.<sup>*</sup></li>
-      <li>TikTok Ads advertisers, campaigns, insights, catalogs, and Events API tracking.<sup>*</sup></li>
+      <li>Meta Ads insights, campaigns, ad sets, ads, audiences, catalogs, and Conversions API events.</li>
+      <li>TikTok Ads advertisers, campaigns, insights, catalogs, and Events API tracking.</li>
       <li>Merchant Center accounts, products, and confirm-gated product-input writes. Plugin-direct Google on your machine (not the Ads/Meta/TikTok Worker hop).</li>
     </ul>
     <p class="section-body">Nothing is published or changed on your ad accounts until you review and approve it first.</p>
-    <p class="note"><sup>*</sup>Meta Ads and TikTok Ads are included in Pro. We expect Meta and TikTok to finish approving our app access soon; until then some Meta or TikTok calls may wait on that approval.</p>
+    <p class="note">Meta Ads and TikTok Ads are included in Pro. Access on those platforms depends on Meta and TikTok granting app access for the connected account. The plugin reports a denied or pending grant instead of inventing results.</p>
     <p class="section-body">Paste this to ask the Bot to upgrade to Pro. Redeem the license on the install. Never paste tokens or license keys into chat.</p>
     <div class="code-panel">
       <div class="code-panel-bar">
@@ -415,14 +416,13 @@ npm run build</code></pre>
     <!-- TikTok Ads -->
     <h2 id="tiktok-ads">TikTok Ads</h2>
     <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent for advertisers, campaigns, insights, and catalogs. With Pro, campaign status updates, catalog create or upload, and Events API tracking are included.<sup>*</sup></p>
+    <p class="section-body">Ask your agent for advertisers, campaigns, insights, and catalogs. With Pro, campaign status updates, catalog create or upload, and Events API tracking are included.</p>
     <p class="section-label">Read</p>
     <p class="section-body">List advertisers and campaigns. Insights. List catalogs.</p>
     <p class="section-label">Edit</p>
     <p class="section-body">Update campaign status (for example pause or enable). Create a catalog, upload products, and bind the catalog. Send Events API tracking. Nothing goes live until you approve it.</p>
     <p class="section-label">Requirements</p>
-    <p class="section-body">Pro ($19 / month). TikTok Ads is included in Pro.<sup>*</sup></p>
-    <p class="note"><sup>*</sup>We expect Meta and TikTok to finish approving our app access soon; until then some calls may wait on that approval.</p>
+    <p class="section-body">Pro ($19 / month). TikTok Ads is included in Pro. Reads and writes depend on TikTok granting the needed app access for the connected account.</p>
     <p class="section-label">Example asks</p>
     <ul>
       <li>List TikTok advertisers I can access.</li>
@@ -433,6 +433,9 @@ npm run build</code></pre>
     </ul>
     <p class="section-label">Guardrails</p>
     <p class="section-body">Status changes and catalog uploads wait for your confirmation. If TikTok access or entitlement is missing, the agent reports that instead of inventing insights.</p>
+
+    <h2 id="company">Company</h2>
+    <p class="section-body">Sunrise Consulting LLC, doing business as DGTL Sunrise, ships <code class="mono">dgtl-connector</code> from Coeur d’Alene, Idaho. The plugin connects your agent to the marketing accounts you already run. Legal name, address, and contacts are on <a href="/about">About</a>.</p>
   </main>
 
   <footer class="site-footer">
