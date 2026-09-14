@@ -74,10 +74,9 @@ Never paste access tokens, refresh tokens, or license keys into chat.
 - Google Analytics 4, Search Console, and Tag Manager run on your machine (read and manage). Edits stay off until you enable writes on the install, and nothing goes live until you approve it. Report bytes stay on your machine and do not go through DGTL.
 - Klaviyo uses a private API key you hold on the install. Free. Not Pro. The key stays on your machine.
 - Shopify connects on the install. Catalog and inventory changes wait for your approval.
-- Merchant Center is plugin-direct Google. You can create a data source and upsert or delete product inputs when writes are enabled, and only after you approve. This is not the Pro gateway.
 - Google Business Profile can be read when that path is available. Edit is not in this version.
 
-**What is paid.** Pro is $19 / month. It unlocks the hosted gateway for advertising platforms:
+**What is paid.** Pro is $19 / month. It unlocks the hosted gateway for advertising platforms, plus Pro-gated Merchant Center on your machine:
 
 - Google Ads reporting, plus manage and create (campaigns, budgets, keywords, ads, and more).
 - Meta Ads insights, campaigns, ad sets, ads, audiences, catalogs, and Conversions API events.*
@@ -111,7 +110,7 @@ With Pro, ask for ad account insights and, when Meta access allows, create or up
 
 ### Merchant Center
 
-List accounts, products, statuses, account issues, and data sources. Create a data source. Upsert or delete product inputs. Writes stay off until you enable them on the install, and nothing goes live until you approve it. Connect the Google account that owns Merchant Center.
+With Pro, list accounts, products, statuses, account issues, and data sources. Create a data source. Upsert or delete product inputs. Writes stay off until you enable them on the install, and nothing goes live until you approve it. Pro ($19 / month). Connect the Google account that owns Merchant Center. Calls stay on your machine; this is not the Ads/Meta/TikTok Worker hop.
 
 ### Google Business Profile
 

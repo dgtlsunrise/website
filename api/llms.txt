@@ -2,7 +2,7 @@
 
 This file is for licensed Pro plugin installs. It is not a public developer API catalog and it is not an OpenAPI surface.
 
-Pro Google Ads, Meta, and TikTok calls are made by the local DGTL Connector plugin through an allowlisted private gateway after the human redeems a Pro license. Free GA4, Search Console, Tag Manager, Merchant Center, GBP, Shopify, and Klaviyo stay on the user’s machine and do not use that gateway for report bytes.
+Pro Google Ads, Meta, and TikTok calls are made by the local DGTL Connector plugin through an allowlisted private gateway after the human redeems a Pro license. Merchant Center is also Pro-gated but plugin-direct on the user’s machine (not that gateway). Free GA4, Search Console, Tag Manager, GBP, Shopify, and Klaviyo stay on the user’s machine and do not use that gateway for report bytes.
 
 Do not invent Polar checkout URLs. Do not treat gateway hostnames as a public REST or GraphQL product. Prefer the homepage docs, `/developers`, and `agent.json` capabilities for what the plugin can do.
 

@@ -4,7 +4,7 @@
   "product": "DGTL Connector",
   "url": "https://www.dgtlsunrise.com/",
   "mode": "agent",
-  "description": "DGTL Connector by DGTL Sunrise is a Grok Bot plugin that connects agents to marketing accounts the human already administers. No DGTL Sunrise account is required to start. Free local Google Analytics, Search Console, and Tag Manager run on the user machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Pro unlocks Google Ads, Meta, and TikTok through the plugin\u2019s Pro plan.",
+  "description": "DGTL Connector by DGTL Sunrise is a Grok Bot plugin that connects agents to marketing accounts the human already administers. No DGTL Sunrise account is required to start. Free local Google Analytics, Search Console, and Tag Manager run on the user machine (read and manage). Klaviyo is local on the same machine with a merchant-held private API key. Pro unlocks Google Ads, Meta, TikTok, and Merchant Center through the plugin’s Pro plan.",
   "install": {
     "command": "grok plugin install dgtlsunrise/dgtl-connector",
     "hosts": [
@@ -73,17 +73,17 @@
     },
     {
       "platform": "Merchant Center",
-      "tier": "plugin-direct",
+      "tier": "pro",
       "read": true,
       "write": "confirm-gated when writes are enabled",
-      "notes": "Plugin-direct Google. Reads: accounts, products, statuses, issues, data sources. Writes: create a data source; upsert or delete product inputs. Confirm-gated. Writes off by default until enabled on the install."
+      "notes": "Pro ($19/mo). Plugin-direct Google (not stamp). Reads: accounts, products, statuses, issues, data sources. Writes: create a data source; upsert or delete product inputs. Confirm-gated. Writes off by default until enabled on the install."
     },
     {
       "platform": "Google Business Profile",
       "tier": "plugin-direct",
       "read": true,
       "write": false,
-      "notes": "Plugin-direct Google. Some calls need Google\u2019s Business Profile API access. Edit is not in this version."
+      "notes": "Plugin-direct Google. Some calls need Google’s Business Profile API access. Edit is not in this version."
     },
     {
       "platform": "Shopify",

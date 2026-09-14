@@ -104,12 +104,17 @@ check(
     !/Live changes need confirmation/.test(freeAndPro) &&
     !/Pro entitlement/.test(freeAndPro) &&
     /Nothing is published or changed on your ad accounts until you review and approve it first/.test(freeAndPro) &&
-    /Meta Ads and TikTok Ads are included in Pro/.test(freeAndPro),
+    /Meta Ads and TikTok Ads are included in Pro/.test(freeAndPro) &&
+    /Merchant Center accounts, products/.test(freeAndPro) &&
+    !/Merchant Center is plugin-direct Google/.test(freeAndPro),
   "home Free vs Pro section"
 );
 
 const klaviyo = section("klaviyo");
 const merchant = section("merchant-center");
+check(!/Local campaigns/.test(section("google-ads")), "home Ads Edit has no Local campaigns");
+check(/Pro \(\$19 \/ month\)/.test(merchant), "home MC Requirements are Pro");
+
 const gbp = section("google-business-profile");
 const shopify = section("shopify");
 const meta = section("meta-ads");
@@ -144,9 +149,10 @@ const capability = (name) => agentObj.capabilities.find((c) => c.platform === na
 check(capability("Klaviyo") && /Not Pro/.test(capability("Klaviyo").notes) && /private API key/.test(capability("Klaviyo").notes), "agent.json includes Klaviyo");
 check(
   capability("Merchant Center") &&
+    capability("Merchant Center").tier === "pro" &&
     /product inputs/.test(capability("Merchant Center").notes) &&
     !/Edit is not in this version/.test(capability("Merchant Center").notes),
-  "agent.json MC has product-input writes"
+  "agent.json MC is Pro with product-input writes"
 );
 
 const indexMd = text("index.md");
@@ -229,7 +235,8 @@ check(
 
 check(privacy.includes("Limited Use") && privacy.includes("Google API Services User Data Policy"), "privacy Limited Use");
 check(privacy.includes("read and manage"), "privacy free path is read and manage");
-check(privacy.includes("Paid Google Ads and Meta Ads (Pro)"), "privacy Pro Ads/Meta already exist");
+check(privacy.includes("Paid Google Ads, Meta Ads, and TikTok Ads (Pro)"), "privacy Pro Ads/Meta/TikTok already exist");
+check(privacy.includes("Merchant Center (Pro)"), "privacy MC Pro-gated");
 check(!/future DGTL subscription|when it ships|when shipped|will use it later/i.test(privacy), "privacy Ads/Meta not future-only");
 check(privacy.includes("We do not request Gmail, Drive, Calendar, or Contacts"), "privacy no extra Google products");
 

@@ -180,15 +180,15 @@ npm run build</code></pre>
       <li>Google Analytics 4, Search Console, and Tag Manager run on your machine (read and manage). Edits stay off until you enable writes on the install, and nothing goes live until you approve it. Report bytes stay on your machine and do not go through DGTL.</li>
       <li>Klaviyo uses a private API key you hold on the install. Free. Not Pro. The key stays on your machine.</li>
       <li>Shopify connects on the install. Catalog and inventory changes wait for your approval.</li>
-      <li>Merchant Center is plugin-direct Google. You can create a data source and upsert or delete product inputs when writes are enabled, and only after you approve. This is not the Pro gateway.</li>
       <li>Google Business Profile can be read when that path is available. Edit is not in this version.</li>
     </ul>
     <p class="section-label">What is paid</p>
-    <p class="section-body">Pro is $19 / month. It unlocks the hosted gateway for advertising platforms:</p>
+    <p class="section-body">Pro is $19 / month. It unlocks the hosted gateway for advertising platforms, plus Pro-gated Merchant Center on your machine:</p>
     <ul>
       <li>Google Ads reporting, plus manage and create (campaigns, budgets, keywords, ads, and more).</li>
       <li>Meta Ads insights, campaigns, ad sets, ads, audiences, catalogs, and Conversions API events.<sup>*</sup></li>
       <li>TikTok Ads advertisers, campaigns, insights, catalogs, and Events API tracking.<sup>*</sup></li>
+      <li>Merchant Center accounts, products, and confirm-gated product-input writes. Plugin-direct Google on your machine (not the Ads/Meta/TikTok Worker hop).</li>
     </ul>
     <p class="section-body">Nothing is published or changed on your ad accounts until you review and approve it first.</p>
     <p class="note"><sup>*</sup>Meta Ads and TikTok Ads are included in Pro. We expect Meta and TikTok to finish approving our app access soon; until then some Meta or TikTok calls may wait on that approval.</p>
@@ -259,7 +259,7 @@ npm run build</code></pre>
     <p class="section-label">Read</p>
     <p class="section-body">List accessible accounts. Account and campaign reporting. Search performance style queries. Merchant Center link status.</p>
     <p class="section-label">Edit</p>
-    <p class="section-body">Pause or enable campaigns, ad groups, keywords, and ads. Update budgets. Add keywords and negatives. Create responsive search and display ads. Create Search, Display, Performance Max, Shopping, Video, Demand Gen, App, Hotel, and Local campaigns. Upload assets. Set geo, language, demographics, schedules, and bidding. Create conversion actions and experiments. Link or unlink Merchant Center. Every live change needs confirmation.</p>
+    <p class="section-body">Pause or enable campaigns, ad groups, keywords, and ads. Update budgets. Add keywords and negatives. Create responsive search and display ads. Create Search, Display, Performance Max, Shopping, Video, Demand Gen, App, and Hotel campaigns. Upload assets. Set geo, language, demographics, schedules, and bidding. Create conversion actions and experiments. Link or unlink Merchant Center. Every live change needs confirmation.</p>
     <p class="section-label">Requirements</p>
     <p class="section-body">Pro ($19 / month). Connect Google Ads under your own login.</p>
     <p class="section-label">Example asks</p>
@@ -295,13 +295,13 @@ npm run build</code></pre>
     <!-- Merchant Center -->
     <h2 id="merchant-center">Merchant Center</h2>
     <p class="section-label">Overview</p>
-    <p class="section-body">Ask your agent about Merchant Center accounts, products, and account issues. When writes are enabled on your install, it can create a data source and upsert or delete product inputs after you confirm.</p>
+    <p class="section-body">With Pro, ask your agent about Merchant Center accounts, products, and account issues. When writes are enabled on your install, it can create a data source and upsert or delete product inputs after you confirm.</p>
     <p class="section-label">Read</p>
     <p class="section-body">List accounts. List and open products. Product statuses. Account issues. Data sources.</p>
     <p class="section-label">Edit</p>
     <p class="section-body">Create a data source. Upsert or delete product inputs. Writes stay off until you enable them on the install, and nothing goes live until you approve it.</p>
     <p class="section-label">Requirements</p>
-    <p class="section-body">Connect the Google account that owns Merchant Center. Live edits need writes enabled on your install, plus confirmation.</p>
+    <p class="section-body">Pro ($19 / month). Connect the Google account that owns Merchant Center. Live edits need writes enabled on your install, plus confirmation. Calls stay on your machine; this is not the Ads/Meta/TikTok Worker hop.</p>
     <p class="section-label">Example asks</p>
     <ul>
       <li>List Merchant Center accounts I can access.</li>
