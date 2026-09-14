@@ -1,0 +1,13 @@
+# HTML revalidates on every navigation so a deploy cannot pair new markup
+# with a 4h-stale stylesheet. Pretty URLs (/about) keep the Pages HTML default.
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Filenames are stable; the ?v= content-hash on <link>/<script> busts caches
+# immediately. Short max-age covers a missed hash bump.
+/assets/*
+  ! Cache-Control
+  Cache-Control: public, max-age=300, must-revalidate
