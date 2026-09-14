@@ -71,7 +71,7 @@ Never paste access tokens, refresh tokens, or license keys into chat.
 
 **What is free.** Install the plugin and connect the marketing accounts you already use. No DGTL Sunrise account is required.
 
-- Google Analytics 4, Search Console, and Tag Manager run on your machine (read and manage). Edits stay off until you enable writes on the install, and nothing goes live until you approve it. Report bytes stay on your machine and do not go through DGTL.
+- Free Google Analytics 4, Search Console, and Tag Manager run on your machine (read and manage). Edits stay off until you enable writes on the install, and nothing goes live until you approve it. Report bytes stay on your machine and do not go through DGTL.
 - Klaviyo uses a private API key you hold on the install. Free. Not Pro. The key stays on your machine.
 - Shopify connects on the install. Catalog and inventory changes wait for your approval.
 - Google Business Profile can be read when that path is available. Edit is not in this version.
