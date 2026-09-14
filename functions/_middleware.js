@@ -12,6 +12,7 @@ const VARY = "Accept, Accept-Encoding";
 const API_VERSION = "1";
 const RATE_LIMIT = 120;
 const RATE_WINDOW = 60;
+const ASSET_CACHE_CONTROL = "public, max-age=300, must-revalidate";
 
 const PATH_TO_MD = {
   "/": "/index.md",
@@ -195,6 +196,23 @@ function isStaticPassthrough(path) {
     /\.(css|js|png|jpe?g|webp|gif|ico|svg|woff2?|xml|txt|map|json|ya?ml|md)$/i.test(path) &&
     !PATH_TO_MD[path]
   );
+}
+
+function isAssetPath(path) {
+  return path === "/assets" || path.startsWith("/assets/");
+}
+
+function withCacheControl(res, cacheControl) {
+  const headers = new Headers(res.headers);
+  headers.set("Cache-Control", cacheControl);
+  return new Response(res.body, { status: res.status, headers });
+}
+
+function maybeAssetCache(res, path) {
+  if (res.ok && isAssetPath(path)) {
+    return withCacheControl(res, ASSET_CACHE_CONTROL);
+  }
+  return res;
 }
 
 const MCP_TOOLS = [
@@ -411,7 +429,7 @@ export async function onRequest(context) {
           headers: {
             "Content-Type": ct,
             Vary: VARY,
-            "Cache-Control": "public, max-age=300",
+            "Cache-Control": isAssetPath(path) ? ASSET_CACHE_CONTROL : "public, max-age=300",
             ...rateHeaders(),
           },
         });
@@ -452,11 +470,11 @@ export async function onRequest(context) {
       headers.set("Vary", VARY);
       return new Response(res.body, { status: res.status, headers });
     }
-    return res;
+    return maybeAssetCache(res, path);
   }
 
   if (isStaticPassthrough(path) || path.endsWith(".md")) {
-    return next();
+    return maybeAssetCache(await next(), path);
   }
 
   const mdPath = PATH_TO_MD[path];

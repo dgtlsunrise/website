@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
@@ -16,6 +17,14 @@ const check = (ok, name, detail) => {
 
 const html = (file) => readFileSync(resolve(root, file), "utf8");
 const text = (file) => readFileSync(resolve(root, file), "utf8");
+const assetHref = (file) => {
+  const hash = createHash("sha256").update(text(file)).digest("hex").slice(0, 12);
+  return `/${file}?v=${hash}`;
+};
+const articleCssHref = assetHref("assets/article.css");
+const landingCssHref = assetHref("assets/landing.css");
+const siteJsHref = assetHref("assets/site.js");
+const unhashedAssetCss = /href="\/assets\/[^"?]+\.css"/;
 
 const served = [
   "index.html",
@@ -71,14 +80,16 @@ check(index.includes("marketplace listing is under review"), "home notes Bot mar
 check(!/Marketplace listing is not live yet/.test(index), "home dropped marketplace-not-live scaffolding");
 check(!/We expect Meta and TikTok to finish approving/.test(index), "home dropped Meta/TikTok soon promise");
 
-check(index.includes("/assets/site.js"), "home loads site.js for copy");
+check(index.includes(`src="${siteJsHref}"`), "home loads hashed site.js for copy");
 check(!/Package id/.test(index), "home dropped package id line");
 check(!/Connect the account that owns the property when the plugin asks/.test(index), "home dropped connect-when-asks line");
 
 check(index.includes("run on your machine (read and manage)"), "home free path is read and manage");
 check(/<h1 id="hero-title">Connect your Bot to the marketing accounts you already run\.<\/h1>/.test(index), "home headline in product voice");
 check(index.includes('class="page-landing"'), "home uses landing body class");
-check(index.includes("/assets/landing.css"), "home imports landing.css");
+check(index.includes(`href="${landingCssHref}"`), "home imports hashed landing.css");
+check(index.includes(`href="${articleCssHref}"`), "home imports hashed article.css");
+check(!unhashedAssetCss.test(index), "home has no unhashed /assets CSS href");
 check(index.includes('class="tile-grid"'), "home has tile grid");
 check(/Example conversation/.test(index) && /demo transcript/i.test(index), "home has labeled example conversation");
 check(index.includes("Applied after your approval"), "home example conversation ends applied");
@@ -328,7 +339,8 @@ const articlePages = [
 ];
 for (const file of articlePages) {
   const page = html(file);
-  check(page.includes('/assets/article.css'), `${file} uses article.css`);
+  check(page.includes(`href="${articleCssHref}"`), `${file} uses hashed article.css`);
+  check(!unhashedAssetCss.test(page), `${file} has no unhashed /assets CSS href`);
   check(page.includes("AI Marketing Engineering"), `${file} has brand tagline`);
   check(page.includes('class="site-header"') && page.includes('class="site-footer"'), `${file} shared header/footer`);
   check(!page.includes("/assets/style.css"), `${file} not on indigo style.css`);
@@ -339,6 +351,30 @@ for (const file of articlePages) {
     check(!page.includes("/assets/landing.css"), `${file} does not import landing.css`);
   }
 }
+
+const headersFile = text("_headers");
+check(/\/assets\/\*/.test(headersFile), "_headers covers /assets/*");
+check(
+  /Cache-Control:\s*public,\s*max-age=300,\s*must-revalidate/.test(headersFile),
+  "_headers short-caches /assets/*"
+);
+check(
+  /Cache-Control:\s*public,\s*max-age=0,\s*must-revalidate/.test(headersFile),
+  "_headers keeps HTML at max-age=0 must-revalidate"
+);
+check(!/max-age=14400/.test(headersFile), "_headers does not keep 4h asset cache");
+check(
+  !/max-age=31536|immutable/.test(headersFile),
+  "_headers does not long-cache unfingerprinted filenames"
+);
+
+const middleware = text("functions/_middleware.js");
+check(
+  middleware.includes('const ASSET_CACHE_CONTROL = "public, max-age=300, must-revalidate"'),
+  "middleware short-caches /assets (Functions skip _headers)"
+);
+check(middleware.includes("maybeAssetCache"), "middleware applies asset cache on passthrough");
+
 check(!index.includes("Details:") || !/Details:[\s\S]{0,40}\/google-ads/.test(index), "home body has no Details /google-ads");
 
 if (base) {
@@ -355,6 +391,26 @@ if (base) {
   check(home.text.includes("Klaviyo"), "preview / includes Klaviyo");
   check(/You do not need a DGTL Sunrise account to get started/.test(home.text), "preview / no DGTL account required");
   check(home.text.includes('id="free-and-pro"') && home.text.includes('href="#free-and-pro"'), "preview / Free vs Pro section");
+  check(home.text.includes(`href="${landingCssHref}"`), "preview / hashed landing.css");
+  check(home.text.includes(`href="${articleCssHref}"`), "preview / hashed article.css");
+  const homeCache = (home.res.headers.get("cache-control") || "").toLowerCase();
+  check(
+    /max-age=0/.test(homeCache) && /must-revalidate/.test(homeCache),
+    "preview / HTML revalidates",
+    homeCache
+  );
+
+  const landingCss = await fetchText("/assets/landing.css");
+  const landingCache = (landingCss.res.headers.get("cache-control") || "").toLowerCase();
+  check(landingCss.res.status === 200, "preview landing.css is 200", String(landingCss.res.status));
+  check(
+    /max-age=300/.test(landingCache) && /must-revalidate/.test(landingCache) && !/max-age=14400/.test(landingCache),
+    "preview landing.css short-cache",
+    landingCache
+  );
+
+  const aboutPage = await fetchText("/about");
+  check(aboutPage.text.includes(`href="${articleCssHref}"`), "preview /about hashed article.css");
 
   const plugin = await fetchText("/plugin");
   const loc = plugin.res.headers.get("location") || "";
