@@ -354,7 +354,21 @@ check(muse.includes("https://muse-api.dgtlsunrise.com/openapi.json"), "muse page
 check(muse.includes("https://muse-api.dgtlsunrise.com/connect"), "muse page states connect URL");
 check(muse.includes("dgtl_muse_"), "muse page states bearer prefix");
 check(/confirm_phrase/.test(muse) && /executed:\s*false/.test(muse), "muse page states confirm gate");
-check(muse.includes("analytics.readonly") && muse.includes("openid") && muse.includes("userinfo.email"), "muse page states access scopes");
+check(
+  muse.includes("openid") &&
+    muse.includes("https://www.googleapis.com/auth/userinfo.email") &&
+    muse.includes("https://www.googleapis.com/auth/analytics.readonly") &&
+    !muse.includes(">userinfo.email<"),
+  "muse page states access scopes"
+);
+check(
+  museMd.includes("`openid`") &&
+    museMd.includes("`https://www.googleapis.com/auth/userinfo.email`") &&
+    museMd.includes("`https://www.googleapis.com/auth/analytics.readonly`") &&
+    !museMd.includes("`userinfo.email`"),
+  "muse.md states full access scopes"
+);
+check(/connect page shows/.test(muse) && /connect page shows/.test(museMd) && !/token Muse shows/.test(muse + museMd), "muse token is shown on the connect page");
 check(muse.includes("https://www.dgtlsunrise.com/privacy"), "muse page links privacy");
 check(/does not warehouse report bytes/.test(muse) && /stored encrypted on DGTL servers/.test(muse), "muse page states guardrails");
 check(/tip stdio plugin/.test(muse) && /stamp Ads and Meta path/.test(muse), "muse page keeps tip and stamp unchanged");

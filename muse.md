@@ -16,7 +16,7 @@ Authentication is a Bearer token minted after Google connect. The token starts w
 
 1. Open the connect page and choose Connect Google Analytics.
 2. Sign in with the Google account that owns your GA4 property. Grant read-only Analytics access.
-3. Copy the one-time Bearer token Muse shows. It starts with `dgtl_muse_`. Store it in Muse as the connector credential.
+3. Copy the one-time Bearer token the connect page shows (it starts with `dgtl_muse_`). Store it in Muse as the connector credential.
 4. Point Muse at the base URL and the OpenAPI URL above.
 
 ## Example asks
@@ -39,7 +39,7 @@ A write is previewed first. Muse must then send `confirm_phrase`, and that phras
 
 Use a Google account that can access the GA4 property you name.
 
-Connect requests `openid`, `userinfo.email`, and `https://www.googleapis.com/auth/analytics.readonly`.
+Connect requests `openid`, `https://www.googleapis.com/auth/userinfo.email`, and `https://www.googleapis.com/auth/analytics.readonly`.
 
 The privacy policy is at https://www.dgtlsunrise.com/privacy.
 
