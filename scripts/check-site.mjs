@@ -45,6 +45,8 @@ const publicFacing = [
   "index.md",
   "documentation.md",
   "about.md",
+  "muse.html",
+  "muse.md",
   "privacy.md",
   "terms.md",
   "google-ads.md",
@@ -305,6 +307,7 @@ check(/What is Pro/.test(agent) && /license_status/.test(agent), "agent.json has
 check(text("llms.txt").includes("/documentation"), "llms.txt links documentation");
 check(text("docs/llms.txt").includes("/documentation"), "docs/llms.txt links documentation");
 check(text("functions/_middleware.js").includes('"/documentation": "/documentation.md"'), "middleware maps /documentation");
+check(text("functions/_middleware.js").includes('"/muse": "/muse.md"'), "middleware maps /muse");
 
 const POLAR_CHECKOUT = "https://buy.polar.sh/polar_cl_aIrywIIxJ2cOwj70VQAcJn2umEgSS9kWBMUJS241Dll";
 const polarEscaped = POLAR_CHECKOUT.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -334,6 +337,8 @@ check(text("api/versioning-policy.md").includes("Sunset"), "versioning policy ex
 check(text(".well-known/mcp/server-card.json").includes("streamable-http"), "mcp server-card");
 check(text("llms.txt").includes("DGTL Connector by DGTL Sunrise"), "llms.txt names DGTL Connector");
 check(text("llms.txt").includes("/developers"), "llms.txt links developers");
+check(text("llms.txt").includes("/muse"), "llms.txt links muse");
+check(text("docs/llms.txt").includes("/muse"), "docs/llms.txt links muse");
 
 check(!/scanfield|tag-match|data-demo|Watch it work/i.test(allServed), "no MATCH/demo theater");
 check(!/Grok Bot<\/span>|chrome__bar|bubble--bot/i.test(index), "home chrome uses owned class names");
@@ -341,6 +346,35 @@ check(!/Talk<\/a>/.test(allServed) && !primaryNav(index).includes("Engagements")
 
 check(!/Consent [AWCGBS]\b/.test(publicFacing), "no internal Consent labels on public HTML/md/json/llms");
 check(!/v1 is read-only|read-only scopes|No publishes in v1|v1 does not write/i.test(publicFacing), "no v1 read-only lies");
+
+const muse = html("muse.html");
+const museMd = text("muse.md");
+check(muse.includes("https://muse-api.dgtlsunrise.com"), "muse page states base URL");
+check(muse.includes("https://muse-api.dgtlsunrise.com/openapi.json"), "muse page states OpenAPI URL");
+check(muse.includes("https://muse-api.dgtlsunrise.com/connect"), "muse page states connect URL");
+check(muse.includes("dgtl_muse_"), "muse page states bearer prefix");
+check(/confirm_phrase/.test(muse) && /executed:\s*false/.test(muse), "muse page states confirm gate");
+check(
+  muse.includes("openid") &&
+    muse.includes("https://www.googleapis.com/auth/userinfo.email") &&
+    muse.includes("https://www.googleapis.com/auth/analytics.readonly") &&
+    !muse.includes(">userinfo.email<"),
+  "muse page states access scopes"
+);
+check(
+  museMd.includes("`openid`") &&
+    museMd.includes("`https://www.googleapis.com/auth/userinfo.email`") &&
+    museMd.includes("`https://www.googleapis.com/auth/analytics.readonly`") &&
+    !museMd.includes("`userinfo.email`"),
+  "muse.md states full access scopes"
+);
+check(/connect page shows/.test(muse) && /connect page shows/.test(museMd) && !/token Muse shows/.test(muse + museMd), "muse token is shown on the connect page");
+check(muse.includes("https://www.dgtlsunrise.com/privacy"), "muse page links privacy");
+check(/does not warehouse report bytes/.test(muse) && /stored encrypted on DGTL servers/.test(muse), "muse page states guardrails");
+check(/tip stdio plugin/.test(muse) && /stamp Ads and Meta path/.test(muse), "muse page keeps tip and stamp unchanged");
+check(!/not live yet|coming soon/i.test(muse + museMd), "muse page has no unfinished caveat");
+check(muse.includes(`href="${articleCssHref}"`) && !muse.includes("/assets/landing.css"), "muse uses article shell");
+check(museMd.includes("https://muse-api.dgtlsunrise.com/openapi.json"), "muse.md states OpenAPI URL");
 
 check(
   !ads.includes("Consent C") &&
@@ -380,6 +414,7 @@ const articlePages = [
   "engagements.html",
   "google-ads.html",
   "developers.html",
+  "muse.html",
   "404.html",
 ];
 for (const file of articlePages) {
@@ -393,6 +428,7 @@ for (const file of articlePages) {
   check(!primaryNav(page).includes("Engagements"), `${file} Engagements out of primary nav`);
   check(page.includes('href="/google-ads">Google Ads'), `${file} footer links Google Ads`);
   check(page.includes('href="/documentation">Documentation'), `${file} footer links Documentation`);
+  check(page.includes('href="/muse">Muse'), `${file} footer links Muse`);
   if (file !== "index.html") {
     check(!page.includes("/assets/landing.css"), `${file} does not import landing.css`);
   }
@@ -473,6 +509,14 @@ if (base) {
   const plugin = await fetchText("/plugin");
   const loc = plugin.res.headers.get("location") || "";
   check(plugin.res.status === 301 && loc.includes("/connector"), "/plugin 301 to /connector", `${plugin.res.status} ${loc}`);
+
+  const musePage = await fetchText("/muse");
+  check(musePage.res.status === 200, "GET /muse is 200", String(musePage.res.status));
+  check(
+    musePage.text.includes("https://muse-api.dgtlsunrise.com") &&
+      musePage.text.includes("https://muse-api.dgtlsunrise.com/openapi.json"),
+    "preview /muse shows base and OpenAPI URLs"
+  );
 
   const adsPage = await fetchText("/google-ads");
   check(

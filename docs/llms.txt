@@ -44,6 +44,7 @@ Pro upgrade prompt: I use the dgtl-connector plugin (DGTL Sunrise). I want DGTL 
 
 - [Homepage](/) — product introduction and platform list
 - [Documentation](/documentation) — install, Free and Pro, and platform docs
+- [Muse](/muse). Connect DGTL Sunrise to Muse
 - [About](/about) — who we are
 - [Contact](/contact) — emails and address
 - [Privacy](/privacy)

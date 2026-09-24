@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Muse · DGTL Sunrise</title>
+  <meta name="description" content="Connect DGTL Sunrise to Muse with the Free Google Analytics read API, OpenAPI document, and Bearer token." />
+  <link rel="canonical" href="https://www.dgtlsunrise.com/muse" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DGTL Sunrise" />
+  <meta property="og:title" content="Muse · DGTL Sunrise" />
+  <meta property="og:description" content="Connect DGTL Sunrise to Muse with the Free Google Analytics read API, OpenAPI document, and Bearer token." />
+  <meta property="og:url" content="https://www.dgtlsunrise.com/muse" />
+  <meta property="og:image" content="https://www.dgtlsunrise.com/og-share.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="DGTL Connector by DGTL Sunrise. Connect your agent to Google, Meta, Shopify, Klaviyo, TikTok, and more." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Muse · DGTL Sunrise" />
+  <meta name="twitter:description" content="Connect DGTL Sunrise to Muse with the Free Google Analytics read API, OpenAPI document, and Bearer token." />
+  <meta name="twitter:image" content="https://www.dgtlsunrise.com/og-share.png" />
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <meta name="theme-color" content="#F7F4EE" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/article.css?v=34f76c487fd2" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <a class="brand" href="/">
+        <img src="/logo.webp" width="46" height="28" alt="" />
+        <span class="brand-text">
+          <span class="brand-name">DGTL Sunrise</span>
+          <span class="brand-tagline">AI Marketing Engineering</span>
+        </span>
+      </a>
+    </div>
+    <div class="logo-hairline" aria-hidden="true"></div>
+  </header>
+
+  <main>
+    <h1>Connect DGTL Sunrise to Muse</h1>
+    <p class="lede">DGTL Sunrise exposes a Free Google Analytics read API for Muse over HTTPS. Connect Google, store the Bearer token in Muse, and point Muse at the base URL and OpenAPI document on this page.</p>
+
+    <nav class="contents" aria-label="On this page">
+      <p class="contents-title">On this page</p>
+      <ol>
+        <li><a href="#endpoints">Endpoints</a></li>
+        <li><a href="#how-to-connect">How to connect</a></li>
+        <li><a href="#example-asks">Example asks</a></li>
+        <li><a href="#writes">Writes</a></li>
+        <li><a href="#access">Access requirements</a></li>
+        <li><a href="#guardrails">Guardrails</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="endpoints">Endpoints</h2>
+    <p class="section-body">The base URL is <a href="https://muse-api.dgtlsunrise.com"><code class="mono">https://muse-api.dgtlsunrise.com</code></a>.</p>
+    <p class="section-body">The OpenAPI URL is <a href="https://muse-api.dgtlsunrise.com/openapi.json"><code class="mono">https://muse-api.dgtlsunrise.com/openapi.json</code></a>.</p>
+    <p class="section-body">The connect URL is <a href="https://muse-api.dgtlsunrise.com/connect"><code class="mono">https://muse-api.dgtlsunrise.com/connect</code></a>.</p>
+    <p class="section-body">Authentication is a Bearer token minted after Google connect. The token starts with <code class="mono">dgtl_muse_</code>.</p>
+
+    <h2 id="how-to-connect">How to connect</h2>
+    <ol>
+      <li>Open the connect page and choose <strong>Connect Google Analytics</strong>.</li>
+      <li>Sign in with the Google account that owns your GA4 property. Grant read-only Analytics access.</li>
+      <li>Copy the one-time Bearer token the connect page shows (it starts with <code class="mono">dgtl_muse_</code>). Store it in Muse as the connector credential.</li>
+      <li>Point Muse at the base URL and the OpenAPI URL above.</li>
+    </ol>
+
+    <h2 id="example-asks">Example asks</h2>
+    <p class="section-body">Sessions are available for the last 28 days. Ask Muse: "How many sessions did property 554200375 get in the last 28 days?"</p>
+    <p class="section-body">Muse calls this path with the Bearer token.</p>
+    <div class="code-panel">
+      <div class="code-panel-bar">
+        <span>Sessions request</span>
+        <button type="button" class="copy-btn" data-copy="#muse-sessions">Copy</button>
+      </div>
+      <pre><code id="muse-sessions">GET /v1/ga4/properties/{property_id}/sessions?start_date=28daysAgo&amp;end_date=yesterday</code></pre>
+    </div>
+    <p class="section-body">Send the token on that request as <code class="mono">Authorization: Bearer dgtl_muse_…</code>.</p>
+
+    <h2 id="writes">Writes</h2>
+    <p class="section-body">A write is previewed first. Muse must then send <code class="mono">confirm_phrase</code>, and that phrase must include the resource id. The stub returns <code class="mono">executed: false</code> with reason <code class="mono">stub_no_mutate</code>.</p>
+
+    <h2 id="access">Access requirements</h2>
+    <p class="section-body">Use a Google account that can access the GA4 property you name.</p>
+    <p class="section-body">Connect requests <code class="mono">openid</code>, <code class="mono">https://www.googleapis.com/auth/userinfo.email</code>, and <code class="mono">https://www.googleapis.com/auth/analytics.readonly</code>.</p>
+    <p class="section-body">The privacy policy is at <a href="https://www.dgtlsunrise.com/privacy">https://www.dgtlsunrise.com/privacy</a>.</p>
+
+    <h2 id="guardrails">Guardrails</h2>
+    <ul>
+      <li>DGTL Sunrise does not warehouse report bytes. The response goes back to Muse for the request.</li>
+      <li>Refresh tokens for Muse are stored encrypted on DGTL servers. The privacy policy describes that storage.</li>
+      <li>The tip stdio plugin and the stamp Ads and Meta path are separate products and are unchanged.</li>
+    </ul>
+  </main>
+
+  <footer class="site-footer">
+    <p><a href="/developers">Developers</a> · <a href="/documentation">Documentation</a> · <a href="/muse">Muse</a> · <a href="/about">About</a> · <a href="/contact">Contact</a> · <a href="mailto:support@dgtlsunrise.com">support@dgtlsunrise.com</a> · <a href="mailto:contact@dgtlsunrise.com">contact@dgtlsunrise.com</a> · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a> · <a href="/google-ads">Google Ads</a> · <a href="/llms.txt">llms.txt</a> · <a href="/?mode=agent">Agent JSON</a></p>
+    <p>© 2026 Sunrise Consulting LLC</p>
+  </footer>
+  <script src="/assets/site.js?v=143c8ce3a2fa" defer></script>
+</body>
+</html>

@@ -19,6 +19,7 @@ Use this index when an agent needs a short map of public docs and install facts 
 - [Sitemap](/sitemap.xml)
 - [Homepage](/)
 - [Documentation](/documentation)
+- [Muse](/muse). Connect DGTL Sunrise to Muse
 - [Install](/documentation#install)
 - [How to use](/documentation#how-to-use). Starter prompt names `dgtl-connector`
 - [Free and Pro](/documentation#free-and-pro). What is Pro includes the upgrade prompt; redeem on the install
