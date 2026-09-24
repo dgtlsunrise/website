@@ -9,6 +9,7 @@ DGTL Connector by DGTL Sunrise is a local MCP plugin for Grok Bot and other MCP 
 - [Install](/documentation#install) (Grok Bot marketplace when listed; Grok Build CLI; Cursor folder; Claude Desktop)
 - [Free and Pro](/documentation#free-and-pro)
 - [Google Ads product page](/google-ads)
+- [Muse](/muse)
 - [GitHub: dgtlsunrise/dgtl-connector](https://github.com/dgtlsunrise/dgtl-connector)
 
 ## Machine-readable site files

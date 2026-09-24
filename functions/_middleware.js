@@ -34,6 +34,8 @@ const PATH_TO_MD = {
   "/developers.html": "/developers.md",
   "/documentation": "/documentation.md",
   "/documentation.html": "/documentation.md",
+  "/muse": "/muse.md",
+  "/muse.html": "/muse.md",
   "/404": "/404.md",
   "/404.html": "/404.md",
 };
